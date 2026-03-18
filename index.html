@@ -16,76 +16,98 @@
 html { scroll-behavior: smooth; }
 body { background: var(--black); color: var(--silver); font-family: 'Josefin Sans', sans-serif; overflow-x: hidden; line-height: 1.6; }
 
-/* REUSABLE CLASSES */
-.container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+/* REUSABLE CLASSES & RESPONSIVE CONTAINERS */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
 .text-gold { color: var(--gold); }
 .sec-padding { padding: 100px 0; }
-.sec-title { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 48px); color: var(--white); margin-bottom: 20px; text-align: center; }
-.sec-subtitle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; display: block; margin-bottom: 10px; }
+@media (max-width: 768px) { .sec-padding { padding: 60px 0; } }
+
+/* TYPOGRAPHY WITH FLUID SCALING */
+.sec-title { font-family: 'Lora', serif; font-size: clamp(28px, 6vw, 48px); color: var(--white); margin-bottom: 20px; text-align: center; line-height: 1.2; }
+.sec-subtitle { font-family: 'IBM Plex Mono', monospace; font-size: clamp(10px, 2vw, 12px); color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; display: block; margin-bottom: 15px; }
+
+/* ADAPTIVE ALIGNMENT UTILITIES */
+.align-adaptive { text-align: center; }
+@media (min-width: 860px) { .align-adaptive { text-align: left; } }
 
 /* STICKY NAV */
 .nav { position: fixed; top: 0; width: 100%; background: rgba(7,7,9,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 20px 0; z-index: 1000; transition: 0.3s; }
 .nav .container { display: flex; justify-content: space-between; align-items: center; }
-.nav-logo { font-size: 24px; font-weight: 700; letter-spacing: 5px; color: var(--white); text-decoration: none; }
+.nav-logo { font-size: clamp(20px, 4vw, 24px); font-weight: 700; letter-spacing: 5px; color: var(--white); text-decoration: none; }
 .nav-links { display: flex; gap: 30px; }
 .nav-links a { color: var(--white); text-decoration: none; font-size: 14px; text-transform: uppercase; font-weight: 600; transition: 0.3s; }
 .nav-links a:hover { color: var(--gold); }
-.btn-primary { background: linear-gradient(45deg, var(--gold-dk), var(--gold)); color: var(--black); padding: 12px 28px; font-family: 'IBM Plex Mono', monospace; font-weight: 600; text-transform: uppercase; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(200,169,81,0.2); }
+@media (max-width: 768px) { .nav-links { display: none; } } /* Clean mobile header */
+
+/* BUTTONS */
+.btn-primary { display: inline-block; background: linear-gradient(45deg, var(--gold-dk), var(--gold)); color: var(--black); padding: 14px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(200,169,81,0.2); }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(200,169,81,0.4); }
+@media (max-width: 480px) { .btn-primary { width: 100%; text-align: center; } }
 
 /* HERO WITH FLOATING PARTICLES */
-.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
-.particles { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; pointer-events: none; }
-.particle { position: absolute; background: rgba(200,169,81,0.1); border-radius: 50%; animation: float 10s infinite linear; }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 80px; }
+.particles { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.particle { position: absolute; background: rgba(200,169,81,0.15); border-radius: 50%; animation: float 10s infinite linear; }
 @keyframes float { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
-.hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
-.hero-content h1 { font-family: 'Lora', serif; font-size: clamp(40px, 8vw, 80px); color: var(--white); line-height: 1.1; margin-bottom: 30px; }
-.hero-content p { font-size: clamp(16px, 2vw, 22px); margin-bottom: 40px; }
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; width: 100%; }
+.hero-content h1 { font-family: 'Lora', serif; font-size: clamp(36px, 8vw, 80px); color: var(--white); line-height: 1.1; margin-bottom: 25px; }
+.hero-content p { font-size: clamp(16px, 2.5vw, 22px); margin-bottom: 40px; padding: 0 10px; }
 
 /* INFINITE CLIENT SLIDER */
-.clients-sec { background: var(--deep); padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+.clients-sec { background: var(--deep); padding: 30px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
 .client-track { display: flex; width: 200%; animation: scroll 20s linear infinite; align-items: center; }
 .client-track:hover { animation-play-state: paused; }
 .client-logo { width: 100%; display: flex; justify-content: space-around; }
-.client-box { font-family: 'Josefin Sans', sans-serif; font-size: 24px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; cursor: default; }
+.client-box { font-family: 'Josefin Sans', sans-serif; font-size: clamp(16px, 3vw, 24px); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; cursor: default; white-space: nowrap; padding: 0 20px; }
 .client-box:hover { color: var(--white); text-shadow: 0 0 10px rgba(200,169,81,0.5); }
 @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* ABOUT & ANIMATED COUNTERS */
+/* ABOUT SECTION & RESPONSIVE GRIDS */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
-.about-img { position: relative; border: 1px solid var(--gold); padding: 20px; }
-.about-img img { width: 100%; height: auto; filter: grayscale(100%); transition: 0.5s; }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; } }
+.about-img { position: relative; border: 1px solid var(--gold); padding: 15px; }
+.about-img img { width: 100%; height: auto; filter: grayscale(100%); transition: 0.5s; display: block; }
 .about-img:hover img { filter: grayscale(0%); }
-.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-.stat-box { background: var(--card); padding: 20px; border-left: 3px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.stat-num { font-size: 40px; font-weight: 700; color: var(--white); font-family: 'Lora', serif; display: flex; align-items: center; }
-.stat-text { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
 
-/* SERVICES CARDS (Glowing Hover) */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+/* ANIMATED COUNTERS */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+@media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr; gap: 20px; } }
+.stat-box { background: var(--card); padding: 25px 20px; border-left: 3px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; }
+@media (max-width: 860px) { .stat-box { border-left: none; border-bottom: 3px solid var(--gold); } }
+.stat-num { font-size: clamp(32px, 6vw, 40px); font-weight: 700; color: var(--white); font-family: 'Lora', serif; display: flex; align-items: center; justify-content: center; margin-bottom: 5px; }
+.stat-text { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
+
+/* SERVICES CARDS */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+@media (max-width: 480px) { .services-grid { grid-template-columns: 1fr; } }
 .srv-card { background: var(--card); border: 1px solid var(--border); padding: 40px 30px; text-align: center; border-radius: 8px; transition: all 0.4s ease; position: relative; overflow: hidden; z-index: 1; }
 .srv-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0; background: linear-gradient(180deg, rgba(200,169,81,0.1), transparent); transition: 0.4s; z-index: -1; }
 .srv-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(200,169,81,0.15); }
 .srv-card:hover::before { height: 100%; }
-.srv-icon { font-size: 50px; margin-bottom: 20px; display: inline-block; transition: 0.4s; }
-.srv-card:hover .srv-icon { transform: scale(1.2); }
-.srv-card h3 { font-size: 24px; color: var(--white); margin-bottom: 15px; }
+.srv-icon { font-size: 44px; margin-bottom: 20px; display: inline-block; transition: 0.4s; }
+.srv-card:hover .srv-icon { transform: scale(1.15); }
+.srv-card h3 { font-size: 22px; color: var(--white); margin-bottom: 15px; }
+.srv-card p { font-size: 15px; }
 
-/* CONTACT SECTION */
+/* ADAPTIVE CONTACT SECTION */
 .contact-wrapper { background: var(--deep); border: 1px solid var(--border); padding: 60px; border-radius: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-@media(max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; padding: 30px; } }
-.contact-info h3 { font-size: 32px; color: var(--white); margin-bottom: 20px; }
-.info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 18px; }
-.info-icon { width: 40px; height: 40px; background: rgba(200,169,81,0.1); color: var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 20px; }
-.form-control { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 15px 20px; color: var(--white); margin-bottom: 20px; border-radius: 4px; font-family: 'Josefin Sans', sans-serif; transition: 0.3s; }
+@media (max-width: 992px) { .contact-wrapper { padding: 40px; gap: 40px; } }
+@media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; gap: 30px; } }
+
+.info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+@media (max-width: 768px) { .info-item { justify-content: center; text-align: left; } .contact-info h3 { text-align: center; } }
+.info-icon { width: 45px; height: 45px; background: rgba(200,169,81,0.1); color: var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 20px; flex-shrink: 0; }
+.info-text-sm { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.info-text-lg { color: var(--white); font-weight: 600; font-size: 16px; word-break: break-word; }
+
+.form-control { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 16px 20px; color: var(--white); margin-bottom: 20px; border-radius: 4px; font-family: 'Josefin Sans', sans-serif; font-size: 16px; transition: 0.3s; }
 .form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(200,169,81,0.2); }
 
 /* FOOTER */
-.footer { background: #000; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+.footer { background: #000; padding: 40px 20px; border-top: 1px solid var(--border); text-align: center; }
 
 /* ANIMATIONS */
-.reveal { opacity: 0; transform: translateY(50px); transition: 0.8s all ease; }
+.reveal { opacity: 0; transform: translateY(40px); transition: 0.8s all cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 </style>
 </head>
@@ -107,9 +129,9 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
 <section class="hero">
   <div class="container hero-content reveal active">
     <span class="sec-subtitle">Welcome to the Empire</span>
-    <h1>Dominating Digital Growth & <span class="text-gold">Brand Supremacy</span></h1>
+    <h1>Dominating Digital Growth & <br><span class="text-gold">Brand Supremacy</span></h1>
     <p>SCALVIQ combines elite digital strategy, political warfare, and AI-powered visual engineering to scale your influence without limits.</p>
-    <a href="#contact" class="btn-primary" style="display: inline-block;">Start Your Project</a>
+    <a href="#contact" class="btn-primary">Start Your Project</a>
   </div>
 </section>
 
@@ -136,10 +158,10 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
 <section class="sec-padding" id="about">
   <div class="container about-grid">
     <div class="reveal">
-      <span class="sec-subtitle" style="text-align: left;">Who We Are</span>
-      <h2 class="sec-title" style="text-align: left;">India's Premier <span class="text-gold">Growth Agency</span></h2>
-      <p style="margin-bottom: 20px;">Founded by Nishant Sishodia, SCALVIQ is built on a singular premise: unrelenting, intelligent growth. We do not believe in generic strategies or hollow buzzwords.</p>
-      <p>Every campaign, line of code, and piece of content we deploy is engineered for dominance in India's most competitive markets.</p>
+      <span class="sec-subtitle align-adaptive">Who We Are</span>
+      <h2 class="sec-title align-adaptive">India's Premier <span class="text-gold">Growth Agency</span></h2>
+      <p class="align-adaptive" style="margin-bottom: 20px;">Founded by Nishant Sishodia, SCALVIQ is built on a singular premise: unrelenting, intelligent growth. We do not believe in generic strategies or hollow buzzwords.</p>
+      <p class="align-adaptive">Every campaign, line of code, and piece of content we deploy is engineered for absolute dominance in India's most competitive markets.</p>
       
       <div class="stats-grid">
         <div class="stat-box">
@@ -161,7 +183,7 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
       </div>
     </div>
     <div class="about-img reveal">
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" alt="Agency Team">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop" alt="Agency Strategy">
     </div>
   </div>
 </section>
@@ -179,28 +201,28 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
       </div>
       <div class="srv-card reveal">
         <div class="srv-icon">🏛️</div>
-        <h3>Election Management</h3>
-        <p>End-to-end political campaign strategy, video production, voter connect, and PR image management.</p>
+        <h3>Election Mgmt</h3>
+        <p>End-to-end political campaign strategy, video production, voter connect, and PR image defense.</p>
       </div>
       <div class="srv-card reveal">
         <div class="srv-icon">📸</div>
         <h3>AI Photoshoots</h3>
-        <p>Cutting-edge, photorealistic AI-generated models and product shoots. High-fidelity visuals without the studio.</p>
+        <p>Cutting-edge, photorealistic AI-generated models and product shoots. High-fidelity visuals instantly.</p>
       </div>
       <div class="srv-card reveal">
         <div class="srv-icon">💻</div>
-        <h3>App & Web Dev</h3>
-        <p>Custom mobile applications, web platforms, SaaS products, and AI workflows tailored for the Indian market.</p>
+        <h3>Tech & SaaS</h3>
+        <p>Custom mobile applications, web platforms, SaaS products, and AI workflows tailored for Bharat.</p>
       </div>
       <div class="srv-card reveal">
         <div class="srv-icon">🛒</div>
         <h3>E-Commerce</h3>
-        <p>Store setup, Amazon/Flipkart management, product listing optimization, and direct-to-consumer scaling.</p>
+        <p>Store setup, Amazon/Flipkart management, product listing optimization, and D2C brand scaling.</p>
       </div>
       <div class="srv-card reveal">
         <div class="srv-icon">🚀</div>
-        <h3>Brand Building</h3>
-        <p>Full brand incubation from zero—identity creation, go-to-market strategies, and venture pitch decks.</p>
+        <h3>Brand Incubation</h3>
+        <p>Full brand incubation from zero—identity creation, go-to-market strategies, and pitch decks.</p>
       </div>
     </div>
   </div>
@@ -210,28 +232,28 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
   <div class="container">
     <div class="contact-wrapper reveal">
       <div class="contact-info">
-        <span class="sec-subtitle" style="text-align: left;">Let's Talk</span>
-        <h3 style="margin-bottom: 30px;">Ready to Scale Your Brand?</h3>
+        <span class="sec-subtitle align-adaptive">Let's Talk</span>
+        <h3 class="align-adaptive" style="margin-bottom: 30px;">Ready to Scale Your Empire?</h3>
         
         <div class="info-item">
           <div class="info-icon">📞</div>
           <div>
-            <div style="font-size: 14px; color: var(--muted);">Call Us</div>
-            <div style="color: var(--white); font-weight: 600;">+91 9050728595</div>
+            <div class="info-text-sm">Call Us</div>
+            <div class="info-text-lg">+91 9050728595</div>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">✉️</div>
           <div>
-            <div style="font-size: 14px; color: var(--muted);">Email Us</div>
-            <div style="color: var(--white); font-weight: 600;">hello@scalviq.ai</div>
+            <div class="info-text-sm">Email Us</div>
+            <div class="info-text-lg">hello@scalviq.ai</div>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">🏢</div>
           <div>
-            <div style="font-size: 14px; color: var(--muted);">Headquarters</div>
-            <div style="color: var(--white); font-weight: 600;">SCALVIQ HQ, India</div>
+            <div class="info-text-sm">Headquarters</div>
+            <div class="info-text-lg">SCALVIQ HQ, India</div>
           </div>
         </div>
       </div>
@@ -241,12 +263,12 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
           <input type="hidden" name="access_key" value="7ec9a031-c6f3-4f30-96b8-a0d776072804">
           <input type="hidden" name="redirect" value="https://scalviq-web.vercel.app">
           
-          <input type="text" name="name" class="form-control" required placeholder="Your Name">
+          <input type="text" name="name" class="form-control" required placeholder="Your Name / Brand">
           <input type="email" name="email" class="form-control" required placeholder="Your Email">
           <input type="text" name="phone" class="form-control" required placeholder="Phone Number">
-          <textarea name="message" class="form-control" style="min-height: 120px;" required placeholder="How can we help you?"></textarea>
+          <textarea name="message" class="form-control" style="min-height: 120px;" required placeholder="Tell us about your project..."></textarea>
           
-          <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+          <button type="submit" class="btn-primary" style="width: 100%;">Send Inquiry</button>
         </form>
       </div>
     </div>
@@ -256,17 +278,19 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
 <footer class="footer">
   <div class="container">
     <div style="font-family: 'Josefin Sans'; font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 10px;">SCALVI<span class="text-gold">Q</span></div>
-    <div style="font-family: 'IBM Plex Mono'; font-size: 12px; color: var(--muted);">© 2026 Scalviq AI. All Rights Reserved. Designed for Dominance.</div>
+    <div style="font-family: 'IBM Plex Mono'; font-size: 11px; color: var(--muted); letter-spacing: 1px;">© 2026 Scalviq AI. All Rights Reserved. Designed for Dominance.</div>
   </div>
 </footer>
 
 <script>
-  // 1. Particle Background Generator
+  // 1. Particle Background Generator (Optimized for Mobile)
   const particleContainer = document.getElementById('particles');
-  for(let i=0; i<30; i++) {
+  const particleCount = window.innerWidth < 768 ? 15 : 30; // Fewer particles on phone for performance
+  
+  for(let i=0; i<particleCount; i++) {
     let p = document.createElement('div');
     p.className = 'particle';
-    let size = Math.random() * 50 + 20;
+    let size = Math.random() * 40 + 15;
     p.style.width = size + 'px';
     p.style.height = size + 'px';
     p.style.left = Math.random() * 100 + 'vw';
@@ -297,14 +321,14 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
   const startCounters = () => {
     counters.forEach(counter => {
       const target = +counter.getAttribute('data-target');
-      const increment = target / 100;
+      const increment = target / 80; // Control speed
       let current = 0;
       
       const updateCounter = () => {
         current += increment;
         if(current < target) {
           counter.innerText = Math.ceil(current);
-          setTimeout(updateCounter, 20);
+          setTimeout(updateCounter, 25);
         } else {
           counter.innerText = target;
         }
