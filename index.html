@@ -3,268 +3,250 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCALVIQ | Empire Building</title>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<title>SCALVIQ | Scale Without Limits</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* BRAND VARIABLES */
+/* BRAND COLORS & VARIABLES */
 :root {
-  --black: #070709; --deep: #0E0E12; --card: #141418; --lift: #1E1E24;
-  --border: #2C2C36; --muted: #64647A; --silver: #ADADC4; --white: #F2F2F6;
-  --gold: #C8A951; --gold-lt: #E6C97A; --gold-dk: #7A6530;
-  --max-width: 1280px;
-  --spacing-md: 40px;
-  --spacing-lg: 80px;
-  --spacing-xl: 140px;
+  --black: #070709; --deep: #0E0E12; --card: #141418; --border: #2C2C36;
+  --muted: #64647A; --silver: #ADADC4; --white: #F2F2F6;
+  --gold: #C8A951; --gold-dk: #7A6530;
 }
-
-/* RESET & BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--black); }
-body { background: var(--black); color: var(--silver); font-family: 'Josefin Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--silver); font-family: 'Josefin Sans', sans-serif; overflow-x: hidden; line-height: 1.6; }
 
-/* TYPOGRAPHY */
-h1, h2, h3, h4 { color: var(--white); line-height: 1.1; font-weight: 700; }
+/* REUSABLE CLASSES */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
 .text-gold { color: var(--gold); }
-.text-serif { font-family: 'Lora', serif; font-weight: 400; }
-.text-serif-italic { font-family: 'Lora', serif; font-style: italic; font-weight: 400; }
-.text-mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+.sec-padding { padding: 100px 0; }
+.sec-title { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 48px); color: var(--white); margin-bottom: 20px; text-align: center; }
+.sec-subtitle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; display: block; margin-bottom: 10px; }
 
-/* LAYOUT STRUCTURE */
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0 5%; }
-.section { padding: var(--spacing-xl) 0; border-top: 1px solid var(--border); }
-.section-header { margin-bottom: var(--spacing-lg); }
-.section-header .text-mono { color: var(--gold); margin-bottom: 15px; display: block; }
-.section-title { font-size: clamp(36px, 5vw, 64px); letter-spacing: -1px; }
-
-/* NAVIGATION (Perfectly Centered) */
-.nav { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: rgba(7, 7, 9, 0.85); backdrop-filter: blur(16px); z-index: 1000; border-bottom: 1px solid var(--border); display: flex; align-items: center; }
-.nav .container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.nav-logo { font-size: 22px; font-weight: 700; letter-spacing: 6px; color: var(--white); text-decoration: none; display: flex; align-items: center; }
+/* STICKY NAV */
+.nav { position: fixed; top: 0; width: 100%; background: rgba(7,7,9,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 20px 0; z-index: 1000; transition: 0.3s; }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-size: 24px; font-weight: 700; letter-spacing: 5px; color: var(--white); text-decoration: none; }
 .nav-links { display: flex; gap: 30px; }
-.nav-links a { color: var(--white); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a { color: var(--white); text-decoration: none; font-size: 14px; text-transform: uppercase; font-weight: 600; transition: 0.3s; }
 .nav-links a:hover { color: var(--gold); }
-@media (max-width: 768px) { .nav-links { display: none; } }
+.btn-primary { background: linear-gradient(45deg, var(--gold-dk), var(--gold)); color: var(--black); padding: 12px 28px; font-family: 'IBM Plex Mono', monospace; font-weight: 600; text-transform: uppercase; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(200,169,81,0.2); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(200,169,81,0.4); }
 
-/* BUTTONS */
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: 18px 40px; background: var(--gold); color: var(--black); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--gold); cursor: pointer; }
-.btn:hover { background: transparent; color: var(--gold); }
-.btn-outline { background: transparent; color: var(--white); border-color: var(--border); }
-.btn-outline:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+/* HERO WITH FLOATING PARTICLES */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
+.particles { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; pointer-events: none; }
+.particle { position: absolute; background: rgba(200,169,81,0.1); border-radius: 50%; animation: float 10s infinite linear; }
+@keyframes float { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
+.hero-content h1 { font-family: 'Lora', serif; font-size: clamp(40px, 8vw, 80px); color: var(--white); line-height: 1.1; margin-bottom: 30px; }
+.hero-content p { font-size: clamp(16px, 2vw, 22px); margin-bottom: 40px; }
 
-/* HERO SECTION */
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: flex-start; padding-top: 80px; position: relative; }
-.hero-glow { position: absolute; top: 20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(200,169,81,0.08) 0%, transparent 60%); z-index: 0; pointer-events: none; }
-.hero-content { position: relative; z-index: 2; max-width: 900px; }
-.hero h1 { font-size: clamp(50px, 9vw, 120px); letter-spacing: -2px; margin-bottom: 30px; }
-.hero p { font-size: clamp(18px, 2.5vw, 24px); color: var(--silver); max-width: 650px; margin-bottom: 40px; }
-.hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+/* INFINITE CLIENT SLIDER */
+.clients-sec { background: var(--deep); padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+.client-track { display: flex; width: 200%; animation: scroll 20s linear infinite; align-items: center; }
+.client-track:hover { animation-play-state: paused; }
+.client-logo { width: 100%; display: flex; justify-content: space-around; }
+.client-box { font-family: 'Josefin Sans', sans-serif; font-size: 24px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; cursor: default; }
+.client-box:hover { color: var(--white); text-shadow: 0 0 10px rgba(200,169,81,0.5); }
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* BENTO BOX GRID (Services) */
-.bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
-.bento-item { background: var(--card); border: 1px solid var(--border); padding: var(--spacing-md); border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; }
-.bento-item:hover { transform: translateY(-5px); border-color: var(--gold-dk); background: var(--lift); }
-.bento-item h3 { font-size: 28px; margin-bottom: 15px; }
-.bento-item p { font-size: 15px; color: var(--muted); }
-.bento-icon { font-size: 32px; color: var(--gold); margin-bottom: 30px; }
+/* ABOUT & ANIMATED COUNTERS */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+.about-img { position: relative; border: 1px solid var(--gold); padding: 20px; }
+.about-img img { width: 100%; height: auto; filter: grayscale(100%); transition: 0.5s; }
+.about-img:hover img { filter: grayscale(0%); }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+.stat-box { background: var(--card); padding: 20px; border-left: 3px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.stat-num { font-size: 40px; font-weight: 700; color: var(--white); font-family: 'Lora', serif; display: flex; align-items: center; }
+.stat-text { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
 
-/* Bento Sizing Strategy */
-.bento-large { grid-column: span 8; }
-.bento-medium { grid-column: span 4; }
-.bento-half { grid-column: span 6; }
-@media (max-width: 992px) {
-  .bento-large, .bento-medium, .bento-half { grid-column: span 6; }
-}
-@media (max-width: 768px) {
-  .bento-large, .bento-medium, .bento-half { grid-column: span 12; }
-}
+/* SERVICES CARDS (Glowing Hover) */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+.srv-card { background: var(--card); border: 1px solid var(--border); padding: 40px 30px; text-align: center; border-radius: 8px; transition: all 0.4s ease; position: relative; overflow: hidden; z-index: 1; }
+.srv-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0; background: linear-gradient(180deg, rgba(200,169,81,0.1), transparent); transition: 0.4s; z-index: -1; }
+.srv-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(200,169,81,0.15); }
+.srv-card:hover::before { height: 100%; }
+.srv-icon { font-size: 50px; margin-bottom: 20px; display: inline-block; transition: 0.4s; }
+.srv-card:hover .srv-icon { transform: scale(1.2); }
+.srv-card h3 { font-size: 24px; color: var(--white); margin-bottom: 15px; }
 
-/* HIGHLIGHT FEATURE (AI Photoshoots) */
-.feature-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); align-items: center; }
-@media (max-width: 860px) { .feature-split { grid-template-columns: 1fr; } }
-.feature-image { width: 100%; aspect-ratio: 4/3; background: var(--deep); border: 1px solid var(--border); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.feature-image::before { content: 'AI RENDERING VISUAL...'; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--border); letter-spacing: 4px; }
-.feature-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0.6; mix-blend-mode: luminosity; transition: 0.5s; }
-.feature-image:hover img { opacity: 1; mix-blend-mode: normal; }
-
-/* LEADERSHIP / ABOUT */
-.founder-box { background: var(--deep); border: 1px solid var(--border); padding: var(--spacing-lg); text-align: center; max-width: 800px; margin: 0 auto; }
-.founder-quote { font-size: clamp(24px, 4vw, 36px); line-height: 1.4; color: var(--white); margin-bottom: 40px; }
-.founder-details h4 { font-size: 24px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
-.founder-details p { color: var(--gold); }
-
-/* CONTACT FORM (UI Friendly) */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); }
-@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
-.contact-details { padding-right: 40px; }
-.contact-item { margin-bottom: 30px; }
-.contact-item .text-mono { color: var(--gold); margin-bottom: 5px; }
-.contact-item p { font-size: 20px; color: var(--white); }
-
-.form-group { margin-bottom: 25px; }
-.form-label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--silver); margin-bottom: 10px; text-transform: uppercase; }
-.form-control { width: 100%; background: var(--deep); border: 1px solid var(--border); padding: 18px 20px; color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 16px; transition: border-color 0.3s, box-shadow 0.3s; }
-.form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 15px rgba(200, 169, 81, 0.1); background: var(--black); }
-textarea.form-control { min-height: 150px; resize: vertical; }
+/* CONTACT SECTION */
+.contact-wrapper { background: var(--deep); border: 1px solid var(--border); padding: 60px; border-radius: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+@media(max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; padding: 30px; } }
+.contact-info h3 { font-size: 32px; color: var(--white); margin-bottom: 20px; }
+.info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 18px; }
+.info-icon { width: 40px; height: 40px; background: rgba(200,169,81,0.1); color: var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 20px; }
+.form-control { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 15px 20px; color: var(--white); margin-bottom: 20px; border-radius: 4px; font-family: 'Josefin Sans', sans-serif; transition: 0.3s; }
+.form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(200,169,81,0.2); }
 
 /* FOOTER */
-.footer { padding: var(--spacing-lg) 0; border-top: 1px solid var(--border); background: var(--deep); }
-.footer-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-.footer-logo { font-size: 24px; font-weight: 700; letter-spacing: 6px; color: var(--white); }
-.footer-logo .q { color: var(--gold); }
+.footer { background: #000; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
 
 /* ANIMATIONS */
-.fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
+.reveal { opacity: 0; transform: translateY(50px); transition: 0.8s all ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
+<div class="particles" id="particles"></div>
+
 <nav class="nav">
   <div class="container">
-    <a href="#" class="nav-logo">SCALVI<span class="q">Q</span></a>
+    <a href="#" class="nav-logo">SCALVI<span class="text-gold">Q</span></a>
     <div class="nav-links">
-      <a href="#expertise">Expertise</a>
-      <a href="#ai-studio">AI Studio</a>
-      <a href="#leadership">Leadership</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="btn" style="padding: 12px 24px; font-size: 10px;">Initiate</a>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-glow"></div>
-  <div class="container hero-content">
-    <span class="text-mono fade-up">India's Premier Growth Agency</span>
-    <h1 class="fade-up delay-1">Scale <span class="text-serif-italic text-silver">Without</span><br>Limits.</h1>
-    <p class="fade-up delay-2">We engineer dominant brands using precision digital strategy, elite political warfare, and cutting-edge AI visual production.</p>
-    <div class="hero-buttons fade-up delay-2">
-      <a href="#contact" class="btn">Start Your Empire</a>
-      <a href="#expertise" class="btn btn-outline">View Expertise</a>
+  <div class="container hero-content reveal active">
+    <span class="sec-subtitle">Welcome to the Empire</span>
+    <h1>Dominating Digital Growth & <span class="text-gold">Brand Supremacy</span></h1>
+    <p>SCALVIQ combines elite digital strategy, political warfare, and AI-powered visual engineering to scale your influence without limits.</p>
+    <a href="#contact" class="btn-primary" style="display: inline-block;">Start Your Project</a>
+  </div>
+</section>
+
+<div class="clients-sec">
+  <div class="container" style="margin-bottom: 20px; text-align: center; font-family: 'IBM Plex Mono'; font-size: 10px; color: var(--gold); letter-spacing: 2px;">TRUSTED BY INDUSTRY LEADERS</div>
+  <div class="client-track">
+    <div class="client-logo">
+      <div class="client-box">Apex Ventures</div>
+      <div class="client-box">Lumina Fashion</div>
+      <div class="client-box">Nexus Tech</div>
+      <div class="client-box">Vanguard Politics</div>
+      <div class="client-box">Zephyr D2C</div>
+    </div>
+    <div class="client-logo">
+      <div class="client-box">Apex Ventures</div>
+      <div class="client-box">Lumina Fashion</div>
+      <div class="client-box">Nexus Tech</div>
+      <div class="client-box">Vanguard Politics</div>
+      <div class="client-box">Zephyr D2C</div>
+    </div>
+  </div>
+</div>
+
+<section class="sec-padding" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="sec-subtitle" style="text-align: left;">Who We Are</span>
+      <h2 class="sec-title" style="text-align: left;">India's Premier <span class="text-gold">Growth Agency</span></h2>
+      <p style="margin-bottom: 20px;">Founded by Nishant Sishodia, SCALVIQ is built on a singular premise: unrelenting, intelligent growth. We do not believe in generic strategies or hollow buzzwords.</p>
+      <p>Every campaign, line of code, and piece of content we deploy is engineered for dominance in India's most competitive markets.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter" data-target="150">0</span>+</div>
+          <div class="stat-text">Projects Delivered</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter" data-target="98">0</span>%</div>
+          <div class="stat-text">Client Success</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter" data-target="10">0</span>M+</div>
+          <div class="stat-text">Ad Spend Managed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num"><span class="counter" data-target="50">0</span>+</div>
+          <div class="stat-text">Brands Scaled</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-img reveal">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" alt="Agency Team">
     </div>
   </div>
 </section>
 
-<section class="section" id="expertise">
+<section class="sec-padding" style="background: var(--deep);" id="services">
   <div class="container">
-    <div class="section-header fade-up">
-      <span class="text-mono">01 — Verticals</span>
-      <h2 class="section-title">The <span class="text-gold">Empire</span> Structure</h2>
+    <span class="sec-subtitle">Our Expertise</span>
+    <h2 class="sec-title">What We Do <span class="text-gold">Best</span></h2>
+    
+    <div class="services-grid">
+      <div class="srv-card reveal">
+        <div class="srv-icon">🎯</div>
+        <h3>Digital Marketing</h3>
+        <p>Performance marketing, Meta & Google ads, SEO, and data-driven campaigns that convert at scale.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">🏛️</div>
+        <h3>Election Management</h3>
+        <p>End-to-end political campaign strategy, video production, voter connect, and PR image management.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">📸</div>
+        <h3>AI Photoshoots</h3>
+        <p>Cutting-edge, photorealistic AI-generated models and product shoots. High-fidelity visuals without the studio.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">💻</div>
+        <h3>App & Web Dev</h3>
+        <p>Custom mobile applications, web platforms, SaaS products, and AI workflows tailored for the Indian market.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">🛒</div>
+        <h3>E-Commerce</h3>
+        <p>Store setup, Amazon/Flipkart management, product listing optimization, and direct-to-consumer scaling.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">🚀</div>
+        <h3>Brand Building</h3>
+        <p>Full brand incubation from zero—identity creation, go-to-market strategies, and venture pitch decks.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="bento-grid">
-      <div class="bento-item bento-large fade-up">
-        <div class="bento-icon">🎯</div>
-        <div>
-          <h3>Digital Warfare</h3>
-          <p class="text-serif">We do not just run ads; we buy market share. Elite performance marketing across Meta, Google, and SEO to guarantee explosive ROI and dominate your competitors.</p>
+<section class="sec-padding" id="contact">
+  <div class="container">
+    <div class="contact-wrapper reveal">
+      <div class="contact-info">
+        <span class="sec-subtitle" style="text-align: left;">Let's Talk</span>
+        <h3 style="margin-bottom: 30px;">Ready to Scale Your Brand?</h3>
+        
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <div style="font-size: 14px; color: var(--muted);">Call Us</div>
+            <div style="color: var(--white); font-weight: 600;">+91 9050728595</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div>
+            <div style="font-size: 14px; color: var(--muted);">Email Us</div>
+            <div style="color: var(--white); font-weight: 600;">hello@scalviq.ai</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🏢</div>
+          <div>
+            <div style="font-size: 14px; color: var(--muted);">Headquarters</div>
+            <div style="color: var(--white); font-weight: 600;">SCALVIQ HQ, India</div>
+          </div>
         </div>
       </div>
       
-      <div class="bento-item bento-medium fade-up delay-1">
-        <div class="bento-icon">🏛️</div>
-        <div>
-          <h3>Political Mastery</h3>
-          <p>End-to-end election strategy, voter psychology, and unshakeable PR defense.</p>
-        </div>
-      </div>
-
-      <div class="bento-item bento-half fade-up">
-        <div class="bento-icon">🛒</div>
-        <div>
-          <h3>E-Commerce Scaling</h3>
-          <p>Marketplace dominance on Amazon, Flipkart, and precision D2C store architectures.</p>
-        </div>
-      </div>
-
-      <div class="bento-item bento-half fade-up delay-1">
-        <div class="bento-icon">🚀</div>
-        <div>
-          <h3>Tech & Incubation</h3>
-          <p>Custom applications, AI workflows, go-to-market strategies, and brand building from absolute zero.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ai-studio" style="background: var(--deep);">
-  <div class="container">
-    <div class="feature-split">
-      <div class="feature-text fade-up">
-        <span class="text-mono">02 — Innovation</span>
-        <h2 class="section-title" style="margin-bottom: 20px;">AI-Powered <br><span class="text-serif-italic text-silver">Visual Studios</span></h2>
-        <p style="margin-bottom: 30px;">Stop paying for expensive physical studios and logistics. We generate hyper-realistic, high-fidelity AI models, product shoots, and campaign visuals that are indistinguishable from reality.</p>
-        <ul style="list-style: none; margin-bottom: 40px;">
-          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><span class="text-gold">✦</span> Photorealistic Product Placement</li>
-          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><span class="text-gold">✦</span> Infinite Virtual Models & Backgrounds</li>
-          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><span class="text-gold">✦</span> Fractional Cost & Turnaround Time</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline">Request AI Portfolio</a>
-      </div>
-      <div class="feature-image fade-up delay-1">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="AI Rendering Example">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="leadership">
-  <div class="container">
-    <div class="founder-box fade-up">
-      <h3 class="text-serif-italic founder-quote">"We do not believe in generic strategies. Every campaign, line of code, and piece of content we deploy is engineered for absolute dominance."</h3>
-      <div class="founder-details">
-        <h4>Nishant Sishodia</h4>
-        <p class="text-mono">Founder & CEO</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="text-mono">03 — Initiate</span>
-      <h2 class="section-title">Ready to <span class="text-gold">Scale?</span></h2>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-details fade-up">
-        <p style="font-size: 20px; margin-bottom: 40px; color: var(--silver);">Your competitors are already moving. Submit your brief below, and my team will engineer a bespoke growth architecture for your brand.</p>
-        
-        <div class="contact-item">
-          <span class="text-mono">Email Address</span>
-          <p>hello@scalviq.ai</p>
-        </div>
-        <div class="contact-item">
-          <span class="text-mono">Direct Line</span>
-          <p>+91 9050728595</p>
-        </div>
-        <div class="contact-item">
-          <span class="text-mono">Social Network</span>
-          <p>@scalviq.ai</p>
-        </div>
-      </div>
-
-      <div class="contact-form fade-up delay-1">
+      <div>
         <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="7ec9a031-c6f3-4f30-96b8-a0d776072804">
           <input type="hidden" name="redirect" value="https://scalviq-web.vercel.app">
-
-          <div class="form-group">
-            <label class="form-label">Name / Organization</label>
-            <input type="text" name="name" class="form-control" required placeholder="Enter your brand name">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input type="email" name="email" class="form-control" required placeholder="contact@yourbrand.com">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Project Ambition</label>
-            <textarea name="message" class="form-control" required placeholder="How can we help you scale?"></textarea>
-          </div>
-          <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+          
+          <input type="text" name="name" class="form-control" required placeholder="Your Name">
+          <input type="email" name="email" class="form-control" required placeholder="Your Email">
+          <input type="text" name="phone" class="form-control" required placeholder="Phone Number">
+          <textarea name="message" class="form-control" style="min-height: 120px;" required placeholder="How can we help you?"></textarea>
+          
+          <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
         </form>
       </div>
     </div>
@@ -272,31 +254,72 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 </section>
 
 <footer class="footer">
-  <div class="container footer-grid">
-    <div class="footer-logo">SCALVI<span class="q">Q</span></div>
-    <div class="text-mono">© 2026 SCALVIQ AI. ALL RIGHTS RESERVED.</div>
+  <div class="container">
+    <div style="font-family: 'Josefin Sans'; font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 10px;">SCALVI<span class="text-gold">Q</span></div>
+    <div style="font-family: 'IBM Plex Mono'; font-size: 12px; color: var(--muted);">© 2026 Scalviq AI. All Rights Reserved. Designed for Dominance.</div>
   </div>
 </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.fade-up');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // Run once
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    });
+  // 1. Particle Background Generator
+  const particleContainer = document.getElementById('particles');
+  for(let i=0; i<30; i++) {
+    let p = document.createElement('div');
+    p.className = 'particle';
+    let size = Math.random() * 50 + 20;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.top = Math.random() * 100 + 'vh';
+    p.style.animationDuration = (Math.random() * 10 + 10) + 's';
+    p.style.animationDelay = Math.random() * 5 + 's';
+    particleContainer.appendChild(p);
+  }
 
-    elements.forEach(element => {
-      observer.observe(element);
+  // 2. Scroll Reveal Animation
+  const reveals = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    let windowHeight = window.innerHeight;
+    reveals.forEach(reveal => {
+      let elementTop = reveal.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 50) {
+        reveal.classList.add('active');
+      }
     });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // Trigger on load
+
+  // 3. Animated Number Counters
+  const counters = document.querySelectorAll('.counter');
+  let started = false;
+  
+  const startCounters = () => {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const increment = target / 100;
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += increment;
+        if(current < target) {
+          counter.innerText = Math.ceil(current);
+          setTimeout(updateCounter, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCounter();
+    });
+  }
+
+  // Trigger counters when About section is reached
+  window.addEventListener('scroll', () => {
+    const statsSection = document.querySelector('.stats-grid');
+    if(!started && statsSection.getBoundingClientRect().top < window.innerHeight) {
+      startCounters();
+      started = true;
+    }
   });
 </script>
 
