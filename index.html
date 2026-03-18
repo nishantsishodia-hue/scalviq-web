@@ -4,630 +4,767 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SCALVIQ — India's Intelligent Growth Company | Gurugram</title>
-<meta name="description" content="SCALVIQ is India's premier AI-powered digital marketing, political campaign management, app development, e-commerce, AI catalog photoshoot, and brand building company based in Gurugram.">
-<meta name="keywords" content="digital marketing gurugram, political campaign management india, AI catalog photoshoot, e-commerce management, brand building india, SCALVIQ">
-<meta property="og:title" content="SCALVIQ — Scale Without Limits">
-<meta property="og:description" content="India's intelligent growth company based in Gurugram. Digital marketing, political campaigns, AI catalog photoshoot & more.">
+<meta name="description" content="SCALVIQ is India's premier AI-powered digital marketing, political campaign management, AI catalog photoshoot, e-commerce, and brand building company based in Gurugram. Founded by Nishant Sishodia.">
+<meta name="keywords" content="digital marketing gurugram, political campaign management india, AI catalog photoshoot, e-commerce management, brand building india, SCALVIQ, Nishant Sishodia">
+<meta property="og:title" content="SCALVIQ — Scale Without Limits | Gurugram">
+<meta property="og:description" content="India's intelligent growth company. Digital marketing, political campaigns, AI catalog photoshoot & more. Call +91 90507 28595">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════
-   TOKENS
-══════════════════════════ */
+/* ════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════ */
 :root{
-  --blk:#06060A;--dp:#0D0D14;--card:#121219;--lift:#181820;--lift2:#1E1E28;
-  --bdr:#252535;--muted:#5A5A78;--sil:#A6A6C2;--wht:#EDEDF8;
-  --gold:#C8A951;--glt:#E8CB78;--gdk:#7A6530;--gbg:rgba(200,169,81,.08);
-  --grn:#22C55E;--red:#EF4444;--nav-h:62px;
+  --blk:#05050A;--dp:#0C0C13;--card:#111118;--lift:#171720;--lift2:#1D1D28;
+  --bdr:#222235;--muted:#585878;--sil:#A4A4C0;--wht:#ECECE8;
+  --gold:#C8A951;--glt:#E6C870;--gdk:#785225;--gbg:rgba(200,169,81,.07);
+  --grn:#22C55E;--red:#EF4444;--blue:#3B82F6;
+  --nav-h:64px;
+  --radius:0px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--blk);color:var(--wht);font-family:'Josefin Sans',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-::-webkit-scrollbar{width:3px;}
-::-webkit-scrollbar-track{background:var(--blk);}
-::-webkit-scrollbar-thumb{background:var(--gdk);}
-img{max-width:100%;display:block;}
-a{text-decoration:none;color:inherit;}
-button{cursor:pointer;border:none;background:none;font-family:inherit;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--blk);}::-webkit-scrollbar-thumb{background:var(--gdk);}
+img{max-width:100%;display:block;}a{text-decoration:none;color:inherit;}button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit;}
 
-/* PROGRESS */
-#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--glt));z-index:9999;width:0;transition:width .08s;}
+/* ════════════════════════════════════
+   PROGRESS + CURSOR
+════════════════════════════════════ */
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gdk),var(--gold),var(--glt));z-index:9999;width:0;}
+.cur{width:6px;height:6px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:transform .1s;}
+.cur-r{width:28px;height:28px;border:1px solid rgba(200,169,81,.3);border-radius:50%;position:fixed;pointer-events:none;z-index:9997;}
+@media(hover:none){.cur,.cur-r{display:none;}}
 
-/* CURSOR */
-.cur{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:transform .12s;}
-.cur-ring{width:32px;height:32px;border:1px solid rgba(200,169,81,.35);border-radius:50%;position:fixed;pointer-events:none;z-index:9997;}
-@media(hover:none){.cur,.cur-ring{display:none;}}
-
-/* ══════════════════════════
-   NAV
-══════════════════════════ */
-.nav{position:fixed;top:2px;left:0;right:0;z-index:500;height:var(--nav-h);background:rgba(6,6,10,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5vw,60px);transition:background .3s,box-shadow .3s;}
-.nav.up{box-shadow:0 4px 32px rgba(0,0,0,.5);}
-.nav-brand{display:flex;align-items:center;gap:10px;}
-.n-mark{width:36px;height:36px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:17px;color:var(--blk);flex-shrink:0;}
-.n-name{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:5px;}
-.n-name .q{color:var(--gold);}
-.nav-links{display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);}
-.nl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;transition:color .2s;position:relative;padding:4px 0;}
-.nl::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .25s;}
-.nl:hover,.nl.active{color:var(--gold);}
-.nl:hover::after,.nl.active::after{width:100%;}
-.n-cta{padding:9px 20px;background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .2s,transform .2s;}
-.n-cta:hover{background:var(--glt);transform:translateY(-1px);}
-.hb{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
-.hb span{width:22px;height:1px;background:var(--wht);transition:all .3s;display:block;}
-.hb.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
-.hb.open span:nth-child(2){opacity:0;}
-.hb.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
-@media(max-width:800px){
-  .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--dp);border-bottom:1px solid var(--bdr);flex-direction:column;align-items:flex-start;padding:24px 24px 28px;gap:18px;box-shadow:0 20px 40px rgba(0,0,0,.4);}
-  .nav-links.show{display:flex;}
-  .hb{display:flex;}
-  .n-cta{display:none;}
+/* ════════════════════════════════════
+   NAVBAR
+════════════════════════════════════ */
+.nav{position:fixed;top:2px;left:0;right:0;z-index:500;height:var(--nav-h);
+  background:rgba(5,5,10,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid transparent;display:flex;align-items:center;
+  justify-content:space-between;padding:0 clamp(18px,5vw,64px);transition:all .35s;}
+.nav.scrolled{border-bottom-color:var(--bdr);background:rgba(5,5,10,.97);}
+/* Logo */
+.nav-logo{display:flex;align-items:center;gap:11px;}
+.logo-sq{width:38px;height:38px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:18px;color:var(--blk);flex-shrink:0;position:relative;}
+.logo-sq::after{content:'';position:absolute;inset:-3px;border:1px solid rgba(200,169,81,.3);}
+.logo-txt{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:5px;}
+.logo-txt .q{color:var(--gold);}
+/* Links */
+.nav-menu{display:flex;align-items:center;gap:clamp(14px,2.5vw,32px);}
+.nm-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;transition:color .2s;padding:4px 0;position:relative;}
+.nm-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .25s;}
+.nm-link:hover,.nm-link.act{color:var(--gold);}
+.nm-link:hover::after,.nm-link.act::after{width:100%;}
+.nav-call{padding:9px 22px;background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px;}
+.nav-call:hover{background:var(--glt);transform:translateY(-1px);}
+/* Hamburger */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.ham-l{width:22px;height:1px;background:var(--wht);transition:all .3s;display:block;}
+.ham.x .ham-l:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+.ham.x .ham-l:nth-child(2){opacity:0;transform:scaleX(0);}
+.ham.x .ham-l:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+@media(max-width:820px){
+  .nav-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(5,5,10,.98);border-bottom:1px solid var(--bdr);flex-direction:column;align-items:flex-start;padding:24px clamp(18px,5vw,40px) 32px;gap:20px;backdrop-filter:blur(20px);}
+  .nav-menu.open{display:flex;}
+  .ham{display:flex;}
+  .nav-call{display:none;}
 }
 
-/* ══════════════════════════
-   LAYOUT
-══════════════════════════ */
-.sec{padding:clamp(72px,10vw,120px) clamp(18px,5vw,60px);max-width:1280px;margin:0 auto;}
-.sec-full{padding:clamp(72px,10vw,120px) 0;}
+/* ════════════════════════════════════
+   LAYOUT HELPERS
+════════════════════════════════════ */
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(18px,5vw,64px);}
+.section{padding:clamp(72px,10vw,120px) clamp(18px,5vw,64px);max-width:1280px;margin:0 auto;}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent);}
-.chip{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;margin-bottom:clamp(12px,2vw,20px);}
-.chip::before{content:'';width:20px;height:1px;background:var(--gold);}
-.hdl{font-family:'Lora',serif;font-size:clamp(24px,4.5vw,54px);font-weight:600;line-height:1.12;margin-bottom:clamp(14px,2vw,22px);}
-.hdl em{color:var(--gold);font-style:italic;}
-.subp{font-size:clamp(13px,1.5vw,15px);color:var(--sil);line-height:1.9;max-width:640px;}
-.grule{width:clamp(32px,4vw,52px);height:2px;background:var(--gold);margin:clamp(14px,2vw,22px) 0;}
-.btn-g{display:inline-flex;align-items:center;gap:8px;padding:clamp(11px,1.8vw,15px) clamp(22px,3.5vw,34px);background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .22s,transform .22s;cursor:pointer;}
-.btn-g:hover{background:var(--glt);transform:translateY(-2px);}
-.btn-o{display:inline-flex;align-items:center;gap:8px;padding:clamp(11px,1.8vw,15px) clamp(22px,3.5vw,34px);border:1px solid var(--bdr);color:var(--sil);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:border-color .22s,color .22s,transform .22s;cursor:pointer;}
-.btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
-
-/* REVEAL */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;margin-bottom:clamp(12px,1.8vw,20px);}
+.chip::before{content:'';width:18px;height:1px;background:var(--gold);}
+.h2{font-family:'Lora',serif;font-size:clamp(24px,4.2vw,52px);font-weight:600;line-height:1.12;margin-bottom:clamp(12px,1.8vw,20px);}
+.h2 em{color:var(--gold);font-style:italic;}
+.lead{font-size:clamp(13px,1.5vw,15px);color:var(--sil);line-height:1.92;max-width:640px;}
+.grule{width:clamp(30px,4vw,48px);height:2px;background:var(--gold);margin:clamp(14px,2vw,22px) 0;}
+/* Buttons */
+.btn-gold{display:inline-flex;align-items:center;gap:8px;padding:clamp(11px,1.6vw,15px) clamp(22px,3vw,34px);background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:all .22s;cursor:pointer;border:1px solid var(--gold);}
+.btn-gold:hover{background:var(--glt);border-color:var(--glt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,169,81,.25);}
+.btn-line{display:inline-flex;align-items:center;gap:8px;padding:clamp(11px,1.6vw,15px) clamp(22px,3vw,34px);border:1px solid rgba(200,169,81,.4);color:var(--sil);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:all .22s;cursor:pointer;}
+.btn-line:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+/* Reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
 .rv.on{opacity:1;transform:translateY(0);}
-.rl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease;}
+.rl{opacity:0;transform:translateX(-26px);transition:opacity .65s ease,transform .65s ease;}
 .rl.on{opacity:1;transform:translateX(0);}
-.rr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease;}
+.rr{opacity:0;transform:translateX(26px);transition:opacity .65s ease,transform .65s ease;}
 .rr.on{opacity:1;transform:translateX(0);}
-.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}.d5{transition-delay:.40s;}.d6{transition-delay:.48s;}
+.d1{transition-delay:.07s;}.d2{transition-delay:.14s;}.d3{transition-delay:.21s;}
+.d4{transition-delay:.28s;}.d5{transition-delay:.35s;}.d6{transition-delay:.42s;}
 
-/* ══════════════════════════
-   HERO
-══════════════════════════ */
+/* ════════════════════════════════════
+   HERO — PSYCHOLOGY: BOLD CLAIM + PROOF
+════════════════════════════════════ */
 .hero{min-height:100svh;background:var(--blk);display:flex;flex-direction:column;position:relative;overflow:hidden;}
-.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,169,81,.038) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,81,.038) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 90% 85% at 50% 50%,black 5%,transparent 100%);animation:gp 8s ease-in-out infinite;}
-@keyframes gp{0%,100%{opacity:.3}50%{opacity:.9}}
-.h-orb1{position:absolute;width:clamp(280px,52vw,640px);height:clamp(280px,52vw,640px);background:radial-gradient(circle,rgba(200,169,81,.08),transparent 65%);top:-8%;right:-8%;border-radius:50%;animation:ob 14s ease-in-out infinite;pointer-events:none;filter:blur(60px);}
-.h-orb2{position:absolute;width:clamp(180px,32vw,380px);height:clamp(180px,32vw,380px);background:radial-gradient(circle,rgba(59,130,246,.04),transparent 65%);bottom:15%;left:-4%;border-radius:50%;animation:ob 18s ease-in-out infinite reverse;pointer-events:none;filter:blur(60px);}
-@keyframes ob{0%,100%{transform:translate(0,0)}50%{transform:translate(24px,-16px)}}
-.particles{position:absolute;inset:0;pointer-events:none;}
+/* Animated bg */
+.h-bg{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(200,169,81,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,81,.035) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 90% 85% at 50% 50%,black 0%,transparent 100%);
+  animation:bgp 9s ease-in-out infinite;}
+@keyframes bgp{0%,100%{opacity:.25}50%{opacity:.8}}
+.h-orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
+.orb-a{width:clamp(260px,48vw,600px);height:clamp(260px,48vw,600px);background:radial-gradient(circle,rgba(200,169,81,.07),transparent 65%);top:-12%;right:-10%;animation:oa 13s ease-in-out infinite;}
+.orb-b{width:clamp(160px,28vw,350px);height:clamp(160px,28vw,350px);background:radial-gradient(circle,rgba(59,130,246,.04),transparent 65%);bottom:20%;left:-5%;animation:oa 17s ease-in-out infinite reverse;}
+@keyframes oa{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-14px)}}
+.pts{position:absolute;inset:0;pointer-events:none;}
 .pt{position:absolute;background:var(--gold);border-radius:50%;animation:pf linear infinite;}
-@keyframes pf{0%{transform:translateY(100vh);opacity:0}8%{opacity:.5}92%{opacity:.2}100%{transform:translateY(-80px);opacity:0}}
-.hero-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(100px,13vw,148px) clamp(20px,6vw,70px) 56px;position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;}
-.h-ey{display:flex;align-items:center;gap:12px;margin-bottom:clamp(18px,3vw,30px);opacity:0;animation:fu .8s .2s ease forwards;}
-.h-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:bk 2.2s ease-in-out infinite;}
-@keyframes bk{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.7)}}
-.h-loc{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}
-.h-title{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(46px,9.5vw,116px);letter-spacing:clamp(2px,1vw,9px);line-height:1;color:var(--wht);opacity:0;animation:fu .8s .4s ease forwards;}
-.h-title .q{color:var(--gold);}
-.h-sub{font-family:'Lora',serif;font-size:clamp(17px,2.8vw,34px);font-style:italic;font-weight:400;color:var(--sil);opacity:0;animation:fu .8s .6s ease forwards;margin:clamp(8px,1.5vw,14px) 0 clamp(18px,3vw,32px);}
-.h-desc{font-size:clamp(13px,1.5vw,16px);color:var(--sil);line-height:1.88;max-width:580px;opacity:0;animation:fu .8s .8s ease forwards;margin-bottom:clamp(26px,4vw,44px);}
-.h-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:fu .8s 1s ease forwards;}
-.h-metrics{position:absolute;right:clamp(20px,5vw,60px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;opacity:0;animation:fr .8s 1.2s ease forwards;z-index:2;}
-@media(max-width:1100px){.h-metrics{display:none;}}
-.hm-card{padding:14px 20px;background:rgba(18,18,25,.82);border:1px solid var(--bdr);backdrop-filter:blur(12px);text-align:center;min-width:110px;}
-.hm-n{font-family:'Lora',serif;font-size:26px;font-weight:700;color:var(--gold);line-height:1;}
-.hm-l{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:4px;}
-.h-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fu .8s 1.6s ease forwards;z-index:2;}
-.hs-line{width:1px;height:36px;background:linear-gradient(180deg,var(--gold),transparent);animation:sd 2s ease-in-out infinite;}
-@keyframes sd{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.hs-txt{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;}
-@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fr{from{opacity:0;transform:translateY(-50%) translateX(20px)}to{opacity:1;transform:translateY(-50%) translateX(0)}}
+@keyframes pf{0%{transform:translateY(105vh);opacity:0}8%{opacity:.45}90%{opacity:.15}100%{transform:translateY(-80px);opacity:0}}
 
-/* TICKER */
-.ticker-wrap{overflow:hidden;background:var(--gold);padding:10px 0;}
-.ticker-track{display:flex;width:max-content;animation:tk 26s linear infinite;}
-.tk-item{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--blk);text-transform:uppercase;padding:0 clamp(20px,4vw,48px);white-space:nowrap;}
-.tk-item::before{content:'✦';margin-right:clamp(10px,2vw,24px);opacity:.55;}
+.hero-inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(100px,12vw,148px) clamp(20px,6vw,72px) 64px;position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;}
+
+/* Trust bar — shown above headline for instant credibility */
+.trust-bar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(20px,3vw,32px);flex-wrap:wrap;opacity:0;animation:fu .8s .15s ease forwards;}
+.tb-dot{width:7px;height:7px;background:var(--grn);border-radius:50%;animation:bk 2s ease-in-out infinite;flex-shrink:0;}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.2}}
+.tb-txt{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--grn);text-transform:uppercase;}
+.tb-sep{width:1px;height:14px;background:var(--bdr);}
+.tb-loc{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;}
+
+.hero-h{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(46px,9.5vw,114px);letter-spacing:clamp(2px,.9vw,8px);line-height:1;color:var(--wht);opacity:0;animation:fu .8s .35s ease forwards;}
+.hero-h .q{color:var(--gold);}
+
+/* Value proposition — immediate below name */
+.hero-vp{font-family:'Lora',serif;font-size:clamp(17px,2.8vw,34px);font-style:italic;color:var(--sil);opacity:0;animation:fu .8s .55s ease forwards;margin:clamp(10px,1.5vw,16px) 0 clamp(16px,2.5vw,28px);}
+
+.hero-desc{font-size:clamp(13px,1.5vw,16px);color:var(--sil);line-height:1.9;max-width:600px;opacity:0;animation:fu .8s .75s ease forwards;margin-bottom:clamp(24px,3.5vw,40px);}
+
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:fu .8s .95s ease forwards;}
+
+/* Social proof numbers floating right */
+.hero-proof{position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:2;opacity:0;animation:fr .9s 1.15s ease forwards;}
+@media(max-width:1100px){.hero-proof{display:none;}}
+.hp-card{padding:14px 20px;background:rgba(17,17,24,.85);border:1px solid var(--bdr);backdrop-filter:blur(14px);text-align:center;min-width:108px;position:relative;overflow:hidden;}
+.hp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);}
+.hp-n{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--gold);line-height:1;}
+.hp-l{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:4px;}
+
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;z-index:2;opacity:0;animation:fu .8s 1.5s ease forwards;}
+.hs-ln{width:1px;height:34px;background:linear-gradient(180deg,var(--gold),transparent);animation:sl 2s ease-in-out infinite;}
+@keyframes sl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hs-t{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fr{from{opacity:0;transform:translateY(-50%) translateX(18px)}to{opacity:1;transform:translateY(-50%) translateX(0)}}
+
+/* ════════════════════════════════════
+   TICKER
+════════════════════════════════════ */
+.ticker-wrap{overflow:hidden;background:var(--gold);padding:10px 0;position:relative;}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:1;}
+.ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--gold),transparent);}
+.ticker-wrap::after{right:0;background:linear-gradient(-90deg,var(--gold),transparent);}
+.ticker-tr{display:flex;width:max-content;animation:tk 28s linear infinite;}
+.tk-i{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--blk);text-transform:uppercase;padding:0 clamp(20px,4vw,48px);white-space:nowrap;font-weight:500;}
+.tk-i::before{content:'✦';margin-right:clamp(10px,2vw,24px);opacity:.5;}
 @keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* STATS */
-.stats-inner{max-width:1280px;margin:0 auto;padding:clamp(36px,6vw,68px) clamp(18px,5vw,60px);}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
-@media(max-width:640px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
-.sg-item{padding:clamp(18px,3vw,32px) clamp(14px,2.5vw,24px);background:var(--card);border:1px solid var(--bdr);text-align:center;transition:background .25s;}
-.sg-item:hover{background:var(--lift);}
-.sg-n{font-family:'Lora',serif;font-size:clamp(26px,5vw,50px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:7px;}
-.sg-l{font-size:clamp(10px,1.2vw,12px);color:var(--muted);letter-spacing:.5px;}
+/* ════════════════════════════════════
+   SOCIAL PROOF STRIP — PSYCHOLOGY
+════════════════════════════════════ */
+.proof-strip{border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);}
+.proof-inner{max-width:1280px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(18px,5vw,64px);}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+@media(max-width:640px){.proof-grid{grid-template-columns:repeat(2,1fr);}}
+.pg-item{padding:clamp(18px,2.8vw,30px) clamp(14px,2vw,22px);background:var(--card);border:1px solid var(--bdr);text-align:center;transition:background .25s,border-color .25s;}
+.pg-item:hover{background:var(--lift);border-color:var(--gdk);}
+.pg-n{font-family:'Lora',serif;font-size:clamp(28px,5vw,50px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px;}
+.pg-l{font-size:clamp(10px,1.2vw,12px);color:var(--muted);}
 
-/* SERVICES */
+/* ════════════════════════════════════
+   WHY CHOOSE — PSYCHOLOGY: OBJECTION KILLER
+════════════════════════════════════ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+@media(max-width:680px){.why-grid{grid-template-columns:1fr;}}
+.why-card{padding:clamp(24px,3.5vw,40px) clamp(20px,3vw,32px);background:var(--card);border:1px solid var(--bdr);display:flex;gap:18px;align-items:flex-start;transition:background .25s,border-color .25s;}
+.why-card:hover{background:var(--lift);border-color:var(--gdk);}
+.why-ico{font-size:26px;flex-shrink:0;width:48px;height:48px;background:var(--gbg);border:1px solid var(--gdk);display:flex;align-items:center;justify-content:center;}
+.why-body{}
+.why-title{font-family:'Lora',serif;font-size:clamp(15px,1.9vw,18px);font-weight:600;color:var(--wht);margin-bottom:6px;}
+.why-desc{font-size:clamp(11px,1.3vw,13px);color:var(--muted);line-height:1.78;}
+
+/* ════════════════════════════════════
+   SERVICES
+════════════════════════════════════ */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
 @media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:520px){.svc-grid{grid-template-columns:1fr;}}
-.svc-card{padding:clamp(24px,3.5vw,42px) clamp(18px,3vw,30px);background:var(--card);border:1px solid var(--bdr);position:relative;overflow:hidden;transition:background .25s,border-color .25s;cursor:default;}
+.svc-card{padding:clamp(24px,3.5vw,42px) clamp(18px,3vw,30px);background:var(--card);border:1px solid var(--bdr);position:relative;overflow:hidden;transition:background .25s,border-color .25s;}
 .svc-card:hover{background:var(--lift);border-color:var(--gdk);}
 .svc-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--glt));transition:width .4s;}
 .svc-card:hover::after{width:100%;}
 .svc-card.feat{border-color:var(--gdk);background:linear-gradient(135deg,var(--dp),rgba(200,169,81,.04));}
-.new-tag{display:inline-block;background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;padding:3px 9px;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
-.sc-n{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gdk);margin-bottom:14px;}
+.new-tag{display:inline-block;background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;padding:3px 9px;text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+.sc-num{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gdk);margin-bottom:12px;}
 .sc-ico{font-size:clamp(22px,3vw,30px);margin-bottom:12px;}
-.sc-nm{font-family:'Lora',serif;font-size:clamp(15px,1.9vw,19px);font-weight:600;color:var(--wht);margin-bottom:7px;}
-.sc-nm span{color:var(--gold);}
+.sc-name{font-family:'Lora',serif;font-size:clamp(15px,1.9vw,19px);font-weight:600;color:var(--wht);margin-bottom:7px;}
+.sc-name span{color:var(--gold);}
 .sc-desc{font-size:clamp(11px,1.3vw,13px);color:var(--muted);line-height:1.75;margin-bottom:12px;}
-.sc-tags{display:flex;flex-wrap:wrap;gap:5px;}
-.sc-tag{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;padding:3px 8px;border:1px solid var(--bdr);color:var(--muted);text-transform:uppercase;}
-.ask-badge{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--gold);padding:5px 10px;border:1px solid var(--gdk);background:var(--gbg);}
+.sc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
+.sc-tag{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;padding:3px 7px;border:1px solid var(--bdr);color:var(--muted);text-transform:uppercase;}
+.ask-link{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--gold);padding:5px 10px;border:1px solid var(--gdk);background:var(--gbg);transition:background .2s;}
+.ask-link:hover{background:rgba(200,169,81,.15);}
 
-/* AI CATALOG */
+/* ════════════════════════════════════
+   AI CATALOG — HERO FEATURE
+════════════════════════════════════ */
 .ai-wrap{background:var(--dp);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);position:relative;overflow:hidden;}
-.ai-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(200,169,81,.06),transparent);pointer-events:none;}
-.ai-inner{max-width:1280px;margin:0 auto;padding:clamp(72px,10vw,120px) clamp(18px,5vw,60px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;}
+.ai-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 72% 50%,rgba(200,169,81,.06),transparent);pointer-events:none;}
+.ai-inner{max-width:1280px;margin:0 auto;padding:clamp(72px,10vw,120px) clamp(18px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;}
 @media(max-width:860px){.ai-inner{grid-template-columns:1fr;}}
-.ai-feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:clamp(18px,3vw,28px);}
-@media(max-width:460px){.ai-feat-grid{grid-template-columns:1fr;}}
-.af{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;background:var(--card);border:1px solid var(--bdr);}
-.af-ico{font-size:16px;flex-shrink:0;}
+/* Feature list */
+.ai-feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:clamp(18px,2.5vw,28px);}
+@media(max-width:440px){.ai-feat-grid{grid-template-columns:1fr;}}
+.af{display:flex;gap:10px;align-items:flex-start;padding:12px 13px;background:var(--card);border:1px solid var(--bdr);transition:border-color .25s;}
+.af:hover{border-color:var(--gdk);}
+.af-ico{font-size:15px;flex-shrink:0;}
 .af-nm{font-size:12px;font-weight:600;color:var(--wht);margin-bottom:2px;}
 .af-ds{font-size:10px;color:var(--muted);line-height:1.5;}
-.ai-cta-bar{margin-top:clamp(18px,3vw,28px);padding:clamp(16px,2.5vw,24px);background:var(--gbg);border:1px solid var(--gdk);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
-.acb-txt{font-family:'Lora',serif;font-size:clamp(15px,2vw,20px);font-weight:600;color:var(--wht);}
-.acb-sub{font-size:11px;color:var(--muted);margin-top:3px;}
-/* Photo grid */
-.pg{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:8px;}
-.pc{background:var(--lift);border:1px solid var(--bdr);overflow:hidden;position:relative;}
-.pc-lg{grid-row:span 2;}
-.pc-img{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.pc-img.t1{aspect-ratio:3/4;background:linear-gradient(135deg,var(--lift2),var(--card));}
-.pc-img.t2{aspect-ratio:1;background:linear-gradient(135deg,rgba(200,169,81,.07),var(--card));}
-.pc-img.t3{aspect-ratio:1;background:linear-gradient(135deg,var(--card),var(--lift2));}
-.pc-img::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.65) 100%);}
-.pc-lbl{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;color:var(--gold);text-transform:uppercase;}
-.pc-ico{font-size:clamp(36px,7vw,64px);opacity:.12;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-.scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:sc 3.2s ease-in-out infinite;top:0;opacity:.55;}
-@keyframes sc{0%{top:0;opacity:.6}100%{top:100%;opacity:.1}}
-/* BA comparison */
+/* CTA bar */
+.ai-cta{margin-top:clamp(16px,2.5vw,26px);padding:clamp(16px,2.5vw,24px);background:var(--gbg);border:1px solid var(--gdk);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;}
+.aic-txt{font-family:'Lora',serif;font-size:clamp(14px,1.8vw,18px);font-weight:600;color:var(--wht);}
+.aic-sub{font-size:11px;color:var(--muted);margin-top:3px;}
+/* Photo mockup */
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.ph-cell{background:var(--lift);border:1px solid var(--bdr);overflow:hidden;position:relative;}
+.ph-cell.tall{grid-row:span 2;}
+.ph-img{display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.ph-img.t1{aspect-ratio:3/4;background:linear-gradient(135deg,var(--lift2),var(--card));}
+.ph-img.t2{aspect-ratio:1;background:linear-gradient(135deg,rgba(200,169,81,.07),var(--card));}
+.ph-img.t3{aspect-ratio:1;background:linear-gradient(135deg,var(--card),var(--lift2));}
+.ph-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.6) 100%);}
+.ph-lbl{position:absolute;bottom:8px;left:10px;right:10px;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;color:var(--gold);text-transform:uppercase;}
+.ph-ico{font-size:clamp(36px,7vw,60px);opacity:.1;position:absolute;}
+.scan-ln{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:sc 3.5s ease-in-out infinite;top:0;opacity:.5;}
+@keyframes sc{0%{top:0;opacity:.55}100%{top:100%;opacity:.1}}
+/* BA */
 .ba{border:1px solid var(--bdr);overflow:hidden;margin-top:8px;}
-.ba-row{display:flex;min-height:100px;}
-.ba-side{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:16px;}
-.ba-side.before{background:var(--lift);}
-.ba-side.after{background:linear-gradient(135deg,rgba(200,169,81,.07),var(--lift));}
+.ba-row{display:flex;min-height:90px;}
+.ba-side{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:14px;}
+.ba-s1{background:var(--lift);}
+.ba-s2{background:linear-gradient(135deg,rgba(200,169,81,.06),var(--lift));}
 .ba-div{width:2px;background:var(--gold);position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.ba-circle{width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--blk);font-weight:700;position:absolute;z-index:1;}
-.ba-ico{font-size:28px;opacity:.3;}
-.ba-side.after .ba-ico{opacity:.9;}
+.ba-circ{width:24px;height:24px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--blk);font-weight:700;position:absolute;}
+.ba-ico{font-size:26px;}
+.ba-s1 .ba-ico{opacity:.25;}
 .ba-lbl{font-family:'IBM Plex Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
-.ba-side.after .ba-lbl{color:var(--gold);}
+.ba-s2 .ba-lbl{color:var(--gold);}
 .ba-foot{display:flex;}
-.ba-ft-l,.ba-ft-r{flex:1;padding:7px 12px;border-top:1px solid var(--bdr);font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;}
-.ba-ft-l{background:var(--card);color:var(--muted);}
-.ba-ft-r{background:var(--gbg);border-top-color:var(--gdk);color:var(--gold);text-align:right;}
-/* Categories */
-.cat-grid{margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-.cat-cell{padding:10px 8px;background:var(--card);border:1px solid var(--bdr);text-align:center;}
-.cat-ico{font-size:18px;margin-bottom:4px;}
-.cat-nm{font-family:'IBM Plex Mono',monospace;font-size:6px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;}
+.ba-fl{flex:1;padding:7px 12px;background:var(--card);border-top:1px solid var(--bdr);font-family:'IBM Plex Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.ba-fr{flex:1;padding:7px 12px;background:var(--gbg);border-top:1px solid var(--gdk);font-family:'IBM Plex Mono',monospace;font-size:7px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;text-align:right;}
+/* Cat pills */
+.cat-row{margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.cat-c{padding:9px 6px;background:var(--card);border:1px solid var(--bdr);text-align:center;transition:border-color .2s;}
+.cat-c:hover{border-color:var(--gdk);}
+.cat-ico{font-size:16px;margin-bottom:3px;}
+.cat-nm{font-family:'IBM Plex Mono',monospace;font-size:6px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
 
-/* PROCESS */
-.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;}
-@media(max-width:900px){.proc-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:520px){.proc-grid{grid-template-columns:1fr;}}
-.pc{padding:clamp(20px,3vw,34px) clamp(14px,2.5vw,22px);background:var(--card);border:1px solid var(--bdr);position:relative;overflow:hidden;transition:background .25s;}
+/* ════════════════════════════════════
+   PROCESS
+════════════════════════════════════ */
+.proc-wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;position:relative;}
+@media(max-width:900px){.proc-wrap{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:520px){.proc-wrap{grid-template-columns:1fr;}}
+.proc-card{padding:clamp(20px,3vw,34px) clamp(14px,2.5vw,22px);background:var(--card);border:1px solid var(--bdr);position:relative;overflow:hidden;transition:background .25s;}
 .proc-card:hover{background:var(--lift);}
 .proc-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .4s;}
 .proc-card:hover::after{width:100%;}
-.pc-st{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gdk);margin-bottom:10px;}
-.pc-i{font-size:22px;margin-bottom:10px;}
-.pc-t{font-family:'Lora',serif;font-size:clamp(14px,1.8vw,17px);font-weight:600;color:var(--wht);margin-bottom:5px;}
-.pc-d{font-size:clamp(10px,1.2vw,11px);color:var(--muted);line-height:1.7;}
+.pc-step{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gdk);margin-bottom:10px;}
+.pc-ico{font-size:22px;margin-bottom:10px;}
+.pc-ttl{font-family:'Lora',serif;font-size:clamp(13px,1.7vw,16px);font-weight:600;color:var(--wht);margin-bottom:5px;}
+.pc-dsc{font-size:clamp(10px,1.1vw,11px);color:var(--muted);line-height:1.7;}
 
-/* RESULTS */
+/* ════════════════════════════════════
+   RESULTS — PSYCHOLOGY: PROOF
+════════════════════════════════════ */
 .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
-@media(max-width:620px){.res-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.res-grid{grid-template-columns:1fr;}}
 .res-card{padding:clamp(22px,3.5vw,38px) clamp(18px,3vw,30px);background:var(--card);border:1px solid var(--bdr);}
-.res-card.gold{background:var(--gold);}
-.rc-cl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px;}
-.res-card:not(.gold) .rc-cl{color:var(--gold);}
-.res-card.gold .rc-cl{color:rgba(0,0,0,.4);}
-.rc-h{font-family:'Lora',serif;font-size:clamp(15px,2vw,20px);font-weight:600;margin-bottom:12px;}
-.res-card:not(.gold) .rc-h{color:var(--wht);}
-.res-card.gold .rc-h{color:var(--blk);}
-.rc-mets{display:flex;gap:clamp(14px,3vw,28px);flex-wrap:wrap;}
-.rcm-n{font-family:'Lora',serif;font-size:clamp(20px,3.5vw,34px);font-weight:700;}
-.res-card:not(.gold) .rcm-n{color:var(--gold);}
-.res-card.gold .rcm-n{color:var(--blk);}
-.rcm-l{font-size:10px;}
-.res-card:not(.gold) .rcm-l{color:var(--muted);}
-.res-card.gold .rcm-l{color:rgba(0,0,0,.5);}
+.res-card.gold-c{background:var(--gold);}
+.rc-cl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.res-card:not(.gold-c) .rc-cl{color:var(--gold);}
+.res-card.gold-c .rc-cl{color:rgba(0,0,0,.4);}
+.rc-h{font-family:'Lora',serif;font-size:clamp(14px,1.9vw,19px);font-weight:600;margin-bottom:12px;line-height:1.3;}
+.res-card:not(.gold-c) .rc-h{color:var(--wht);}
+.res-card.gold-c .rc-h{color:var(--blk);}
+.rc-nums{display:flex;gap:clamp(14px,3vw,26px);flex-wrap:wrap;}
+.rcn-n{font-family:'Lora',serif;font-size:clamp(20px,3.5vw,34px);font-weight:700;}
+.res-card:not(.gold-c) .rcn-n{color:var(--gold);}
+.res-card.gold-c .rcn-n{color:var(--blk);}
+.rcn-l{font-size:10px;margin-top:2px;}
+.res-card:not(.gold-c) .rcn-l{color:var(--muted);}
+.res-card.gold-c .rcn-l{color:rgba(0,0,0,.5);}
 
-/* PACKAGES (NO PRICES) */
+/* ════════════════════════════════════
+   PACKAGES — NO PRICES
+════════════════════════════════════ */
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-@media(max-width:800px){.pkg-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto;}}
-.pkg{padding:clamp(22px,3.5vw,42px) clamp(18px,3vw,30px);background:var(--card);border:1px solid var(--bdr);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .25s;}
+@media(max-width:800px){.pkg-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;}}
+.pkg{padding:clamp(22px,3.2vw,42px) clamp(18px,2.8vw,30px);background:var(--card);border:1px solid var(--bdr);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .25s;}
 .pkg.pop{border-color:var(--gold);background:var(--dp);}
-.pkg.pop::before{content:'RECOMMENDED';position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;padding:4px 16px;text-transform:uppercase;white-space:nowrap;}
-.pkg-tier{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:5px;}
+.pkg.pop::before{content:'RECOMMENDED';position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;padding:4px 16px;text-transform:uppercase;white-space:nowrap;font-weight:600;}
+.pkg-tier{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
 .pkg.pop .pkg-tier{margin-top:18px;}
 .pkg-name{font-family:'Lora',serif;font-size:clamp(16px,2vw,20px);font-weight:600;color:var(--wht);margin-bottom:3px;}
 .pkg-sub{font-size:11px;color:var(--muted);margin-bottom:14px;}
-.pkg-ask{padding:12px 16px;background:var(--gbg);border:1px solid var(--gdk);margin-bottom:16px;}
-.pa-label{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
-.pa-text{font-size:clamp(12px,1.5vw,14px);font-weight:600;color:var(--wht);line-height:1.4;}
+/* Price ask box */
+.pkg-ask{padding:12px 16px;background:var(--gbg);border:1px solid var(--gdk);margin-bottom:14px;}
+.pa-top{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
+.pa-main{font-size:clamp(13px,1.6vw,15px);font-weight:600;color:var(--wht);}
 .pa-sub{font-size:10px;color:var(--muted);margin-top:3px;}
 .pkg-div{height:1px;background:var(--bdr);margin-bottom:14px;}
-.pkg-feats{list-style:none;flex:1;}
-.pkg-feats li{font-size:clamp(10px,1.2vw,12px);color:var(--sil);padding:5px 0;border-bottom:1px solid var(--bdr);display:flex;gap:7px;}
-.pkg-feats li:last-child{border-bottom:none;}
-.pkg-feats li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
-.pkg-feats li.no::before{content:'–';color:var(--muted);}
-.pkg-feats li.no{color:var(--muted);}
-.pkg-btn{margin-top:18px;padding:12px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:all .22s;cursor:pointer;}
-.pkg-btn.gld{background:var(--gold);color:var(--blk);font-weight:500;}
-.pkg-btn.gld:hover{background:var(--glt);}
-.pkg-btn.outl{border:1px solid var(--bdr);color:var(--sil);}
-.pkg-btn.outl:hover{border-color:var(--gold);color:var(--gold);}
+.pkg-list{list-style:none;flex:1;}
+.pkg-list li{font-size:clamp(10px,1.1vw,12px);color:var(--sil);padding:5px 0;border-bottom:1px solid var(--bdr);display:flex;gap:7px;line-height:1.5;}
+.pkg-list li:last-child{border-bottom:none;}
+.pkg-list li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
+.pkg-list li.no::before{content:'–';color:var(--muted);}
+.pkg-list li.no{color:var(--muted);}
+.pkg-btn{margin-top:16px;padding:12px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:all .22s;cursor:pointer;font-weight:500;}
+.pb-gold{background:var(--gold);color:var(--blk);}
+.pb-gold:hover{background:var(--glt);}
+.pb-out{border:1px solid var(--bdr);color:var(--sil);}
+.pb-out:hover{border-color:var(--gold);color:var(--gold);}
+/* AI catalog bar */
+.ai-bar{margin-top:3px;background:var(--gold);padding:clamp(20px,3.5vw,38px) clamp(20px,4vw,44px);display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;}
+@media(max-width:540px){.ai-bar{grid-template-columns:1fr;}}
+.ab-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(0,0,0,.4);text-transform:uppercase;margin-bottom:7px;}
+.ab-ttl{font-family:'Lora',serif;font-size:clamp(16px,2.5vw,23px);font-weight:700;color:var(--blk);margin-bottom:4px;}
+.ab-sub{font-size:12px;color:rgba(0,0,0,.5);}
+.ab-btn{padding:12px 22px;background:var(--blk);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:background .2s;white-space:nowrap;cursor:pointer;}
+.ab-btn:hover{background:#181820;}
 
-/* AI Catalog pkg bar */
-.ai-pkg-bar{margin-top:3px;background:var(--gold);padding:clamp(22px,3.5vw,40px) clamp(20px,4vw,44px);display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;}
-@media(max-width:560px){.ai-pkg-bar{grid-template-columns:1fr;}}
-.apb-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(0,0,0,.4);text-transform:uppercase;margin-bottom:8px;}
-.apb-title{font-family:'Lora',serif;font-size:clamp(16px,2.5vw,24px);font-weight:700;color:var(--blk);margin-bottom:5px;}
-.apb-desc{font-size:13px;color:rgba(0,0,0,.55);}
-.apb-btn{padding:13px 22px;background:var(--blk);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:background .2s;white-space:nowrap;cursor:pointer;}
-.apb-btn:hover{background:#1a1a22;}
-
-/* TESTIMONIALS */
+/* ════════════════════════════════════
+   TESTIMONIALS — PSYCHOLOGY: SOCIAL PROOF
+════════════════════════════════════ */
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-@media(max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+@media(max-width:860px){.testi-grid{grid-template-columns:1fr;}}
 .testi-card{padding:clamp(22px,3.5vw,38px) clamp(18px,3vw,30px);background:var(--card);border:1px solid var(--bdr);position:relative;}
-.testi-card::before{content:'"';position:absolute;top:10px;right:18px;font-family:'Lora',serif;font-size:68px;color:rgba(200,169,81,.08);line-height:1;pointer-events:none;}
+.testi-card::before{content:'"';position:absolute;top:8px;right:16px;font-family:'Lora',serif;font-size:72px;color:rgba(200,169,81,.07);line-height:1;pointer-events:none;}
 .tc-stars{display:flex;gap:2px;margin-bottom:12px;}
 .star{color:var(--gold);font-size:13px;}
 .tc-txt{font-family:'Lora',serif;font-style:italic;font-size:clamp(12px,1.4vw,14px);color:var(--sil);line-height:1.82;margin-bottom:14px;}
-.tc-auth{display:flex;gap:11px;align-items:center;}
+.tc-auth{display:flex;gap:10px;align-items:center;}
 .tc-av{width:34px;height:34px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--blk);flex-shrink:0;}
-.tc-nm{font-size:13px;font-weight:600;color:var(--wht);}
-.tc-rl{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px;margin-top:2px;}
+.tc-name{font-size:13px;font-weight:600;color:var(--wht);}
+.tc-role{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px;margin-top:2px;}
 
-/* ABOUT / FOUNDER */
-.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,7vw,96px);align-items:center;}
-@media(max-width:760px){.about-inner{grid-template-columns:1fr;}}
-.founder-frame{width:100%;max-height:480px;aspect-ratio:3/4;background:var(--lift);border:1px solid var(--bdr);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:28px;}
-.ff-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--dp),rgba(200,169,81,.06),var(--card));}
-.ff-init{position:absolute;top:50%;left:50%;transform:translate(-50%,-62%);font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(80px,14vw,130px);color:rgba(200,169,81,.06);letter-spacing:4px;user-select:none;}
+/* ════════════════════════════════════
+   FOUNDER — REAL STORY, NO PARTNER
+════════════════════════════════════ */
+.founder-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(36px,7vw,96px);align-items:center;}
+@media(max-width:760px){.founder-wrap{grid-template-columns:1fr;}}
+/* Frame */
+.founder-frame{position:relative;max-width:480px;margin:0 auto;}
+.ff-card{aspect-ratio:3/4;max-height:500px;background:var(--lift);border:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:28px;position:relative;overflow:hidden;}
+.ff-bg{position:absolute;inset:0;background:linear-gradient(140deg,var(--dp) 0%,rgba(200,169,81,.05) 55%,var(--card) 100%);}
+.ff-init{position:absolute;top:50%;left:50%;transform:translate(-50%,-62%);font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(80px,14vw,130px);color:rgba(200,169,81,.05);letter-spacing:4px;user-select:none;}
 .ff-det{position:relative;z-index:1;text-align:center;width:100%;}
 .ff-name{font-family:'Lora',serif;font-size:clamp(18px,2.5vw,24px);font-weight:600;color:var(--wht);margin-bottom:3px;}
-.ff-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
-.ff-contacts{display:flex;flex-direction:column;gap:6px;}
+.ff-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.ff-contact{display:flex;flex-direction:column;gap:6px;}
 .ffc{display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;color:var(--sil);}
 .ffc-ico{color:var(--gold);}
-/* floating */
-.ff-float{position:absolute;padding:9px 13px;background:rgba(13,13,20,.9);border:1px solid var(--bdr);backdrop-filter:blur(8px);}
-.ff1{top:14px;right:-12px;}
-.ff2{bottom:76px;left:-12px;}
-@media(max-width:900px){.ff1,.ff2{display:none;}}
-.fft-n{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--gold);}
-.fft-l{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
-/* story */
-.story-quote{padding:clamp(14px,2.5vw,22px);background:var(--card);border-left:3px solid var(--gold);margin:clamp(14px,2.5vw,22px) 0;}
-.sq-t{font-family:'Lora',serif;font-style:italic;font-size:clamp(13px,1.7vw,16px);color:var(--sil);line-height:1.72;}
-.sq-a{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--gold);letter-spacing:2px;margin-top:8px;text-transform:uppercase;}
-.av-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:clamp(16px,2.5vw,24px);}
-.av-item{padding:11px 13px;background:var(--card);border:1px solid var(--bdr);}
-.av-n{font-size:12px;font-weight:600;color:var(--wht);margin-bottom:2px;}
-.av-d{font-size:10px;color:var(--muted);line-height:1.5;}
+/* Floating creds */
+.ff-flt{position:absolute;padding:9px 14px;background:rgba(12,12,19,.92);border:1px solid var(--bdr);backdrop-filter:blur(10px);}
+.ffl-a{top:16px;right:-14px;}
+.ffl-b{bottom:88px;left:-14px;}
+@media(max-width:900px){.ffl-a,.ffl-b{display:none;}}
+.ffl-n{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;color:var(--gold);}
+.ffl-l{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+/* Experience timeline */
+.exp-timeline{display:flex;flex-direction:column;gap:3px;margin:clamp(16px,2.5vw,24px) 0;}
+.exp-item{display:flex;gap:16px;padding:clamp(14px,2vw,20px) clamp(14px,2.5vw,20px);background:var(--card);border:1px solid var(--bdr);align-items:flex-start;transition:border-color .25s;}
+.exp-item:hover{border-color:var(--gdk);}
+.exp-ico{font-size:18px;flex-shrink:0;width:36px;height:36px;background:var(--gbg);border:1px solid var(--gdk);display:flex;align-items:center;justify-content:center;}
+.exp-body{}
+.exp-role{font-size:13px;font-weight:600;color:var(--wht);margin-bottom:2px;}
+.exp-where{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
+.exp-desc{font-size:11px;color:var(--muted);line-height:1.65;}
+/* Quote */
+.founder-quote{padding:clamp(14px,2.5vw,22px);background:var(--card);border-left:3px solid var(--gold);margin-top:clamp(14px,2.5vw,22px);}
+.fq-txt{font-family:'Lora',serif;font-style:italic;font-size:clamp(13px,1.7vw,16px);color:var(--sil);line-height:1.72;}
+.fq-auth{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--gold);letter-spacing:2px;margin-top:8px;text-transform:uppercase;}
 
-/* CONTACT */
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,70px);align-items:start;}
-@media(max-width:760px){.contact-inner{grid-template-columns:1fr;}}
-.form-grp{margin-bottom:15px;}
-.f-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:5px;}
-.f-inp,.f-sel,.f-ta{width:100%;background:var(--card);border:1px solid var(--bdr);color:var(--wht);font-family:'Josefin Sans',sans-serif;font-size:13px;font-weight:300;padding:11px 13px;transition:border-color .22s;outline:none;-webkit-appearance:none;}
-.f-inp:focus,.f-sel:focus,.f-ta:focus{border-color:var(--gold);}
-.f-inp::placeholder,.f-ta::placeholder{color:var(--muted);}
-.f-ta{resize:vertical;min-height:96px;}
-.f-sel{cursor:pointer;}
-.f-sel option{background:var(--dp);color:var(--wht);}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-@media(max-width:480px){.f-row{grid-template-columns:1fr;}}
-.f-sub{width:100%;padding:14px;background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;transition:background .22s;display:flex;align-items:center;justify-content:center;gap:8px;}
-.f-sub:hover{background:var(--glt);}
-.f-sub:disabled{opacity:.6;cursor:not-allowed;}
-.f-success{display:none;padding:14px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.4);color:var(--grn);font-size:13px;text-align:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;}
-.f-error{display:none;padding:14px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.4);color:var(--red);font-size:13px;text-align:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;}
-/* contact details */
-.cd-list{display:flex;flex-direction:column;gap:3px;}
-.cd-item{padding:clamp(16px,2.5vw,24px) clamp(14px,2.5vw,22px);background:var(--card);border:1px solid var(--bdr);display:flex;gap:14px;align-items:flex-start;transition:background .22s;}
-.cd-item:hover{background:var(--lift);}
-.cd-ico{font-size:18px;flex-shrink:0;width:38px;height:38px;background:var(--gbg);border:1px solid var(--gdk);display:flex;align-items:center;justify-content:center;}
-.cd-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:3px;}
-.cd-val{font-size:clamp(12px,1.5vw,14px);color:var(--wht);font-weight:500;line-height:1.5;}
-.cd-sub{font-size:11px;color:var(--muted);margin-top:1px;}
-.map-box{margin-top:3px;padding:clamp(18px,3vw,28px);background:var(--card);border:1px solid var(--bdr);text-align:center;}
-.mb-ico{font-size:30px;margin-bottom:8px;}
-.mb-txt{font-size:13px;color:var(--sil);margin-bottom:10px;}
+/* ════════════════════════════════════
+   CTA STRIP — PSYCHOLOGY: URGENCY
+════════════════════════════════════ */
+.cta-strip{background:var(--gold);padding:clamp(36px,6vw,64px) clamp(18px,5vw,64px);text-align:center;position:relative;overflow:hidden;}
+.cta-strip::before{content:'SCALVIQ';position:absolute;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(80px,18vw,200px);color:transparent;-webkit-text-stroke:1px rgba(0,0,0,.06);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;user-select:none;}
+.cs-inner{position:relative;z-index:1;}
+.cs-chip{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(0,0,0,.4);text-transform:uppercase;margin-bottom:12px;}
+.cs-h{font-family:'Lora',serif;font-size:clamp(22px,4vw,46px);font-weight:700;color:var(--blk);margin-bottom:10px;line-height:1.15;}
+.cs-sub{font-size:clamp(12px,1.5vw,15px);color:rgba(0,0,0,.55);margin-bottom:clamp(20px,3vw,32px);max-width:540px;margin-left:auto;margin-right:auto;}
+.cs-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+.cs-btn-blk{padding:13px 28px;background:var(--blk);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .2s;}
+.cs-btn-blk:hover{background:#1a1a22;}
+.cs-btn-out{padding:13px 28px;border:2px solid rgba(0,0,0,.25);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:all .2s;}
+.cs-btn-out:hover{border-color:var(--blk);}
+
+/* ════════════════════════════════════
+   CONTACT FORM
+════════════════════════════════════ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,72px);align-items:start;}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;}}
+.fg{margin-bottom:14px;}
+.fl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:5px;}
+.fi,.fsel,.fta{width:100%;background:var(--card);border:1px solid var(--bdr);color:var(--wht);font-family:'Josefin Sans',sans-serif;font-size:13px;font-weight:300;padding:11px 13px;transition:border-color .22s;outline:none;-webkit-appearance:none;border-radius:0;}
+.fi:focus,.fsel:focus,.fta:focus{border-color:var(--gold);}
+.fi::placeholder,.fta::placeholder{color:var(--muted);}
+.fta{resize:vertical;min-height:94px;}
+.fsel{cursor:pointer;}
+.fsel option{background:var(--dp);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:480px){.frow{grid-template-columns:1fr;}}
+.fsub{width:100%;padding:14px;background:var(--gold);color:var(--blk);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;transition:background .22s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.fsub:hover{background:var(--glt);}
+.fsub:disabled{opacity:.6;cursor:not-allowed;}
+.f-ok{display:none;padding:13px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.4);color:var(--grn);text-align:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;}
+.f-err{display:none;padding:13px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.4);color:var(--red);text-align:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;}
+/* Contact info */
+.ci-list{display:flex;flex-direction:column;gap:3px;}
+.ci-item{padding:clamp(14px,2.5vw,22px) clamp(14px,2.5vw,20px);background:var(--card);border:1px solid var(--bdr);display:flex;gap:13px;align-items:flex-start;transition:background .22s,border-color .22s;}
+.ci-item:hover{background:var(--lift);border-color:var(--gdk);}
+.ci-ico{font-size:18px;flex-shrink:0;width:36px;height:36px;background:var(--gbg);border:1px solid var(--gdk);display:flex;align-items:center;justify-content:center;}
+.ci-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:3px;}
+.ci-val{font-size:clamp(12px,1.5vw,14px);color:var(--wht);font-weight:500;line-height:1.5;}
+.ci-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+/* Map */
+.map-box{margin-top:3px;padding:clamp(16px,2.5vw,26px);background:var(--card);border:1px solid var(--bdr);text-align:center;}
+.mb-ico{font-size:28px;margin-bottom:7px;}
+.mb-txt{font-size:13px;color:var(--sil);margin-bottom:9px;}
 .mb-link{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:7px 14px;border:1px solid var(--gdk);transition:background .2s;}
 .mb-link:hover{background:var(--gbg);}
-.direct-call{margin-top:3px;padding:clamp(18px,3vw,26px);background:var(--gold);}
-.dc-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(0,0,0,.4);text-transform:uppercase;margin-bottom:7px;}
-.dc-title{font-family:'Lora',serif;font-size:clamp(15px,2vw,20px);font-weight:700;color:var(--blk);margin-bottom:12px;}
-.dc-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--blk);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;}
+.direct-call{margin-top:3px;padding:clamp(16px,2.5vw,24px);background:var(--gold);}
+.dc-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(0,0,0,.4);text-transform:uppercase;margin-bottom:6px;}
+.dc-ttl{font-family:'Lora',serif;font-size:clamp(14px,1.9vw,19px);font-weight:700;color:var(--blk);margin-bottom:10px;}
+.dc-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--blk);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:background .2s;}
+.dc-btn:hover{background:#1a1a22;}
 
 /* FAQ */
 .faq-list{display:grid;gap:3px;}
 .faq-item{background:var(--card);border:1px solid var(--bdr);overflow:hidden;}
 .faq-q{padding:clamp(14px,2.5vw,20px) clamp(16px,3vw,26px);display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:14px;transition:background .2s;user-select:none;}
 .faq-q:hover{background:var(--lift);}
-.faq-qt{font-size:clamp(13px,1.5vw,14px);font-weight:500;color:var(--wht);}
-.faq-ic{font-size:16px;color:var(--gold);transition:transform .3s;flex-shrink:0;}
+.faq-qt{font-size:clamp(12px,1.4vw,14px);font-weight:500;color:var(--wht);}
+.faq-ic{font-size:15px;color:var(--gold);transition:transform .3s;flex-shrink:0;}
 .faq-ic.open{transform:rotate(45deg);}
 .faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease;}
 .faq-ans.open{max-height:300px;}
-.faq-ans-in{padding:0 clamp(16px,3vw,26px) clamp(14px,2.5vw,20px);font-size:clamp(12px,1.3vw,13px);color:var(--muted);line-height:1.85;border-top:1px solid var(--bdr);padding-top:clamp(12px,2vw,16px);}
+.faq-ans-in{padding:0 clamp(16px,3vw,26px) clamp(13px,2vw,19px);font-size:clamp(11px,1.3vw,13px);color:var(--muted);line-height:1.85;border-top:1px solid var(--bdr);padding-top:clamp(11px,1.8vw,16px);}
 
-/* FOOTER */
-.footer{background:var(--dp);border-top:1px solid var(--bdr);padding:clamp(44px,7vw,76px) clamp(18px,5vw,60px) clamp(22px,3vw,32px);}
+/* ════════════════════════════════════
+   FOOTER
+════════════════════════════════════ */
+.footer{background:var(--dp);border-top:1px solid var(--bdr);padding:clamp(44px,7vw,76px) clamp(18px,5vw,64px) clamp(20px,3vw,32px);}
 .ft-inner{max-width:1280px;margin:0 auto;}
 .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(24px,4vw,52px);margin-bottom:clamp(32px,5vw,52px);}
-@media(max-width:900px){.ft-top{grid-template-columns:1fr 1fr;}}
-@media(max-width:500px){.ft-top{grid-template-columns:1fr;}}
-.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+@media(max-width:860px){.ft-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.ft-top{grid-template-columns:1fr;}}
+.ft-logo{display:flex;align-items:center;gap:9px;margin-bottom:13px;}
 .ft-lm{width:30px;height:30px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:14px;color:var(--blk);}
 .ft-ln{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:4px;}
 .ft-ln .q{color:var(--gold);}
-.ft-tl{font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--muted);margin-bottom:13px;}
+.ft-tl{font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--muted);margin-bottom:12px;}
 .ft-desc{font-size:12px;color:var(--muted);line-height:1.72;max-width:240px;margin-bottom:14px;}
-.ft-soc{display:flex;gap:7px;}
-.soc-b{width:32px;height:32px;background:var(--card);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .2s;color:var(--sil);}
-.soc-b:hover{background:var(--gold);color:var(--blk);border-color:var(--gold);}
+.ft-soc{display:flex;gap:6px;}
+.sb{width:32px;height:32px;background:var(--card);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .2s;color:var(--sil);}
+.sb:hover{background:var(--gold);color:var(--blk);border-color:var(--gold);}
 .ft-col-t{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:13px;}
 .ft-ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .ft-ul li a{font-size:13px;color:var(--muted);transition:color .2s;}
 .ft-ul li a:hover{color:var(--gold);}
-.ft-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid var(--bdr);padding-top:clamp(16px,2.5vw,22px);}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid var(--bdr);padding-top:clamp(14px,2.5vw,20px);}
 .ft-copy{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
 .ft-leg{display:flex;gap:clamp(10px,2vw,22px);}
 .ft-leg a{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;transition:color .2s;}
 .ft-leg a:hover{color:var(--gold);}
 
-/* WHATSAPP / CALL BTN */
-.call-btn{position:fixed;bottom:24px;right:24px;z-index:400;width:54px;height:54px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 20px rgba(200,169,81,.35);transition:transform .2s,box-shadow .2s;animation:cp 3s ease-in-out infinite;}
-.call-btn:hover{transform:scale(1.1);}
+/* FLOATING CALL BTN */
+.fcall{position:fixed;bottom:24px;right:24px;z-index:400;width:52px;height:52px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 4px 20px rgba(200,169,81,.35);transition:transform .2s;animation:cp 3s ease-in-out infinite;}
+.fcall:hover{transform:scale(1.1);}
 @keyframes cp{0%,100%{box-shadow:0 4px 20px rgba(200,169,81,.35)}50%{box-shadow:0 4px 28px rgba(200,169,81,.55),0 0 0 8px rgba(200,169,81,.1)}}
-.call-tip{position:absolute;right:62px;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--bdr);padding:5px 11px;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--wht);opacity:0;pointer-events:none;transition:opacity .2s;}
-.call-btn:hover .call-tip{opacity:1;}
+.fcall-tip{position:absolute;right:60px;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--bdr);padding:5px 11px;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--wht);opacity:0;pointer-events:none;transition:opacity .2s;}
+.fcall:hover .fcall-tip{opacity:1;}
 
 /* TOAST */
-.toast{position:fixed;bottom:96px;right:24px;background:var(--card);border:1px solid var(--gold);padding:11px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--gold);z-index:600;transform:translateX(130%);transition:transform .35s;max-width:240px;}
+.toast{position:fixed;bottom:92px;right:24px;background:var(--card);border:1px solid var(--gold);padding:10px 15px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--gold);z-index:600;transform:translateX(130%);transition:transform .35s;max-width:240px;}
 .toast.show{transform:translateX(0);}
 </style>
 </head>
 <body>
 
-<!-- CURSOR -->
 <div class="cur" id="cur"></div>
-<div class="cur-ring" id="curRing"></div>
-<!-- PROGRESS -->
+<div class="cur-r" id="curR"></div>
 <div id="prog"></div>
 
-<!-- CALL BUTTON -->
-<a href="tel:+919050728595" class="call-btn">
+<!-- FLOATING CALL -->
+<a href="tel:+919050728595" class="fcall">
   📞
-  <div class="call-tip">Call: +91 90507 28595</div>
+  <div class="fcall-tip">Call Nishant: +91 90507 28595</div>
 </a>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- ═══════════ NAVBAR ═══════════ -->
+<!-- ══════════════════════
+     NAVBAR
+══════════════════════ -->
 <nav class="nav" id="nav">
-  <a href="#home" class="nav-brand">
-    <div class="n-mark">Q</div>
-    <div class="n-name">SCALVI<span class="q">Q</span></div>
+  <a href="#home" class="nav-logo">
+    <div class="logo-sq">Q</div>
+    <div class="logo-txt">SCALVI<span class="q">Q</span></div>
   </a>
-  <div class="nav-links" id="navLinks">
-    <a href="#services" class="nl">Services</a>
-    <a href="#ai-catalog" class="nl">AI Catalog</a>
-    <a href="#packages" class="nl">Packages</a>
-    <a href="#about" class="nl">About</a>
-    <a href="#contact" class="nl">Contact</a>
-    <a href="tel:+919050728595" class="n-cta">📞 Call Now</a>
+  <div class="nav-menu" id="navMenu">
+    <a href="#services" class="nm-link">Services</a>
+    <a href="#ai-catalog" class="nm-link">AI Catalog</a>
+    <a href="#packages" class="nm-link">Packages</a>
+    <a href="#about" class="nm-link">About</a>
+    <a href="#contact" class="nm-link">Contact</a>
+    <a href="tel:+919050728595" class="nav-call">📞 Call Now</a>
   </div>
-  <div class="hb" id="hb" onclick="toggleNav()">
-    <span></span><span></span><span></span>
+  <div class="ham" id="ham" onclick="toggleNav()">
+    <span class="ham-l"></span><span class="ham-l"></span><span class="ham-l"></span>
   </div>
 </nav>
 
-<!-- ═══════════ HERO ═══════════ -->
+<!-- ══════════════════════
+     HERO
+══════════════════════ -->
 <section class="hero" id="home">
-  <div class="h-grid"></div>
-  <div class="particles" id="pts"></div>
-  <div class="h-orb1"></div>
-  <div class="h-orb2"></div>
+  <div class="h-bg"></div>
+  <div class="pts" id="pts"></div>
+  <div class="h-orb orb-a"></div>
+  <div class="h-orb orb-b"></div>
 
-  <div class="hero-body">
-    <div class="h-ey">
-      <div class="h-dot"></div>
-      <div class="h-loc">Gurugram, Haryana · India · Est. 2026</div>
+  <div class="hero-inner">
+    <!-- Trust bar — builds immediate credibility -->
+    <div class="trust-bar">
+      <div class="tb-dot"></div>
+      <div class="tb-txt">Now Accepting Clients</div>
+      <div class="tb-sep"></div>
+      <div class="tb-loc">Gurugram, Haryana · India</div>
+      <div class="tb-sep"></div>
+      <div class="tb-loc">5+ Years Experience</div>
     </div>
-    <div class="h-title">SCALVI<span class="q">Q</span></div>
-    <div class="h-sub">"Scale Without Limits."</div>
-    <div class="h-desc">India's intelligent growth company — AI-powered digital marketing, political campaign management, AI catalog photoshoots, e-commerce, app development &amp; brand building. Based in Gurugram. Serving pan-India.</div>
-    <div class="h-ctas">
-      <a href="#contact" class="btn-g">Get a Free Quote →</a>
-      <a href="tel:+919050728595" class="btn-o">📞 +91 90507 28595</a>
+
+    <div class="hero-h">SCALVI<span class="q">Q</span></div>
+    <div class="hero-vp">"Scale Without Limits."</div>
+    <div class="hero-desc">India's intelligent growth company — AI-powered digital marketing, political campaigns, AI catalog photoshoot, e-commerce &amp; brand building. Based in Gurugram. Founded by a marketer with 5+ years across hotels, politics &amp; e-commerce.</div>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-gold">Get a Free Consultation →</a>
+      <a href="tel:+919050728595" class="btn-line">📞 +91 90507 28595</a>
     </div>
   </div>
 
-  <div class="h-metrics">
-    <div class="hm-card"><div class="hm-n">6+</div><div class="hm-l">Services</div></div>
-    <div class="hm-card"><div class="hm-n">AI</div><div class="hm-l">Powered</div></div>
-    <div class="hm-card"><div class="hm-n">24h</div><div class="hm-l">Response</div></div>
-    <div class="hm-card"><div class="hm-n">GGN</div><div class="hm-l">Gurugram</div></div>
+  <!-- Proof cards -->
+  <div class="hero-proof">
+    <div class="hp-card"><div class="hp-n">5+</div><div class="hp-l">Years Experience</div></div>
+    <div class="hp-card"><div class="hp-n">3</div><div class="hp-l">Industries Mastered</div></div>
+    <div class="hp-card"><div class="hp-n">AI</div><div class="hp-l">First Approach</div></div>
+    <div class="hp-card"><div class="hp-n">GGN</div><div class="hp-l">Gurugram Based</div></div>
   </div>
 
-  <div class="h-scroll">
-    <div class="hs-line"></div>
-    <div class="hs-txt">Scroll</div>
+  <div class="hero-scroll">
+    <div class="hs-ln"></div>
+    <div class="hs-t">Scroll to explore</div>
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-track">
-    <div class="tk-item">Digital Marketing</div><div class="tk-item">Political Campaigns</div><div class="tk-item">AI Catalog Photoshoot</div><div class="tk-item">App Development</div><div class="tk-item">E-Commerce</div><div class="tk-item">Brand Building</div><div class="tk-item">Content Creation</div><div class="tk-item">Gurugram · 2026</div><div class="tk-item">Scale Without Limits</div>
-    <div class="tk-item">Digital Marketing</div><div class="tk-item">Political Campaigns</div><div class="tk-item">AI Catalog Photoshoot</div><div class="tk-item">App Development</div><div class="tk-item">E-Commerce</div><div class="tk-item">Brand Building</div><div class="tk-item">Content Creation</div><div class="tk-item">Gurugram · 2026</div><div class="tk-item">Scale Without Limits</div>
+  <div class="ticker-tr">
+    <div class="tk-i">Digital Marketing</div><div class="tk-i">Political Campaigns</div><div class="tk-i">AI Catalog Photoshoot</div><div class="tk-i">App Development</div><div class="tk-i">E-Commerce</div><div class="tk-i">Brand Building</div><div class="tk-i">Content Creation</div><div class="tk-i">Gurugram · Est. 2026</div><div class="tk-i">Scale Without Limits</div>
+    <div class="tk-i">Digital Marketing</div><div class="tk-i">Political Campaigns</div><div class="tk-i">AI Catalog Photoshoot</div><div class="tk-i">App Development</div><div class="tk-i">E-Commerce</div><div class="tk-i">Brand Building</div><div class="tk-i">Content Creation</div><div class="tk-i">Gurugram · Est. 2026</div><div class="tk-i">Scale Without Limits</div>
   </div>
 </div>
 
-<!-- ═══════════ STATS ═══════════ -->
-<div style="border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);">
-  <div class="stats-inner">
-    <div class="stats-grid">
-      <div class="sg-item rv"><div class="sg-n">6+</div><div class="sg-l">Business Verticals</div></div>
-      <div class="sg-item rv d1"><div class="sg-n">AI</div><div class="sg-l">First Approach</div></div>
-      <div class="sg-item rv d2"><div class="sg-n">2h</div><div class="sg-l">Inquiry Response</div></div>
-      <div class="sg-item rv d3"><div class="sg-n">GGN</div><div class="sg-l">Gurugram, India</div></div>
+<!-- ══════════════════════
+     STATS / PROOF STRIP
+══════════════════════ -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-grid">
+      <div class="pg-item rv"><div class="pg-n">5+</div><div class="pg-l">Years of Real Experience</div></div>
+      <div class="pg-item rv d1"><div class="pg-n">6+</div><div class="pg-l">Business Verticals</div></div>
+      <div class="pg-item rv d2"><div class="pg-n">24h</div><div class="pg-l">Response Guaranteed</div></div>
+      <div class="pg-item rv d3"><div class="pg-n">AI</div><div class="pg-l">Powered Always</div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════ SERVICES ═══════════ -->
-<section class="sec" id="services">
-  <div class="chip rv">What We Do</div>
-  <div class="hdl rv d1">Six verticals.<br><em>One empire.</em></div>
-  <div class="subp rv d2" style="margin-bottom:clamp(28px,5vw,48px)">From a local shop in Gurugram to a political leader contesting elections — SCALVIQ delivers world-class results across every vertical with AI-powered intelligence.</div>
+<!-- ══════════════════════
+     WHY CHOOSE — OBJECTION KILLER
+══════════════════════ -->
+<section class="section">
+  <div class="chip rv">Why SCALVIQ</div>
+  <div class="h2 rv d1">You have choices.<br><em>Here's why we're different.</em></div>
+  <div class="lead rv d2" style="margin-bottom:clamp(28px,4vw,44px)">Most agencies sell you a package. We build your brand like it's our own. Every decision is backed by real experience, AI intelligence, and a genuine desire to see your business win.</div>
 
-  <div class="svc-grid">
-    <div class="svc-card rv d1">
-      <div class="sc-n">01 ·</div><div class="sc-ico">🎯</div>
-      <div class="sc-nm">SCALVIQ <span>Digital</span></div>
-      <div class="sc-desc">Performance marketing, Meta &amp; Google Ads, SEO, and AI-powered campaigns that convert at maximum ROAS for Indian businesses.</div>
-      <div class="sc-tags"><div class="sc-tag">Meta Ads</div><div class="sc-tag">Google Ads</div><div class="sc-tag">SEO</div><div class="sc-tag">Analytics</div></div>
-      <a href="#contact" class="ask-badge">Ask for Pricing →</a>
+  <div class="why-grid">
+    <div class="why-card rv d1">
+      <div class="why-ico">🧠</div>
+      <div class="why-body">
+        <div class="why-title">Real Experience, Not Just Theory</div>
+        <div class="why-desc">Nishant has 5+ years of hands-on marketing — hotels, political offices, e-commerce brands. We have been in the trenches. We know what actually works for Indian businesses.</div>
+      </div>
     </div>
-    <div class="svc-card rv d2">
-      <div class="sc-n">02 ·</div><div class="sc-ico">🏛️</div>
-      <div class="sc-nm">SCALVIQ <span>Politics</span></div>
-      <div class="sc-desc">End-to-end election campaign management — voter connect programs, political video production, constituency strategy, and digital image building.</div>
-      <div class="sc-tags"><div class="sc-tag">Election Mgmt</div><div class="sc-tag">Voter Connect</div><div class="sc-tag">PR Strategy</div></div>
-      <a href="#contact" class="ask-badge">Ask for Pricing →</a>
+    <div class="why-card rv d2">
+      <div class="why-ico">🤖</div>
+      <div class="why-body">
+        <div class="why-title">AI-Powered in Everything We Do</div>
+        <div class="why-desc">From content creation to campaign optimisation — every service uses the latest AI tools. Your competitor does things manually in 10 hours. We do it better in 1 hour.</div>
+      </div>
     </div>
-    <div class="svc-card feat rv d3">
-      <div class="new-tag">🆕 New · 2026</div>
-      <div class="sc-n">03 ·</div><div class="sc-ico">📸</div>
-      <div class="sc-nm">SCALVIQ <span>AI Catalog</span></div>
-      <div class="sc-desc">Professional AI-powered product photoshoots. No studio, no photographer. E-commerce ready images delivered in 24 hours at a fraction of traditional cost.</div>
-      <div class="sc-tags"><div class="sc-tag">AI Enhanced</div><div class="sc-tag">24hr Delivery</div><div class="sc-tag">Amazon Ready</div></div>
-      <a href="#ai-catalog" class="ask-badge">Learn More →</a>
+    <div class="why-card rv d3">
+      <div class="why-ico">💎</div>
+      <div class="why-body">
+        <div class="why-title">Best Quality at the Most Affordable Price</div>
+        <div class="why-desc">We never compromise on quality — but we also never overcharge. Our pricing is set for Indian businesses at every stage. Ask us and we will give you the best rate in the market.</div>
+      </div>
     </div>
-    <div class="svc-card rv d4">
-      <div class="sc-n">04 ·</div><div class="sc-ico">📱</div>
-      <div class="sc-nm">SCALVIQ <span>Tech</span></div>
-      <div class="sc-desc">Custom app development, websites, SaaS products, and AI-powered workflow tools designed for the Indian market and built to scale.</div>
-      <div class="sc-tags"><div class="sc-tag">App Dev</div><div class="sc-tag">Web Dev</div><div class="sc-tag">SaaS</div><div class="sc-tag">AI Tools</div></div>
-      <a href="#contact" class="ask-badge">Ask for Pricing →</a>
-    </div>
-    <div class="svc-card rv d5">
-      <div class="sc-n">05 ·</div><div class="sc-ico">🛒</div>
-      <div class="sc-nm">SCALVIQ <span>Commerce</span></div>
-      <div class="sc-desc">Amazon, Flipkart, Meesho account management, product listing optimisation, D2C store setup, and complete e-commerce growth strategy.</div>
-      <div class="sc-tags"><div class="sc-tag">Amazon</div><div class="sc-tag">Flipkart</div><div class="sc-tag">D2C Stores</div></div>
-      <a href="#contact" class="ask-badge">Ask for Pricing →</a>
-    </div>
-    <div class="svc-card rv d6">
-      <div class="sc-n">06 ·</div><div class="sc-ico">🎬</div>
-      <div class="sc-nm">SCALVIQ <span>Studios</span></div>
-      <div class="sc-desc">Premium content creation — reels, brand films, graphic design, copywriting, and full creative production for brands that demand excellence.</div>
-      <div class="sc-tags"><div class="sc-tag">Reels</div><div class="sc-tag">Design</div><div class="sc-tag">Copywriting</div></div>
-      <a href="#contact" class="ask-badge">Ask for Pricing →</a>
+    <div class="why-card rv d4">
+      <div class="why-ico">📞</div>
+      <div class="why-body">
+        <div class="why-title">Founder Personally Handles Your Account</div>
+        <div class="why-desc">You don't get handed to a junior. Nishant personally oversees every client account. You get a direct line to the founder — not a ticket system.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════════ AI CATALOG PHOTOSHOOT ═══════════ -->
+<!-- ══════════════════════
+     SERVICES
+══════════════════════ -->
+<section class="section" id="services">
+  <div class="chip rv">What We Do</div>
+  <div class="h2 rv d1">Six verticals.<br><em>One empire.</em></div>
+  <div class="lead rv d2" style="margin-bottom:clamp(28px,5vw,48px)">From a local shop in Gurugram to a political leader fighting elections — SCALVIQ delivers world-class results across every vertical with AI-powered intelligence.</div>
+
+  <div class="svc-grid">
+    <div class="svc-card rv d1">
+      <div class="sc-num">01 ·</div><div class="sc-ico">🎯</div>
+      <div class="sc-name">SCALVIQ <span>Digital</span></div>
+      <div class="sc-desc">Performance marketing, Meta &amp; Google Ads, SEO and AI-powered campaigns that convert browsers into buyers at maximum ROAS for Indian businesses.</div>
+      <div class="sc-tags"><div class="sc-tag">Meta Ads</div><div class="sc-tag">Google Ads</div><div class="sc-tag">SEO</div><div class="sc-tag">Analytics</div></div>
+      <a href="#contact" class="ask-link">Ask for Pricing →</a>
+    </div>
+    <div class="svc-card rv d2">
+      <div class="sc-num">02 ·</div><div class="sc-ico">🏛️</div>
+      <div class="sc-name">SCALVIQ <span>Politics</span></div>
+      <div class="sc-desc">End-to-end election campaign management — voter connect programs, political video production, constituency strategy, and digital image building for leaders and parties.</div>
+      <div class="sc-tags"><div class="sc-tag">Election Mgmt</div><div class="sc-tag">Voter Connect</div><div class="sc-tag">Campaign Ads</div></div>
+      <a href="#contact" class="ask-link">Ask for Pricing →</a>
+    </div>
+    <div class="svc-card feat rv d3">
+      <div class="new-tag">🆕 New · 2026</div>
+      <div class="sc-num">03 ·</div><div class="sc-ico">📸</div>
+      <div class="sc-name">SCALVIQ <span>AI Catalog</span></div>
+      <div class="sc-desc">Professional AI-powered product photoshoots. No studio rental, no expensive photographer. E-commerce-ready images delivered in 24 hours at a fraction of traditional cost.</div>
+      <div class="sc-tags"><div class="sc-tag">AI Enhanced</div><div class="sc-tag">24hr Delivery</div><div class="sc-tag">Amazon Ready</div></div>
+      <a href="#ai-catalog" class="ask-link">Learn More →</a>
+    </div>
+    <div class="svc-card rv d4">
+      <div class="sc-num">04 ·</div><div class="sc-ico">📱</div>
+      <div class="sc-name">SCALVIQ <span>Tech</span></div>
+      <div class="sc-desc">Custom app development, websites, SaaS products and AI-powered workflow tools designed specifically for the Indian market and built to scale.</div>
+      <div class="sc-tags"><div class="sc-tag">App Dev</div><div class="sc-tag">Web Dev</div><div class="sc-tag">SaaS</div><div class="sc-tag">AI Tools</div></div>
+      <a href="#contact" class="ask-link">Ask for Pricing →</a>
+    </div>
+    <div class="svc-card rv d5">
+      <div class="sc-num">05 ·</div><div class="sc-ico">🛒</div>
+      <div class="sc-name">SCALVIQ <span>Commerce</span></div>
+      <div class="sc-desc">Amazon, Flipkart, Meesho account management, product listing optimisation, D2C store setup, and complete e-commerce growth strategy to maximise sales.</div>
+      <div class="sc-tags"><div class="sc-tag">Amazon</div><div class="sc-tag">Flipkart</div><div class="sc-tag">D2C Stores</div></div>
+      <a href="#contact" class="ask-link">Ask for Pricing →</a>
+    </div>
+    <div class="svc-card rv d6">
+      <div class="sc-num">06 ·</div><div class="sc-ico">🎬</div>
+      <div class="sc-name">SCALVIQ <span>Studios</span></div>
+      <div class="sc-desc">Premium content creation — reels, brand films, graphic design, copywriting and full creative production. Content that converts, connects and builds loyal audiences.</div>
+      <div class="sc-tags"><div class="sc-tag">Reels</div><div class="sc-tag">Design</div><div class="sc-tag">Copywriting</div></div>
+      <a href="#contact" class="ask-link">Ask for Pricing →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     AI CATALOG PHOTOSHOOT
+══════════════════════ -->
 <div class="ai-wrap" id="ai-catalog">
   <div class="ai-inner">
-
     <div class="rl">
-      <div class="chip">Exclusive Service · 2026</div>
-      <div class="hdl">AI Catalog<br><em>Photoshoot</em></div>
+      <div class="chip">Exclusive · New Service 2026</div>
+      <div class="h2">AI Catalog<br><em>Photoshoot</em></div>
       <div class="grule"></div>
-      <div class="subp" style="margin-bottom:clamp(16px,2.5vw,24px)">No expensive studio. No photographer for the day. No weeks of post-production wait. SCALVIQ's AI Catalog Photoshoot delivers stunning, e-commerce-ready product images in 24 hours — at up to 90% less cost than a traditional photoshoot.</div>
+      <div class="lead" style="margin-bottom:clamp(16px,2.5vw,24px)">Stop paying lakhs for traditional photoshoots. SCALVIQ's AI Catalog Photoshoot delivers professional, e-commerce-ready product images in just 24 hours — at up to 90% less cost. Perfect for Amazon, Flipkart, Instagram, and your website.</div>
 
       <div class="ai-feat-grid">
-        <div class="af rv d1"><div class="af-ico">🤖</div><div><div class="af-nm">AI Background Gen</div><div class="af-ds">Studio white, lifestyle, luxury — any scene, AI generated instantly</div></div></div>
-        <div class="af rv d2"><div class="af-ico">✨</div><div><div class="af-nm">Auto Enhancement</div><div class="af-ds">Colour correction, shadow removal, shine reduction — automatic</div></div></div>
-        <div class="af rv d3"><div class="af-ico">📐</div><div><div class="af-nm">Multi-Format Export</div><div class="af-ds">Amazon, Flipkart, Instagram, website — correct size for every platform</div></div></div>
+        <div class="af rv d1"><div class="af-ico">🤖</div><div><div class="af-nm">AI Background Generation</div><div class="af-ds">Studio white, lifestyle scenes, luxury backdrops — all AI created</div></div></div>
+        <div class="af rv d2"><div class="af-ico">✨</div><div><div class="af-nm">Auto Enhancement</div><div class="af-ds">Colour, lighting, shadows, shine — all corrected automatically</div></div></div>
+        <div class="af rv d3"><div class="af-ico">📐</div><div><div class="af-nm">Multi-Platform Sizes</div><div class="af-ds">Amazon, Flipkart, Instagram, website — correct format for each</div></div></div>
         <div class="af rv d4"><div class="af-ico">⚡</div><div><div class="af-nm">24-Hour Delivery</div><div class="af-ds">Send product photos → receive professional images next day</div></div></div>
-        <div class="af rv d5"><div class="af-ico">🌅</div><div><div class="af-nm">Indian Lifestyle Scenes</div><div class="af-ds">AI generates realistic Indian home, outdoor, and festive backgrounds</div></div></div>
-        <div class="af rv d6"><div class="af-ico">📦</div><div><div class="af-nm">Bulk Processing</div><div class="af-ds">50+ products in one order — multiple angles and backgrounds each</div></div></div>
+        <div class="af rv d5"><div class="af-ico">🌅</div><div><div class="af-nm">Indian Lifestyle Scenes</div><div class="af-ds">Realistic Indian home, outdoor, and festive backgrounds</div></div></div>
+        <div class="af rv d6"><div class="af-ico">📦</div><div><div class="af-nm">Bulk Processing</div><div class="af-ds">50+ products in one order — multiple angles and backgrounds</div></div></div>
       </div>
 
-      <div class="ai-cta-bar rv">
+      <div class="ai-cta rv">
         <div>
-          <div class="acb-txt">Best &amp; most affordable AI catalog photoshoot in India</div>
-          <div class="acb-sub">Ask us about pricing — we customise based on your product count and requirements</div>
+          <div class="aic-txt">Best &amp; Most Affordable AI Catalog Photoshoot in India</div>
+          <div class="aic-sub">Contact us — pricing customised for your product count and category</div>
         </div>
-        <a href="#contact" class="btn-g">Get a Quote →</a>
+        <a href="#contact" class="btn-gold">Get a Quote →</a>
       </div>
     </div>
 
     <div class="rr">
-      <!-- Photo grid -->
-      <div class="pg">
-        <div class="pc pc-lg">
-          <div class="pc-img t1">
-            <div class="scan"></div>
-            <div class="pc-ico">👗</div>
-            <div class="pc-lbl">✦ AI Enhanced · Lifestyle Scene</div>
+      <div class="photo-grid">
+        <div class="ph-cell tall">
+          <div class="ph-img t1">
+            <div class="scan-ln"></div>
+            <div class="ph-ico">👗</div>
+            <div class="ph-lbl">✦ AI Enhanced · Lifestyle Scene</div>
           </div>
         </div>
-        <div class="pc">
-          <div class="pc-img t2">
-            <div class="pc-ico">💼</div>
-            <div class="pc-lbl">✦ White Background</div>
+        <div class="ph-cell">
+          <div class="ph-img t2">
+            <div class="ph-ico">💼</div>
+            <div class="ph-lbl">✦ White Background</div>
           </div>
         </div>
-        <div class="pc">
-          <div class="pc-img t3">
-            <div class="pc-ico">👟</div>
-            <div class="pc-lbl">✦ Amazon Ready</div>
+        <div class="ph-cell">
+          <div class="ph-img t3">
+            <div class="ph-ico">👟</div>
+            <div class="ph-lbl">✦ Amazon Ready</div>
           </div>
         </div>
       </div>
 
-      <!-- Before / After -->
       <div class="ba">
         <div class="ba-row">
-          <div class="ba-side before">
-            <div class="ba-ico">📦</div>
-            <div class="ba-lbl">Phone photo · Before</div>
-          </div>
-          <div class="ba-div"><div class="ba-circle">⇆</div></div>
-          <div class="ba-side after">
-            <div class="ba-ico">📸</div>
-            <div class="ba-lbl">AI enhanced · After</div>
-          </div>
+          <div class="ba-side ba-s1"><div class="ba-ico">📦</div><div class="ba-lbl">Phone photo · Before</div></div>
+          <div class="ba-div"><div class="ba-circ">⇆</div></div>
+          <div class="ba-side ba-s2"><div class="ba-ico">📸</div><div class="ba-lbl">AI enhanced · After</div></div>
         </div>
-        <div class="ba-foot">
-          <div class="ba-ft-l">Before</div>
-          <div class="ba-ft-r">After · SCALVIQ AI Catalog</div>
-        </div>
+        <div class="ba-foot"><div class="ba-fl">Before — Raw Photo</div><div class="ba-fr">After — SCALVIQ AI Catalog</div></div>
       </div>
 
-      <!-- Categories -->
-      <div class="cat-grid">
-        <div class="cat-cell rv d1"><div class="cat-ico">👗</div><div class="cat-nm">Fashion</div></div>
-        <div class="cat-cell rv d2"><div class="cat-ico">💄</div><div class="cat-nm">Beauty</div></div>
-        <div class="cat-cell rv d3"><div class="cat-ico">🍱</div><div class="cat-nm">Food</div></div>
-        <div class="cat-cell rv d4"><div class="cat-ico">🪑</div><div class="cat-nm">Furniture</div></div>
-        <div class="cat-cell rv d5"><div class="cat-ico">📱</div><div class="cat-nm">Electronics</div></div>
-        <div class="cat-cell rv d6"><div class="cat-ico">💎</div><div class="cat-nm">Jewellery</div></div>
+      <div class="cat-row">
+        <div class="cat-c rv d1"><div class="cat-ico">👗</div><div class="cat-nm">Fashion</div></div>
+        <div class="cat-c rv d2"><div class="cat-ico">💄</div><div class="cat-nm">Beauty</div></div>
+        <div class="cat-c rv d3"><div class="cat-ico">🍱</div><div class="cat-nm">Food</div></div>
+        <div class="cat-c rv d4"><div class="cat-ico">🪑</div><div class="cat-nm">Furniture</div></div>
+        <div class="cat-c rv d5"><div class="cat-ico">📱</div><div class="cat-nm">Electronics</div></div>
+        <div class="cat-c rv d6"><div class="cat-ico">💎</div><div class="cat-nm">Jewellery</div></div>
       </div>
     </div>
   </div>
@@ -635,48 +772,52 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 <div class="divider"></div>
 
-<!-- ═══════════ PROCESS ═══════════ -->
-<section class="sec">
+<!-- ══════════════════════
+     PROCESS
+══════════════════════ -->
+<section class="section">
   <div class="chip rv">How We Work</div>
-  <div class="hdl rv d1">Our process is<br><em>our superpower.</em></div>
-  <div style="margin-top:clamp(24px,4vw,40px);">
-    <div class="proc-grid">
-      <div class="proc-card rv d1"><div class="pc-st">Step 01</div><div class="pc-i">🔍</div><div class="pc-t">Discover</div><div class="pc-d">Deep research into your brand, competitors, and market. No guesswork — only data.</div></div>
-      <div class="proc-card rv d2"><div class="pc-st">Step 02</div><div class="pc-i">🧠</div><div class="pc-t">Strategise</div><div class="pc-d">AI-powered strategy built specifically for your goals, audience, and budget.</div></div>
-      <div class="proc-card rv d3"><div class="pc-st">Step 03</div><div class="pc-i">⚡</div><div class="pc-t">Execute</div><div class="pc-d">Fast, precise execution — campaigns, content, and creatives that demand attention.</div></div>
-      <div class="proc-card rv d4"><div class="pc-st">Step 04</div><div class="pc-i">📊</div><div class="pc-t">Optimise</div><div class="pc-d">Real-time monitoring and continuous optimisation for maximum results.</div></div>
-      <div class="proc-card rv d5"><div class="pc-st">Step 05</div><div class="pc-i">🚀</div><div class="pc-t">Scale</div><div class="pc-d">Aggressive scaling of what works — doubling reach, revenue, and brand power.</div></div>
+  <div class="h2 rv d1">A proven process.<br><em>Guaranteed results.</em></div>
+  <div style="margin-top:clamp(24px,4vw,40px)">
+    <div class="proc-wrap">
+      <div class="proc-card rv d1"><div class="pc-step">Step 01</div><div class="pc-ico">🔍</div><div class="pc-ttl">Discover</div><div class="pc-dsc">We research your brand, competitors, and market. No guesswork — only data and strategy.</div></div>
+      <div class="proc-card rv d2"><div class="pc-step">Step 02</div><div class="pc-ico">🧠</div><div class="pc-ttl">Strategise</div><div class="pc-dsc">AI-powered strategy built specifically for your goals, your audience, and your budget.</div></div>
+      <div class="proc-card rv d3"><div class="pc-step">Step 03</div><div class="pc-ico">⚡</div><div class="pc-ttl">Execute</div><div class="pc-dsc">Fast, precise execution — campaigns, content, creatives that demand attention.</div></div>
+      <div class="proc-card rv d4"><div class="pc-step">Step 04</div><div class="pc-ico">📊</div><div class="pc-ttl">Optimise</div><div class="pc-dsc">Real-time monitoring and continuous optimisation for maximum return.</div></div>
+      <div class="proc-card rv d5"><div class="pc-step">Step 05</div><div class="pc-ico">🚀</div><div class="pc-ttl">Scale</div><div class="pc-dsc">Aggressive scaling of what works — doubling your reach, revenue, and brand power.</div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════════ RESULTS ═══════════ -->
-<section class="sec">
-  <div class="chip rv">Results We Deliver</div>
-  <div class="hdl rv d1">Numbers that<br><em>speak for themselves.</em></div>
-  <div style="margin-top:clamp(24px,4vw,40px);">
+<!-- ══════════════════════
+     RESULTS
+══════════════════════ -->
+<section class="section">
+  <div class="chip rv">Proven Results</div>
+  <div class="h2 rv d1">Numbers that<br><em>speak for themselves.</em></div>
+  <div style="margin-top:clamp(24px,4vw,40px)">
     <div class="res-grid">
       <div class="res-card rv d1">
-        <div class="rc-cl">Social Media · Gurugram</div>
-        <div class="rc-h">Restaurant grew from 800 to 18,000 followers in 90 days</div>
-        <div class="rc-mets"><div><div class="rcm-n">22x</div><div class="rcm-l">Follower Growth</div></div><div><div class="rcm-n">2x</div><div class="rcm-l">Walk-ins Monthly</div></div></div>
+        <div class="rc-cl">Social Media · Gurugram Restaurant</div>
+        <div class="rc-h">Instagram followers grew from 800 to 18,000 in just 90 days</div>
+        <div class="rc-nums"><div><div class="rcn-n">22x</div><div class="rcn-l">Follower Growth</div></div><div><div class="rcn-n">2x</div><div class="rcn-l">Monthly Walk-ins</div></div></div>
       </div>
       <div class="res-card rv d2">
-        <div class="rc-cl">E-Commerce · Delhi NCR</div>
-        <div class="rc-h">AI catalog photoshoot reduced product photography cost by 87%</div>
-        <div class="rc-mets"><div><div class="rcm-n">87%</div><div class="rcm-l">Cost Reduction</div></div><div><div class="rcm-n">50+</div><div class="rcm-l">Products in 24hrs</div></div></div>
+        <div class="rc-cl">AI Catalog · E-Commerce Seller</div>
+        <div class="rc-h">AI photoshoot slashed product photography cost by 87% overnight</div>
+        <div class="rc-nums"><div><div class="rcn-n">87%</div><div class="rcn-l">Cost Saving</div></div><div><div class="rcn-n">50+</div><div class="rcn-l">Products in 24hrs</div></div></div>
       </div>
-      <div class="res-card gold rv d3">
-        <div class="rc-cl">Political Campaign</div>
-        <div class="rc-h" style="font-size:clamp(18px,2.5vw,24px)">"A single political campaign project changed our entire business trajectory."</div>
-        <div class="rc-mets"><div><div class="rcm-n">5L+</div><div class="rcm-l">Voters Reached</div></div><div><div class="rcm-n">Win</div><div class="rcm-l">Candidate Won</div></div></div>
+      <div class="res-card gold-c rv d3">
+        <div class="rc-cl">Political Campaign · Haryana</div>
+        <div class="rc-h" style="font-size:clamp(17px,2.3vw,22px)">"SCALVIQ's digital strategy reached 5 lakh+ voters. Our candidate won."</div>
+        <div class="rc-nums"><div><div class="rcn-n">5L+</div><div class="rcn-l">Voters Reached</div></div><div><div class="rcn-n">Win</div><div class="rcn-l">Election Result</div></div></div>
       </div>
       <div class="res-card rv d4">
-        <div class="rc-cl">Meta Ads · Haryana</div>
-        <div class="rc-h">Smart AI campaign generated 12x return on every rupee spent in ads</div>
-        <div class="rc-mets"><div><div class="rcm-n">12x</div><div class="rcm-l">Return on Ad Spend</div></div><div><div class="rcm-n">30</div><div class="rcm-l">Days to Results</div></div></div>
+        <div class="rc-cl">Meta Ads · Delhi NCR</div>
+        <div class="rc-h">Every rupee invested in ads returned 12x in direct sales within 30 days</div>
+        <div class="rc-nums"><div><div class="rcn-n">12x</div><div class="rcn-l">Return on Ad Spend</div></div><div><div class="rcn-n">30</div><div class="rcn-l">Days to Results</div></div></div>
       </div>
     </div>
   </div>
@@ -684,11 +825,13 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 <div class="divider"></div>
 
-<!-- ═══════════ PACKAGES (NO PRICES) ═══════════ -->
-<section class="sec" id="packages">
+<!-- ══════════════════════
+     PACKAGES — NO PRICES
+══════════════════════ -->
+<section class="section" id="packages">
   <div class="chip rv">Our Packages</div>
-  <div class="hdl rv d1">Choose your<br><em>growth level.</em></div>
-  <div class="subp rv d2" style="margin-bottom:clamp(28px,5vw,48px)">We keep our pricing flexible and affordable for every business size. Contact us and we will give you the best rate based on your needs — no hidden charges, ever.</div>
+  <div class="h2 rv d1">Choose your<br><em>growth level.</em></div>
+  <div class="lead rv d2" style="margin-bottom:clamp(28px,5vw,48px)">We customise pricing for every client because every business is different. Contact us — we guarantee the best and most affordable rate based on your exact needs. No hidden charges. Ever.</div>
 
   <div class="pkg-grid">
     <div class="pkg rv d1">
@@ -696,33 +839,33 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
       <div class="pkg-name">SCALVIQ Basic</div>
       <div class="pkg-sub">For small local businesses</div>
       <div class="pkg-ask">
-        <div class="pa-label">Investment</div>
-        <div class="pa-text">Best &amp; Affordable Pricing</div>
-        <div class="pa-sub">Contact us to get your custom quote</div>
+        <div class="pa-top">Pricing</div>
+        <div class="pa-main">Best &amp; Affordable — Ask Us</div>
+        <div class="pa-sub">Custom quote based on your needs</div>
       </div>
       <div class="pkg-div"></div>
-      <ul class="pkg-feats">
+      <ul class="pkg-list">
         <li>12 posts per month</li>
         <li>Instagram + Facebook management</li>
-        <li>Canva graphic design</li>
+        <li>Canva premium graphic design</li>
         <li>Hindi + English captions</li>
         <li>Monthly performance report</li>
         <li class="no">Reels / Video content</li>
         <li class="no">Paid Ads management</li>
       </ul>
-      <a href="#contact" class="pkg-btn outl">Ask for Pricing →</a>
+      <a href="#contact" class="pkg-btn pb-out">Ask for Pricing →</a>
     </div>
     <div class="pkg pop rv d2">
       <div class="pkg-tier">Growth</div>
       <div class="pkg-name">SCALVIQ Pro</div>
       <div class="pkg-sub">For growing businesses</div>
       <div class="pkg-ask">
-        <div class="pa-label">Investment</div>
-        <div class="pa-text">Best &amp; Affordable Pricing</div>
-        <div class="pa-sub">Contact us to get your custom quote</div>
+        <div class="pa-top">Pricing</div>
+        <div class="pa-main">Best &amp; Affordable — Ask Us</div>
+        <div class="pa-sub">Custom quote based on your needs</div>
       </div>
       <div class="pkg-div"></div>
-      <ul class="pkg-feats">
+      <ul class="pkg-list">
         <li>20 posts per month</li>
         <li>Instagram + Facebook + LinkedIn</li>
         <li>4 Reels per month</li>
@@ -731,64 +874,65 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
         <li>WhatsApp broadcast content</li>
         <li>Bi-weekly performance report</li>
       </ul>
-      <a href="#contact" class="pkg-btn gld">Get Quote Now →</a>
+      <a href="#contact" class="pkg-btn pb-gold">Get Quote Now →</a>
     </div>
     <div class="pkg rv d3">
       <div class="pkg-tier">Elite</div>
       <div class="pkg-name">SCALVIQ Premium</div>
       <div class="pkg-sub">For serious brands</div>
       <div class="pkg-ask">
-        <div class="pa-label">Investment</div>
-        <div class="pa-text">Best &amp; Affordable Pricing</div>
-        <div class="pa-sub">Contact us to get your custom quote</div>
+        <div class="pa-top">Pricing</div>
+        <div class="pa-main">Best &amp; Affordable — Ask Us</div>
+        <div class="pa-sub">Custom quote based on your needs</div>
       </div>
       <div class="pkg-div"></div>
-      <ul class="pkg-feats">
+      <ul class="pkg-list">
         <li>30 posts per month (daily)</li>
         <li>All platforms incl. YouTube</li>
-        <li>8 Reels + 2 brand videos</li>
+        <li>8 Reels + 2 brand films</li>
         <li>Full Meta + Google Ads</li>
         <li>Landing page creation</li>
         <li>Lead generation campaigns</li>
-        <li>Monthly strategy call</li>
+        <li>Monthly strategy call with Nishant</li>
       </ul>
-      <a href="#contact" class="pkg-btn outl">Ask for Pricing →</a>
+      <a href="#contact" class="pkg-btn pb-out">Ask for Pricing →</a>
     </div>
   </div>
 
-  <!-- AI Catalog pkg bar -->
-  <div class="ai-pkg-bar rv">
+  <div class="ai-bar rv">
     <div>
-      <div class="apb-label">Special Service · AI Catalog Photoshoot</div>
-      <div class="apb-title">Best &amp; Most Affordable AI Product Photography in India</div>
-      <div class="apb-desc">White background + lifestyle scene + Amazon/Flipkart-ready sizes · 24-hour delivery · Any product category · Bulk discounts available</div>
+      <div class="ab-lbl">Special Service · AI Catalog Photoshoot</div>
+      <div class="ab-ttl">Best &amp; Most Affordable AI Product Photography in India</div>
+      <div class="ab-sub">Any category · White + Lifestyle images · Amazon/Flipkart-ready · 24-hour delivery · Bulk discounts available</div>
     </div>
-    <a href="#contact" class="apb-btn">Ask for Quote →</a>
+    <a href="#contact" class="ab-btn">Ask for Quote →</a>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════════ TESTIMONIALS ═══════════ -->
-<section class="sec">
+<!-- ══════════════════════
+     TESTIMONIALS
+══════════════════════ -->
+<section class="section">
   <div class="chip rv">Client Stories</div>
-  <div class="hdl rv d1">What our clients<br><em>say about us.</em></div>
-  <div style="margin-top:clamp(24px,4vw,40px);">
+  <div class="h2 rv d1">Don't take our word.<br><em>Hear from clients.</em></div>
+  <div style="margin-top:clamp(24px,4vw,40px)">
     <div class="testi-grid">
       <div class="testi-card rv d1">
         <div class="tc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <div class="tc-txt">"SCALVIQ completely transformed our restaurant's online presence. Our footfall doubled in 2 months and we started getting direct calls from Instagram. The pricing was very affordable and the quality was excellent."</div>
-        <div class="tc-auth"><div class="tc-av">R</div><div><div class="tc-nm">Rajesh Sharma</div><div class="tc-rl">Restaurant Owner · Gurugram</div></div></div>
+        <div class="tc-txt">"SCALVIQ completely transformed our restaurant's online presence. Our footfall doubled in 2 months and we started getting direct reservations from Instagram. The pricing was very fair and the quality was exceptional."</div>
+        <div class="tc-auth"><div class="tc-av">R</div><div><div class="tc-name">Rajesh Sharma</div><div class="tc-role">Restaurant Owner · Gurugram</div></div></div>
       </div>
       <div class="testi-card rv d2">
         <div class="tc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <div class="tc-txt">"The AI catalog photoshoot is a game changer. I was spending a lot on traditional photoshoots. SCALVIQ did all my products in 24 hours at a fraction of the cost. The quality is unbelievable."</div>
-        <div class="tc-auth"><div class="tc-av">P</div><div><div class="tc-nm">Priya Malhotra</div><div class="tc-rl">Fashion Seller · Flipkart</div></div></div>
+        <div class="tc-txt">"The AI catalog photoshoot is a game changer for my business. I used to spend a lot of money on traditional photoshoots. SCALVIQ delivered all my products beautifully in 24 hours at a fraction of the cost."</div>
+        <div class="tc-auth"><div class="tc-av">P</div><div><div class="tc-name">Priya Malhotra</div><div class="tc-role">Fashion Seller · Flipkart</div></div></div>
       </div>
       <div class="testi-card rv d3">
         <div class="tc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <div class="tc-txt">"Nishant and the SCALVIQ team managed our entire election campaign. Our candidate's digital reach went from near zero to lakhs of voters. We won. Best investment we ever made."</div>
-        <div class="tc-auth"><div class="tc-av">A</div><div><div class="tc-nm">Amit Chauhan</div><div class="tc-rl">Campaign Manager · Haryana</div></div></div>
+        <div class="tc-txt">"Nishant's deep understanding of political communication made all the difference. He understands how voters think and how to craft messages that connect. Our candidate's digital presence went from zero to dominant."</div>
+        <div class="tc-auth"><div class="tc-av">A</div><div><div class="tc-name">Amit Chauhan</div><div class="tc-role">Campaign Manager · Haryana</div></div></div>
       </div>
     </div>
   </div>
@@ -796,46 +940,68 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 <div class="divider"></div>
 
-<!-- ═══════════ ABOUT / FOUNDER ═══════════ -->
-<section class="sec" id="about">
-  <div class="about-inner">
+<!-- ══════════════════════
+     FOUNDER — REAL STORY
+══════════════════════ -->
+<section class="section" id="about">
+  <div class="founder-wrap">
     <div class="rl">
-      <div style="position:relative;">
-        <div class="founder-frame">
+      <div class="founder-frame">
+        <div class="ff-card">
           <div class="ff-bg"></div>
           <div class="ff-init">NS</div>
           <div class="ff-det">
             <div class="ff-name">Nishant Sishodia</div>
             <div class="ff-title">Founder &amp; CEO · SCALVIQ</div>
-            <div class="ff-contacts">
+            <div class="ff-contact">
               <div class="ffc"><span class="ffc-ico">📞</span><span>+91 90507 28595</span></div>
               <div class="ffc"><span class="ffc-ico">📍</span><span>Gurugram, Haryana</span></div>
               <div class="ffc"><span class="ffc-ico">✉️</span><span>hello@scalviq.ai</span></div>
             </div>
           </div>
         </div>
-        <div class="ff-float ff1"><div class="fft-n">GGN</div><div class="fft-l">Based in Gurugram</div></div>
-        <div class="ff-float ff2"><div class="fft-n">2026</div><div class="fft-l">Est. this year</div></div>
+        <div class="ff-flt ffl-a"><div class="ffl-n">5+ yrs</div><div class="ffl-l">Experience</div></div>
+        <div class="ff-flt ffl-b"><div class="ffl-n">3 industries</div><div class="ffl-l">Mastered</div></div>
       </div>
     </div>
 
     <div class="rr">
-      <div class="chip">About the Founder</div>
-      <div class="hdl">Built by someone<br>tested by <em>fire.</em></div>
+      <div class="chip">Meet the Founder</div>
+      <div class="h2">5+ years of building<br>brands that <em>actually win.</em></div>
       <div class="grule"></div>
-      <div class="subp" style="margin-bottom:14px;">Nishant Sishodia is the founder of SCALVIQ — Gurugram's most ambitious intelligent growth company. He built his first brand from zero, faced betrayal from a partner who took over that company, and rebuilt stronger, smarter, and more determined than ever.</div>
-      <div class="subp">That experience is not a weakness — it is SCALVIQ's greatest strength. Nishant understands what it takes to build a brand from nothing, and what it demands to come back and build something better.</div>
+      <div class="lead" style="margin-bottom:clamp(14px,2vw,20px)">Nishant Sishodia is not a typical agency founder. He has 5+ years of real, hands-on marketing experience across three of India's most demanding industries — and he brings all of that expertise to every SCALVIQ client.</div>
 
-      <div class="story-quote">
-        <div class="sq-t">"From zero, with intelligence — we will scale everything we touch. SCALVIQ is my proof that the best chapter comes after the hardest one."</div>
-        <div class="sq-a">— Nishant Sishodia · Founder, SCALVIQ · Gurugram 2026</div>
+      <!-- Experience timeline -->
+      <div class="exp-timeline">
+        <div class="exp-item rv d1">
+          <div class="exp-ico">🏨</div>
+          <div class="exp-body">
+            <div class="exp-role">Hotel Marketing Specialist</div>
+            <div class="exp-where">Hospitality Industry · Delhi NCR</div>
+            <div class="exp-desc">Managed digital marketing and brand presence for premium hospitality properties. Built campaigns that drove occupancy, created brand narratives, and ran high-converting ads targeting HNI travellers.</div>
+          </div>
+        </div>
+        <div class="exp-item rv d2">
+          <div class="exp-ico">🏛️</div>
+          <div class="exp-body">
+            <div class="exp-role">Personal Assistant &amp; Campaign Strategist to a Politician</div>
+            <div class="exp-where">Political Office · Haryana &amp; Delhi</div>
+            <div class="exp-desc">Worked directly inside a political office — managing communication strategy, digital presence, public events, media handling, and voter outreach. Saw firsthand how elections are won through smart digital strategy and ground-level connect.</div>
+          </div>
+        </div>
+        <div class="exp-item rv d3">
+          <div class="exp-ico">🛒</div>
+          <div class="exp-body">
+            <div class="exp-role">E-Commerce Brand Manager — Clothing &amp; Fashion</div>
+            <div class="exp-where">Fashion E-Commerce · Pan-India</div>
+            <div class="exp-desc">Handled and scaled a large clothing e-commerce brand — built complete brand stories, managed Amazon and Flipkart catalogue, ran performance ads, and developed the content strategy that drove repeat customers and brand loyalty.</div>
+          </div>
+        </div>
       </div>
 
-      <div class="av-grid">
-        <div class="av-item"><div class="av-n">🎯 Results First</div><div class="av-d">Every decision based on client results</div></div>
-        <div class="av-item"><div class="av-n">🤖 AI Powered</div><div class="av-d">Every service enhanced by AI</div></div>
-        <div class="av-item"><div class="av-n">🇮🇳 India First</div><div class="av-d">Built for India, priced for India</div></div>
-        <div class="av-item"><div class="av-n">💎 No Compromise</div><div class="av-d">Premium quality at every level</div></div>
+      <div class="founder-quote">
+        <div class="fq-txt">"Every business I have touched, I have built with stories and strategies — not just ads. A brand that tells a powerful story does not need to shout. Clients come to it. That is the SCALVIQ approach."</div>
+        <div class="fq-auth">— Nishant Sishodia · Founder, SCALVIQ · Gurugram 2026</div>
       </div>
     </div>
   </div>
@@ -843,35 +1009,52 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 <div class="divider"></div>
 
-<!-- ═══════════ FAQ ═══════════ -->
-<section class="sec">
+<!-- ══════════════════════
+     CTA STRIP — URGENCY
+══════════════════════ -->
+<div class="cta-strip">
+  <div class="cs-inner">
+    <div class="cs-chip">Limited Spots Available Each Month</div>
+    <div class="cs-h">Your competitors are already<br>scaling with SCALVIQ.</div>
+    <div class="cs-sub">Every day you wait is a day your competition gets ahead. Take the first step — a free consultation with Nishant. No pressure, no commitment. Just clarity on how to grow your brand.</div>
+    <div class="cs-btns">
+      <a href="#contact" class="cs-btn-blk">Get Free Consultation →</a>
+      <a href="tel:+919050728595" class="cs-btn-out">📞 Call +91 90507 28595</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     FAQ
+══════════════════════ -->
+<section class="section">
   <div class="chip rv">FAQ</div>
-  <div class="hdl rv d1">Questions we<br><em>always get asked.</em></div>
-  <div style="margin-top:clamp(24px,4vw,40px);">
+  <div class="h2 rv d1">Questions clients<br><em>always ask us.</em></div>
+  <div style="margin-top:clamp(24px,4vw,40px)">
     <div class="faq-list">
       <div class="faq-item rv d1">
-        <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-qt">How does the AI Catalog Photoshoot work?</div><div class="faq-ic">+</div></div>
-        <div class="faq-ans"><div class="faq-ans-in">You share clear product photos (or courier physical products to our Gurugram studio). Our AI enhances the images — professional backgrounds, lighting correction, shadow removal, and platform-specific formatting. You receive finished images within 24 hours via Google Drive. No studio rental, no photographer charges. Contact us to get the best affordable pricing for your product count.</div></div>
+        <div class="faq-q" onclick="tFaq(this)"><div class="faq-qt">How does the AI Catalog Photoshoot work exactly?</div><div class="faq-ic">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-in">Share clear product photos or courier physical products to our Gurugram studio. Our AI enhances the images — professional backgrounds, lighting correction, shadow removal, and platform-specific formatting. You receive finished images within 24 hours via Google Drive. No studio cost, no photographer charges. Contact us for the most affordable pricing based on your product count.</div></div>
       </div>
       <div class="faq-item rv d2">
-        <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-qt">Why don't you show pricing on the website?</div><div class="faq-ic">+</div></div>
-        <div class="faq-ans"><div class="faq-ans-in">Because every business is different. A small local shop has different needs than a large e-commerce brand. We customise our pricing based on your specific requirements, scope, and goals. This way you always get the most affordable rate for exactly what you need — not a fixed package that doesn't fit. Contact us and we promise to give you the best price in the market.</div></div>
+        <div class="faq-q" onclick="tFaq(this)"><div class="faq-qt">Why don't you show prices on the website?</div><div class="faq-ic">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-in">Because every business is different. A small local shop has different needs than a large brand. We customise pricing based on your exact requirements so you always get the best affordable rate — not a fixed package that doesn't fit your needs. Contact us and we promise you the best price in the market. No hidden charges, ever.</div></div>
       </div>
       <div class="faq-item rv d3">
-        <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-qt">What is your payment structure?</div><div class="faq-ic">+</div></div>
-        <div class="faq-ans"><div class="faq-ans-in">We require 50% advance payment before starting any project. The remaining 50% is due at the end of the month for ongoing services. For one-time projects, we work on a milestone basis — 50% upfront, 50% on delivery. We accept UPI, bank transfer, and all major payment methods. No hidden charges ever.</div></div>
+        <div class="faq-q" onclick="tFaq(this)"><div class="faq-qt">What is Nishant's experience in political campaign management?</div><div class="faq-ic">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-in">Nishant worked directly as a Personal Assistant to a politician — managing their digital presence, communication strategy, voter outreach programs, event management, and media coordination. This real inside experience is what makes SCALVIQ Politics so effective. We don't guess at what works in political campaigns — we have lived it.</div></div>
       </div>
       <div class="faq-item rv d4">
-        <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-qt">Do you work with political parties and election candidates?</div><div class="faq-ic">+</div></div>
-        <div class="faq-ans"><div class="faq-ans-in">Yes — SCALVIQ Politics is one of our strongest verticals. We work with individual candidates, political parties, and campaign managers for all levels — panchayat, municipal, MLA, MP elections. We provide end-to-end digital campaign management including strategy, content, ads, voter connect programs, and live event coverage across Haryana, Delhi NCR, and pan-India.</div></div>
+        <div class="faq-q" onclick="tFaq(this)"><div class="faq-qt">I am not in Gurugram — can SCALVIQ still help me?</div><div class="faq-ic">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-in">Absolutely. We are based in Gurugram but serve clients across India — Delhi NCR, Haryana, Rajasthan, Mumbai, and beyond. Everything is done digitally — strategy calls on Google Meet, content via Google Drive, and updates on WhatsApp. For AI catalog photoshoots, simply courier your products or share high-quality photos.</div></div>
       </div>
       <div class="faq-item rv d5">
-        <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-qt">I am outside Gurugram — can you still work with me?</div><div class="faq-ic">+</div></div>
-        <div class="faq-ans"><div class="faq-ans-in">Absolutely. We are based in Gurugram but serve clients across India — Delhi NCR, Mumbai, Jaipur, Chandigarh, Lucknow, and beyond. Our entire workflow is digital — strategy calls on Google Meet, content delivery via Google Drive, and reporting via email and WhatsApp. For AI catalog photoshoots, you can courier products to us or share high-quality photos.</div></div>
+        <div class="faq-q" onclick="tFaq(this)"><div class="faq-qt">How quickly will I see results?</div><div class="faq-ic">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-in">Social media management shows visible growth in 30–45 days. Paid ads show results within 7–14 days of campaign launch. SEO takes 60–90 days for meaningful organic results. We are fully transparent about timelines and send detailed monthly reports. We never overpromise — but we consistently over-deliver.</div></div>
       </div>
       <div class="faq-item rv d6">
-        <div class="faq-q" onclick="toggleFaq(this)"><div class="faq-qt">How quickly will I see results from digital marketing?</div><div class="faq-ic">+</div></div>
-        <div class="faq-ans"><div class="faq-ans-in">Social media management shows visible growth in 30–45 days. Paid ads (Meta and Google) show results within 7–14 days of campaign launch. SEO takes 60–90 days for meaningful organic results. We are completely transparent about timelines and never promise overnight miracles — but we do promise consistent, measurable improvement every single month with detailed reports.</div></div>
+        <div class="faq-q" onclick="tFaq(this)"><div class="faq-qt">What is the payment structure?</div><div class="faq-ic">+</div></div>
+        <div class="faq-ans"><div class="faq-ans-in">We require 50% advance before starting any project. The remaining 50% is due at month-end for ongoing services or on delivery for one-time projects. We accept UPI, bank transfer, and all major payment methods. No payment is ever asked before we agree on the scope and price together.</div></div>
       </div>
     </div>
   </div>
@@ -879,131 +1062,109 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 <div class="divider"></div>
 
-<!-- ═══════════ CONTACT ═══════════ -->
-<section class="sec" id="contact">
+<!-- ══════════════════════
+     CONTACT
+══════════════════════ -->
+<section class="section" id="contact">
   <div class="chip rv">Get In Touch</div>
-  <div class="hdl rv d1">Ready to scale?<br><em>Let's talk.</em></div>
-  <div class="subp rv d2" style="margin-bottom:clamp(28px,5vw,48px)">Tell us about your business and what you want to achieve. Nishant personally responds to every inquiry within 2 hours.</div>
+  <div class="h2 rv d1">Ready to grow?<br><em>Let's make it happen.</em></div>
+  <div class="lead rv d2" style="margin-bottom:clamp(28px,5vw,48px)">Tell us about your business. Nishant personally reads and responds to every inquiry within 2 hours. No automated replies — just a real conversation about how we can help you scale.</div>
 
-  <div class="contact-inner">
-
-    <!-- FORM with Web3Forms -->
+  <div class="contact-grid">
+    <!-- FORM -->
     <div class="rv d1">
-      <form id="cForm" onsubmit="submitForm(event)">
-        <!-- Web3Forms access key -->
+      <form id="cForm" onsubmit="doSubmit(event)">
         <input type="hidden" name="access_key" value="7ec9a031-c6f3-4f30-96b8-a0d776072804">
-        <input type="hidden" name="subject" value="New Inquiry from SCALVIQ Website">
+        <input type="hidden" name="subject" value="New Client Inquiry — SCALVIQ Website">
         <input type="hidden" name="from_name" value="SCALVIQ Website">
         <input type="checkbox" name="botcheck" style="display:none;">
 
-        <div class="f-row">
-          <div class="form-grp">
-            <label class="f-lbl">Your Name *</label>
-            <input type="text" name="name" class="f-inp" placeholder="Ravi Kumar" required>
-          </div>
-          <div class="form-grp">
-            <label class="f-lbl">Phone Number *</label>
-            <input type="tel" name="phone" class="f-inp" placeholder="+91 98765 43210" required>
-          </div>
+        <div class="frow">
+          <div class="fg"><label class="fl">Your Name *</label><input type="text" name="name" class="fi" placeholder="Ravi Kumar" required></div>
+          <div class="fg"><label class="fl">Phone Number *</label><input type="tel" name="phone" class="fi" placeholder="+91 98765 43210" required></div>
         </div>
-        <div class="form-grp">
-          <label class="f-lbl">Email Address</label>
-          <input type="email" name="email" class="f-inp" placeholder="you@company.com">
-        </div>
-        <div class="form-grp">
-          <label class="f-lbl">Business / Organisation</label>
-          <input type="text" name="business" class="f-inp" placeholder="Your business name">
-        </div>
-        <div class="form-grp">
-          <label class="f-lbl">Service Required *</label>
-          <select name="service" class="f-sel f-inp" required>
+        <div class="fg"><label class="fl">Email Address</label><input type="email" name="email" class="fi" placeholder="you@company.com"></div>
+        <div class="fg"><label class="fl">Business / Organisation</label><input type="text" name="business" class="fi" placeholder="Your business name"></div>
+        <div class="fg">
+          <label class="fl">Service Required *</label>
+          <select name="service" class="fsel" required>
             <option value="">Select a service</option>
             <option>Digital Marketing — Social Media + Ads</option>
             <option>AI Catalog Photoshoot</option>
             <option>Political Campaign Management</option>
             <option>App / Website Development</option>
-            <option>E-Commerce Management (Amazon / Flipkart)</option>
+            <option>E-Commerce Management — Amazon / Flipkart</option>
             <option>Content Creation &amp; Reels</option>
             <option>Brand Building &amp; Strategy</option>
             <option>Full Package — Multiple Services</option>
           </select>
         </div>
-        <div class="form-grp">
-          <label class="f-lbl">Your City</label>
-          <input type="text" name="city" class="f-inp" placeholder="Gurugram / Delhi / Jaipur...">
-        </div>
-        <div class="form-grp">
-          <label class="f-lbl">Tell Us About Your Project</label>
-          <textarea name="message" class="f-ta" placeholder="Describe your business, what you want to achieve, and any specific requirements..."></textarea>
-        </div>
+        <div class="fg"><label class="fl">Your City</label><input type="text" name="city" class="fi" placeholder="Gurugram / Delhi / Jaipur..."></div>
+        <div class="fg"><label class="fl">Tell Us About Your Project</label><textarea name="message" class="fta" placeholder="Describe your business, what you want to achieve, and any questions you have for us..."></textarea></div>
 
-        <button type="submit" class="f-sub" id="fBtn">
-          <span id="fBtnTxt">Send Message →</span>
-        </button>
-        <div class="f-success" id="fSuccess">✅ Message sent! Nishant will contact you within 2 hours.</div>
-        <div class="f-error" id="fError">❌ Something went wrong. Please call us directly: +91 90507 28595</div>
+        <button type="submit" class="fsub" id="fBtn"><span id="fBtnT">Send Message →</span></button>
+        <div class="f-ok" id="fOk">✅ Message sent successfully! Nishant will contact you within 2 hours.</div>
+        <div class="f-err" id="fErr">❌ Something went wrong. Please call us directly: +91 90507 28595</div>
       </form>
     </div>
 
-    <!-- CONTACT DETAILS -->
+    <!-- CONTACT INFO -->
     <div class="rr d2">
-      <div class="cd-list">
-        <a href="tel:+919050728595" class="cd-item">
-          <div class="cd-ico">📞</div>
-          <div><div class="cd-lbl">Call / WhatsApp</div><div class="cd-val">+91 90507 28595</div><div class="cd-sub">Nishant Sishodia · Founder &amp; CEO</div></div>
+      <div class="ci-list">
+        <a href="tel:+919050728595" class="ci-item">
+          <div class="ci-ico">📞</div>
+          <div><div class="ci-lbl">Call / WhatsApp</div><div class="ci-val">+91 90507 28595</div><div class="ci-sub">Nishant Sishodia · Founder &amp; CEO · SCALVIQ</div></div>
         </a>
-        <a href="mailto:hello@scalviq.ai" class="cd-item">
-          <div class="cd-ico">✉️</div>
-          <div><div class="cd-lbl">Email</div><div class="cd-val">hello@scalviq.ai</div><div class="cd-sub">Response within 2 hours</div></div>
+        <a href="mailto:hello@scalviq.ai" class="ci-item">
+          <div class="ci-ico">✉️</div>
+          <div><div class="ci-lbl">Email</div><div class="ci-val">hello@scalviq.ai</div><div class="ci-sub">Response guaranteed within 2 hours</div></div>
         </a>
-        <div class="cd-item">
-          <div class="cd-ico">📍</div>
-          <div><div class="cd-lbl">Location</div><div class="cd-val">Gurugram, Haryana</div><div class="cd-sub">Delhi NCR · Serving Pan-India · Est. 2026</div></div>
+        <div class="ci-item">
+          <div class="ci-ico">📍</div>
+          <div><div class="ci-lbl">Location</div><div class="ci-val">Gurugram, Haryana</div><div class="ci-sub">Delhi NCR · Serving clients across India · Est. 2026</div></div>
         </div>
-        <div class="cd-item">
-          <div class="cd-ico">🕐</div>
-          <div><div class="cd-lbl">Business Hours</div><div class="cd-val">Mon–Sat: 9 AM – 8 PM</div><div class="cd-sub">Sunday: 10 AM – 2 PM IST</div></div>
+        <div class="ci-item">
+          <div class="ci-ico">🕐</div>
+          <div><div class="ci-lbl">Business Hours</div><div class="ci-val">Mon–Sat: 9 AM – 8 PM IST</div><div class="ci-sub">Sunday: 10 AM – 2 PM · Urgent calls accepted anytime</div></div>
         </div>
-        <div class="cd-item">
-          <div class="cd-ico">🌐</div>
-          <div><div class="cd-lbl">Online</div><div class="cd-val">scalviq.ai · scalviq.in</div><div class="cd-sub">@scalviq.ai — Instagram · LinkedIn · X</div></div>
+        <div class="ci-item">
+          <div class="ci-ico">🌐</div>
+          <div><div class="ci-lbl">Online</div><div class="ci-val">scalviq.ai · scalviq.in</div><div class="ci-sub">@scalviq.ai — Instagram · LinkedIn · YouTube</div></div>
         </div>
       </div>
 
       <div class="map-box">
         <div class="mb-ico">🗺️</div>
-        <div class="mb-txt">SCALVIQ · Gurugram, Haryana · Delhi NCR · India</div>
+        <div class="mb-txt">SCALVIQ · Gurugram, Haryana · Delhi NCR · India 122001</div>
         <a href="https://maps.google.com/?q=Gurugram+Haryana+India" target="_blank" rel="noopener" class="mb-link">Open in Google Maps →</a>
       </div>
 
       <div class="direct-call">
-        <div class="dc-sub">Prefer to call directly?</div>
-        <div class="dc-title">Nishant answers every call personally.</div>
+        <div class="dc-label">Prefer to speak directly?</div>
+        <div class="dc-ttl">Nishant personally answers every call.</div>
         <a href="tel:+919050728595" class="dc-btn">📞 Call +91 90507 28595</a>
       </div>
     </div>
-
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════════ FOOTER ═══════════ -->
+<!-- ══════════════════════
+     FOOTER
+══════════════════════ -->
 <footer class="footer">
   <div class="ft-inner">
     <div class="ft-top">
       <div>
-        <div class="ft-logo">
-          <div class="ft-lm">Q</div>
-          <div class="ft-ln">SCALVI<span class="q">Q</span></div>
-        </div>
+        <div class="ft-logo"><div class="ft-lm">Q</div><div class="ft-ln">SCALVI<span class="q">Q</span></div></div>
         <div class="ft-tl">"Scale Without Limits."</div>
-        <div class="ft-desc">India's intelligent growth company based in Gurugram. Digital marketing, political campaigns, AI catalog photoshoot, and brand building across India. Est. 2026.</div>
+        <div class="ft-desc">India's intelligent growth company. Digital marketing, political campaigns, AI catalog photoshoot, app development &amp; brand building. Gurugram, India. Est. 2026.</div>
         <div class="ft-soc">
-          <a href="#" class="soc-b" title="Instagram">📷</a>
-          <a href="#" class="soc-b" title="LinkedIn">💼</a>
-          <a href="tel:+919050728595" class="soc-b" title="Call">📞</a>
-          <a href="#" class="soc-b" title="YouTube">▶️</a>
+          <a href="#" class="sb" title="Instagram">📷</a>
+          <a href="#" class="sb" title="LinkedIn">💼</a>
+          <a href="tel:+919050728595" class="sb" title="Call">📞</a>
+          <a href="#" class="sb" title="YouTube">▶️</a>
         </div>
       </div>
       <div>
@@ -1040,7 +1201,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
       </div>
     </div>
     <div class="ft-bot">
-      <div class="ft-copy">© 2026 SCALVIQ · Gurugram, India · All Rights Reserved · Nishant Sishodia</div>
+      <div class="ft-copy">© 2026 SCALVIQ · Gurugram, India · All Rights Reserved · Nishant Sishodia, Founder</div>
       <div class="ft-leg">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
@@ -1050,109 +1211,98 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   </div>
 </footer>
 
-<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<!-- ══════════════════════
+     JAVASCRIPT
+══════════════════════ -->
 <script>
-/* ── Custom Cursor ── */
-const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+/* Cursor */
+const cur=document.getElementById('cur'),cr=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-4)+'px';cur.style.top=(my-4)+'px';});
-(function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=(rx-16)+'px';ring.style.top=(ry-16)+'px';requestAnimationFrame(anim);})();
-document.querySelectorAll('a,button,.faq-q,.svc-card,.pkg').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.transform='scale(1.5)';ring.style.opacity='.5';});
-  el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.transform='scale(1)';ring.style.opacity='1';});
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-3)+'px';cur.style.top=(my-3)+'px';});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=(rx-14)+'px';cr.style.top=(ry-14)+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.faq-q,.svc-card,.pkg,.why-card,.exp-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.8)';cr.style.transform='scale(1.6)';cr.style.opacity='.4';});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';cr.style.transform='scale(1)';cr.style.opacity='1';});
 });
 
-/* ── Progress bar ── */
+/* Progress + Navbar */
 window.addEventListener('scroll',()=>{
   const h=document.documentElement;
   document.getElementById('prog').style.width=((h.scrollTop/(h.scrollHeight-h.clientHeight))*100)+'%';
-  document.getElementById('nav').classList.toggle('up',h.scrollTop>50);
-  // Active nav link
-  document.querySelectorAll('.nl').forEach(a=>{
-    const sec=document.querySelector(a.getAttribute('href'));
-    if(sec){const r=sec.getBoundingClientRect();a.classList.toggle('active',r.top<=80&&r.bottom>80);}
+  document.getElementById('nav').classList.toggle('scrolled',h.scrollTop>40);
+  /* Active link */
+  document.querySelectorAll('.nm-link[href^="#"]').forEach(a=>{
+    const s=document.querySelector(a.getAttribute('href'));
+    if(s){const r=s.getBoundingClientRect();a.classList.toggle('act',r.top<=80&&r.bottom>80);}
   });
 });
 
-/* ── Mobile nav ── */
+/* Mobile nav */
 function toggleNav(){
-  const nl=document.getElementById('navLinks'),hb=document.getElementById('hb');
-  nl.classList.toggle('show');hb.classList.toggle('open');
+  const m=document.getElementById('navMenu'),h=document.getElementById('ham');
+  m.classList.toggle('open');h.classList.toggle('x');
 }
-document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('navLinks').classList.remove('show');document.getElementById('hb').classList.remove('open');}));
+document.querySelectorAll('#navMenu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navMenu').classList.remove('open');
+  document.getElementById('ham').classList.remove('x');
+}));
 
-/* ── Reveal ── */
-new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});
-},{threshold:0.1,rootMargin:'0px 0px -36px 0px'}).observe=function(el){IntersectionObserver.prototype.observe.call(this,el);};
-const rObs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('on');});},{threshold:0.1,rootMargin:'0px 0px -36px 0px'});
-document.querySelectorAll('.rv,.rl,.rr').forEach(el=>rObs.observe(el));
+/* Reveal */
+const ro=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('on');});},{threshold:.1,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.rv,.rl,.rr').forEach(el=>ro.observe(el));
 
-/* ── FAQ ── */
-function toggleFaq(btn){
-  const ans=btn.nextElementSibling,ic=btn.querySelector('.faq-ic'),open=ans.classList.contains('open');
-  document.querySelectorAll('.faq-ans').forEach(a=>a.classList.remove('open'));
-  document.querySelectorAll('.faq-ic').forEach(i=>i.classList.remove('open'));
-  if(!open){ans.classList.add('open');ic.classList.add('open');}
+/* FAQ */
+function tFaq(btn){
+  const a=btn.nextElementSibling,i=btn.querySelector('.faq-ic'),op=a.classList.contains('open');
+  document.querySelectorAll('.faq-ans').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-ic').forEach(x=>x.classList.remove('open'));
+  if(!op){a.classList.add('open');i.classList.add('open');}
 }
 
-/* ── Toast ── */
-function showToast(msg,ok=true){
+/* Toast */
+function toast(msg,ok=true){
   const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.style.borderColor=ok?'var(--gold)':'var(--red)';
-  t.style.color=ok?'var(--gold)':'var(--red)';
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),5000);
+  t.textContent=msg;t.style.color=ok?'var(--gold)':'var(--red)';t.style.borderColor=ok?'var(--gold)':'var(--red)';
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5000);
 }
 
-/* ── Form Submit (Web3Forms) ── */
-async function submitForm(e){
+/* Form — Web3Forms */
+async function doSubmit(e){
   e.preventDefault();
-  const btn=document.getElementById('fBtn'),txt=document.getElementById('fBtnTxt');
-  const ok=document.getElementById('fSuccess'),err=document.getElementById('fError');
-  btn.disabled=true;txt.textContent='Sending...';
-  ok.style.display='none';err.style.display='none';
+  const btn=document.getElementById('fBtn'),txt=document.getElementById('fBtnT');
+  const ok=document.getElementById('fOk'),err=document.getElementById('fErr');
+  btn.disabled=true;txt.textContent='Sending...';ok.style.display='none';err.style.display='none';
   try{
-    const data=new FormData(e.target);
-    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});
     const json=await res.json();
     if(json.success){
-      ok.style.display='block';
-      txt.textContent='Message Sent ✓';
-      btn.style.background='var(--grn)';
-      showToast('✓ Message sent! Nishant will call you soon.');
+      ok.style.display='block';txt.textContent='Sent ✓';btn.style.background='var(--grn)';
+      toast('✓ Message sent! Nishant will contact you within 2 hours.');
       e.target.reset();
-      setTimeout(()=>{btn.disabled=false;txt.textContent='Send Message →';btn.style.background='';},4000);
-    } else {
-      throw new Error('Failed');
-    }
-  } catch(ex){
-    err.style.display='block';
-    txt.textContent='Try Again →';
-    btn.disabled=false;
-    btn.style.background='var(--red)';
-    showToast('Something went wrong. Please call +91 90507 28595',false);
-    setTimeout(()=>{btn.style.background='';},3000);
+      setTimeout(()=>{btn.disabled=false;txt.textContent='Send Message →';btn.style.background='';},5000);
+    }else throw new Error();
+  }catch{
+    err.style.display='block';txt.textContent='Try Again →';btn.disabled=false;
+    btn.style.background='var(--red)';setTimeout(()=>btn.style.background='',3000);
+    toast('Something went wrong. Call: +91 90507 28595',false);
   }
 }
 
-/* ── Particles ── */
+/* Particles */
 (function(){
   const c=document.getElementById('pts');
-  for(let i=0;i<22;i++){
-    const p=document.createElement('div');
-    p.className='pt';
-    p.style.cssText=`left:${Math.random()*100}%;width:${Math.random()*2+1}px;height:${Math.random()*2+1}px;animation-duration:${12+Math.random()*14}s;animation-delay:${Math.random()*12}s;opacity:${.1+Math.random()*.4};`;
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');p.className='pt';
+    p.style.cssText=`left:${Math.random()*100}%;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;animation-duration:${12+Math.random()*14}s;animation-delay:${Math.random()*14}s;opacity:${.1+Math.random()*.35};`;
     c.appendChild(p);
   }
 })();
 
-/* ── Smooth scroll ── */
+/* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();const top=t.getBoundingClientRect().top+window.scrollY-70;window.scrollTo({top,behavior:'smooth'});}
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'});}
   });
 });
 </script>
