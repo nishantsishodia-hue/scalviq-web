@@ -3,230 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCALVIQ | Scale Without Limits</title>
-<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Josefin+Sans:wght@100;200;300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<title>SCALVIQ | Empire Building</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --black: #070709; --deep: #0E0E12; --card: #141418; --lift: #1E1E24;
-  --border: #2C2C36; --muted: #64647A; --silver: #ADADC4; --white: #F2F2F6;
-  --gold: #C8A951; --gold-lt: #E6C97A; --gold-dk: #7A6530;
+  --black: #070709; --deep: #0E0E12; --border: #2C2C36; 
+  --muted: #64647A; --silver: #ADADC4; --white: #F2F2F6;
+  --gold: #C8A951; --gold-dk: #7A6530;
 }
-*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--black); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-weight: 300; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--gold-dk); }
+body { background: var(--black); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-weight: 300; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-/* ANIMATION CLASSES */
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
-.reveal.active { opacity: 1; transform: translateY(0); }
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
+/* PREMIUM NOISE TEXTURE */
+.noise { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.04; background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E'); }
 
-/* NAV */
-.nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(7,7,9,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 clamp(20px,5vw,60px); height: 70px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s; }
-.nav-logo { font-family: 'Josefin Sans', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 6px; color: var(--white); text-decoration: none; }
+/* MINIMAL NAV */
+.nav { position: fixed; top: 0; width: 100%; z-index: 100; mix-blend-mode: difference; padding: 40px clamp(20px,5vw,60px); display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-size: 20px; font-weight: 700; letter-spacing: 8px; color: var(--white); text-decoration: none; text-transform: uppercase; }
 .nav-logo .q { color: var(--gold); }
-.nav-links { display: flex; gap: clamp(16px, 3vw, 36px); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-.nav-links a { color: var(--muted); text-decoration: none; transition: color .3s; }
-.nav-links a:hover { color: var(--gold); }
+.nav-right { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); }
 
-/* HERO WITH CSS GRAPHICS */
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; padding: 120px 20px 60px; overflow: hidden; }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(200,169,81,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(200,169,81,.05) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%); z-index: 0; }
-.hero-glow { position: absolute; width: 70vw; height: 70vw; max-width: 800px; max-height: 800px; background: radial-gradient(circle, rgba(200,169,81,.1) 0%, transparent 60%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 0; animation: pulse 8s infinite alternate; }
-@keyframes pulse { 0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.9); } 100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
-.hero-content { position: relative; z-index: 2; max-width: 900px; }
-.hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
-.hero-title { font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: clamp(50px, 10vw, 130px); letter-spacing: clamp(4px, 1.5vw, 12px); line-height: 1; color: var(--white); margin-bottom: 20px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.hero-title .q { color: var(--gold); }
-.hero-tagline { font-family: 'Lora', serif; font-size: clamp(20px, 3vw, 32px); font-style: italic; color: var(--silver); margin-bottom: 40px; }
-.btn { display: inline-block; padding: 16px 36px; background: var(--gold); color: var(--black); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; font-weight: 600; border: 1px solid var(--gold); transition: all 0.3s ease; cursor: pointer; }
-.btn:hover { background: transparent; color: var(--gold); box-shadow: 0 0 20px rgba(200,169,81,0.2); }
+/* EDITORIAL HERO */
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 clamp(20px, 5vw, 60px); position: relative; }
+.hero-sub { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 30px; }
+.hero-title { font-family: 'Lora', serif; font-size: clamp(60px, 12vw, 160px); font-weight: 400; line-height: 0.9; color: var(--white); margin-left: -5px; }
+.hero-title em { font-style: italic; color: var(--silver); }
+.hero-desc { font-size: clamp(16px, 2vw, 22px); color: var(--muted); max-width: 600px; margin-top: 50px; line-height: 1.6; }
 
-/* SECTIONS */
-.section { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); max-width: 1280px; margin: 0 auto; border-top: 1px solid var(--border); position: relative; z-index: 2; }
-.sec-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
-.sec-tag::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.sec-title { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 600; line-height: 1.1; margin-bottom: 60px; color: var(--white); }
-.sec-title em { color: var(--gold); font-style: italic; }
+/* INFINITE MARQUEE */
+.marquee-container { width: 100%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; background: var(--deep); display: flex; white-space: nowrap; }
+.marquee { display: flex; animation: scroll 25s linear infinite; }
+.marquee span { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; padding: 0 40px; }
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* VERTICALS GRID */
-.vert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4px; background: var(--border); border: 1px solid var(--border); }
-.vc { padding: 40px 32px; background: var(--card); position: relative; overflow: hidden; transition: background .3s, transform 0.3s; }
-.vc:hover { background: var(--lift); transform: translateY(-5px); z-index: 10; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-.vc::after { content: ''; position: absolute; bottom: 0; left: 0; height: 2px; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-lt)); transition: width .4s ease-out; }
-.vc:hover::after { width: 100%; }
-.vc-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold-dk); margin-bottom: 20px; }
-.vc-ico { font-size: 28px; margin-bottom: 16px; display: inline-block; transition: transform 0.3s; }
-.vc:hover .vc-ico { transform: scale(1.2); }
-.vc-name { font-family: 'Lora', serif; font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 12px; }
-.vc-name span { color: var(--gold); }
-.vc-desc { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+/* INTERACTIVE SERVICES LIST (Replaces the basic grid) */
+.section { padding: 120px clamp(20px, 5vw, 60px); }
+.sec-header { margin-bottom: 80px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+.sec-title { font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: clamp(30px, 5vw, 60px); letter-spacing: 4px; text-transform: uppercase; }
+.sec-num { font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--gold); }
 
-/* FOUNDER & FORM */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); }
-@media(max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
-.founder-card { padding: 40px; background: var(--deep); border: 1px solid var(--border); position: relative; height: 100%; }
-.founder-card::before { content: ''; position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent var(--gold-dk) transparent transparent; opacity: .4; }
-.founder-role { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
-.founder-name { font-family: 'Lora', serif; font-size: 36px; font-weight: 600; color: var(--white); margin-bottom: 20px; }
-.founder-quote { font-size: 16px; color: var(--silver); margin-bottom: 30px; font-style: italic; line-height: 1.8; }
-.contact-item { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--silver); margin-bottom: 12px; letter-spacing: 1px; }
-.contact-item strong { color: var(--gold); font-weight: normal; margin-right: 10px; }
+.service-row { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--border); transition: all 0.4s; cursor: pointer; group; }
+.service-row:hover { padding-left: 20px; border-bottom-color: var(--gold); }
+.service-title { font-family: 'Lora', serif; font-size: clamp(24px, 4vw, 48px); font-weight: 400; color: var(--silver); transition: color 0.4s; }
+.service-row:hover .service-title { color: var(--white); font-style: italic; }
+.service-title span { color: var(--gold); font-family: 'Josefin Sans', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 0.5em; letter-spacing: 2px; vertical-align: middle; margin-right: 20px; }
+.service-desc { font-size: 14px; color: var(--muted); max-width: 300px; text-align: right; transition: opacity 0.4s; opacity: 0; }
+.service-row:hover .service-desc { opacity: 1; color: var(--silver); }
+@media(max-width: 768px) { .service-row { flex-direction: column; align-items: flex-start; gap: 10px; } .service-desc { text-align: left; opacity: 1; max-width: 100%; } .service-row:hover { padding-left: 0; } }
 
-/* MODERN FORM */
-.form-wrapper { background: var(--card); padding: 40px; border: 1px solid var(--border); position: relative; }
-.form-wrapper::after { content: ''; position: absolute; left: 0; top: 0; width: 2px; height: 100%; background: var(--gold); }
-.input-group { margin-bottom: 24px; }
-.input-group label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-.input-group input, .input-group textarea { width: 100%; background: var(--black); border: 1px solid var(--border); color: var(--white); padding: 14px 16px; font-family: 'Josefin Sans', sans-serif; font-size: 16px; transition: all 0.3s; }
-.input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--gold); background: var(--deep); }
-.input-group textarea { resize: vertical; min-height: 120px; }
+/* STATEMENT & FOUNDER */
+.statement { padding: 150px clamp(20px, 5vw, 60px); text-align: center; background: var(--deep); }
+.statement h2 { font-family: 'Lora', serif; font-style: italic; font-size: clamp(30px, 6vw, 70px); font-weight: 400; color: var(--white); line-height: 1.2; max-width: 1000px; margin: 0 auto; }
+.statement h2 strong { color: var(--gold); font-weight: 400; }
+.founder-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-top: 60px; }
+
+/* STARK CONTACT FORM */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+@media(max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+.contact-info h3 { font-family: 'Lora', serif; font-size: 40px; margin-bottom: 20px; font-weight: 400; }
+.contact-info p { font-size: 18px; color: var(--muted); margin-bottom: 40px; }
+.c-detail { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--white); margin-bottom: 15px; letter-spacing: 1px; }
+.c-detail span { color: var(--gold); margin-right: 10px; }
+
+.elite-form input, .elite-form textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: var(--white); padding: 20px 0; font-family: 'Josefin Sans', sans-serif; font-size: 20px; margin-bottom: 30px; transition: all 0.3s; }
+.elite-form input:focus, .elite-form textarea:focus { outline: none; border-bottom-color: var(--gold); }
+.elite-form textarea { min-height: 100px; resize: none; }
+.btn-submit { background: var(--white); color: var(--black); border: none; padding: 20px 50px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+.btn-submit:hover { background: var(--gold); }
 
 /* FOOTER */
-.footer { background: var(--deep); padding: 80px 20px 40px; text-align: center; border-top: 1px solid var(--border); position: relative; overflow: hidden; }
-.footer::before { content: 'SCALVIQ'; position: absolute; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: clamp(80px, 25vw, 300px); color: transparent; -webkit-text-stroke: 1px rgba(200,169,81,.04); top: 50%; left: 50%; transform: translate(-50%, -50%); letter-spacing: 8px; white-space: nowrap; pointer-events: none; }
-.ft-content { position: relative; z-index: 2; }
-.ft-logo { font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: 8px; color: var(--white); margin-bottom: 20px; }
+.footer { padding: 60px clamp(20px, 5vw, 60px); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
+.ft-logo { font-size: 24px; font-weight: 700; letter-spacing: 6px; }
 .ft-logo .q { color: var(--gold); }
-.ft-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; margin-bottom: 40px; }
-.ft-bottom { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--gold-dk); letter-spacing: 2px; }
+.ft-copy { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+
+/* ANIMATION CLASSES */
+.fade-up { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
+<div class="noise"></div>
+
 <nav class="nav">
   <a href="#" class="nav-logo">SCALVI<span class="q">Q</span></a>
-  <div class="nav-links">
-    <a href="#empire">Empire</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <div class="nav-right">N. Sishodia</div>
 </nav>
 
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content reveal">
-    <div class="hero-eyebrow">India's Most Intelligent Growth Brand</div>
-    <h1 class="hero-title">SCALVI<span class="q">Q</span></h1>
-    <div class="hero-tagline delay-1">"Scale Without Limits."</div>
-    <a href="#contact" class="btn delay-2">Build Your Empire</a>
+  <div class="hero-sub fade-up">India's Premier Growth Agency</div>
+  <h1 class="hero-title fade-up" style="transition-delay: 0.1s;">Scale <em>Without</em><br>Limits.</h1>
+  <p class="hero-desc fade-up" style="transition-delay: 0.2s;">We don't build standard campaigns. We engineer dominant brands using precision strategy, AI innovation, and ruthless execution.</p>
+</section>
+
+<div class="marquee-container">
+  <div class="marquee">
+    <span>Digital Marketing</span><span>✦</span>
+    <span>Election Management</span><span>✦</span>
+    <span>AI Photoshoots</span><span>✦</span>
+    <span>E-Commerce Scaling</span><span>✦</span>
+    <span>App Development</span><span>✦</span>
+    <span>Brand Empires</span><span>✦</span>
+    <span>Digital Marketing</span><span>✦</span>
+    <span>Election Management</span><span>✦</span>
+    <span>AI Photoshoots</span><span>✦</span>
+    <span>E-Commerce Scaling</span><span>✦</span>
+  </div>
+</div>
+
+<section class="section" id="empire">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">The Empire</h2>
+    <span class="sec-num">01 / 06</span>
+  </div>
+
+  <div class="services-list">
+    <div class="service-row fade-up">
+      <div class="service-title"><span>01</span> Digital Warfare</div>
+      <div class="service-desc">Performance marketing, Meta & Google ads, and SEO engineered to monopolize your market.</div>
+    </div>
+    <div class="service-row fade-up">
+      <div class="service-title"><span>02</span> Political Mastery</div>
+      <div class="service-desc">End-to-end election strategy, voter psychology, and unshakeable public image management.</div>
+    </div>
+    <div class="service-row fade-up">
+      <div class="service-title"><span>03</span> AI Photoshoots</div>
+      <div class="service-desc">Photorealistic, high-fidelity AI-generated visuals. Studio-grade aesthetics without the studio overhead.</div>
+    </div>
+    <div class="service-row fade-up">
+      <div class="service-title"><span>04</span> Tech & SaaS</div>
+      <div class="service-desc">Custom applications, scalable web platforms, and automated AI workflows tailored for Bharat.</div>
+    </div>
+    <div class="service-row fade-up">
+      <div class="service-title"><span>05</span> Commerce Scaling</div>
+      <div class="service-desc">Marketplace dominance on Amazon/Flipkart and direct-to-consumer store architectures.</div>
+    </div>
+    <div class="service-row fade-up">
+      <div class="service-title"><span>06</span> Brand Incubation</div>
+      <div class="service-desc">We build from zero. Go-to-market strategies, premium identity, and venture pitch decks.</div>
+    </div>
   </div>
 </section>
 
-<section class="section" id="empire">
-  <div class="sec-tag reveal">01 — Business Verticals</div>
-  <h2 class="sec-title reveal delay-1">The SCALVIQ <em>Empire</em></h2>
-  <div class="vert-grid">
-    <div class="vc reveal">
-      <div class="vc-num">01 ·</div><div class="vc-ico">🎯</div>
-      <div class="vc-name">SCALVIQ <span>Digital</span></div>
-      <div class="vc-desc">Performance marketing, Meta & Google ads, SEO, and data-driven campaigns that convert at scale.</div>
-    </div>
-    <div class="vc reveal delay-1">
-      <div class="vc-num">02 ·</div><div class="vc-ico">🏛️</div>
-      <div class="vc-name">SCALVIQ <span>Politics</span></div>
-      <div class="vc-desc">End-to-end election campaign strategy, political video production, and image management.</div>
-    </div>
-    <div class="vc reveal delay-2">
-      <div class="vc-num">03 ·</div><div class="vc-ico">📸</div>
-      <div class="vc-name">SCALVIQ <span>AI Photoshoots</span></div>
-      <div class="vc-desc">Cutting-edge, photorealistic AI-generated photoshoots for products and personal branding. High-fidelity visuals without the studio overhead.</div>
-    </div>
-    <div class="vc reveal">
-      <div class="vc-num">04 ·</div><div class="vc-ico">📱</div>
-      <div class="vc-name">SCALVIQ <span>Tech</span></div>
-      <div class="vc-desc">Custom app development, web platforms, SaaS products, and AI workflow tools.</div>
-    </div>
-    <div class="vc reveal delay-1">
-      <div class="vc-num">05 ·</div><div class="vc-ico">🛒</div>
-      <div class="vc-name">SCALVIQ <span>Commerce</span></div>
-      <div class="vc-desc">E-commerce store setup, Amazon/Flipkart management, and direct-to-consumer scaling.</div>
-    </div>
-    <div class="vc reveal delay-2">
-      <div class="vc-num">06 ·</div><div class="vc-ico">🚀</div>
-      <div class="vc-name">SCALVIQ <span>Ventures</span></div>
-      <div class="vc-desc">Full brand building from zero — identity, go-to-market strategy, and business incubation.</div>
-    </div>
-  </div>
+<section class="statement">
+  <h2 class="fade-up">"Your brand deserves to be seen. <strong>Let's scale it.</strong>"</h2>
+  <div class="founder-tag fade-up">— Nishant Sishodia, Founder & CEO</div>
 </section>
 
 <section class="section" id="contact">
-  <div class="sec-tag reveal">02 — Connect</div>
-  <h2 class="sec-title reveal delay-1">Initiate <em>Growth</em></h2>
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Initiate</h2>
+    <span class="sec-num">ENGAGE</span>
+  </div>
   
   <div class="contact-grid">
-    <div class="founder-card reveal delay-2">
-      <div class="founder-role">Founder & CEO</div>
-      <div class="founder-name">Nishant Sishodia</div>
-      <p class="founder-quote">"We do not believe in generic strategies. Every campaign, line of code, and piece of content we deploy is engineered for dominance."</p>
-      <div class="contact-item"><strong>PHONE :</strong> +91 9050728595</div>
-      <div class="contact-item"><strong>EMAIL :</strong> hello@scalviq.ai</div>
-      <div class="contact-item"><strong>SOCIAL:</strong> @scalviq.ai</div>
+    <div class="contact-info fade-up">
+      <h3>Ready for dominance?</h3>
+      <p>Submit your brief. If we align, my team will construct a bespoke growth architecture for your brand.</p>
+      <div class="c-detail"><span>E.</span> hello@scalviq.ai</div>
+      <div class="c-detail"><span>P.</span> +91 9050728595</div>
+      <div class="c-detail"><span>S.</span> @scalviq.ai</div>
     </div>
 
-    <div class="form-wrapper reveal delay-3">
+    <div class="elite-form fade-up" style="transition-delay: 0.2s;">
       <form action="https://api.web3forms.com/submit" method="POST">
-        
         <input type="hidden" name="access_key" value="7ec9a031-c6f3-4f30-96b8-a0d776072804">
+        <input type="hidden" name="redirect" value="https://scalviq-web.vercel.app">
         
-        <input type="hidden" name="redirect" value="https://scalviq-website.vercel.app">
-
-        <div class="input-group">
-          <label for="name">Your Name / Brand</label>
-          <input type="text" id="name" name="name" required placeholder="Enter your name">
-        </div>
-        <div class="input-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required placeholder="hello@yourbrand.com">
-        </div>
-        <div class="input-group">
-          <label for="message">How can we scale your empire?</label>
-          <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
-        </div>
-        <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+        <input type="text" name="name" required placeholder="Name / Organization">
+        <input type="email" name="email" required placeholder="Direct Email">
+        <textarea name="message" required placeholder="Project Overview & Ambition"></textarea>
+        
+        <button type="submit" class="btn-submit">Submit Inquiry</button>
       </form>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <div class="ft-content">
-    <div class="ft-logo">SCALVI<span class="q">Q</span></div>
-    <div class="ft-tag">Scale Without Limits · भारत का भविष्य · Est. 2025</div>
-    <div class="ft-bottom">© 2026 SCALVIQ AI. ALL RIGHTS RESERVED.</div>
-  </div>
+  <div class="ft-logo">SCALVI<span class="q">Q</span></div>
+  <div class="ft-copy">© 2026 Scalviq AI · India</div>
 </footer>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const reveals = document.querySelectorAll(".reveal");
-    const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target);
-      });
-    }, revealOptions);
-
-    reveals.forEach(reveal => {
-      revealOnScroll.observe(reveal);
-    });
-    
-    // Trigger animations for elements already in viewport on load
-    setTimeout(() => {
-      reveals.forEach(reveal => {
-        const rect = reveal.getBoundingClientRect();
-        if(rect.top < window.innerHeight) {
-          reveal.classList.add("active");
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
         }
       });
-    }, 100);
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
   });
 </script>
 
