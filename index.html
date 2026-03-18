@@ -16,14 +16,25 @@
 /* === RESET & GLOBAL === */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--black); }
-body { font-family: 'Josefin Sans', sans-serif; background: var(--black); color: var(--silver); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Josefin Sans', sans-serif; background: var(--black); color: var(--silver); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { text-decoration: none; color: inherit; }
 
-/* === TYPOGRAPHY === */
-.font-serif { font-family: 'Lora', serif; color: var(--white); font-weight: 400; line-height: 1.2; }
-.font-mono { font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; color: var(--gold); display: block; margin-bottom: 12px; }
+/* === STRICT TYPOGRAPHY HIERARCHY === */
+.font-serif { font-family: 'Lora', serif; color: var(--white); font-weight: 400; line-height: 1.15; }
+.font-mono { font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 3px; font-size: 11px; color: var(--gold); display: block; margin-bottom: 15px; }
 .text-gold { color: var(--gold); }
-.lead-text { font-size: clamp(18px, 2vw, 22px); color: var(--silver); font-weight: 300; max-width: 700px; margin-bottom: 40px; }
+
+/* Locked Desktop Sizes */
+.hero h1 { font-size: 80px; margin-bottom: 25px; letter-spacing: -1px; }
+.lead-text { font-size: 20px; color: var(--silver); font-weight: 300; max-width: 650px; margin-bottom: 40px; line-height: 1.6; }
+.sec-title { font-size: 56px; margin-bottom: 60px; letter-spacing: -0.5px; }
+
+/* Mobile Typography Overrides */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 46px; }
+  .lead-text { font-size: 18px; }
+  .sec-title { font-size: 40px; margin-bottom: 40px; }
+}
 
 /* === LAYOUT === */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
@@ -31,7 +42,7 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 768px) { .section { padding: 80px 0; } }
 
 /* === BUTTONS === */
-.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--gold); color: var(--black); font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 16px 32px; border: 1px solid var(--gold); transition: 0.3s; cursor: pointer; border-radius: 2px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--gold); color: var(--black); font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 18px 36px; border: 1px solid var(--gold); transition: 0.3s; cursor: pointer; border-radius: 2px; }
 .btn:hover { background: transparent; color: var(--gold); }
 .btn-outline { background: transparent; color: var(--white); border-color: var(--border); }
 .btn-outline:hover { background: var(--white); color: var(--black); }
@@ -41,15 +52,13 @@ a { text-decoration: none; color: inherit; }
 .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
 .logo { font-size: 24px; font-weight: 700; color: var(--white); letter-spacing: 4px; }
 .nav-links { display: flex; gap: 40px; }
-.nav-links a { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--silver); transition: 0.3s; }
+.nav-links a { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--silver); transition: 0.3s; }
 .nav-links a:hover { color: var(--gold); }
 @media (max-width: 768px) { .nav-links { display: none; } }
 
-/* === HERO: CLEAR & DIRECT === */
+/* === HERO === */
 .hero { padding-top: 180px; padding-bottom: 120px; border-bottom: 1px solid var(--border); position: relative; }
-/* Subtle background glow, no distracting animations */
 .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(200,169,81,0.05) 0%, transparent 70%); pointer-events: none; z-index: -1; }
-.hero h1 { font-size: clamp(40px, 6vw, 72px); margin-bottom: 25px; letter-spacing: -1px; }
 .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
 
 /* === THE PROBLEM WE SOLVE === */
@@ -57,38 +66,37 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 860px) { .problem-grid { grid-template-columns: 1fr; } }
 .problem-box { padding: 40px; background: var(--card); border-left: 3px solid var(--border); }
 .problem-box.solution { border-left-color: var(--gold); background: var(--deep); }
-.problem-box h3 { font-size: 24px; color: var(--white); margin-bottom: 15px; }
-.problem-box p { color: var(--muted); font-size: 16px; margin-bottom: 20px; }
+.problem-box h3 { font-size: 28px; color: var(--white); margin-bottom: 15px; font-weight: 600; }
+.problem-box p { color: var(--muted); font-size: 16px; margin-bottom: 25px; line-height: 1.7; }
 .check-list { list-style: none; }
-.check-list li { margin-bottom: 10px; color: var(--silver); font-size: 15px; display: flex; gap: 10px; }
+.check-list li { margin-bottom: 12px; color: var(--silver); font-size: 16px; display: flex; gap: 10px; }
 .check-list li::before { content: '→'; color: var(--gold); font-family: monospace; }
 
 /* === CLEAR SERVICES LIST === */
-.sec-title { font-size: clamp(32px, 5vw, 48px); margin-bottom: 60px; }
 .services-list { display: flex; flex-direction: column; gap: 20px; }
-.service-item { display: grid; grid-template-columns: 300px 1fr; gap: 40px; padding: 40px; background: var(--deep); border: 1px solid var(--border); align-items: start; }
+.service-item { display: grid; grid-template-columns: 320px 1fr; gap: 40px; padding: 50px 40px; background: var(--deep); border: 1px solid var(--border); align-items: start; }
 @media (max-width: 768px) { .service-item { grid-template-columns: 1fr; gap: 20px; padding: 30px 20px; } }
-.service-item h3 { font-size: 28px; color: var(--white); margin-bottom: 10px; }
-.service-desc p { font-size: 16px; color: var(--silver); margin-bottom: 20px; line-height: 1.8; }
+.service-item h3 { font-size: 36px; color: var(--white); margin-bottom: 10px; }
+.service-desc p { font-size: 17px; color: var(--silver); margin-bottom: 25px; line-height: 1.7; }
 .service-tags { display: flex; gap: 10px; flex-wrap: wrap; }
-.service-tags span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 6px 12px; border: 1px solid var(--border); color: var(--muted); text-transform: uppercase; }
+.service-tags span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 8px 14px; border: 1px solid var(--border); color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
 
 /* === STRAIGHTFORWARD CONTACT FORM === */
-.contact-wrapper { max-width: 700px; margin: 0 auto; background: var(--card); padding: 50px; border: 1px solid var(--border); border-top: 3px solid var(--gold); }
-@media (max-width: 768px) { .contact-wrapper { padding: 30px 20px; } }
-.contact-wrapper h2 { font-size: 36px; margin-bottom: 15px; text-align: center; }
-.contact-wrapper > p { text-align: center; color: var(--muted); margin-bottom: 40px; }
+.contact-wrapper { max-width: 700px; margin: 0 auto; background: var(--card); padding: 60px 50px; border: 1px solid var(--border); border-top: 3px solid var(--gold); }
+@media (max-width: 768px) { .contact-wrapper { padding: 40px 20px; } }
+.contact-wrapper h2 { font-size: 42px; margin-bottom: 15px; text-align: center; }
+.contact-wrapper > p { text-align: center; color: var(--muted); margin-bottom: 40px; font-size: 16px; }
 
 .form-group { margin-bottom: 25px; }
-.form-group label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--silver); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
-.form-control { width: 100%; padding: 16px; background: var(--black); border: 1px solid var(--border); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 16px; border-radius: 2px; }
+.form-group label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--silver); letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+.form-control { width: 100%; padding: 18px 20px; background: var(--black); border: 1px solid var(--border); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 16px; border-radius: 2px; transition: 0.3s; }
 .form-control:focus { outline: none; border-color: var(--gold); }
 textarea.form-control { min-height: 120px; resize: vertical; }
 
 /* === FOOTER === */
-.footer { padding: 60px 0 30px; text-align: center; }
+.footer { padding: 60px 0 40px; text-align: center; }
 .footer .logo { display: block; margin-bottom: 20px; }
-.footer-text { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+.footer-text { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
 </style>
 </head>
 <body>
@@ -101,7 +109,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
       <a href="#services">What We Do</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 10px;">Get a Growth Audit</a>
+    <a href="#contact" class="btn" style="padding: 12px 24px; font-size: 10px;">Get a Growth Audit</a>
   </div>
 </header>
 
