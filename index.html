@@ -53,12 +53,12 @@ body { background: var(--black); color: var(--silver); font-family: 'Josefin San
 .hero-content h1 { font-family: 'Lora', serif; font-size: clamp(36px, 8vw, 80px); color: var(--white); line-height: 1.1; margin-bottom: 25px; }
 .hero-content p { font-size: clamp(16px, 2.5vw, 22px); margin-bottom: 40px; padding: 0 10px; }
 
-/* INFINITE CLIENT SLIDER */
-.clients-sec { background: var(--deep); padding: 30px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
-.client-track { display: flex; width: 200%; animation: scroll 20s linear infinite; align-items: center; }
+/* INFINITE CLIENT SLIDER (FIXED FOR MOBILE) */
+.clients-sec { background: var(--deep); padding: 30px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; display: flex; }
+.client-track { display: flex; width: max-content; animation: scroll 20s linear infinite; align-items: center; }
 .client-track:hover { animation-play-state: paused; }
-.client-logo { width: 100%; display: flex; justify-content: space-around; }
-.client-box { font-family: 'Josefin Sans', sans-serif; font-size: clamp(16px, 3vw, 24px); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; cursor: default; white-space: nowrap; padding: 0 20px; }
+.client-logo { display: flex; gap: clamp(40px, 6vw, 80px); padding-right: clamp(40px, 6vw, 80px); }
+.client-box { font-family: 'Josefin Sans', sans-serif; font-size: clamp(18px, 4vw, 24px); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; cursor: default; white-space: nowrap; flex-shrink: 0; }
 .client-box:hover { color: var(--white); text-shadow: 0 0 10px rgba(200,169,81,0.5); }
 @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
