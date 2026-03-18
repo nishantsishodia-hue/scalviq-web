@@ -3,349 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCALVIQ | Scale Without Limits</title>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<title>SCALVIQ | Empire Building</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+/* BRAND VARIABLES */
 :root {
   --black: #070709; --deep: #0E0E12; --card: #141418; --lift: #1E1E24;
   --border: #2C2C36; --muted: #64647A; --silver: #ADADC4; --white: #F2F2F6;
   --gold: #C8A951; --gold-lt: #E6C97A; --gold-dk: #7A6530;
+  --max-width: 1280px;
+  --spacing-md: 40px;
+  --spacing-lg: 80px;
+  --spacing-xl: 140px;
 }
+
+/* RESET & BASE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background: var(--black); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-weight: 300; overflow-x: hidden; line-height: 1.6; }
+html { scroll-behavior: smooth; background: var(--black); }
+body { background: var(--black); color: var(--silver); font-family: 'Josefin Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-/* NAV */
-.nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(7,7,9,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 20px clamp(20px, 5vw, 60px); display: flex; justify-content: space-between; align-items: center; }
-.nav-logo { font-size: 24px; font-weight: 700; letter-spacing: 6px; color: var(--white); text-decoration: none; }
-.nav-logo .q { color: var(--gold); }
-.nav-btn { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 10px 20px; text-decoration: none; transition: 0.3s; }
-.nav-btn:hover { background: var(--gold); color: var(--black); }
+/* TYPOGRAPHY */
+h1, h2, h3, h4 { color: var(--white); line-height: 1.1; font-weight: 700; }
+.text-gold { color: var(--gold); }
+.text-serif { font-family: 'Lora', serif; font-weight: 400; }
+.text-serif-italic { font-family: 'Lora', serif; font-style: italic; font-weight: 400; }
+.text-mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
 
-/* HERO */
-.hero { height: 100vh; display: flex; align-items: center; padding: 0 clamp(20px, 5vw, 60px); position: relative; overflow: hidden; }
-.hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 80% 50%, rgba(200,169,81,0.15), transparent 50%); z-index: 0; }
-.hero-content { position: relative; z-index: 2; max-width: 1000px; }
-.hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; display: block; }
-.hero-title { font-family: 'Lora', serif; font-size: clamp(50px, 8vw, 110px); line-height: 1; margin-bottom: 30px; font-weight: 400; }
-.hero-title em { color: var(--gold); font-style: italic; }
-.hero-desc { font-size: clamp(16px, 2vw, 22px); color: var(--silver); max-width: 600px; margin-bottom: 40px; }
+/* LAYOUT STRUCTURE */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 5%; }
+.section { padding: var(--spacing-xl) 0; border-top: 1px solid var(--border); }
+.section-header { margin-bottom: var(--spacing-lg); }
+.section-header .text-mono { color: var(--gold); margin-bottom: 15px; display: block; }
+.section-title { font-size: clamp(36px, 5vw, 64px); letter-spacing: -1px; }
 
-/* DIAGRAM: THE ECOSYSTEM */
-.section { padding: 120px clamp(20px, 5vw, 60px); border-top: 1px solid var(--border); position: relative; }
-.sec-header { text-align: center; margin-bottom: 80px; }
-.sec-title { font-family: 'Lora', serif; font-size: clamp(30px, 5vw, 50px); color: var(--white); margin-bottom: 15px; }
-.sec-sub { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; }
+/* NAVIGATION (Perfectly Centered) */
+.nav { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: rgba(7, 7, 9, 0.85); backdrop-filter: blur(16px); z-index: 1000; border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+.nav .container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-size: 22px; font-weight: 700; letter-spacing: 6px; color: var(--white); text-decoration: none; display: flex; align-items: center; }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { color: var(--white); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+@media (max-width: 768px) { .nav-links { display: none; } }
 
-.diagram-container { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; position: relative; flex-wrap: wrap; gap: 40px; }
-.diagram-container::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: var(--border); z-index: 0; }
-@media(max-width: 768px) { .diagram-container::before { display: none; } .diagram-container { flex-direction: column; } }
-.node { background: var(--card); border: 1px solid var(--gold-dk); padding: 40px 30px; text-align: center; z-index: 2; width: 30%; min-width: 250px; position: relative; transition: 0.4s; }
-.node:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(200,169,81,0.1); }
-.node-icon { font-size: 30px; margin-bottom: 20px; color: var(--gold); }
-.node-title { font-family: 'Josefin Sans', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
-.node-desc { font-size: 14px; color: var(--muted); }
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 18px 40px; background: var(--gold); color: var(--black); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--gold); cursor: pointer; }
+.btn:hover { background: transparent; color: var(--gold); }
+.btn-outline { background: transparent; color: var(--white); border-color: var(--border); }
+.btn-outline:hover { background: var(--white); color: var(--black); border-color: var(--white); }
 
-/* INTERACTIVE SERVICES TABS */
-.tabs-container { display: flex; gap: 60px; max-width: 1200px; margin: 0 auto; min-height: 500px; }
-@media(max-width: 860px) { .tabs-container { flex-direction: column; } }
-.tabs-sidebar { flex: 1; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--border); padding-right: 40px; }
-@media(max-width: 860px) { .tabs-sidebar { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 20px; } }
-.tab-btn { background: transparent; border: none; text-align: left; padding: 20px; font-family: 'Josefin Sans', sans-serif; font-size: 22px; color: var(--muted); cursor: pointer; transition: 0.3s; border-left: 3px solid transparent; letter-spacing: 2px; text-transform: uppercase; }
-.tab-btn:hover { color: var(--white); }
-.tab-btn.active { color: var(--gold); border-left-color: var(--gold); background: rgba(200,169,81,0.05); }
+/* HERO SECTION */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: flex-start; padding-top: 80px; position: relative; }
+.hero-glow { position: absolute; top: 20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(200,169,81,0.08) 0%, transparent 60%); z-index: 0; pointer-events: none; }
+.hero-content { position: relative; z-index: 2; max-width: 900px; }
+.hero h1 { font-size: clamp(50px, 9vw, 120px); letter-spacing: -2px; margin-bottom: 30px; }
+.hero p { font-size: clamp(18px, 2.5vw, 24px); color: var(--silver); max-width: 650px; margin-bottom: 40px; }
+.hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
 
-.tab-content-area { flex: 2; position: relative; }
-.tab-pane { display: none; animation: fadeIn 0.5s ease; }
-.tab-pane.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.pane-title { font-family: 'Lora', serif; font-size: 40px; margin-bottom: 20px; color: var(--white); }
-.pane-desc { font-size: 18px; color: var(--silver); margin-bottom: 30px; }
-.pane-graphic { width: 100%; height: 300px; background: var(--deep); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-/* Abstract CSS Graphics for Tabs */
-.graphic-1 { background: linear-gradient(45deg, var(--black), #1a1a24); }
-.graphic-1::after { content: ''; width: 150px; height: 150px; border: 2px solid var(--gold); border-radius: 50%; position: absolute; animation: pulse 2s infinite; }
-.graphic-2 { background: repeating-linear-gradient(45deg, var(--border), var(--border) 1px, var(--black) 1px, var(--black) 20px); }
-.graphic-3 { background: radial-gradient(circle, var(--gold-dk) 0%, var(--black) 70%); }
-.graphic-text { font-family: 'IBM Plex Mono', monospace; color: var(--gold); letter-spacing: 4px; z-index: 2; background: var(--black); padding: 10px 20px; border: 1px solid var(--gold); }
+/* BENTO BOX GRID (Services) */
+.bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+.bento-item { background: var(--card); border: 1px solid var(--border); padding: var(--spacing-md); border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; }
+.bento-item:hover { transform: translateY(-5px); border-color: var(--gold-dk); background: var(--lift); }
+.bento-item h3 { font-size: 28px; margin-bottom: 15px; }
+.bento-item p { font-size: 15px; color: var(--muted); }
+.bento-icon { font-size: 32px; color: var(--gold); margin-bottom: 30px; }
 
-/* ANIMATED DATA CHART SECTION */
-.chart-container { max-width: 900px; margin: 0 auto; padding: 40px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
-.chart-header { display: flex; justify-content: space-between; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
-.chart-title { font-family: 'Josefin Sans', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; }
-.chart { display: flex; align-items: flex-end; justify-content: space-around; height: 300px; padding-top: 20px; }
-.bar-group { display: flex; flex-direction: column; align-items: center; width: 15%; }
-.bar { width: 100%; background: var(--border); transition: height 1.5s cubic-bezier(0.16, 1, 0.3, 1); height: 0; position: relative; }
-.bar.gold { background: linear-gradient(to top, var(--gold-dk), var(--gold)); }
-.bar-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 15px; text-transform: uppercase; }
-.bar-value { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--white); opacity: 0; transition: 1s 1s; }
-.bar-group.animate .bar { height: var(--target-height); }
-.bar-group.animate .bar-value { opacity: 1; }
+/* Bento Sizing Strategy */
+.bento-large { grid-column: span 8; }
+.bento-medium { grid-column: span 4; }
+.bento-half { grid-column: span 6; }
+@media (max-width: 992px) {
+  .bento-large, .bento-medium, .bento-half { grid-column: span 6; }
+}
+@media (max-width: 768px) {
+  .bento-large, .bento-medium, .bento-half { grid-column: span 12; }
+}
 
-/* EXAMPLES / PORTFOLIO GRID */
-.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-.port-item { height: 400px; position: relative; overflow: hidden; background: var(--deep); border: 1px solid var(--border); group; display: flex; align-items: flex-end; padding: 30px; cursor: pointer; }
-.port-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; transition: 0.5s; filter: grayscale(100%); }
-.port-item:hover .port-bg { opacity: 0.8; transform: scale(1.05); filter: grayscale(0%); }
-.port-content { position: relative; z-index: 2; transform: translateY(20px); transition: 0.4s; }
-.port-item:hover .port-content { transform: translateY(0); }
-.port-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; }
-.port-title { font-family: 'Lora', serif; font-size: 24px; color: var(--white); }
+/* HIGHLIGHT FEATURE (AI Photoshoots) */
+.feature-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); align-items: center; }
+@media (max-width: 860px) { .feature-split { grid-template-columns: 1fr; } }
+.feature-image { width: 100%; aspect-ratio: 4/3; background: var(--deep); border: 1px solid var(--border); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.feature-image::before { content: 'AI RENDERING VISUAL...'; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--border); letter-spacing: 4px; }
+.feature-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0.6; mix-blend-mode: luminosity; transition: 0.5s; }
+.feature-image:hover img { opacity: 1; mix-blend-mode: normal; }
 
-/* CONTACT FORM */
-.contact-wrapper { display: flex; max-width: 1000px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-@media(max-width: 768px) { .contact-wrapper { flex-direction: column; } }
-.contact-info { flex: 1; background: var(--deep); padding: 60px 40px; border-right: 1px solid var(--border); }
-.contact-info h3 { font-family: 'Lora', serif; font-size: 32px; margin-bottom: 20px; }
-.founder-profile { margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border); }
-.contact-form { flex: 1.5; padding: 60px 40px; }
-.input-field { width: 100%; background: var(--black); border: 1px solid var(--border); color: var(--white); padding: 15px 20px; font-family: 'Josefin Sans', sans-serif; font-size: 16px; margin-bottom: 20px; transition: 0.3s; }
-.input-field:focus { outline: none; border-color: var(--gold); }
-textarea.input-field { min-height: 150px; resize: vertical; }
-.submit-btn { background: var(--gold); color: var(--black); border: none; padding: 15px 40px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; cursor: pointer; width: 100%; transition: 0.3s; }
-.submit-btn:hover { background: var(--white); }
+/* LEADERSHIP / ABOUT */
+.founder-box { background: var(--deep); border: 1px solid var(--border); padding: var(--spacing-lg); text-align: center; max-width: 800px; margin: 0 auto; }
+.founder-quote { font-size: clamp(24px, 4vw, 36px); line-height: 1.4; color: var(--white); margin-bottom: 40px; }
+.founder-details h4 { font-size: 24px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+.founder-details p { color: var(--gold); }
+
+/* CONTACT FORM (UI Friendly) */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-details { padding-right: 40px; }
+.contact-item { margin-bottom: 30px; }
+.contact-item .text-mono { color: var(--gold); margin-bottom: 5px; }
+.contact-item p { font-size: 20px; color: var(--white); }
+
+.form-group { margin-bottom: 25px; }
+.form-label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--silver); margin-bottom: 10px; text-transform: uppercase; }
+.form-control { width: 100%; background: var(--deep); border: 1px solid var(--border); padding: 18px 20px; color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 16px; transition: border-color 0.3s, box-shadow 0.3s; }
+.form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 15px rgba(200, 169, 81, 0.1); background: var(--black); }
+textarea.form-control { min-height: 150px; resize: vertical; }
 
 /* FOOTER */
-.footer { padding: 40px; text-align: center; border-top: 1px solid var(--border); background: var(--black); font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+.footer { padding: var(--spacing-lg) 0; border-top: 1px solid var(--border); background: var(--deep); }
+.footer-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-logo { font-size: 24px; font-weight: 700; letter-spacing: 6px; color: var(--white); }
+.footer-logo .q { color: var(--gold); }
 
-/* UTILS */
-.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+/* ANIMATIONS */
+.fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a href="#" class="nav-logo">SCALVI<span class="q">Q</span></a>
-  <a href="#contact" class="nav-btn">Start Project</a>
+  <div class="container">
+    <a href="#" class="nav-logo">SCALVI<span class="q">Q</span></a>
+    <div class="nav-links">
+      <a href="#expertise">Expertise</a>
+      <a href="#ai-studio">AI Studio</a>
+      <a href="#leadership">Leadership</a>
+    </div>
+    <a href="#contact" class="btn" style="padding: 12px 24px; font-size: 10px;">Initiate</a>
+  </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content reveal active">
-    <span class="hero-eyebrow">India's Premier Growth Agency</span>
-    <h1 class="hero-title">Empires are Built,<br><em>Not Found.</em></h1>
-    <p class="hero-desc">We combine elite digital strategy, political warfare, and AI-powered visual engineering to scale your influence without limits.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="sec-header reveal">
-    <span class="sec-sub">The SCALVIQ Methodology</span>
-    <h2 class="sec-title">The Growth Ecosystem</h2>
-  </div>
-  <div class="diagram-container reveal">
-    <div class="node">
-      <div class="node-icon">⚡</div>
-      <div class="node-title">01. Architect</div>
-      <div class="node-desc">We construct the foundation. Brand identity, AI workflows, and data-driven market positioning.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">🎯</div>
-      <div class="node-title">02. Deploy</div>
-      <div class="node-desc">Aggressive go-to-market. Meta/Google ads, political campaigns, and AI-generated content at scale.</div>
-    </div>
-    <div class="node">
-      <div class="node-icon">📈</div>
-      <div class="node-title">03. Dominate</div>
-      <div class="node-desc">Marketplace monopoly. Scaling E-commerce, optimizing conversions, and cementing legacy.</div>
+  <div class="hero-glow"></div>
+  <div class="container hero-content">
+    <span class="text-mono fade-up">India's Premier Growth Agency</span>
+    <h1 class="fade-up delay-1">Scale <span class="text-serif-italic text-silver">Without</span><br>Limits.</h1>
+    <p class="fade-up delay-2">We engineer dominant brands using precision digital strategy, elite political warfare, and cutting-edge AI visual production.</p>
+    <div class="hero-buttons fade-up delay-2">
+      <a href="#contact" class="btn">Start Your Empire</a>
+      <a href="#expertise" class="btn btn-outline">View Expertise</a>
     </div>
   </div>
 </section>
 
-<section class="section" style="background: var(--deep);" id="services">
-  <div class="sec-header reveal">
-    <span class="sec-sub">Our Verticals</span>
-    <h2 class="sec-title">We Build Empires</h2>
-  </div>
-  
-  <div class="tabs-container reveal">
-    <div class="tabs-sidebar">
-      <button class="tab-btn active" onclick="openTab(event, 'tab-digital')">Digital Marketing</button>
-      <button class="tab-btn" onclick="openTab(event, 'tab-ai')">AI Photoshoots</button>
-      <button class="tab-btn" onclick="openTab(event, 'tab-pol')">Political Mgmt</button>
-      <button class="tab-btn" onclick="openTab(event, 'tab-com')">E-Commerce</button>
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="text-mono">01 — Verticals</span>
+      <h2 class="section-title">The <span class="text-gold">Empire</span> Structure</h2>
     </div>
-    
-    <div class="tab-content-area">
-      <div id="tab-digital" class="tab-pane active">
-        <h3 class="pane-title">Digital Warfare</h3>
-        <p class="pane-desc">We do not just run ads; we buy market share. Elite performance marketing across Meta, Google, and SEO to guarantee explosive ROI.</p>
-        <div class="pane-graphic graphic-1">
-          <div class="graphic-text">DATA ALGORITHMS ACTIVE</div>
+
+    <div class="bento-grid">
+      <div class="bento-item bento-large fade-up">
+        <div class="bento-icon">🎯</div>
+        <div>
+          <h3>Digital Warfare</h3>
+          <p class="text-serif">We do not just run ads; we buy market share. Elite performance marketing across Meta, Google, and SEO to guarantee explosive ROI and dominate your competitors.</p>
         </div>
       </div>
       
-      <div id="tab-ai" class="tab-pane">
-        <h3 class="pane-title">AI Photoshoots</h3>
-        <p class="pane-desc">Stop paying for expensive studios. We generate hyper-realistic, high-fidelity AI models and product shoots indistinguishable from reality.</p>
-        <div class="pane-graphic graphic-3">
-          <div class="graphic-text">RENDERING PHOTOREALISM...</div>
-        </div>
-      </div>
-      
-      <div id="tab-pol" class="tab-pane">
-        <h3 class="pane-title">Political Mastery</h3>
-        <p class="pane-desc">Elections are won on narratives. We handle end-to-end campaign management, voter psychology, and unshakeable PR defense.</p>
-        <div class="pane-graphic graphic-2">
-          <div class="graphic-text">VOTER SENTIMENT: HIGH</div>
+      <div class="bento-item bento-medium fade-up delay-1">
+        <div class="bento-icon">🏛️</div>
+        <div>
+          <h3>Political Mastery</h3>
+          <p>End-to-end election strategy, voter psychology, and unshakeable PR defense.</p>
         </div>
       </div>
 
-      <div id="tab-com" class="tab-pane">
-        <h3 class="pane-title">E-Commerce Scaling</h3>
-        <p class="pane-desc">We build and scale D2C brands to 8-figures. Total domination on Amazon, Flipkart, and Shopify with precision logistics.</p>
-        <div class="pane-graphic graphic-1">
-          <div class="graphic-text">CONVERSION RATE: OPTIMIZED</div>
+      <div class="bento-item bento-half fade-up">
+        <div class="bento-icon">🛒</div>
+        <div>
+          <h3>E-Commerce Scaling</h3>
+          <p>Marketplace dominance on Amazon, Flipkart, and precision D2C store architectures.</p>
+        </div>
+      </div>
+
+      <div class="bento-item bento-half fade-up delay-1">
+        <div class="bento-icon">🚀</div>
+        <div>
+          <h3>Tech & Incubation</h3>
+          <p>Custom applications, AI workflows, go-to-market strategies, and brand building from absolute zero.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="sec-header reveal">
-    <span class="sec-sub">The Impact</span>
-    <h2 class="sec-title">Data Speaks</h2>
-  </div>
-  
-  <div class="chart-container reveal" id="chart-section">
-    <div class="chart-header">
-      <div class="chart-title">Revenue Trajectory</div>
-      <div style="font-family:'IBM Plex Mono'; color:var(--gold); font-size: 12px;">INDUSTRY AVG VS. SCALVIQ</div>
-    </div>
-    <div class="chart">
-      <div class="bar-group">
-        <div class="bar" style="--target-height: 20%;">
-          <span class="bar-value">Q1</span>
-        </div>
-        <span class="bar-label">Standard</span>
+<section class="section" id="ai-studio" style="background: var(--deep);">
+  <div class="container">
+    <div class="feature-split">
+      <div class="feature-text fade-up">
+        <span class="text-mono">02 — Innovation</span>
+        <h2 class="section-title" style="margin-bottom: 20px;">AI-Powered <br><span class="text-serif-italic text-silver">Visual Studios</span></h2>
+        <p style="margin-bottom: 30px;">Stop paying for expensive physical studios and logistics. We generate hyper-realistic, high-fidelity AI models, product shoots, and campaign visuals that are indistinguishable from reality.</p>
+        <ul style="list-style: none; margin-bottom: 40px;">
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><span class="text-gold">✦</span> Photorealistic Product Placement</li>
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><span class="text-gold">✦</span> Infinite Virtual Models & Backgrounds</li>
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;"><span class="text-gold">✦</span> Fractional Cost & Turnaround Time</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Request AI Portfolio</a>
       </div>
-      <div class="bar-group">
-        <div class="bar" style="--target-height: 35%;">
-          <span class="bar-value">Q2</span>
-        </div>
-        <span class="bar-label">Standard</span>
-      </div>
-      <div class="bar-group">
-        <div class="bar gold" style="--target-height: 60%;">
-          <span class="bar-value">Q3</span>
-        </div>
-        <span class="bar-label">SCALVIQ</span>
-      </div>
-      <div class="bar-group">
-        <div class="bar gold" style="--target-height: 95%;">
-          <span class="bar-value">Q4</span>
-        </div>
-        <span class="bar-label">SCALVIQ</span>
+      <div class="feature-image fade-up delay-1">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="AI Rendering Example">
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="background: var(--deep);">
-  <div class="sec-header reveal">
-    <span class="sec-sub">Visual Evidence</span>
-    <h2 class="sec-title">Recent Campaigns</h2>
-  </div>
-  
-  <div class="portfolio-grid reveal">
-    <div class="port-item">
-      <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1000&auto=format&fit=crop" class="port-bg" alt="AI Rendering">
-      <div class="port-content">
-        <span class="port-tag">AI Photoshoots</span>
-        <h3 class="port-title">Fashion Brand X: Virtual Models</h3>
-      </div>
-    </div>
-    <div class="port-item">
-      <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop" class="port-bg" alt="Digital Strategy">
-      <div class="port-content">
-        <span class="port-tag">Digital Strategy</span>
-        <h3 class="port-title">D2C Tech Scaling</h3>
-      </div>
-    </div>
-    <div class="port-item">
-      <img src="https://images.unsplash.com/photo-1541872526868-c1fa93051a82?q=80&w=1000&auto=format&fit=crop" class="port-bg" alt="Political Management">
-      <div class="port-content">
-        <span class="port-tag">Political Mgmt</span>
-        <h3 class="port-title">National Election Narrative</h3>
+<section class="section" id="leadership">
+  <div class="container">
+    <div class="founder-box fade-up">
+      <h3 class="text-serif-italic founder-quote">"We do not believe in generic strategies. Every campaign, line of code, and piece of content we deploy is engineered for absolute dominance."</h3>
+      <div class="founder-details">
+        <h4>Nishant Sishodia</h4>
+        <p class="text-mono">Founder & CEO</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section" id="contact">
-  <div class="contact-wrapper reveal">
-    <div class="contact-info">
-      <h3>Ready to Scale?</h3>
-      <p style="color: var(--silver); font-size: 16px; margin-bottom: 20px;">Your competitors are already moving. Submit your details to secure a strategy session.</p>
-      <div style="font-family:'IBM Plex Mono'; color:var(--gold); font-size: 12px; margin-bottom: 10px;">hello@scalviq.ai</div>
-      <div style="font-family:'IBM Plex Mono'; color:var(--gold); font-size: 12px;">+91 9050728595</div>
-      
-      <div class="founder-profile">
-        <div style="font-family:'Josefin Sans'; font-size: 24px; font-weight: 700;">Nishant Sishodia</div>
-        <div style="font-family:'IBM Plex Mono'; font-size: 10px; color: var(--muted); letter-spacing: 2px;">FOUNDER & CEO</div>
-      </div>
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="text-mono">03 — Initiate</span>
+      <h2 class="section-title">Ready to <span class="text-gold">Scale?</span></h2>
     </div>
-    
-    <div class="contact-form">
-      <form action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="7ec9a031-c6f3-4f30-96b8-a0d776072804">
-        <input type="hidden" name="redirect" value="https://scalviq-web.vercel.app">
+
+    <div class="contact-grid">
+      <div class="contact-details fade-up">
+        <p style="font-size: 20px; margin-bottom: 40px; color: var(--silver);">Your competitors are already moving. Submit your brief below, and my team will engineer a bespoke growth architecture for your brand.</p>
         
-        <input type="text" name="name" class="input-field" required placeholder="Your Name / Brand">
-        <input type="email" name="email" class="input-field" required placeholder="Email Address">
-        <input type="text" name="phone" class="input-field" placeholder="Phone Number (Optional)">
-        <textarea name="message" class="input-field" required placeholder="Tell us about your project..."></textarea>
-        
-        <button type="submit" class="submit-btn">Submit Inquiry</button>
-      </form>
+        <div class="contact-item">
+          <span class="text-mono">Email Address</span>
+          <p>hello@scalviq.ai</p>
+        </div>
+        <div class="contact-item">
+          <span class="text-mono">Direct Line</span>
+          <p>+91 9050728595</p>
+        </div>
+        <div class="contact-item">
+          <span class="text-mono">Social Network</span>
+          <p>@scalviq.ai</p>
+        </div>
+      </div>
+
+      <div class="contact-form fade-up delay-1">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7ec9a031-c6f3-4f30-96b8-a0d776072804">
+          <input type="hidden" name="redirect" value="https://scalviq-web.vercel.app">
+
+          <div class="form-group">
+            <label class="form-label">Name / Organization</label>
+            <input type="text" name="name" class="form-control" required placeholder="Enter your brand name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-control" required placeholder="contact@yourbrand.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project Ambition</label>
+            <textarea name="message" class="form-control" required placeholder="How can we help you scale?"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  SCALVIQ AI © 2026. ALL RIGHTS RESERVED.
+  <div class="container footer-grid">
+    <div class="footer-logo">SCALVI<span class="q">Q</span></div>
+    <div class="text-mono">© 2026 SCALVIQ AI. ALL RIGHTS RESERVED.</div>
+  </div>
 </footer>
 
 <script>
-  // TABS LOGIC
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-pane");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].classList.remove("active");
-    }
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].classList.remove("active");
-    }
-    document.getElementById(tabName).classList.add("active");
-    evt.currentTarget.classList.add("active");
-  }
-
-  // SCROLL ANIMATIONS (Reveal Elements & Trigger Chart)
   document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll('.fade-up');
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          
-          // If the chart section is visible, trigger the bars
-          if(entry.target.id === 'chart-section') {
-            const bars = entry.target.querySelectorAll('.bar-group');
-            bars.forEach((bar, index) => {
-              setTimeout(() => {
-                bar.classList.add('animate');
-              }, index * 200); // Stagger the animation
-            });
-          }
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Run once
         }
       });
-    }, { threshold: 0.15 });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
+    elements.forEach(element => {
+      observer.observe(element);
     });
   });
 </script>
