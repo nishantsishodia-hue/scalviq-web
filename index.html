@@ -46,19 +46,17 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .nav-links a:hover { color: var(--gold); }
 @media (max-width: 768px) { .nav-links { display: none; } }
 
-/* === HERO: WITH CINEMATIC IMAGE BACKGROUND === */
+/* === HERO: CLEAR & DIRECT === */
 .hero { 
   padding-top: 180px; 
   padding-bottom: 120px; 
   border-bottom: 1px solid var(--border); 
   position: relative; 
-  /* High-end stock image of modern architecture/business */
   background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
-/* Heavy gradient overlay to ensure text is perfectly readable */
 .hero::before { 
   content: ''; 
   position: absolute; 
@@ -78,8 +76,6 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .check-list { list-style: none; margin-bottom: 30px; }
 .check-list li { margin-bottom: 10px; color: var(--silver); font-size: 15px; display: flex; gap: 10px; }
 .check-list li::before { content: '→'; color: var(--gold); font-family: monospace; }
-
-/* Editorial Image styling */
 .about-image { width: 100%; aspect-ratio: 4/3; position: relative; }
 .about-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.1); transition: 0.5s; border: 1px solid var(--border); }
 .about-image:hover img { filter: grayscale(30%); border-color: var(--gold); }
@@ -91,13 +87,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .service-item { display: grid; grid-template-columns: 350px 1fr; background: var(--deep); border: 1px solid var(--border); align-items: stretch; transition: 0.3s; }
 .service-item:hover { border-color: var(--gold-dk); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 @media (max-width: 768px) { .service-item { grid-template-columns: 1fr; } }
-
-/* Service Images */
 .service-img-box { width: 100%; height: 100%; min-height: 250px; overflow: hidden; border-right: 1px solid var(--border); }
 @media (max-width: 768px) { .service-img-box { border-right: none; border-bottom: 1px solid var(--border); height: 200px; } }
 .service-img-box img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%) brightness(0.7); transition: 0.5s; }
 .service-item:hover .service-img-box img { filter: grayscale(0%) brightness(0.9); transform: scale(1.05); }
-
 .service-content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
 .service-content h3 { font-size: 28px; color: var(--white); margin-bottom: 15px; }
 .service-desc p { font-size: 16px; color: var(--silver); margin-bottom: 20px; line-height: 1.8; }
@@ -109,37 +102,22 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 @media (max-width: 768px) { .contact-wrapper { padding: 30px 20px; } }
 .contact-wrapper h2 { font-size: 36px; margin-bottom: 15px; text-align: center; }
 .contact-wrapper > p { text-align: center; color: var(--muted); margin-bottom: 40px; }
-
 .form-group { margin-bottom: 25px; }
 .form-group label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--silver); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
 .form-control { width: 100%; padding: 16px; background: var(--black); border: 1px solid var(--border); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 16px; border-radius: 2px; }
 .form-control:focus { outline: none; border-color: var(--gold); }
 textarea.form-control { min-height: 120px; resize: vertical; }
 
-/* === DETAILED FOOTER === */
-.footer { background: var(--deep); padding: 80px 0 30px; border-top: 1px solid var(--border); }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 60px; margin-bottom: 60px; }
-@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr; gap: 40px; } }
-
-.footer-brand .logo { display: inline-block; margin-bottom: 20px; }
-.footer-brand p { color: var(--muted); font-size: 15px; line-height: 1.8; max-width: 380px; }
-
-.footer-col h4 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: var(--silver); font-size: 15px; }
-.footer-links a:hover { color: var(--gold); padding-left: 5px; }
-
-.footer-contact { list-style: none; }
-.footer-contact li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; color: var(--white); font-size: 15px; }
-.footer-contact i { color: var(--gold); font-size: 18px; margin-top: 5px; }
-.contact-label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-
-.footer-bottom { border-top: 1px solid var(--border); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-.footer-text { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
-.social-links { display: flex; gap: 20px; }
-.social-links a { color: var(--silver); font-size: 18px; }
-.social-links a:hover { color: var(--gold); transform: translateY(-3px); }
+/* === GRAND BRAND KIT FOOTER === */
+.closing { min-height: 60svh; background: var(--deep); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; text-align: center; padding: 80px 24px; }
+.closing::before { content: 'SCALVIQ'; position: absolute; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: clamp(72px, 20vw, 240px); color: transparent; -webkit-text-stroke: 1px rgba(200, 169, 81, 0.04); top: 50%; left: 50%; transform: translate(-50%, -50%); letter-spacing: 8px; white-space: nowrap; user-select: none; pointer-events: none; }
+.cl-in { position: relative; z-index: 2; }
+.cl-wm { font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: clamp(36px, 6.5vw, 80px); letter-spacing: clamp(4px, 1.8vw, 13px); color: var(--white); }
+.cl-wm .q { color: var(--gold); }
+.cl-ln { width: 56px; height: 1px; background: var(--gold); margin: 24px auto; }
+.cl-tg { font-family: 'IBM Plex Mono', monospace; font-size: clamp(8px, 1.1vw, 10px); letter-spacing: 4px; color: var(--muted); text-transform: uppercase; margin-bottom: 24px; }
+.cl-dom { font-family: 'IBM Plex Mono', monospace; font-size: clamp(8px, 1.1vw, 11px); letter-spacing: 3px; color: var(--gold-dk); }
+.cl-copy { margin-top: 40px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--border); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 </head>
 <body>
@@ -310,64 +288,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      
-      <div class="footer-brand">
-        <a href="#" class="logo">SCALVI<span class="text-gold">Q</span></a>
-        <p>SCALVIQ is India's premier intelligent growth company. We transform businesses through precision digital strategy, AI automation, and world-class execution.</p>
-      </div>
-      
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul class="footer-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#approach">Our Approach</a></li>
-          <li><a href="#services">Capabilities</a></li>
-          <li><a href="#contact">Start a Project</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-col">
-        <h4>Direct Contact</h4>
-        <ul class="footer-contact">
-          <li>
-            <i class="fa-solid fa-phone"></i>
-            <div>
-              <span class="contact-label">Call Us</span>
-              <strong>+91 9050728595</strong>
-            </div>
-          </li>
-          <li>
-            <i class="fa-solid fa-envelope"></i>
-            <div>
-              <span class="contact-label">Secure Email</span>
-              <strong>hello@scalviq.ai</strong>
-            </div>
-          </li>
-          <li>
-            <i class="fa-solid fa-location-dot"></i>
-            <div>
-              <span class="contact-label">Command Center</span>
-              <strong>SCALVIQ HQ, India</strong>
-            </div>
-          </li>
-        </ul>
-      </div>
-      
-    </div>
-    
-    <div class="footer-bottom">
-      <div class="footer-text">
-        &copy; 2026 SCALVIQ AI. Founder: Nishant Sishodia. | Scale Without Limits.
-      </div>
-      <div class="social-links">
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-      </div>
-    </div>
+<footer class="closing">
+  <div class="cl-in">
+    <div class="cl-wm">SCALVI<span class="q">Q</span></div>
+    <div class="cl-ln"></div>
+    <div class="cl-tg">Scale Without Limits · भारत का भविष्य · Est. 2025</div>
+    <div class="cl-dom">scalviq.ai &nbsp;·&nbsp; scalviq.in &nbsp;·&nbsp; @scalviq.ai</div>
+    <div class="cl-copy">&copy; 2026 SCALVIQ AI. Founder: Nishant Sishodia.</div>
   </div>
 </footer>
 
