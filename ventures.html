@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme:dark only;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ventures & Brand Incubation | SCALVIQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   GLOBAL THEME & RESET
+══════════════════════════════════════════════════ */
+:root {
+  --c0: #0d1117; --c1: #161b22; --c2: #21262d; --c3: #30363d;
+  --t0: #e6edf3; --t1: #8b949e; --t2: #6e7681;
+  --gold: #C8A951; --goldL: #E0C06A; --goldD: #7A6228;
+  --red: #f85149; --green: #3fb950; --blue: #58a6ff;
+  --r: 10px; --ease: cubic-bezier(.16,1,.3,1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background: var(--c0); color: var(--t0); font-family: 'Josefin Sans', sans-serif; overflow-x: hidden; line-height: 1.7; }
+a { text-decoration:none; color:inherit; }
+img { max-width: 100%; display: block; }
+strong { font-weight: 600; color: var(--t0); }
+
+/* ══════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════ */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:500; height:62px;
+  background: rgba(22, 27, 34, 0.85); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--c3);
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 clamp(16px,4vw,32px);
+}
+.nav-logo { display:flex; align-items:center; gap:10px; }
+.n-mark { width:32px; height:32px; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:15px; color:#010409; border-radius:6px; flex-shrink:0; position:relative; }
+.n-mark::after { content:''; position:absolute; inset:-2px; border:1px solid rgba(200,169,81,.3); border-radius:8px; }
+.n-name { font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:14px; letter-spacing:4px; color:var(--t0); }
+.n-name .q { color:var(--gold); }
+.nav-back { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px; color:var(--t1); text-transform:uppercase; transition: color .2s; display: flex; align-items: center; gap: 6px; }
+.nav-back:hover { color:var(--t0); }
+
+/* ══════════════════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════════════════ */
+.hero {
+  padding: clamp(120px, 15vw, 180px) clamp(20px, 5vw, 60px) clamp(60px, 10vw, 100px);
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px);
+  align-items: center; position: relative;
+}
+@media(max-width: 960px) { .hero { grid-template-columns: 1fr; text-align: center; } }
+
+.hero-text { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+@media(max-width: 960px) { .hero-text { align-items: center; text-align: center; margin: 0 auto; } }
+
+.hero-chip {
+  display:inline-flex; align-items:center; gap:8px; padding:4px 12px;
+  background:rgba(200,169,81,.1); border:1px solid rgba(200,169,81,.28);
+  border-radius:100px; font-family:'IBM Plex Mono',monospace; font-size:9px;
+  letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:24px;
+}
+.hero-h1 {
+  font-family: 'Lora', serif; font-size: clamp(36px, 4.5vw, 64px); font-weight: 600;
+  line-height: 1.15; color: var(--t0); margin-bottom: 24px;
+}
+.hero-h1 em { font-style: italic; color: var(--goldL); }
+.hero-p {
+  font-size: clamp(15px, 1.5vw, 18px); color: var(--t1); line-height: 1.8;
+  margin-bottom: 40px; max-width: 600px;
+}
+
+.btn-primary {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 32px;
+  background:var(--gold); color:#010409; font-family:'IBM Plex Mono',monospace;
+  font-size:10px; letter-spacing:2px; text-transform:uppercase; font-weight:700;
+  border:1px solid var(--gold); border-radius:var(--r); transition: all .3s;
+  box-shadow: 0 0 20px rgba(200,169,81,0.15); cursor: pointer;
+}
+.btn-primary:hover { background:var(--goldL); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,169,81,0.3); }
+
+/* Animated Ventures Graphic */
+.hero-visual { position: relative; width: 100%; aspect-ratio: 1/1; max-width: 450px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+.circle-bg { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed var(--c3); animation: spin 40s linear infinite; }
+.circle-bg::before { content:''; position:absolute; inset: 10%; border-radius: 50%; border: 1px solid rgba(200,169,81,0.2); animation: spin 20s linear infinite reverse; }
+
+.stat-float {
+  position: absolute; background: rgba(22,27,34,0.9); backdrop-filter: blur(10px);
+  border: 1px solid var(--c3); padding: 16px 24px; border-radius: var(--r);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6); animation: float 6s ease-in-out infinite;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+
+.sf-1 { top: 8%; left: -10%; animation-delay: 0s; border-left: 3px solid var(--blue); z-index: 10; }
+.sf-2 { bottom: 10%; right: -10%; animation-delay: 2s; border-left: 3px solid var(--green); z-index: 10; }
+.sf-3 { position: relative; animation: none; padding: 28px 16px; text-align: center; border-color: rgba(200,169,81,0.4); background: var(--c0); z-index: 5; width: 55%; box-shadow: 0 0 40px rgba(200,169,81,0.1); }
+
+.sf-icon { font-size: 24px; margin-bottom: 6px; }
+.sf-val { font-family: 'Lora', serif; font-size: clamp(16px, 2.5vw, 20px); font-weight: 700; color: var(--t0); line-height: 1.2;}
+.sf-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--t1); text-transform: uppercase; margin-top: 4px; }
+
+.sf3-icon { font-size: 40px; margin-bottom: 10px; }
+.sf3-val { font-size: 22px; color: var(--gold); }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+
+/* Mobile Hero Visual Fix */
+@media(max-width: 600px) {
+  .hero-visual { max-width: 280px; margin-top: 40px; margin-bottom: 20px; }
+  .stat-float { padding: 10px 14px; }
+  .sf-3 { padding: 16px; width: 80%; }
+  .sf-1 { left: -10%; top: -5%; }
+  .sf-2 { right: -10%; bottom: -5%; }
+}
+
+/* ══════════════════════════════════════════════════
+   SECTION HEADERS
+══════════════════════════════════════════════════ */
+.sec { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); max-width: 1280px; margin: 0 auto; }
+.sec-alt { background: var(--c1); border-top: 1px solid var(--c3); border-bottom: 1px solid var(--c3); }
+.sec-header { text-align: center; max-width: 800px; margin: 0 auto 60px; display: flex; flex-direction: column; align-items: center; }
+.sec-title { font-family: 'Lora', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 600; margin-bottom: 20px; color: var(--t0); }
+.sec-subtitle { font-size: clamp(15px, 1.8vw, 18px); color: var(--t1); line-height: 1.8; text-align: center; }
+
+/* ══════════════════════════════════════════════════
+   THE STORYTELLING FACTOR (NEW)
+══════════════════════════════════════════════════ */
+.story-callout { background: linear-gradient(90deg, var(--c1), var(--c2)); padding: 60px; border-radius: var(--r); border: 1px solid var(--c3); margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+@media(max-width: 860px) { .story-callout { grid-template-columns: 1fr; padding: 30px; } }
+.sc-h3 { font-family: 'Lora', serif; font-size: clamp(24px, 3vw, 36px); color: var(--gold); margin-bottom: 20px; }
+.sc-p { font-size: 16px; color: var(--t1); }
+.sc-img { width: 100%; border-radius: var(--r); filter: grayscale(100%) brightness(0.7); border: 1px solid var(--goldD); }
+
+/* ══════════════════════════════════════════════════
+   INCUBATION ECOSYSTEM (BENTO GRID)
+══════════════════════════════════════════════════ */
+.bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: stretch; margin-top: 50px; }
+@media(max-width: 768px) { .bento-grid { grid-template-columns: 1fr; } }
+
+.bc-card {
+  background: var(--c0); border: 1px solid var(--c3); padding: 32px; border-radius: var(--r);
+  transition: all 0.4s var(--ease); opacity: 0; transform: translateY(30px);
+  display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+}
+.bc-card.visible { opacity: 1; transform: translateY(0); }
+.bc-card:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(200,169,81,0.1); background: var(--c1); }
+
+.bc-icon { font-size: 32px; margin-bottom: 20px; width: 64px; height: 64px; background: rgba(200,169,81,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(200,169,81,0.2); flex-shrink: 0; }
+.bc-title { font-family: 'Lora', serif; font-size: 22px; font-weight: 600; color: var(--t0); margin-bottom: 12px; }
+.bc-desc { font-size: 15px; color: var(--t1); line-height: 1.7; flex: 1; }
+.bc-desc strong { color: var(--t0); font-weight: 600; }
+
+/* ══════════════════════════════════════════════════
+   THE ROADMAP (TIMELINE)
+══════════════════════════════════════════════════ */
+.process-wrapper { display: flex; flex-direction: column; gap: 40px; position: relative; margin-top: 50px; }
+.process-wrapper::before { content: ''; position: absolute; left: 40px; top: 0; bottom: 0; width: 2px; background: var(--c3); z-index: 1; }
+@media(max-width: 600px) { .process-wrapper::before { left: 24px; } }
+
+.step-card { display: flex; align-items: center; gap: clamp(20px, 4vw, 40px); position: relative; z-index: 2; opacity: 0; transform: translateX(-30px); transition: all 0.6s var(--ease); }
+.step-card.visible { opacity: 1; transform: translateX(0); }
+
+.step-num { width: 80px; height: 80px; background: var(--c0); border: 2px solid var(--c3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 600; color: var(--t1); box-shadow: 0 0 0 10px var(--c1); flex-shrink: 0; transition: all 0.3s; }
+@media(max-width: 600px) { .step-num { width: 48px; height: 48px; font-size: 16px; box-shadow: 0 0 0 6px var(--c1); } }
+
+.step-card:hover .step-num { border-color: var(--gold); color: var(--gold); background: rgba(200,169,81,0.1); transform: scale(1.1); box-shadow: 0 0 0 10px var(--c1), 0 0 20px rgba(200,169,81,0.3); }
+
+.step-content { background: var(--c0); border: 1px solid var(--c3); padding: 32px; border-radius: var(--r); flex: 1; transition: transform 0.3s, border-color 0.3s; }
+.step-card:hover .step-content { border-color: rgba(200,169,81,0.3); transform: translateX(10px); }
+
+.step-h3 { font-family: 'Lora', serif; font-size: 22px; font-weight: 600; color: var(--t0); margin-bottom: 12px; }
+.step-p { font-size: 15px; color: var(--t1); line-height: 1.8; }
+.step-tag { display: inline-block; padding: 4px 10px; background: rgba(200,169,81,0.08); color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 100px; margin-bottom: 12px; border: 1px solid rgba(200,169,81,0.2); }
+
+/* ══════════════════════════════════════════════════
+   SITUATIONS & ACTIONS (REAL-WORLD CHALLENGES)
+══════════════════════════════════════════════════ */
+.situations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 50px; }
+.sit-card {
+  background: var(--c1); border: 1px solid var(--c3); border-radius: var(--r);
+  overflow: hidden; display: flex; flex-direction: column;
+  opacity: 0; transform: translateY(30px); transition: all 0.5s var(--ease);
+}
+.sit-card.visible { opacity: 1; transform: translateY(0); }
+.sit-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+.sit-problem { padding: 24px; background: rgba(248,81,73,0.05); border-bottom: 1px dashed var(--c3); }
+.sit-tag-red { display: inline-block; padding: 4px 10px; background: rgba(248,81,73,0.1); border: 1px solid rgba(248,81,73,0.3); color: var(--red); font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 100px; margin-bottom: 12px; font-weight: 600; }
+.sit-p-text { font-family: 'Lora', serif; font-size: 15px; color: var(--t0); line-height: 1.7; }
+
+.sit-solution { padding: 24px; background: var(--c0); flex: 1; }
+.sit-tag-gold { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: rgba(200,169,81,0.1); border: 1px solid rgba(200,169,81,0.3); color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 100px; margin-bottom: 12px; font-weight: 600; }
+.sit-s-text { font-size: 14px; color: var(--t1); line-height: 1.7; }
+
+/* ══════════════════════════════════════════════════
+   BOTTOM CTA
+══════════════════════════════════════════════════ */
+.cta-sec { background: linear-gradient(180deg, var(--c0), var(--c1)); padding: 100px 20px; text-align: center; border-top: 1px solid var(--c3); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.cta-h2 { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 600; color: var(--t0); margin-bottom: 24px; }
+.cta-p { font-size: 16px; color: var(--t1); max-width: 600px; margin: 0 auto 40px; line-height: 1.8; text-align: center; }
+
+/* Footer Minimal */
+.footer { background: var(--c1); border-top: 1px solid var(--c3); padding: 40px 20px; text-align: center; }
+.ft-copy { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--t2); text-transform: uppercase; }
+
+/* Scroll Animations */
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="n-mark">Q</div>
+    <div class="n-name">SCALVI<span class="q">Q</span></div>
+  </div>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-chip fade-up">✦ CO-FOUNDER AS A SERVICE</div>
+    <h1 class="hero-h1 fade-up">From Idea to Empire.<br><em>Incubating Reality.</em></h1>
+    <p class="hero-p fade-up">Stop being a "Solo-Founder" struggling with vendors and pitch decks. SCALVIQ Ventures acts as your strategic execution partner—handling everything from local supply chains to high-stakes investor funding. We don't just build brands; we build equity.</p>
+    <div class="fade-up" style="width: 100%;">
+      <a href="index.html#contact" class="btn-primary">Pitch Your Idea →</a>
+    </div>
+  </div>
+  
+  <div class="hero-visual fade-up">
+    <div class="circle-bg"></div>
+    <div class="stat-float sf-1">
+      <span class="sf-icon">🤝</span>
+      <div class="sf-val">Supply Chain</div>
+      <div class="sf-lbl">NCR Manufacturing Ties</div>
+    </div>
+    <div class="stat-float sf-2">
+      <span class="sf-icon">📈</span>
+      <div class="sf-val">Scale GTM</div>
+      <div class="sf-lbl">Zero to 10k Customers</div>
+    </div>
+    <div class="stat-float sf-3">
+      <span class="sf3-icon">🚀</span>
+      <div class="sf-val sf3-val">Ventures</div>
+      <div class="sf-lbl">Full-Stack Incubation</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE CORE ECOSYSTEM -->
+<section class="sec sec-alt">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">The Venture Ecosystem</h2>
+    <p class="sec-subtitle">Most agencies only offer advice. We offer infrastructure. We bridge the massive gap between a brilliant business idea and a profitable, investable brand.</p>
+  </div>
+
+  <div class="bento-grid">
+    <div class="bc-card scroll-anim">
+      <div class="bc-icon">🏭</div>
+      <h3 class="bc-title">Local Manufacturing Network</h3>
+      <p class="bc-desc">We leverage our deep tie-ups in <strong>Delhi-NCR and Pan-India</strong> with the best local fabricators and manufacturers. Whether it's textile, electronics, or FMCG, we get you the best production rates and strict quality control on-ground.</p>
+    </div>
+    
+    <div class="bc-card scroll-anim">
+      <div class="bc-icon">📦</div>
+      <h3 class="bc-title">Custom Packaging & Logistics</h3>
+      <p class="bc-desc">Unboxing is a brand's first impression. We connect you with top <strong>packaging vendors and customized box manufacturers</strong> to ensure your product looks premium while optimizing shipping costs and delivery speed.</p>
+    </div>
+    
+    <div class="bc-card scroll-anim">
+      <div class="bc-icon">📑</div>
+      <h3 class="bc-title">Investor Readiness (Pitch Decks)</h3>
+      <p class="bc-desc">If you need capital to scale, you need a story that sells. We design <strong>data-driven, high-converting investor pitch decks</strong> and financial models that force venture capitalists to take your vision seriously.</p>
+    </div>
+    
+    <div class="bc-card scroll-anim">
+      <div class="bc-icon">🧭</div>
+      <h3 class="bc-title">GTM (Go-To-Market) Strategy</h3>
+      <p class="bc-desc">We don't just launch; we dominate. From <strong>pricing psychology to initial customer acquisition</strong>, we map out the first 100 days of your brand's life to ensure maximum market penetration with minimum burn.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORYTELLING SECTION (NEW) -->
+<section class="sec">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Storytelling is the Soul.</h2>
+    <p class="sec-subtitle">A great product without a story is just a commodity. We turn your product into a Movement.</p>
+  </div>
+
+  <div class="story-callout scroll-anim">
+    <div>
+      <h3 class="sc-h3">We Don't Sell Features, We Sell Feelings.</h3>
+      <p class="sc-p">In the crowded Indian market, why should a customer choose you? We build a <strong>Brand Narrative</strong> that connects with their aspirations, their pains, and their identity. Through SCALVIQ Studios, we craft visual stories that make your brand feel like a legacy from Day 1.</p>
+      <ul style="margin-top: 20px; list-style: none; color: var(--goldL); font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+        <li>→ Human-Centric Scripts</li>
+        <li>→ Emotional Visual Hooks</li>
+        <li>→ Relatable Brand Voice</li>
+      </ul>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Brand Strategy Meeting" class="sc-img">
+    </div>
+  </div>
+</section>
+
+<!-- THE INCUBATION ROADMAP -->
+<section class="sec sec-alt">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">The Evolution: Idea to Empire</h2>
+    <p class="sec-subtitle">Kaise hum ek kachhe idea ko ek mature, scalable business mein badalte hain—step by step.</p>
+  </div>
+
+  <div class="process-wrapper">
+    <div class="step-card scroll-anim">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <span class="step-tag">Genesis</span>
+        <h3 class="step-h3">Idea Validation & Identity</h3>
+        <p class="step-p">Sabse pehle idea ko test karte hain. Is stage par hume <strong>SCALVIQ Studios</strong> ki jarurat padti hai branding aur story build karne ke liye. Market research karke product-market fit dhunda jata hai.</p>
+      </div>
+    </div>
+
+    <div class="step-card scroll-anim">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <span class="step-tag">Structure</span>
+        <h3 class="step-h3">Production & Supply Chain</h3>
+        <p class="step-p">Yahan hum apne NCR vendors ko activate karte hain. Samples banwaye jate hain aur production line set hoti hai. Is stage par <strong>SCALVIQ AI Catalog</strong> ka use karke products ko digital-ready kiya jata hai bina mehange shoot ke.</p>
+      </div>
+    </div>
+
+    <div class="step-card scroll-anim">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <span class="step-tag">Expansion</span>
+        <h3 class="step-h3">The Digital Invasion (GTM)</h3>
+        <p class="step-p">Launch! <strong>SCALVIQ Commerce & Digital</strong> team take-over karti hai. Amazon/Flipkart listings, Shopify stores, aur performance ads ke zariye sales engine start hota hai. Storytelling ads ke zariye pehle 1000 loyal customers laye jate hain.</p>
+      </div>
+    </div>
+
+    <div class="step-card scroll-anim">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <span class="step-tag">Legacy</span>
+        <h3 class="step-h3">Valuation & Funding</h3>
+        <p class="step-p">Jab business profitable hone lagta hai, tab hum Pitch Decks aur Financial models tayyar karte hain. Hum founder ko investors ke samne lakar khada karte hain taaki brand ko "Empire" level ki funding mile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATIONS & STRATEGIC ACTIONS -->
+<section class="sec">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Founder Crisis: We Step In.</h2>
+    <p class="sec-subtitle">Brand banane mein mushkilein aayengi. Dekhiye hum kaise solve karte hain.</p>
+  </div>
+
+  <div class="situations-grid">
+    <!-- Situation 1 -->
+    <div class="sit-card scroll-anim">
+      <div class="sit-problem">
+        <div class="sit-tag-red">🚨 Situation 01</div>
+        <div class="sit-p-text">Founder has a great prototype but random manufacturers are asking for massive MOQs (Minimum Order Quantities) which he can't afford.</div>
+      </div>
+      <div class="sit-solution">
+        <div class="sit-tag-gold">⚡ SCALVIQ Action</div>
+        <div class="sit-s-text">Humara team apne NCR manufacturing network ke purane relations use karke founder ko low MOQ par production start karwayega. Hum batch production finalize karenge taaki inventory risk zero ho jaye.</div>
+      </div>
+    </div>
+
+    <!-- Situation 2 -->
+    <div class="sit-card scroll-anim">
+      <div class="sit-problem">
+        <div class="sit-tag-red">🚨 Situation 02</div>
+        <div class="sit-p-text">The brand is launched, but people think it's 'Just another vendor'. There is no brand recall or loyalty.</div>
+      </div>
+      <div class="sit-solution">
+        <div class="sit-tag-gold">⚡ SCALVIQ Action</div>
+        <div class="sit-s-text">Hum "Emotional Storytelling" campaign launch karenge. Founder ki journey, product ki authenticity aur customer lifestyle par focused videos banayenge jo product ko ek legacy feel denge, price competition se bahar nikal kar.</div>
+      </div>
+    </div>
+
+    <!-- Situation 3 -->
+    <div class="sit-card scroll-anim">
+      <div class="sit-problem">
+        <div class="sit-tag-red">🚨 Situation 03</div>
+        <div class="sit-p-text">Scale hit ho chuka hai, par operations aur stock manage nahi ho raha. Founder Excel sheets mein phas gaya hai.</div>
+      </div>
+      <div class="sit-solution">
+        <div class="sit-tag-gold">⚡ SCALVIQ Action</div>
+        <div class="sit-s-text">Humari <strong>SCALVIQ Tech</strong> team turant ek Custom ERP/Inventory Management tool deploy karegi jo automatic orders, stock aur payout track karega. Founder operations se free hokar vision par focus kar payega.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-sec">
+  <div class="fade-up">
+    <h2 class="cta-h2">Don't build your brand alone.</h2>
+    <p class="cta-p">Get a strategic co-founder level team that handles the manufacturing, the marketing, and the funding. Let's discuss your vision.</p>
+    <a href="index.html#contact" class="btn-primary">Schedule a Partnership Discovery Call →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="ft-copy">© 2026 SCALVIQ · GURUGRAM, INDIA · SCALE WITHOUT LIMITS</div>
+</footer>
+
+<!-- SCRIPT FOR ANIMATIONS -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up, .scroll-anim').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
+</body>
+</html>
