@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme:dark only;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The SCALVIQ Odyssey | Our Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   COSMIC THEME SETUP
+══════════════════════════════════════════════════ */
+:root {
+  --c0: #020408; --c1: #050914; --c2: #0a0f1e;
+  --t0: #ffffff; --t1: #b0b0b0; --t2: #6e7681;
+  --gold: #C8A951; --goldL: #E0C06A;
+  --r: 12px; --ease: cubic-bezier(.16,1,.3,1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { 
+  background: var(--c0); 
+  color: var(--t0); 
+  font-family: 'Josefin Sans', sans-serif; 
+  overflow-x: hidden; 
+  line-height: 1.7;
+}
+
+/* Dynamic Cosmic Background */
+#starCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+/* ══════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════ */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:500; height:70px;
+  background: rgba(2, 4, 8, 0.7); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 clamp(20px, 5vw, 60px);
+}
+.n-logo { display:flex; align-items:center; gap:10px; text-decoration: none; }
+.n-mark { width:32px; height:32px; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:15px; color:#010409; border-radius:6px; flex-shrink:0; position:relative; }
+.n-mark::after { content:''; position:absolute; inset:-2px; border:1px solid rgba(200,169,81,.3); border-radius:8px; }
+.n-name { font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:14px; letter-spacing:4px; color:var(--t0); text-transform: uppercase; }
+.n-name .q { color:var(--gold); }
+
+.nav-back { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--t1); text-transform:uppercase; transition: color .3s; }
+.nav-back:hover { color:var(--gold); }
+
+/* ══════════════════════════════════════════════════
+   HERO: THE GALAXY VISION
+══════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 120px 20px; position: relative; overflow: hidden;
+}
+.orbit-wrap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: -1; opacity: 0.4; }
+.orbit-ring { position: absolute; border: 1px solid rgba(200, 169, 81, 0.08); border-radius: 50%; animation: spin linear infinite; }
+.o1 { width: 350px; height: 350px; animation-duration: 40s; }
+.o2 { width: 600px; height: 600px; animation-duration: 70s; }
+.o3 { width: 900px; height: 900px; animation-duration: 100s; }
+
+.hero-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 24px; display: block; }
+.hero-title { font-family: 'Lora', serif; font-size: clamp(36px, 6vw, 78px); line-height: 1.1; margin-bottom: 30px; font-weight: 600; }
+.hero-title em { color: var(--goldL); font-style: italic; }
+.hero-p { max-width: 800px; font-size: clamp(16px, 1.4vw, 20px); color: var(--t1); line-height: 1.8; }
+
+/* ══════════════════════════════════════════════════
+   SECTIONS
+══════════════════════════════════════════════════ */
+.sec { padding: 100px clamp(20px, 5vw, 60px); max-width: 1100px; margin: 0 auto; position: relative; }
+.gh-h2 { font-family: 'Lora', serif; font-size: clamp(28px, 4vw, 52px); margin-bottom: 30px; text-align: center; }
+.gh-h2 em { color: var(--gold); font-style: italic; }
+
+/* ══════════════════════════════════════════════════
+   THE GENESIS (THE SPARK)
+══════════════════════════════════════════════════ */
+.story-block { 
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px;
+}
+@media(max-width: 860px) { .story-block { grid-template-columns: 1fr; } }
+
+.story-card { 
+  padding: 40px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); 
+  border-radius: var(--r); backdrop-filter: blur(10px);
+}
+.story-card h3 { font-family: 'Lora', serif; font-size: 24px; color: var(--gold); margin-bottom: 20px; }
+.story-card p { font-size: 16px; color: var(--t1); line-height: 1.8; }
+
+/* ══════════════════════════════════════════════════
+   THE ARCHITECT (FOUNDER SECTION)
+══════════════════════════════════════════════════ */
+.founder-highlight {
+  background: linear-gradient(145deg, var(--c1), var(--c0));
+  border: 1px solid rgba(200, 169, 81, 0.2); border-radius: var(--r);
+  padding: clamp(40px, 6vw, 80px); margin: 80px 0; position: relative;
+  overflow: hidden;
+}
+.founder-highlight::before { content:''; position: absolute; top:0; left:0; width:4px; height:100%; background: var(--gold); }
+
+.f-meta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+.f-h3 { font-family: 'Lora', serif; font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 30px; color: var(--t0); }
+.f-body { font-size: 18px; color: var(--t1); line-height: 1.9; text-align: left; }
+.f-body strong { color: var(--t0); font-weight: 600; }
+
+/* ══════════════════════════════════════════════════
+   CONSTELLATION OF EXPERTS (TEAM)
+══════════════════════════════════════════════════ */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+.team-card { 
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); 
+  padding: 40px; border-radius: var(--r); transition: all 0.4s; position: relative;
+}
+.team-card:hover { border-color: var(--gold); transform: translateY(-10px); background: rgba(200, 169, 81, 0.05); }
+.tc-ico { font-size: 32px; margin-bottom: 20px; display: block; }
+.tc-h4 { font-family: 'Lora', serif; font-size: 22px; color: var(--goldL); margin-bottom: 12px; }
+.tc-p { font-size: 14px; color: var(--t1); line-height: 1.7; }
+
+/* ══════════════════════════════════════════════════
+   UNIFIED SERVICE FORCE
+══════════════════════════════════════════════════ */
+.srv-summary {
+  margin-top: 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+}
+@media(max-width: 860px) { .srv-summary { grid-template-columns: 1fr; } }
+.srv-item { border-left: 2px solid var(--goldD); padding-left: 25px; margin-bottom: 40px; }
+.srv-item h4 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+.srv-item h5 { font-family: 'Lora', serif; font-size: 20px; margin-bottom: 15px; color: var(--t0); }
+.srv-item p { font-size: 14px; color: var(--t1); line-height: 1.8; }
+
+/* ══════════════════════════════════════════════════
+   OUR GOAL: THE SOUL
+══════════════════════════════════════════════════ */
+.goal-sec {
+  text-align: center; background: radial-gradient(circle at center, rgba(200, 169, 81, 0.1), transparent 70%);
+  padding: 120px 40px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.03); margin: 60px 0;
+}
+.goal-h2 { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 56px); margin-bottom: 30px; font-weight: 600; }
+.goal-p { font-size: clamp(18px, 2vw, 24px); color: var(--t1); font-style: italic; max-width: 850px; margin: 0 auto; line-height: 1.6; }
+.goal-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-top: 40px; display: block; }
+
+/* ══════════════════════════════════════════════════
+   MISSION CONTROL (CONTACT)
+══════════════════════════════════════════════════ */
+.orbit-contact { margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.orbit-card {
+  padding: 30px; background: rgba(10, 15, 30, 0.5); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--r); transition: 0.3s; display: flex; flex-direction: column; gap: 10px;
+}
+.orbit-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+.oc-ico { font-size: 24px; color: var(--gold); }
+.oc-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+.oc-value { font-size: 16px; font-weight: 600; color: var(--t0); }
+
+/* ══════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════ */
+.footer { 
+  background: #010409; border-top: 1px solid #30363d; 
+  padding: 80px clamp(20px, 5vw, 60px) 40px; margin-top: 120px;
+}
+.ft-in { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; }
+@media(max-width: 900px) { .ft-in { grid-template-columns: 1fr 1fr; gap: 40px; } }
+@media(max-width: 480px) { .ft-in { grid-template-columns: 1fr; } }
+
+.ft-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.ft-desc { color: var(--t2); font-size: 13px; max-width: 300px; margin-bottom: 24px; line-height: 1.8; }
+.ft-h { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--t0); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; display: block; }
+.ft-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.ft-links a { color: var(--t2); font-size: 13px; transition: color 0.3s; }
+.ft-links a:hover { color: var(--gold); }
+
+.ft-bottom { 
+  max-width: 1200px; margin: 60px auto 0; padding-top: 30px; 
+  border-top: 1px solid rgba(255,255,255,0.05); text-align: center;
+  color: var(--t2); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.fade-up { opacity: 0; transform: translateY(40px); transition: all 1s var(--ease); }
+.fade-up.on { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<canvas id="starCanvas"></canvas>
+
+<nav class="nav">
+  <a href="scalviq-website.html" class="n-logo">
+    <div class="n-mark">Q</div>
+    <div class="n-name">SCALVI<span class="q">Q</span></div>
+  </a>
+  <a href="scalviq-website.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orbit-wrap">
+    <div class="orbit-ring o1"></div>
+    <div class="orbit-ring o2"></div>
+    <div class="orbit-ring o3"></div>
+  </div>
+  <span class="hero-tag fade-up">The Big Bang of Growth</span>
+  <h1 class="hero-title fade-up">From Ground Reality to<br><em>Infinite Scale.</em></h1>
+  <p class="hero-p fade-up">SCALVIQ was forged in the operational chaos of hospitality, the high-stakes war rooms of national elections, and the cut-throat corridors of Indian E-Commerce.</p>
+</section>
+
+<!-- GENESIS -->
+<section class="sec">
+  <h2 class="gh-h2 fade-up">The Spark Behind <em>SCALVIQ.</em></h2>
+  <div class="story-block">
+    <div class="story-card fade-up">
+      <h3>The Void of Execution</h3>
+      <p>We spent years watching brilliant entrepreneurs fail—not because their ideas were weak, but because they were fighting the cosmic battle of execution entirely alone. They were lost in a maze of unoptimized supply chains and generic marketing.</p>
+    </div>
+    <div class="story-card fade-up">
+      <h3>The Strategic Bridge</h3>
+      <p>We built SCALVIQ to be the bridge. We wanted to create a unified place where a founder’s dream meets an aggressive execution engine. One by one, experts joined—algorithm masters, storytellers, and architects—to build a force that makes vision real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE ARCHITECT -->
+<section class="sec">
+  <div class="founder-highlight fade-up">
+    <span class="f-meta">The Strategic Architect</span>
+    <h3 class="f-h3">Guided by Nishant Sisodia</h3>
+    <div class="f-body">
+      <p>SCALVIQ’s foundation is built on <strong>sweat and ground-level practice</strong>. Our founder, <strong>Nishant Sisodia</strong>, didn't just study growth—he lived it. Before the boardrooms, he was operating high-pressure <strong>Political Campaigns</strong> where narratives change by the hour and every decision is final.</p>
+      <br>
+      <p>He mastered operational scaling by building <strong>Hotels and Cafes</strong> from the dirt up, understanding the true pain of a business owner. To perfect the art of premium branding, he spent years in <strong>Jaipur</strong>—India’s hub for heritage brands—learning how to turn a product into a legacy. This mix of field-training and high-level strategy is the "Secret Sauce" of SCALVIQ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE CONSTELLATION (TEAM) -->
+<section class="sec">
+  <span class="hero-tag fade-up" style="text-align: center;">The Constellation</span>
+  <h2 class="gh-h2 fade-up">Experts in Their <em>Orbits.</em></h2>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <span class="tc-ico">📈</span>
+      <h4 class="tc-h4">Algorithm Navigators</h4>
+      <p class="tc-p">Performance marketers who treat Meta, Google, and Amazon like a science. They ensure your brand is seen by the right people at the absolute peak of their interest.</p>
+    </div>
+    <div class="team-card fade-up">
+      <span class="tc-ico">🎬</span>
+      <h4 class="tc-h4">Creative Soul-Builders</h4>
+      <p class="tc-p">Storytellers from SCALVIQ Studios who believe every product needs a heartbeat. They turn commodities into emotional movements through high-retention content.</p>
+    </div>
+    <div class="team-card fade-up">
+      <span class="tc-ico">⚙️</span>
+      <h4 class="tc-h4">Technical Architects</h4>
+      <p class="tc-p">The engineers of SCALVIQ Tech who build custom tools to automate your chaos. They ensure your business infrastructure is secure, fast, and malware-protected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE FORCE -->
+<section class="sec">
+  <span class="hero-tag fade-up">The Gravitational Force</span>
+  <h2 class="gh-h2 fade-up" style="text-align: left;">Unified Scaling <em>Solutions.</em></h2>
+  <div class="srv-summary">
+    <div>
+      <div class="srv-item fade-up">
+        <h4>Digital</h4>
+        <h5>Performance Marketing</h5>
+        <p>We don't sell clicks; we sell revenue. Our team handles everything from high-ROAS Meta/Google ads to technical SEO that dominates search results.</p>
+      </div>
+      <div class="srv-item fade-up">
+        <h4>AI Visuals</h4>
+        <h5>AI Catalog Studios</h5>
+        <p>Protecting your designs through 24-hour intelligent photoshoot imagery. No shipping required—just raw photos converted into premium assets.</p>
+      </div>
+    </div>
+    <div>
+      <div class="srv-item fade-up">
+        <h4>Commerce</h4>
+        <h5>Marketplace Scaling</h5>
+        <p>Conquering the algorithms of Myntra, Amazon, and Flipkart. We handle onboarding, listing SEO, and inventory strategies to hit Page 1 status.</p>
+      </div>
+      <div class="srv-item fade-up">
+        <h4>Ventures</h4>
+        <h5>Brand Incubation</h5>
+        <p>For the elite founders. We act as co-founders, handling supply chains, NCR manufacturing ties, and investor pitch decks to build empires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR GOAL -->
+<section class="sec">
+  <div class="goal-sec fade-up">
+    <h2 class="goal-h2">The Ultimate Goal</h2>
+    <p class="goal-p">"We exist so that no founder ever feels alone in their journey. We bring your dreams closer to reality by handling the 'Hard' stuff—ensuring your goals are never out of reach. In the cosmic dark of the market, we are the light standing right behind you."</p>
+    <span class="goal-tag">— The SCALVIQ Promise</span>
+  </div>
+</section>
+
+<!-- MISSION CONTROL -->
+<section class="sec">
+  <h2 class="gh-h2 fade-up">Mission <em>Control.</em></h2>
+  <div class="orbit-contact">
+    <div class="orbit-card fade-up">
+      <div class="oc-ico">💬</div>
+      <span class="oc-label">WhatsApp Support</span>
+      <span class="oc-value">+91 90507 28595</span>
+    </div>
+    <div class="orbit-card fade-up">
+      <div class="oc-ico">✉️</div>
+      <span class="oc-label">Email Correspondence</span>
+      <span class="oc-value">hello@scalviq.ai</span>
+    </div>
+    <div class="orbit-card fade-up">
+      <div class="oc-ico">📍</div>
+      <span class="oc-label">Headquarters</span>
+      <span class="oc-value">Gurugram, Haryana</span>
+    </div>
+    <div class="orbit-card fade-up">
+      <div class="oc-ico">🕒</div>
+      <span class="oc-label">Operational Hours</span>
+      <span class="oc-value">9 AM – 8 PM (Mon-Sat)</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="ft-in">
+    <div>
+      <div class="ft-logo-wrap">
+        <div class="n-mark" style="width:26px; height:26px; font-size:12px;">Q</div>
+        <div class="n-name" style="font-size:12px;">SCALVI<span class="q">Q</span></div>
+      </div>
+      <p class="ft-desc">India's intelligent growth company. Built on ground reality, driven by infinite scale. Engineered by Nishant Sisodia.</p>
+    </div>
+    <div>
+      <span class="ft-h">Solutions</span>
+      <ul class="ft-links">
+        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+        <li><a href="ai-catalog.html">AI Catalog Shoot</a></li>
+        <li><a href="political-campaigns.html">Political Campaigns</a></li>
+        <li><a href="tech.html">App Development</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="ft-h">Company</span>
+      <ul class="ft-links">
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="e-commerce.html">E-Commerce</a></li>
+        <li><a href="ventures.html">SCALVIQ Ventures</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="ft-h">Social Orbit</span>
+      <ul class="ft-links">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    SCALVIQ · FROM GROUND TO GALAXY · EST. 2026 · ALL RIGHTS RESERVED
+  </div>
+</footer>
+
+<script>
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+class Star {
+  constructor() {
+    this.reset();
+    this.y = Math.random() * canvas.height;
+  }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = canvas.height + 10;
+    this.size = Math.random() * 1.5;
+    this.speed = Math.random() * 0.05 + 0.02;
+    this.alpha = Math.random();
+  }
+  draw() {
+    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  update() {
+    this.y -= this.speed;
+    if (this.y < -10) this.reset();
+  }
+}
+
+function init() {
+  resize();
+  stars = [];
+  for (let i = 0; i < 250; i++) stars.push(new Star());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(s => { s.update(); s.draw(); });
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', init);
+init();
+animate();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('on');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
