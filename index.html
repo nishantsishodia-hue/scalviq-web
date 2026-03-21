@@ -115,7 +115,7 @@ html.dark{
 html{transition:filter .05s}
 body,nav,footer,.ticker,.ai-section,.cta-s,.faq-wrap,.ct-form-wrap,
 .gc,.why-c,.num-c,.proc-c,.svc-c,.pkg,.tc,.ci,.exp-i,.founder-block,
-.hero-pill,.hcard,.-badge-tl,.about-badge-br,.wa-cta,.toast{
+.hero-pill,.hcard,.about-badge-tl,.about-badge-br,.wa-cta,.toast{
   transition:background .45s var(--ease),border-color .45s var(--ease),
              color .45s var(--ease),box-shadow .45s var(--ease);
 }
@@ -243,6 +243,54 @@ nav.scrolled{
   text-transform:uppercase;padding:8px 14px;border-radius:8px;transition:all .15s;white-space:nowrap}
 .nl:hover{color:var(--ink0);background:rgba(255,255,255,0.7)}
 html.dark .nl:hover{color:var(--ink0);background:rgba(255,255,255,0.1)}
+
+/* ── DROPDOWN ── */
+.nav-item{position:relative}
+.nav-item .nl{display:flex;align-items:center;gap:5px;cursor:pointer;user-select:none}
+.nav-item .nl::after{
+  content:'▾';font-size:10px;opacity:.6;
+  transition:transform .2s var(--ease);display:inline-block;
+}
+.nav-item.open .nl::after{transform:rotate(180deg)}
+
+.nav-dropdown{
+  position:absolute;top:calc(100% + 8px);left:50%;
+  min-width:240px;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  border:1px solid rgba(200,215,230,0.8);
+  border-radius:14px;
+  box-shadow:0 16px 48px rgba(0,0,0,0.14), 0 1px 0 rgba(255,255,255,1) inset;
+  padding:8px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateX(-50%) translateY(-6px);
+  transition:opacity .22s var(--ease), transform .22s var(--ease), visibility .22s;
+  z-index:1100;
+}
+html.dark .nav-dropdown{
+  background:rgba(22,27,34,0.97);
+  border-color:rgba(240,246,252,0.12);
+  box-shadow:0 16px 48px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.06) inset;
+}
+.nav-item.open .nav-dropdown{
+  opacity:1;visibility:visible;pointer-events:all;
+  transform:translateX(-50%) translateY(0);
+}
+.nd-item{
+  display:flex;align-items:center;gap:11px;
+  padding:10px 13px;border-radius:9px;
+  font-family:var(--font-mono);font-size:12px;font-weight:500;
+  letter-spacing:0.02em;color:var(--ink1);text-transform:uppercase;
+  text-decoration:none;transition:all .12s;
+  white-space:nowrap;
+}
+.nd-item:hover{background:rgba(240,245,252,0.9);color:var(--ink0)}
+html.dark .nd-item:hover{background:rgba(255,255,255,0.07);color:var(--ink0)}
+.nd-item:hover .nd-ico{transform:scale(1.15)}
+.nd-ico{font-size:16px;flex-shrink:0;transition:transform .12s}
+.nd-label{flex:1}
+.nd-sub{font-size:10px;color:var(--ink3);letter-spacing:normal;text-transform:none;margin-top:1px;font-family:var(--font-ui)}
 .nav-end{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .btn-nav-wa{
   display:flex;align-items:center;gap:7px;padding:9px 18px;
@@ -305,6 +353,28 @@ html.dark .nl:hover{color:var(--ink0);background:rgba(255,255,255,0.1)}
   .theme-toggle{width:46px;height:26px}
   .tt-thumb{width:20px;height:20px;top:3px;left:3px;font-size:11px}
   html.dark .tt-thumb{transform:translateX(20px)}
+
+  /* Mobile dropdown — inline expand */
+  .nav-item .nl::after{display:none}
+  .nav-dropdown{
+    position:static;transform:none;
+    min-width:unset;width:100%;
+    background:rgba(255,255,255,0.3);
+    border:1px solid var(--glass-border-outer);
+    border-radius:10px;
+    box-shadow:none;
+    padding:4px;
+    margin-top:2px;
+    opacity:1;visibility:hidden;pointer-events:none;
+    max-height:0;overflow:hidden;
+    transition:max-height .3s var(--ease), visibility .3s, padding .3s;
+  }
+  html.dark .nav-dropdown{background:rgba(255,255,255,0.05)}
+  .nav-item.open .nav-dropdown{
+    visibility:visible;pointer-events:all;
+    max-height:400px;padding:4px;
+  }
+  .nd-item{padding:10px 12px;font-size:13px}
 }
 
 /* ══════════════════════════
@@ -910,7 +980,7 @@ html.dark .pkg.featured .pkg-price{background:rgba(227,179,65,.15);border-color:
 }
 .about-badge-tl{top:16px;right:-12px}
 .about-badge-br{bottom:80px;left:-12px}
-@media(max-width:900px){.about-badge-tl,.-badge-br{display:none}}
+@media(max-width:900px){.about-badge-tl,.about-badge-br{display:none}}
 .badge-n{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--gold)}
 .badge-l{font-family:var(--font-mono);font-size:11px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase;margin-top:2px}
 .exp-list{display:flex;flex-direction:column;gap:10px;margin:clamp(20px,3vw,32px) 0}
@@ -1522,10 +1592,10 @@ nav {
   /* Testimonials */
   .tc-grid { grid-template-columns: 1fr; width: 100%; max-width: 100%; gap: 10px; }
 
-  /*  */
-  .-grid { grid-template-columns: 1fr; gap: 28px; }
-  .-badge-tl, .-badge-br { display: none; }
-  .-img { aspect-ratio: 3/2; max-height: 280px; }
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 28px; }
+  .about-badge-tl, .about-badge-br { display: none; }
+  .about-img { aspect-ratio: 3/2; max-height: 280px; }
 
   /* FAQ */
   .fq-qt { font-size: 15px; }
@@ -1709,7 +1779,19 @@ nav {
     <div class="logo-text">SCALVI<span>Q</span></div>
   </a>
   <div class="nav-links" id="navLinks">
-    <a href="#services" class="nl">Services</a>
+    <!-- Services with dropdown -->
+    <div class="nav-item" id="navServices">
+      <span class="nl" onclick="toggleServicesDropdown()">Services</span>
+      <div class="nav-dropdown" id="servicesDropdown">
+        <a href="digital-marketing.html" class="nd-item"><div class="nd-label">Digital Marketing<div class="nd-sub">Meta · Google · SEO · Lead Gen</div></div></a>
+        <a href="political-campaigns.html" class="nd-item"><div class="nd-label">Political Campaigns<div class="nd-sub">End-to-end strategy</div></div></a>
+        <a href="ai-catalog.html" class="nd-item"><div class="nd-label">AI Catalog Photoshoot<div class="nd-sub">24-hour delivery</div></div></a>
+        <a href="e-commerce.html" class="nd-item"><div class="nd-label">E-Commerce Growth<div class="nd-sub">Amazon · Flipkart · D2C</div></div></a>
+        <a href="studios.html" class="nd-item"><div class="nd-label">Content Studios<div class="nd-sub">Reels · Design · Brand Films</div></div></a>
+        <a href="tech.html" class="nd-item"><div class="nd-label">App & Web Development<div class="nd-sub">Apps · Websites · SaaS</div></div></a>
+        <a href="ventures.html" class="nd-item"><div class="nd-label">Brand Building<div class="nd-sub">Identity · GTM · Strategy</div></div></a>
+      </div>
+    </div>
     <a href="ai-catalog.html" class="nl">AI Catalog</a>
     <a href="#packages" class="nl">Packages</a>
     <a href="about.html" class="nl">About</a>
@@ -1725,7 +1807,7 @@ nav {
     <div class="ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
- 
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-ambient"></div>
@@ -1761,7 +1843,7 @@ nav {
     <a href="e-commerce.html" class="hcard"><div class="hcard-ico">🛒</div><div><div class="hcard-n">E-Commerce Growth</div><div class="hcard-l">Amazon · Flipkart · D2C</div></div></a>
   </div>
 </section>
- 
+
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
@@ -1769,7 +1851,7 @@ nav {
     <div class="ticker-item">Digital Marketing</div><div class="ticker-item">Political Campaigns</div><div class="ticker-item">AI Catalog Photoshoot</div><div class="ticker-item">App Development</div><div class="ticker-item">E-Commerce Growth</div><div class="ticker-item">Brand Building</div><div class="ticker-item">Content Studios</div><div class="ticker-item">Gurugram NCR</div><div class="ticker-item">Scale Without Limits</div>
   </div>
 </div>
- 
+
 <!-- NUMBERS -->
 <div class="nums-wrap" style="padding-top:clamp(24px,4vw,44px);padding-bottom:clamp(24px,4vw,44px)">
   <div class="nums">
@@ -1779,9 +1861,9 @@ nav {
     <div class="num-c rv d3"><div class="num-n">AI</div><div class="num-l">Powered Always</div></div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- WHY SCALVIQ -->
 <div class="sec">
   <div class="s-label rv">Why SCALVIQ</div>
@@ -1794,9 +1876,9 @@ nav {
     <div class="why-c rv d4"><div class="why-num">04</div><div class="why-ico">🤝</div><div class="why-h">Senior-Led, Never Delegated Down</div><div class="why-p">Senior practitioners stay involved in every account. The people you meet are the people who do the work — no interns handling your brand.</div><div class="why-tag">Direct Leadership</div></div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- VIDEO SECTION -->
 <div class="sec" id="video-section">
   <div class="s-label rv">Our Vision</div>
@@ -1809,9 +1891,9 @@ nav {
     </video>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- SERVICES -->
 <div class="sec" id="services">
   <div class="s-label rv">Our Services</div>
@@ -1839,9 +1921,9 @@ nav {
     <a href="ventures.html" class="svc-c rv d6"><div class="svc-img"><img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=700&q=75" alt="Ventures"></div><div class="svc-body"><div class="svc-n">07 · Ventures</div><div class="svc-h">SCALVIQ <span>Ventures</span></div><div class="svc-p">Full brand building from zero — identity creation, go-to-market strategy, pitch decks, and incubation for new ventures.</div><div class="tag-strip" style="margin-bottom:8px"><div class="tag" style="border-color:rgba(13,40,80,.2);background:rgba(13,40,80,.06);color:var(--ink1)">Brand Identity</div><div class="tag" style="border-color:rgba(13,40,80,.2);background:rgba(13,40,80,.06);color:var(--ink1)">GTM Strategy</div></div><span class="svc-link">View Details →</span></div></a>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- AI CATALOG -->
 <div class="ai-section" id="ai-catalog">
   <div class="ai-in">
@@ -1881,9 +1963,9 @@ nav {
     </div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- PROCESS -->
 <div class="sec">
   <div class="s-label rv">How We Work</div>
@@ -1896,9 +1978,9 @@ nav {
     <div class="proc-c"><div class="pc-n">05</div><div class="pc-ico">🚀</div><div class="pc-h">Scale</div><div class="pc-p">Aggressive scaling of proven tactics — compounding reach, revenue, and market position.</div></div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- RESULTS -->
 <div class="sec">
   <div class="s-label rv">Proven Results</div>
@@ -1917,9 +1999,9 @@ nav {
     <div class="res-c rv d4"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Meta Ads"><div class="res-body"><div class="res-tag">Meta Ads · Delhi NCR</div><div class="res-h">Every rupee invested returned 12x in direct revenue — delivered within 30 days</div><div class="res-nums"><div><div class="rn-n">12x</div><div class="rn-l">Return on Ad Spend</div></div><div><div class="rn-n">30</div><div class="rn-l">Days to Results</div></div></div></div></div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- PACKAGES -->
 <div class="sec" id="packages">
   <div class="s-label rv">Packages</div>
@@ -1933,9 +2015,9 @@ nav {
     <div class="pkg"><div class="pkg-tier">Elite</div><div class="pkg-name">SCALVIQ Premium</div><div class="pkg-sub">For established brands</div><div class="pkg-price"><div class="pp-label">Pricing</div><div class="pp-val">Best & Affordable</div><div class="pp-note">Custom quote based on your needs</div></div><div class="pkg-items"><div class="pkg-item">30 posts per month (daily)</div><div class="pkg-item">All platforms including YouTube</div><div class="pkg-item">8 Reels + 2 brand films</div><div class="pkg-item">Full Meta + Google Ads</div><div class="pkg-item">Landing page creation</div><div class="pkg-item">Lead generation campaigns</div><div class="pkg-item">Monthly leadership strategy call</div></div><a href="#contact" class="pkg-btn pb-outline">Ask for Pricing →</a></div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- TESTIMONIALS -->
 <div class="sec">
   <div class="s-label rv">Client Stories</div>
@@ -1946,9 +2028,9 @@ nav {
     <div class="tc"><div class="tc-deco">"</div><div class="tc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="tc-q">"The team's deep understanding of political communication made all the difference. They know how voters think and craft messaging that genuinely connects. Our candidate's reach went from minimal to dominant."</div><div class="tc-person"><div class="tc-av">AC</div><div><div class="tc-name">Amit Chauhan</div><div class="tc-role">Campaign Manager · Haryana</div></div></div></div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- ABOUT -->
 <div class="sec" id="about">
   <div class="s-label rv">About SCALVIQ</div>
@@ -1977,7 +2059,7 @@ nav {
     </div>
   </div>
 </div>
- 
+
 <!-- CTA -->
 <div class="cta-s">
   <div class="cta-kicker">Limited spots available each month</div>
@@ -1988,9 +2070,9 @@ nav {
     <a href="https://wa.me/919050728595?text=Hi%20SCALVIQ%2C%20I%20want%20a%20free%20consultation." target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp Now</a>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- FAQ -->
 <div class="sec">
   <div class="s-label rv">FAQ</div>
@@ -2004,9 +2086,9 @@ nav {
     <div class="fq"><button class="fq-q" onclick="tFaq(this)"><span class="fq-qt">What is the payment structure?</span><span class="fq-ic">+</span></button><div class="fq-a"><div class="fq-an">50% advance before commencing. Remaining 50% at month-end for retainers, or on delivery for project work. We accept UPI, NEFT, and all major payment methods. No payment requested before we agree on scope, timeline, and pricing in writing.</div></div></div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- CONTACT -->
 <div class="sec" id="contact">
   <div class="s-label rv">Get In Touch</div>
@@ -2047,9 +2129,9 @@ nav {
     </div>
   </div>
 </div>
- 
+
 <div class="divider"></div>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="ft-inner">
@@ -2078,7 +2160,7 @@ nav {
     </div>
   </div>
 </footer>
- 
+
 <script>
 /* ══════════════════════════════════════════════
    THEME TOGGLE  ☀️ Sky  ↔  🌙 Cosmos
@@ -2086,7 +2168,7 @@ nav {
 const html = document.documentElement;
 const thumb = document.getElementById('ttThumb');
 const tog   = document.getElementById('themeToggle');
- 
+
 function toggleTheme(cb){
   if(cb.checked){
     html.classList.add('dark');
@@ -2113,14 +2195,14 @@ function toggleTheme(cb){
     if(thumb) thumb.textContent = '☀️';
   }
 })();
- 
+
 /* ══════════════════════════════════════════════
    CURSOR
 ══════════════════════════════════════════════ */
 const cur=document.getElementById('cur'), curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
 let idleTimer=null;
- 
+
 document.addEventListener('mousemove',e=>{
   mx=e.clientX; my=e.clientY;
   cur.style.left=mx+'px'; cur.style.top=my+'px';
@@ -2135,13 +2217,13 @@ document.addEventListener('mousemove',e=>{
     cur.style.opacity='0';
   }, 600);
 });
- 
+
 (function loop(){
   rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
   curR.style.left=rx+'px'; curR.style.top=ry+'px';
   requestAnimationFrame(loop);
 })();
- 
+
 // Hover on interactive elements
 document.querySelectorAll('a,button,.svc-c,.why-c,.pkg,.tc,.ci,.hcard,.num-c,.vid-wrap').forEach(el=>{
   el.addEventListener('mouseenter',()=>{
@@ -2159,7 +2241,7 @@ document.querySelectorAll('a,button,.svc-c,.why-c,.pkg,.tc,.ci,.hcard,.num-c,.vi
     curR.classList.remove('big');
   });
 });
- 
+
 /* ══════════════════════════════════════════════
    NAV SCROLL
 ══════════════════════════════════════════════ */
@@ -2170,20 +2252,34 @@ window.addEventListener('scroll',()=>{
   document.getElementById('prog').style.width =
     ((h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100) + '%';
 });
- 
+
 function toggleNav(){
   const nl = document.getElementById('navLinks');
   const ham = document.getElementById('ham');
   nl.classList.toggle('open');
   ham.classList.toggle('active');
 }
- 
+
+// Services dropdown — click to open/close on ALL screen sizes
+function toggleServicesDropdown(){
+  const item = document.getElementById('navServices');
+  item.classList.toggle('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', e => {
+  const item = document.getElementById('navServices');
+  if(item && !item.contains(e.target)){
+    item.classList.remove('open');
+  }
+});
+
 // Also bind touchstart for better mobile response
 document.getElementById('ham').addEventListener('touchstart', function(e){
   e.preventDefault();
   toggleNav();
 }, {passive:false});
- 
+
 document.querySelectorAll('#navLinks a').forEach(a =>
   a.addEventListener('click',()=>{
     document.getElementById('navLinks').classList.remove('open');
@@ -2199,7 +2295,7 @@ document.addEventListener('click', e => {
     ham.classList.remove('active');
   }
 });
- 
+
 /* ══════════════════════════════════════════════
    TOUCH HOVER FIX
    Mobile pe :hover state stuck rehta hai touch ke baad.
@@ -2217,7 +2313,7 @@ document.addEventListener('click', e => {
     }
   }, { passive: true });
 })();
- 
+
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const t = document.querySelector(a.getAttribute('href'));
@@ -2228,7 +2324,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
- 
+
 /* ══════════════════════════════════════════════
    HERO CANVAS 1 — Cosmic Dust / Star Field
    Both modes: floating particles + network
@@ -2241,7 +2337,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   let W, H, pts = [];
   function resize(){ W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
   resize(); window.addEventListener('resize', resize);
- 
+
   class Pt{
     constructor(){ this.reset(); }
     reset(){
@@ -2268,7 +2364,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       const twinkle = dark ? (.7 + .3*Math.sin(this.phase + this.age*.04)) : 1;
       const a      = this.a * twinkle * (t<.1 ? t*10 : t>.85 ? (1-t)/.15 : 1);
       const r      = dark ? this.r*1.7 : this.r*1.1;
- 
+
       if(dark){
         // large bright stars get a glow halo
         if(r > 1.6){
@@ -2294,15 +2390,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       }
     }
   }
- 
+
   for(let i=0; i<160; i++) pts.push(new Pt());
- 
+
   function drawLines(){
     const dark  = html.classList.contains('dark');
     const maxD  = dark ? 115 : 95;
     const baseA = dark ? .048 : .022;
     const col   = dark ? '180,210,255' : '175,130,40';
- 
+
     for(let i=0; i<pts.length; i++){
       for(let j=i+1; j<pts.length; j++){
         const dx = pts[i].x - pts[j].x;
@@ -2319,7 +2415,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       }
     }
   }
- 
+
   function anim(){
     ctx.clearRect(0,0,W,H);
     pts.forEach(p=>{ p.tick(); p.draw(); });
@@ -2328,7 +2424,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   }
   anim();
 })();
- 
+
 /* ══════════════════════════════════════════════
    HERO CANVAS 2 — Solar System (dark mode only)
    Light mode: canvas hidden (CSS sun/clouds used)
@@ -2340,7 +2436,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   let W, H;
   function resize(){ W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
   resize(); window.addEventListener('resize', resize);
- 
+
   const SUN_R = 28;
   const PLANETS = [
     { r:88,  pr:3.8, spd:.0048, col:'rgba(201,168,76,1)',   ang:0.0, trail:.18 },
@@ -2353,14 +2449,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   const MOON = { pr:2.1, orbitR:16, spd:.02, ang:0 };
   const getCX = ()=> W > 1100 ? W * .76 : W * .5;
   const getCY = ()=> H * .48;
- 
+
   function ra(col, a){ return col.replace(/[\d.]+\)$/, `${a})`); }
- 
+
   function drawOrbit(cx,cy,r){
     ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
     ctx.strokeStyle='rgba(201,168,76,.055)'; ctx.lineWidth=.8; ctx.stroke();
   }
- 
+
   function drawPlanet(cx,cy,p){
     const x=cx+Math.cos(p.ang)*p.r, y=cy+Math.sin(p.ang)*p.r;
     for(let i=1;i<=24;i++){
@@ -2378,7 +2474,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     ctx.fillStyle=p.col; ctx.fill();
     return {x,y};
   }
- 
+
   function anim(){
     if(!html.classList.contains('dark')){
       ctx.clearRect(0,0,W,H); requestAnimationFrame(anim); return;
@@ -2386,7 +2482,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     ctx.clearRect(0,0,W,H);
     const cx=getCX(), cy=getCY();
     PLANETS.forEach(p=>drawOrbit(cx,cy,p.r));
- 
+
     // sun outer glow
     const sg2=ctx.createRadialGradient(cx,cy,0,cx,cy,SUN_R*3.8);
     sg2.addColorStop(0,'rgba(201,168,76,.24)');
@@ -2395,7 +2491,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     sg2.addColorStop(1,'transparent');
     ctx.beginPath(); ctx.arc(cx,cy,SUN_R*3.8,0,Math.PI*2);
     ctx.fillStyle=sg2; ctx.fill();
- 
+
     // sun body
     ctx.beginPath(); ctx.arc(cx,cy,SUN_R,0,Math.PI*2);
     const sg=ctx.createRadialGradient(cx,cy,0,cx,cy,SUN_R);
@@ -2405,7 +2501,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     ctx.fillStyle=sg; ctx.fill();
     ctx.beginPath(); ctx.arc(cx,cy-SUN_R*.3,SUN_R*.33,0,Math.PI*2);
     ctx.fillStyle='rgba(255,255,255,.1)'; ctx.fill();
- 
+
     PLANETS.forEach((p,i)=>{
       const pos=drawPlanet(cx,cy,p);
       if(i===3){
@@ -2421,7 +2517,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   }
   anim();
 })();
- 
+
 /* ══════════════════════════════════════════════
    HERO H1 — animated shimmer (mode-aware)
 ══════════════════════════════════════════════ */
@@ -2443,7 +2539,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   }
   anim();
 })();
- 
+
 /* ══════════════════════════════════════════════
    SCROLL REVEAL
 ══════════════════════════════════════════════ */
@@ -2451,7 +2547,7 @@ const ro = new IntersectionObserver(entries=>{
   entries.forEach(el=>{ if(el.isIntersecting) el.target.classList.add('on'); });
 },{ threshold:.08, rootMargin:'0px 0px -20px 0px' });
 document.querySelectorAll('.rv,.rl,.rr').forEach(el=> ro.observe(el));
- 
+
 /* ══════════════════════════════════════════════
    FAQ ACCORDION
 ══════════════════════════════════════════════ */
@@ -2463,7 +2559,7 @@ function tFaq(btn){
   document.querySelectorAll('.fq-ic').forEach(x=> x.classList.remove('open'));
   if(!open){ ans.classList.add('open'); ic.classList.add('open'); }
 }
- 
+
 /* ══════════════════════════════════════════════
    TOAST
 ══════════════════════════════════════════════ */
@@ -2475,7 +2571,7 @@ function showToast(msg, ok=true){
   t.classList.add('show');
   setTimeout(()=> t.classList.remove('show'), 5000);
 }
- 
+
 /* ══════════════════════════════════════════════
    BACKGROUND STARS — fixed full-page (dark only)
    Realistic star field with varied sizes & colors
@@ -2485,13 +2581,13 @@ function showToast(msg, ok=true){
   if(!cv)return;
   const ctx=cv.getContext('2d');
   let W,H,stars=[],shooters=[];
- 
+
   function resize(){
     W=cv.width=window.innerWidth;
     H=cv.height=window.innerHeight;
     initStars();
   }
- 
+
   // Star color palette — real stars have color temperature variation
   const starColors=[
     [220,235,255], // blue-white (hot)
@@ -2500,7 +2596,7 @@ function showToast(msg, ok=true){
     [200,220,255], // cool blue
     [255,235,180], // slightly golden
   ];
- 
+
   function initStars(){
     stars=[];
     // Many tiny dim stars (background depth)
@@ -2510,7 +2606,7 @@ function showToast(msg, ok=true){
     // Few large bright stars
     for(let i=0;i<18;i++) stars.push(makeStar('large'));
   }
- 
+
   function makeStar(type){
     const col=starColors[Math.floor(Math.random()*starColors.length)];
     if(type==='tiny') return{
@@ -2539,7 +2635,7 @@ function showToast(msg, ok=true){
       col, type
     };
   }
- 
+
   // Shooting star
   function makeShooter(){
     return{
@@ -2551,23 +2647,23 @@ function showToast(msg, ok=true){
       active:true
     };
   }
- 
+
   resize();
   window.addEventListener('resize',resize);
- 
+
   // Spawn shooting stars occasionally
   setInterval(()=>{
     if(html.classList.contains('dark') && shooters.length<2){
       shooters.push(makeShooter());
     }
   }, 4000+Math.random()*5000);
- 
+
   function drawStar(s){
     s.twinklePhase+=s.twinkleSpeed;
     const twinkle=s.baseA + s.twinkleAmp*Math.sin(s.twinklePhase);
     const a=Math.max(0,Math.min(1,twinkle));
     const [r,g,b]=s.col;
- 
+
     if(s.type==='large'){
       // 4-point diffraction spike for large stars
       const spike=s.r*5;
@@ -2584,7 +2680,7 @@ function showToast(msg, ok=true){
       ctx.moveTo(s.x+ds,s.y-ds); ctx.lineTo(s.x-ds,s.y+ds);
       ctx.stroke();
       ctx.restore();
- 
+
       // Glow halo
       const grd=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*5);
       grd.addColorStop(0,`rgba(${r},${g},${b},${a*.18})`);
@@ -2599,12 +2695,12 @@ function showToast(msg, ok=true){
       ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.2,0,Math.PI*2);
       ctx.fillStyle=grd; ctx.fill();
     }
- 
+
     // Core dot
     ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
     ctx.fillStyle=`rgba(${r},${g},${b},${a})`; ctx.fill();
   }
- 
+
   function drawShooters(){
     shooters=shooters.filter(s=>s.active);
     shooters.forEach(s=>{
@@ -2612,19 +2708,19 @@ function showToast(msg, ok=true){
       if(s.life>s.maxLife){ s.active=false; return; }
       const prog=s.life/s.maxLife;
       s.a = prog<.2 ? prog/.2 : prog>.7 ? 1-(prog-.7)/.3 : 1;
- 
+
       const ex=s.x+Math.cos(s.angle)*s.speed*s.life;
       const ey=s.y+Math.sin(s.angle)*s.speed*s.life;
       const sx=ex-Math.cos(s.angle)*s.len;
       const sy=ey-Math.sin(s.angle)*s.len;
- 
+
       const grd=ctx.createLinearGradient(sx,sy,ex,ey);
       grd.addColorStop(0,'transparent');
       grd.addColorStop(.6,`rgba(200,220,255,${s.a*.4})`);
       grd.addColorStop(1,`rgba(240,248,255,${s.a})`);
       ctx.beginPath(); ctx.moveTo(sx,sy); ctx.lineTo(ex,ey);
       ctx.strokeStyle=grd; ctx.lineWidth=1.2; ctx.stroke();
- 
+
       // Head glow
       const hg=ctx.createRadialGradient(ex,ey,0,ex,ey,4);
       hg.addColorStop(0,`rgba(240,248,255,${s.a*.8})`);
@@ -2633,7 +2729,7 @@ function showToast(msg, ok=true){
       ctx.fillStyle=hg; ctx.fill();
     });
   }
- 
+
   function anim(){
     if(!html.classList.contains('dark')){
       ctx.clearRect(0,0,W,H);
@@ -2646,7 +2742,7 @@ function showToast(msg, ok=true){
   }
   requestAnimationFrame(anim);
 })();
- 
+
 /* ══════════════════════════════════════════════
    CONTACT FORM
 ══════════════════════════════════════════════ */
@@ -2671,7 +2767,7 @@ async function doSub(e){
     showToast('Something went wrong. WhatsApp: +91 90507 28595', false);
   }
 }
- 
+
 /* ══════════════════════════════════════════════
    VIDEO AUTOPLAY FIX FOR STRICT BROWSERS
 ══════════════════════════════════════════════ */
