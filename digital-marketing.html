@@ -1,234 +1,765 @@
 <!DOCTYPE html>
-<html lang="en" style="color-scheme:dark only;">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Performance Marketing & Digital Strategy | SCALVIQ</title>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="SCALVIQ Digital Marketing - AI-powered Meta & Google Ads, SEO, and data-driven campaigns engineered to convert at maximum ROAS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════════
-   GLOBAL THEME
+   GLOBAL THEME (MAIN PAGE KE SAATH SYNC KIYA GAYA)
 ══════════════════════════════════════════════════ */
-:root {
-  --c0: #0d1117; --c1: #161b22; --c2: #21262d; --c3: #30363d;
-  --t0: #e6edf3; --t1: #8b949e; --t2: #6e7681;
-  --gold: #C8A951; --goldL: #E0C06A; --goldD: #7A6228;
-  --r: 8px; --ease: cubic-bezier(.16,1,.3,1);
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  /* ── LIGHT MODE (default) ── */
+  --sky0: #e6edf3;
+  --sky1: #dce5ef;
+  --sky2: #cddff2;
+  --sky3: #b9d5ee;
+
+  --ink0: #0d1117;
+  --ink1: #1f2937;
+  --ink2: #475569;
+  --ink3: #64748b;
+
+  --gold: #b8892a;
+  --goldL: #d4a94a;
+  --goldVL: #f5e4b8;
+  --goldGlow: rgba(184,137,42,.18);
+
+  --glass-bg: rgba(255,255,255,0.45);
+  --glass-bg-strong: rgba(255,255,255,0.7);
+  --glass-border: rgba(255,255,255,0.7);
+  --glass-border-outer: rgba(185,210,240,0.5);
+  --glass-shadow: 0 8px 32px rgba(100,140,200,0.08), 0 1px 0 rgba(255,255,255,0.7) inset;
+  --glass-shadow-hover: 0 16px 48px rgba(100,140,200,0.15), 0 1px 0 rgba(255,255,255,1) inset;
+
+  --body-bg: #e6edf3;
+  --body-bg-grad: transparent; 
+
+  --nav-bg: rgba(255,255,255,0.65);
+  --nav-bg-scrolled: rgba(255,255,255,0.85);
+  --nav-border: rgba(185,210,240,0.5);
+
+  --footer-bg: rgba(255,255,255,0.65);
+  --mob-nav-bg: rgba(230,237,243,0.95);
+
+  --green: #1a7f37;
+  --r: 16px;
+  --ease: cubic-bezier(.22,1,.36,1);
+  
+  --font-brand: 'Josefin Sans', sans-serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-ui); 
+  --font-mono: var(--font-ui);
 }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { background: var(--c0); color: var(--t0); font-family: 'Josefin Sans', sans-serif; overflow-x: hidden; line-height: 1.6; }
-a { text-decoration:none; color:inherit; }
-img { max-width: 100%; display: block; }
+/* ══════════════════════════════
+   DARK MODE
+══════════════════════════════ */
+html.dark{
+  --sky0: #010409;
+  --sky1: #0d1117;
+  --sky2: #161b22;
+  --sky3: #21262d;
+
+  --ink0: #f0f6fc;
+  --ink1: #c9d1d9;
+  --ink2: #8b949e;
+  --ink3: #6e7681;
+
+  --gold: #e3b341;
+  --goldL: #f0c869;
+  --goldVL: rgba(227,179,65,.12);
+  --goldGlow: rgba(227,179,65,.22);
+
+  --glass-bg: rgba(13,17,23,0.65);
+  --glass-bg-strong: rgba(22,27,34,0.85);
+  --glass-border: rgba(240,246,252,0.1);
+  --glass-border-outer: rgba(227,179,65,0.15);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset;
+  --glass-shadow-hover: 0 16px 48px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.09) inset;
+
+  --body-bg: #010409;
+  --body-bg-grad: transparent;
+
+  --nav-bg: rgba(1,4,9,0.75);
+  --nav-bg-scrolled: rgba(1,4,9,0.92);
+  --nav-border: rgba(240,246,252,0.1);
+  --footer-bg: rgba(1,4,9,0.88);
+  --mob-nav-bg: rgba(1,4,9,0.97);
+
+  --green: #238636;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background: var(--body-bg);
+  color: var(--ink0);
+  font-family: var(--font-ui);
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  isolation:isolate;
+}
+
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;object-fit:cover}
+button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
+
+/* scrollbar */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--sky1)}
+::-webkit-scrollbar-thumb{background:var(--sky3);border-radius:2px}
 
 /* ══════════════════════════════════════════════════
-   NAVIGATION
+   RICH AURORA / MESH BACKGROUND
 ══════════════════════════════════════════════════ */
-.nav {
-  position:fixed; top:0; left:0; right:0; z-index:500; height:62px;
-  background: rgba(22, 27, 34, 0.85); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--c3);
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 0 clamp(16px,4vw,32px);
+.aurora-bg {
+  position: fixed; inset: 0; z-index: -3; pointer-events: none; overflow: hidden;
+  background: var(--body-bg); transition: background 0.5s ease;
 }
-.nav-logo { display:flex; align-items:center; gap:10px; }
-.n-mark { width:32px; height:32px; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:15px; color:#010409; border-radius:6px; flex-shrink:0; position:relative; }
-.n-mark::after { content:''; position:absolute; inset:-2px; border:1px solid rgba(200,169,81,.3); border-radius:8px; }
-.n-name { font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:14px; letter-spacing:4px; color:var(--t0); }
-.n-name .q { color:var(--gold); }
-.nav-back { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px; color:var(--t1); text-transform:uppercase; transition: color .2s; display: flex; align-items: center; gap: 6px; }
-.nav-back:hover { color:var(--t0); }
+.aurb {
+  position: absolute; border-radius: 50%; filter: blur(80px);
+  animation: floatAurora 20s infinite alternate ease-in-out; opacity: 0.6;
+}
+/* Light Mode Colors */
+.ab-1 { width: 50vw; height: 50vw; background: rgba(184,137,42,0.15); top: -10%; left: -10%; }
+.ab-2 { width: 40vw; height: 40vw; background: rgba(150,200,255,0.25); bottom: 10%; right: -5%; animation-delay: -5s; }
+.ab-3 { width: 45vw; height: 45vw; background: rgba(200,220,255,0.3); top: 30%; left: 30%; animation-delay: -10s; filter: blur(120px); }
+
+/* Dark Mode Colors */
+html.dark .ab-1 { background: rgba(227,179,65,0.08); }
+html.dark .ab-2 { background: rgba(139,92,246,0.08); }
+html.dark .ab-3 { background: rgba(56,189,248,0.05); }
+
+@keyframes floatAurora {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(5%, 10%, 0) scale(1.1); }
+  100% { transform: translate3d(-5%, 5%, 0) scale(0.9); }
+}
+
+@media(max-width: 768px) {
+  .aurb { filter: blur(50px); }
+  .ab-1 { width: 80vw; height: 80vw; }
+  .ab-2 { width: 70vw; height: 70vw; }
+  .ab-3 { width: 90vw; height: 90vw; }
+}
+
+/* ── FLOATING BUBBLES (SIRF LIGHT MODE KE LIYE) ── */
+.floating-bubbles {
+  position: fixed; inset: 0; pointer-events: none; z-index: -2; overflow: hidden;
+  transition: opacity 0.5s var(--ease);
+}
+html.dark .floating-bubbles { opacity: 0; display: none; }
+
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.1) 60%, transparent 100%);
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 4px 15px rgba(100,140,200,0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: floatUp infinite linear;
+  opacity: 0;
+  will-change: transform;
+}
+
+.b1 { width: 40px; height: 40px; left: 15%; animation-duration: 12s; animation-delay: 0s; }
+.b2 { width: 85px; height: 85px; left: 35%; animation-duration: 18s; animation-delay: -5s; }
+.b3 { width: 35px; height: 35px; left: 55%; animation-duration: 10s; animation-delay: -2s; }
+.b4 { width: 60px; height: 60px; left: 75%; animation-duration: 16s; animation-delay: -8s; }
+.b5 { width: 100px; height: 100px; left: 85%; animation-duration: 22s; animation-delay: -1s; }
+.b6 { width: 45px; height: 45px; left: 5%; animation-duration: 14s; animation-delay: -10s; }
+.b7 { width: 70px; height: 70px; left: 50%; animation-duration: 19s; animation-delay: -12s; }
+
+@keyframes floatUp {
+  0% { transform: translate3d(0px, 10vh, 0) scale(0.8); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translate3d(40px, -110vh, 0) scale(1.1); opacity: 0; }
+}
+
+/* ── SHOOTING STARS (SIRF DARK MODE KE LIYE) ── */
+.stars-container{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .6s}
+html.dark .stars-container{opacity:1}
+.shooting-star{
+  position:absolute; width:clamp(150px,25vw,340px);height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(180,210,255,.08) 40%,rgba(150,190,255,.85) 100%);
+  border-radius:2px; animation:shoot linear infinite;
+  filter:drop-shadow(0 0 3px rgba(140,180,255,.6));
+  will-change: transform;
+  opacity: 0; /* Stuck stars ko fix karne ke liye default opacity 0 kar di hai */
+}
+html.dark .shooting-star{
+  background:linear-gradient(90deg,transparent 0%,rgba(227,179,65,.12) 40%,rgba(227,179,65,1) 100%);
+  filter:drop-shadow(0 0 4px rgba(227,179,65,.5));
+}
+.shooting-star::after{
+  content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:4px;height:4px;background:#fff;border-radius:50%;
+  box-shadow:0 0 6px 2px rgba(160,200,255,.9),0 0 14px 5px rgba(160,200,255,.35);
+}
+html.dark .shooting-star::after{
+  box-shadow:0 0 8px 3px rgba(227,179,65,.9),0 0 16px 6px rgba(227,179,65,.4);
+}
+@keyframes shoot{
+  0%{opacity:0;transform:translate3d(-10vw,-10vw,0) rotate(35deg)}
+  1%{opacity:1}
+  7%{opacity:0;transform:translate3d(120vw,80vw,0) rotate(35deg)}
+  100%{opacity:0;transform:translate3d(120vw,80vw,0) rotate(35deg)}
+}
+.ss1{top:-10%;left:10%;animation-duration:14s;animation-delay:0s}
+.ss2{top:-20%;left:40%;animation-duration:21s;animation-delay:6s}
+.ss3{top:10%;left:-10%;animation-duration:17s;animation-delay:11s}
+.ss4{top:-5%;left:60%;animation-duration:24s;animation-delay:3.5s}
+.ss5{top:30%;left:-20%;animation-duration:19s;animation-delay:17s}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle{ position:relative;width:52px;height:28px;cursor:pointer;flex-shrink:0; }
+.theme-toggle input{opacity:0;width:0;height:0;position:absolute}
+.tt-track{
+  position:absolute;inset:0; background:linear-gradient(135deg,#b8d4f8,#d0e8ff);
+  border:1px solid rgba(185,210,240,.8); border-radius:100px;
+  transition:background .4s var(--ease),border-color .4s var(--ease);
+  box-shadow:0 2px 6px rgba(100,140,200,.15) inset;
+}
+html.dark .tt-track{
+  background:linear-gradient(135deg,#0d1228,#1a2144); border-color:rgba(201,168,76,.35);
+  box-shadow:0 0 8px rgba(201,168,76,.1) inset;
+}
+.tt-thumb{
+  position:absolute;top:3px;left:3px; width:22px;height:22px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center; font-size:13px;line-height:1;
+  background:rgba(255,255,255,.95); box-shadow:0 2px 8px rgba(100,140,200,.25);
+  transition:transform .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease);
+}
+html.dark .tt-thumb{
+  transform:translate3d(24px,0,0); background:linear-gradient(135deg,#c9a84c,#e8c96b);
+  box-shadow:0 2px 12px rgba(201,168,76,.5);
+}
+
+/* ══════════════════════════
+   NAV
+══════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:800; height:70px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(16px,4vw,48px); background:var(--nav-bg);
+  backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--nav-border);
+  box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 20px rgba(0,0,0,0.08);
+  transition:background .3s, box-shadow .3s, border-color .45s;
+}
+nav.scrolled{
+  background:var(--nav-bg-scrolled); box-shadow:0 1px 0 rgba(255,255,255,0.1) inset, 0 8px 32px rgba(0,0,0,0.12);
+}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo-mark{
+  width:40px;height:40px; background:linear-gradient(135deg,var(--goldL),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-brand);font-weight:700;font-size:18px;color:#fff;
+  border-radius:10px;flex-shrink:0; box-shadow:0 2px 8px rgba(184,137,42,.3),0 1px 0 rgba(255,255,255,.4) inset;
+}
+.logo-text{font-family:var(--font-brand);font-weight:700;font-size:19px;letter-spacing:4px;color:var(--ink0)}
+.logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nl{font-family:var(--font-mono);font-size:clamp(12px, 1.1vw, 14px);font-weight:500;letter-spacing:normal;color:var(--ink2);
+  text-transform:uppercase;padding:8px 16px;border-radius:8px;transition:all .15s}
+.nl:hover{color:var(--ink0);background:rgba(255,255,255,0.7)}
+html.dark .nl:hover{color:var(--ink0);background:rgba(255,255,255,0.1)}
+.nav-end{display:flex;align-items:center;gap:12px}
+.btn-nav-wa{
+  display:flex;align-items:center;gap:8px;padding:10px 20px;
+  background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.25);
+  border-radius:10px;font-family:var(--font-mono);font-size:clamp(12px, 1.1vw, 14px);font-weight:600;
+  letter-spacing:0.02em;color:var(--green);text-transform:uppercase;
+  transition:all .15s;backdrop-filter:blur(8px);
+}
+.btn-nav-wa:hover{background:rgba(22,163,74,0.18);border-color:rgba(22,163,74,.5)}
+.ham{display:none;flex-direction:column;gap:6px;padding:8px;cursor:pointer}
+.ham span{width:22px;height:2px;background:var(--ink1);display:block;border-radius:2px;transition:all .25s}
+@media(max-width:860px){
+  .nav-links{display:none;position:fixed;top:70px;left:0;right:0;
+    background:var(--mob-nav-bg);backdrop-filter:blur(24px);
+    border-bottom:1px solid var(--glass-border-outer);
+    flex-direction:column;padding:16px 20px 24px;align-items:flex-start;gap:4px}
+  .nav-links.open{display:flex}
+  .ham{display:flex}
+  .btn-nav-wa{display:none}
+}
 
 /* ══════════════════════════════════════════════════
    HERO SECTION
 ══════════════════════════════════════════════════ */
 .hero {
-  padding: clamp(120px, 15vw, 180px) clamp(20px, 5vw, 60px) clamp(60px, 10vw, 100px);
+  padding: clamp(140px, 15vw, 180px) clamp(20px, 5vw, 60px) clamp(60px, 10vw, 100px);
   max-width: 1280px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px);
-  align-items: center; position: relative;
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 6vw, 80px);
+  align-items: center; position: relative; z-index: 10;
 }
 @media(max-width: 960px) { .hero { grid-template-columns: 1fr; text-align: center; } }
 
 .hero-chip {
-  display:inline-flex; align-items:center; gap:8px; padding:4px 12px;
-  background:rgba(200,169,81,.1); border:1px solid rgba(200,169,81,.28);
-  border-radius:100px; font-family:'IBM Plex Mono',monospace; font-size:9px;
-  letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:24px;
+  display:inline-flex; align-items:center; gap:8px; padding:6px 16px;
+  background:var(--glass-bg-strong); backdrop-filter:blur(10px); border:1px solid var(--glass-border);
+  border-radius:100px; font-family:var(--font-mono); font-size:11px; font-weight: 600;
+  letter-spacing:1px; color:var(--gold); text-transform:uppercase; margin-bottom:24px;
+  box-shadow: var(--glass-shadow);
 }
 .hero-h1 {
-  font-family: 'Lora', serif; font-size: clamp(36px, 4.5vw, 64px); font-weight: 600;
-  line-height: 1.15; color: var(--t0); margin-bottom: 24px;
+  font-family: var(--font-serif); font-size: clamp(36px, 4.5vw, 64px); font-weight: 800;
+  line-height: 1.15; letter-spacing: -0.02em; color: var(--ink0); margin-bottom: 24px;
 }
-.hero-h1 em { font-style: italic; color: var(--goldL); }
+.hero-h1 em { font-style: normal; color: var(--gold); }
 .hero-p {
-  font-size: clamp(15px, 1.5vw, 18px); color: var(--t1); line-height: 1.8;
-  margin-bottom: 40px; max-width: 600px;
+  font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); line-height: 1.8;
+  margin-bottom: 40px; max-width: 600px; font-weight: 400;
 }
 @media(max-width: 960px) { .hero-p { margin-inline: auto; } }
 
+/* Main Button Style */
 .btn-primary {
-  display:inline-flex; align-items:center; gap:8px; padding:14px 32px;
-  background:var(--gold); color:#010409; font-family:'IBM Plex Mono',monospace;
-  font-size:10px; letter-spacing:2px; text-transform:uppercase; font-weight:700;
-  border:1px solid var(--gold); border-radius:var(--r); transition: all .3s;
-  box-shadow: 0 0 20px rgba(200,169,81,0.15);
+  display:inline-flex; align-items:center; gap:10px; padding:clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 36px);
+  background:linear-gradient(135deg,var(--goldL),var(--gold)); color:#fff;
+  font-family:var(--font-mono); font-size:clamp(12px, 1.2vw, 15px); letter-spacing:0.02em;
+  text-transform:uppercase; font-weight:600; border:none; border-radius:12px; transition: all .3s;
+  box-shadow: 0 4px 16px rgba(184,137,42,.3),0 1px 0 rgba(255,255,255,.25) inset;
 }
-.btn-primary:hover { background:var(--goldL); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,169,81,0.3); }
+.btn-primary:hover { transform: translate3d(0,-3px,0); box-shadow: 0 8px 24px rgba(184,137,42,.4),0 1px 0 rgba(255,255,255,.25) inset; }
 
-/* Animated Data Graphic */
-.hero-visual { position: relative; width: 100%; aspect-ratio: 1/1; max-width: 500px; margin: 0 auto; }
-.circle-bg { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed var(--c3); animation: spin 40s linear infinite; }
-.circle-bg::before { content:''; position:absolute; inset: 10%; border-radius: 50%; border: 1px solid rgba(200,169,81,0.2); animation: spin 20s linear infinite reverse; }
-.stat-float {
-  position: absolute; background: rgba(22,27,34,0.85); backdrop-filter: blur(10px);
-  border: 1px solid var(--c3); padding: 16px 24px; border-radius: var(--r);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5); animation: float 6s ease-in-out infinite;
+/* ── PREMIUM SMOOTH FLOATING CARDS & RINGS ── */
+.hero-visual { 
+  position: relative; width: 100%; height: 450px; max-width: 550px; 
+  margin: 0 auto; display: flex; align-items: center; justify-content: center;
+  perspective: 1000px;
 }
-/* Z-index increased so small boxes stay on top */
-.sf-1 { top: 12%; left: -8%; animation-delay: 0s; border-left: 3px solid var(--gold); z-index: 10; }
-.sf-2 { bottom: 15%; right: -8%; animation-delay: 2s; border-left: 3px solid #3fb950; z-index: 10; }
-.sf-3 { top: 50%; left: 50%; transform: translate(-50%, -50%) !important; animation: none; padding: 32px; text-align: center; border-color: rgba(200,169,81,0.4); background: var(--c0); z-index: 5; width: 65%; }
 
-.sf-val { font-family: 'Lora', serif; font-size: clamp(20px, 4vw, 28px); font-weight: 700; color: var(--t0); }
-.sf-1 .sf-val { color: var(--gold); }
-.sf-2 .sf-val { color: #3fb950; }
-.sf-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--t1); text-transform: uppercase; margin-top: 4px; }
+/* Smooth Spinning Rings (Visible heavily in Dark Mode, hidden in Light Mode) */
+.hero-rings {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 0;
+  opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
+}
+html.dark .hero-rings { opacity: 1; }
 
-@keyframes spin { 100% { transform: rotate(360deg); } }
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+.glow-orb {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 50%; height: 50%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(227,179,65,0.15) 0%, transparent 70%);
+  animation: pulseGlow 6s infinite alternate ease-in-out;
+  z-index: 1; pointer-events: none;
+}
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
 
-/* Mobile Specific Optimizations for Hero Visual */
+.ring {
+  position: absolute; border-radius: 50%; 
+  border: 1px solid rgba(227,179,65,0.08); border-top: 1px solid rgba(227,179,65,0.6);
+  will-change: transform;
+}
+
+.r1 { width: 320px; height: 320px; animation: spinSmooth 20s linear infinite; }
+.r2 { width: 480px; height: 480px; animation: spinSmooth 30s linear infinite reverse; border-top-color: transparent; border-bottom: 1px solid rgba(139,92,246,0.4); }
+
+@keyframes spinSmooth { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Premium Glass Cards */
+.metric-card {
+  position: absolute;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 24px 32px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  will-change: transform;
+  z-index: 10;
+}
+html.dark .metric-card {
+  background: var(--glass-bg);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.mc-1 { top: 5%; right: -10%; animation: floatMC1 5s infinite alternate ease-in-out; border-left: 4px solid var(--gold); }
+.mc-2 { bottom: 5%; left: -10%; animation: floatMC2 6s infinite alternate ease-in-out; border-left: 4px solid var(--green); }
+.mc-3 { 
+  top: 50%; left: 50%;
+  animation: floatMC3 7s infinite alternate ease-in-out; 
+  padding: 32px; width: clamp(240px, 25vw, 280px); text-align: center; align-items: center;
+  border: 1px solid rgba(184,137,42,0.3); z-index: 12;
+}
+
+/* Hardware accelerated smooth floating with proper centering */
+@keyframes floatMC1 { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(0, -15px, 0); } }
+@keyframes floatMC2 { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(0, -15px, 0); } }
+@keyframes floatMC3 { 0% { transform: translate3d(-50%, -50%, 0); } 100% { transform: translate3d(-50%, calc(-50% - 20px), 0); } }
+
+.mc-val { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 42px); font-weight: 800; color: var(--ink0); line-height: 1; margin-bottom: 6px;}
+.mc-1 .mc-val { color: var(--gold); }
+.mc-2 .mc-val { color: var(--green); }
+.mc-3 .mc-val { font-size: clamp(24px, 3vw, 28px); margin-top: 12px;}
+.mc-lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; font-weight: 600; color: var(--ink2); text-transform: uppercase; }
+.mc-icon { font-size: 38px; line-height: 1;}
+
 @media(max-width: 600px) {
-  .hero-visual { max-width: 320px; margin-top: 30px; }
-  .stat-float { padding: 12px 16px; }
-  .sf-3 { padding: 20px; width: 80%; }
-  /* Brought inside bounds to prevent horizontal scroll issues on mobile */
-  .sf-1 { left: 0%; top: 0%; }
-  .sf-2 { right: 0%; bottom: 0%; }
-  .sf-lbl { font-size: 7px; }
+  .hero-visual { max-width: 320px; margin-top: 40px; height: 380px; }
+  .r1 { width: 220px; height: 220px; }
+  .r2 { width: 320px; height: 320px; }
+  .mc-1 { right: -5%; padding: 16px 20px; top: 0%;}
+  .mc-2 { left: -5%; padding: 16px 20px; bottom: 0%;}
+  .mc-3 { width: 220px; padding: 24px;}
+  .mc-val { font-size: 28px; }
+  .mc-3 .mc-val { font-size: 20px; }
+  .mc-lbl { font-size: 9px; }
 }
+
+/* ══════════════════════════════════════════════════
+   CORE CAPABILITIES SECTION (HIGHLY DETAILED)
+══════════════════════════════════════════════════ */
+.capabilities-sec { padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px); position: relative; z-index: 10;}
+.cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 1280px; margin: 0 auto; }
+
+.cap-card {
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border); padding: clamp(24px, 4vw, 40px);
+  border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease;
+  display: flex; flex-direction: column;
+}
+.cap-card:hover { transform: translate3d(0,-5px,0); box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-strong); border-color: rgba(184,137,42,0.4); }
+.cap-ico { font-size: 36px; margin-bottom: 16px; display: block; }
+.cap-h3 { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 26px); font-weight: 700; color: var(--ink0); margin-bottom: 14px; letter-spacing: -0.01em;}
+.cap-p { font-size: clamp(14px, 1.4vw, 15px); color: var(--ink2); line-height: 1.7; margin-bottom: 20px;}
+
+.cap-list { margin-top: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--glass-border-outer); padding-top: 20px;}
+.cap-list li { font-size: clamp(13px, 1.2vw, 14px); color: var(--ink1); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-weight: 500;}
+.cap-list li::before { content: '→'; color: var(--gold); font-weight: 800; font-family: var(--font-mono);}
 
 /* ══════════════════════════════════════════════════
    EDUCATIONAL / EXPLANATION SECTION
 ══════════════════════════════════════════════════ */
-.edu-sec { background: var(--c1); padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); border-top: 1px solid var(--c3); border-bottom: 1px solid var(--c3); }
+.edu-sec { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); position: relative; z-index: 10;}
 .edu-container { max-width: 1280px; margin: 0 auto; }
 .sec-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
-.sec-title { font-family: 'Lora', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 600; margin-bottom: 20px; color: var(--t0); }
-.sec-subtitle { font-size: clamp(15px, 1.8vw, 18px); color: var(--t1); line-height: 1.8; }
+.sec-title { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 56px); letter-spacing:-0.02em; font-weight: 800; margin-bottom: 20px; color: var(--ink0); }
+.sec-subtitle { font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); line-height: 1.8; }
 
 .process-grid { display: grid; grid-template-columns: 1fr; gap: 40px; position: relative; }
-.process-grid::before { content: ''; position: absolute; top: 0; bottom: 0; left: 40px; width: 2px; background: var(--c3); z-index: 1; }
+.process-grid::before { content: ''; position: absolute; top: 0; bottom: 0; left: 40px; width: 2px; background: var(--glass-border-outer); z-index: 1; }
 @media(max-width: 768px) { .process-grid::before { left: 20px; } }
 
-.process-step { display: grid; grid-template-columns: 80px 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; opacity: 0; transform: translateY(40px); transition: all 0.8s var(--ease); }
-.process-step.visible { opacity: 1; transform: translateY(0); }
+.process-step { display: grid; grid-template-columns: 80px 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; opacity: 0; transform: translate3d(0,40px,0); transition: all 0.8s var(--ease); }
+.process-step.visible { opacity: 1; transform: translate3d(0,0,0); }
 @media(max-width: 768px) { .process-step { grid-template-columns: 40px 1fr; gap: 20px; } }
 
-.step-marker { width: 80px; height: 80px; background: var(--c0); border: 2px solid var(--c3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 24px; color: var(--t1); transition: all 0.5s ease; box-shadow: 0 0 0 8px var(--c1); }
-@media(max-width: 768px) { .step-marker { width: 40px; height: 40px; font-size: 14px; box-shadow: 0 0 0 4px var(--c1); } }
+.step-marker { width: 80px; height: 80px; background: var(--glass-bg-strong); backdrop-filter: blur(10px); border: 2px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 600; font-size: 24px; color: var(--ink2); transition: all 0.5s ease; box-shadow: 0 0 0 8px var(--sky0); }
+html.dark .step-marker { box-shadow: 0 0 0 8px var(--sky1); }
+@media(max-width: 768px) { .step-marker { width: 40px; height: 40px; font-size: 14px; box-shadow: 0 0 0 4px var(--sky0); } html.dark .step-marker { box-shadow: 0 0 0 4px var(--sky1); } }
 
-.process-step:hover .step-marker, .process-step.active .step-marker { border-color: var(--gold); color: var(--gold); background: rgba(200,169,81,0.1); box-shadow: 0 0 0 8px var(--c1), 0 0 30px rgba(200,169,81,0.4); transform: scale(1.1); }
+.process-step:hover .step-marker, .process-step.active .step-marker { border-color: var(--gold); color: var(--gold); background: rgba(184,137,42,0.1); box-shadow: 0 0 0 8px var(--sky0), 0 0 30px rgba(184,137,42,0.4); transform: scale(1.1); }
+html.dark .process-step:hover .step-marker, html.dark .process-step.active .step-marker { box-shadow: 0 0 0 8px var(--sky1), 0 0 30px rgba(227,179,65,0.3); }
 
-.step-content { background: var(--c0); border: 1px solid var(--c3); padding: clamp(24px, 4vw, 40px); border-radius: var(--r); transition: all 0.4s ease; }
-.process-step:hover .step-content { border-color: rgba(200,169,81,0.4); transform: translateX(10px); }
+.step-content { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: clamp(24px, 4vw, 40px); border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; }
+.process-step:hover .step-content { border-color: rgba(184,137,42,0.4); transform: translate3d(10px,0,0); box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-strong); }
 
-.step-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: block; }
-.step-h3 { font-family: 'Lora', serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 600; color: var(--t0); margin-bottom: 16px; }
-.step-p { font-size: 15px; color: var(--t1); line-height: 1.8; }
-.step-p strong { color: var(--t0); font-weight: 600; }
+.step-tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 12px; background: rgba(184,137,42,0.1); border-radius: 100px; border: 1px solid rgba(184,137,42,0.2);}
+.step-h3 { font-family: var(--font-serif); font-size: clamp(24px, 2.8vw, 36px); font-weight: 700; color: var(--ink0); margin-bottom: 16px; letter-spacing:-0.01em;}
+.step-p { font-size: clamp(15px, 1.5vw, 18px); color: var(--ink2); line-height: 1.85; }
+.step-p strong { color: var(--ink0); font-weight: 600; }
+
+/* ══════════════════════════════════════════════════
+   FRAMEWORK SECTION
+══════════════════════════════════════════════════ */
+.framework-sec { padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px); max-width: 1280px; margin: 0 auto; position: relative; z-index: 10; }
+.fw-box { 
+  background: linear-gradient(135deg, var(--glass-bg-strong), rgba(255,255,255,0.2)); 
+  backdrop-filter: blur(24px); border: 1px solid var(--glass-border); 
+  border-radius: 24px; padding: clamp(40px, 6vw, 80px); box-shadow: var(--glass-shadow);
+  display: flex; flex-direction: column; gap: 32px; text-align: center;
+}
+html.dark .fw-box { background: linear-gradient(135deg, var(--glass-bg-strong), rgba(227,179,65,0.05)); }
+
+.fw-metrics { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px, 4vw, 40px); margin-bottom: 20px;}
+.fw-m-item { background: var(--glass-bg); border: 1px solid var(--glass-border-outer); padding: 20px 32px; border-radius: 16px; box-shadow: var(--glass-shadow);}
+.fw-m-val { font-family: var(--font-mono); font-size: 24px; font-weight: 700; color: var(--gold); margin-bottom: 8px;}
+.fw-m-lbl { font-size: 13px; font-weight: 600; color: var(--ink1); text-transform: uppercase; letter-spacing: 0.05em;}
+
+.fw-quote { font-family: var(--font-serif); font-size: clamp(24px, 3vw, 42px); font-weight: 700; color: var(--ink0); line-height: 1.3; max-width: 900px; margin: 0 auto; letter-spacing: -0.01em;}
+.fw-p { font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); max-width: 800px; margin: 0 auto; line-height: 1.8;}
 
 /* ══════════════════════════════════════════════════
    REAL STORIES / CASE STUDIES
 ══════════════════════════════════════════════════ */
-.stories-sec { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); max-width: 1280px; margin: 0 auto; }
+.stories-sec { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); max-width: 1280px; margin: 0 auto; position: relative; z-index: 10;}
 .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 60px; }
 
 .tc {
-  background: var(--c1); padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px);
-  position: relative; overflow: hidden; transition: background .3s, transform .3s;
-  border: 1px solid var(--c3); border-radius: var(--r);
-  opacity: 0; transform: translateY(30px);
+  background: var(--glass-bg-strong); backdrop-filter: blur(20px);
+  padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px);
+  position: relative; overflow: hidden; transition: background .3s, transform .3s, box-shadow .3s;
+  border: 1px solid var(--glass-border); border-radius: var(--r); box-shadow: var(--glass-shadow);
+  opacity: 0; transform: translate3d(0,30px,0);
 }
-.tc.visible { opacity: 1; transform: translateY(0); }
-.tc:hover { background: var(--c2); border-color: rgba(200,169,81,0.3); transform: translateY(-5px); }
+.tc.visible { opacity: 1; transform: translate3d(0,0,0); }
+.tc:hover { box-shadow: var(--glass-shadow-hover); transform: translate3d(0,-5px,0); background: var(--glass-bg); border-color: rgba(184,137,42,0.3);}
 .tc::before {
   content: '"'; position: absolute; top: 10px; right: 20px;
-  font-family: 'Lora', serif; font-size: 100px; color: rgba(200,169,81,0.05);
+  font-family: var(--font-serif); font-size: 100px; color: var(--goldVL);
   line-height: 1; pointer-events: none;
 }
 .tc-stars { display: flex; gap: 4px; margin-bottom: 20px; }
-.star { color: var(--gold); font-size: 14px; }
+.star { color: var(--gold); font-size: 16px; }
 .tc-txt {
-  font-family: 'Lora', serif; font-style: italic; font-size: clamp(14px, 1.6vw, 16px);
-  color: var(--t1); line-height: 1.9; margin-bottom: 32px; min-height: 120px;
+  font-family: var(--font-ui); font-style: normal; font-weight: 500; font-size: clamp(15px, 1.5vw, 18px);
+  color: var(--ink1); line-height: 1.8; margin-bottom: 32px; min-height: 120px;
 }
-.tc-auth { display: flex; gap: 16px; align-items: center; border-top: 1px solid var(--c3); padding-top: 24px; }
+.tc-auth { display: flex; gap: 16px; align-items: center; border-top: 1px solid var(--glass-border-outer); padding-top: 24px; }
 .tc-av {
   width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 16px;
-  color: #010409; background: var(--gold);
+  font-family: var(--font-mono); font-weight: 700; font-size: 14px;
+  color: #fff; background: linear-gradient(135deg, var(--goldL), var(--gold));
+  box-shadow: 0 2px 8px rgba(184,137,42,.25);
 }
-.tc-nm { font-size: 15px; font-weight: 600; color: var(--t0); }
-.tc-rl { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--t2); letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
+.tc-nm { font-size: clamp(15px, 1.6vw, 18px); font-weight: 600; color: var(--ink0); }
+.tc-rl { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink2); margin-top: 4px; text-transform: uppercase; }
 
 /* ══════════════════════════════════════════════════
    BOTTOM CTA
 ══════════════════════════════════════════════════ */
-.cta-sec { background: linear-gradient(180deg, var(--c0), var(--c1)); padding: 100px 20px; text-align: center; border-top: 1px solid var(--c3); }
-.cta-h2 { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 600; color: var(--t0); margin-bottom: 24px; }
-.cta-p { font-size: 16px; color: var(--t1); max-width: 600px; margin: 0 auto 40px; line-height: 1.8; }
+.cta-sec { 
+    background: var(--cta-bg); padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); 
+    text-align: center; border-top: 1px solid var(--glass-border-outer); border-bottom: 1px solid var(--glass-border-outer);
+    position: relative; z-index: 10;
+}
+.cta-h2 { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 72px); font-weight: 800; letter-spacing: -0.02em; color: var(--ink0); margin-bottom: 24px; }
+.cta-p { font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); max-width: 600px; margin: 0 auto 40px; line-height: 1.8; }
 
-/* Footer Minimal */
-.footer { background: var(--c1); border-top: 1px solid var(--c3); padding: 40px 20px; text-align: center; }
-.ft-copy { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--t2); text-transform: uppercase; }
+/* ══════════════════════════════════════════════════
+   FOOTER (FROM MAIN PAGE)
+══════════════════════════════════════════════════ */
+footer{
+  background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px solid var(--glass-border-outer);
+  padding:clamp(44px,7vw,80px) clamp(16px,5vw,60px) clamp(20px,3vw,32px); position: relative; z-index: 10;
+}
+.ft-inner{max-width:1280px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(22px,4vw,56px);margin-bottom:clamp(36px,5vw,56px)}
+@media(max-width:760px){.ft-top{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.ft-top{grid-template-columns:1fr}}
+.ft-tagline{font-family:var(--font-serif);font-style:normal;font-weight:500;font-size:clamp(15px,1.5vw,18px);color:var(--ink2);margin-bottom:12px}
+.ft-desc{font-size:clamp(14px,1.4vw,17px);color:var(--ink2);line-height:1.75;max-width:320px;margin-bottom:18px}
+.ft-socials{display:flex;gap:10px}
+.ft-soc-btn{
+  width:38px;height:38px; background:var(--glass-bg-strong);border:1px solid var(--glass-border);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:16px;transition:all .15s;color:var(--ink2); box-shadow:0 2px 6px rgba(100,140,200,.1);
+}
+.ft-soc-btn:hover{border-color:rgba(184,137,42,.3);color:var(--gold);transform:translate3d(0,-1px,0)}
+.ft-col-h{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:0.03em;color:var(--ink0);text-transform:uppercase;margin-bottom:18px}
+.ft-links{display:flex;flex-direction:column;gap:12px}
+.ft-links a{font-size:clamp(14px,1.4vw,16px);color:var(--ink2);transition:color .15s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  border-top:1px solid var(--glass-border-outer);padding-top:clamp(14px,2.5vw,20px);
+}
+.ft-copy{font-family:var(--font-mono);font-size:12px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase}
+.ft-legal{display:flex;gap:24px}
+.ft-legal a{font-family:var(--font-mono);font-size:12px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase;transition:color .15s}
+.ft-legal a:hover{color:var(--gold)}
 
 /* Scroll Animation Classes */
-.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up { opacity: 0; transform: translate3d(0,30px,0); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.fade-up.visible { opacity: 1; transform: translate3d(0,0,0); }
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 </style>
 </head>
 <body>
 
+<!-- RICH AURORA BACKGROUND -->
+<div class="aurora-bg">
+  <div class="aurb ab-1"></div>
+  <div class="aurb ab-2"></div>
+  <div class="aurb ab-3"></div>
+</div>
+
+<!-- FLOATING BUBBLES (LIGHT MODE) -->
+<div class="floating-bubbles">
+  <div class="bubble b1"></div>
+  <div class="bubble b2"></div>
+  <div class="bubble b3"></div>
+  <div class="bubble b4"></div>
+  <div class="bubble b5"></div>
+  <div class="bubble b6"></div>
+  <div class="bubble b7"></div>
+</div>
+
 <!-- NAVIGATION -->
-<nav class="nav">
-  <div class="nav-logo">
-    <div class="n-mark">Q</div>
-    <div class="n-name">SCALVI<span class="q">Q</span></div>
+<nav id="nav">
+  <a href="https://scalviq-web.vercel.app/index.html" class="logo">
+    <div class="logo-mark">Q</div>
+    <div class="logo-text">SCALVI<span>Q</span></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="https://scalviq-web.vercel.app/index.html#services" class="nl">Services</a>
+    <a href="https://scalviq-web.vercel.app/index.html#ai-catalog" class="nl">AI Catalog</a>
+    <a href="https://scalviq-web.vercel.app/index.html#packages" class="nl">Packages</a>
+    <a href="https://scalviq-web.vercel.app/index.html#about" class="nl">About</a>
+    <a href="https://scalviq-web.vercel.app/index.html#contact" class="nl">Contact</a>
   </div>
-  <a href="index.html" class="nav-back">← Back to Home</a>
+  <div class="nav-end">
+    <a href="https://wa.me/919050728595?text=Hi%20SCALVIQ%2C%20I%20want%20to%20know%20more." target="_blank" rel="noopener" class="btn-nav-wa">💬 WhatsApp</a>
+    <!-- THEME TOGGLE -->
+    <label class="theme-toggle" title="Switch between Sky and Cosmos mode">
+      <input type="checkbox" id="themeToggle" onchange="toggleTheme(this)">
+      <div class="tt-track"></div>
+      <div class="tt-thumb" id="ttThumb">☀️</div>
+    </label>
+    <div class="ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </div>
 </nav>
 
 <!-- HERO SECTION -->
 <section class="hero">
+  <!-- Shooting stars (visible in dark mode) -->
+  <div class="stars-container">
+    <div class="shooting-star ss1"></div>
+    <div class="shooting-star ss2"></div>
+    <div class="shooting-star ss3"></div>
+    <div class="shooting-star ss4"></div>
+    <div class="shooting-star ss5"></div>
+  </div>
+
   <div class="hero-text">
     <div class="hero-chip fade-up">✦ Performance Marketing</div>
     <h1 class="hero-h1 fade-up delay-1">Digital Marketing<br><em>Engineered for Revenue.</em></h1>
     <p class="hero-p fade-up delay-2">We don't sell "likes" or "impressions". We build highly scalable digital ecosystems that turn your advertising spend into measurable, compounding profit. Welcome to data-driven growth.</p>
     <div class="fade-up delay-2" style="animation-delay: 0.3s;">
-      <a href="index.html#contact" class="btn-primary">Audit My Marketing →</a>
+      <a href="https://scalviq-web.vercel.app/index.html#contact" class="btn-primary">Audit My Marketing →</a>
     </div>
   </div>
   
+  <!-- PREMIUM FLOATING CARDS & RINGS GRAPHIC -->
   <div class="hero-visual fade-up delay-2">
-    <div class="circle-bg"></div>
-    <div class="stat-float sf-1">
-      <div class="sf-val">4.8x</div>
-      <div class="sf-lbl">Avg. ROAS Achieved</div>
+    <!-- Smooth Rings -->
+    <div class="hero-rings">
+      <div class="glow-orb"></div>
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
     </div>
-    <div class="stat-float sf-2">
-      <div class="sf-val">-40%</div>
-      <div class="sf-lbl">Drop in Acquisition Cost</div>
+    
+    <!-- Floating Metric Cards -->
+    <div class="metric-card mc-1">
+      <div class="mc-val">4.8x</div>
+      <div class="mc-lbl">Avg. ROAS Achieved</div>
     </div>
-    <div class="stat-float sf-3">
-      <div style="font-size:48px; margin-bottom:10px;">📈</div>
-      <div class="sf-val" style="font-size:20px;">Data Driven</div>
-      <div class="sf-lbl">Zero Guesswork</div>
+    
+    <div class="metric-card mc-2">
+      <div class="mc-val">-40%</div>
+      <div class="mc-lbl">Acquisition Cost</div>
+    </div>
+    
+    <div class="metric-card mc-3">
+      <div class="mc-icon">📈</div>
+      <div class="mc-val">Data Driven</div>
+      <div class="mc-lbl">Zero Guesswork</div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE CAPABILITIES (HIGHLY DETAILED SECTION) -->
+<section class="capabilities-sec">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Our Core Capabilities</h2>
+    <p class="sec-subtitle">Comprehensive digital solutions built for Indian businesses that demand serious scale and sustainable profitability.</p>
+  </div>
+  <div class="cap-grid">
+    <!-- Card 1: Meta -->
+    <div class="cap-card fade-up">
+      <div class="cap-ico">📱</div>
+      <h3 class="cap-h3">Meta Advertising (FB/IG)</h3>
+      <p class="cap-p">We don't just boost posts. We engineer complete acquisition funnels using advanced audience layering, machine learning, and high-converting creatives to drive scalable e-commerce and lead-gen growth.</p>
+      <ul class="cap-list">
+        <li>Conversion API (CAPI) & Server-side tracking</li>
+        <li>Dynamic Creative Optimization (DCO)</li>
+        <li>Deep Lookalike & Custom Audience Segmentation</li>
+        <li>Omnichannel Retargeting Sequences</li>
+      </ul>
+    </div>
+    
+    <!-- Card 2: Google -->
+    <div class="cap-card fade-up delay-1">
+      <div class="cap-ico">🔍</div>
+      <h3 class="cap-h3">Google Ads & Performance Max</h3>
+      <p class="cap-p">Capture high-intent search traffic the exact moment they are ready to buy. We scale budgets aggressively while keeping Cost Per Acquisition (CPA) within your strict profitability targets.</p>
+      <ul class="cap-list">
+        <li>Performance Max (PMax) Asset Group Scaling</li>
+        <li>Target ROAS & CPA Automated Bidding</li>
+        <li>Search Intent & Negative Keyword Harvesting</li>
+        <li>YouTube & Display Remarketing Ecosystems</li>
+      </ul>
+    </div>
+
+    <!-- Card 3: SEO -->
+    <div class="cap-card fade-up delay-2">
+      <div class="cap-ico">🌐</div>
+      <h3 class="cap-h3">Advanced Technical SEO</h3>
+      <p class="cap-p">We build organic empires. Paid ads stop working the second you stop paying, but our deep technical SEO strategies ensure you dominate Google's first page for years, drastically lowering blended CAC.</p>
+      <ul class="cap-list">
+        <li>Technical Architecture & Core Web Vitals</li>
+        <li>Semantic Content Clustering & Topic Authority</li>
+        <li>High-Domain Authority Backlink Acquisition</li>
+        <li>Local SEO & Google Business Optimization</li>
+      </ul>
+    </div>
+
+    <!-- Card 4: CRO -->
+    <div class="cap-card fade-up">
+      <div class="cap-ico">🚀</div>
+      <h3 class="cap-h3">Conversion Rate Optimization</h3>
+      <p class="cap-p">Traffic means nothing if it doesn't convert. We utilize behavioral data, heatmaps, and psychological triggers to redesign landing pages that convert casual visitors into paying customers.</p>
+      <ul class="cap-list">
+        <li>A/B and Multivariate UI Testing</li>
+        <li>Checkout Friction & Cart Drop-off Reduction</li>
+        <li>Direct-Response Copywriting & Offers</li>
+        <li>Mobile-First Speed & Experience Upgrades</li>
+      </ul>
+    </div>
+
+    <!-- Card 5: Analytics -->
+    <div class="cap-card fade-up delay-1">
+      <div class="cap-ico">📊</div>
+      <h3 class="cap-h3">Data & Advanced Analytics</h3>
+      <p class="cap-p">Marketing without clean data is gambling. We deploy enterprise-grade tracking systems so you know the exact ROI of every single rupee spent across every channel.</p>
+      <ul class="cap-list">
+        <li>Google Analytics 4 (GA4) Custom Dashboards</li>
+        <li>Google Tag Manager & Custom Events</li>
+        <li>First-Party Data Collection & Privacy Tech</li>
+        <li>Offline Conversion Tracking & CRM Sync</li>
+      </ul>
+    </div>
+
+    <!-- Card 6: Automation -->
+    <div class="cap-card fade-up delay-2">
+      <div class="cap-ico">🤖</div>
+      <h3 class="cap-h3">Marketing Automation & CRM</h3>
+      <p class="cap-p">Automate your revenue recovery. We build intelligent drip campaigns via Email and WhatsApp that rescue abandoned carts and drive repeat purchases without human intervention.</p>
+      <ul class="cap-list">
+        <li>WhatsApp API (Interakt) Automations</li>
+        <li>Klaviyo / Mailchimp Email Flows</li>
+        <li>Abandoned Cart & Win-Back Sequences</li>
+        <li>Customer Lifetime Value (LTV) Maximization</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -237,8 +768,8 @@ img { max-width: 100%; display: block; }
 <section class="edu-sec">
   <div class="edu-container">
     <div class="sec-header fade-up">
-      <h2 class="sec-title">How We Scale Your Brand</h2>
-      <p class="sec-subtitle">Most agencies focus on front-end vanity metrics. We focus on the entire funnel—from the first click to the final transaction.</p>
+      <h2 class="sec-title">The 4-Stage Growth Protocol</h2>
+      <p class="sec-subtitle">Most agencies guess. We execute a rigorous, battle-tested mathematical process that moves your business from baseline sales to aggressive market dominance.</p>
     </div>
 
     <div class="process-grid">
@@ -246,9 +777,9 @@ img { max-width: 100%; display: block; }
       <div class="process-step scroll-anim">
         <div class="step-marker">01</div>
         <div class="step-content">
-          <span class="step-tag">Intelligence</span>
-          <h3 class="step-h3">Precision AI Targeting</h3>
-          <p class="step-p">The biggest mistake brands make is paying to show ads to people who will never buy. We utilize advanced audience modeling to identify and target <strong>high-intent purchasers</strong> across Meta and Google. Every rupee is spent acquiring actual market share, not casual scrollers.</p>
+          <span class="step-tag">Phase 1: Deep Audit & Foundation</span>
+          <h3 class="step-h3">Plugging the Leaks & Tracking Setup</h3>
+          <p class="step-p">Before we spend a single rupee, we audit your entire digital footprint. We analyze historical ad data, fix broken funnels, and implement <strong>Server-Side Tracking (CAPI/GA4)</strong>. We ensure the algorithms are fed with 100% clean, accurate data so they can learn faster and hunt better buyers.</p>
         </div>
       </div>
 
@@ -256,9 +787,9 @@ img { max-width: 100%; display: block; }
       <div class="process-step scroll-anim">
         <div class="step-marker">02</div>
         <div class="step-content">
-          <span class="step-tag">Optimization</span>
-          <h3 class="step-h3">Conversion Rate Optimization (CRO)</h3>
-          <p class="step-p">Driving traffic is useless if your website leaks visitors. We don't just run ads; we analyze heatmaps, fix user journeys, and rigorously <strong>A/B test landing pages and ad creatives</strong>. We ensure that when a potential customer lands on your page, they convert.</p>
+          <span class="step-tag">Phase 2: Creative Matrix</span>
+          <h3 class="step-h3">Angle Testing & Content Engineering</h3>
+          <p class="step-p">The best targeting can't save bad creatives. Our internal studios craft a diverse matrix of video reels, static graphics, and direct-response copy. We deploy these into isolated testing environments to statistically prove <strong>which hook, headline, and visual drives the cheapest cost-per-purchase</strong>.</p>
         </div>
       </div>
 
@@ -266,9 +797,9 @@ img { max-width: 100%; display: block; }
       <div class="process-step scroll-anim">
         <div class="step-marker">03</div>
         <div class="step-content">
-          <span class="step-tag">Authority</span>
-          <h3 class="step-h3">Advanced Technical SEO</h3>
-          <p class="step-p">Paid ads bring immediate results, but organic search builds an empire. We deploy deep technical SEO, structured content strategies, and high-authority link building so your brand <strong>dominates Google's first page</strong> organically, reducing your overall blended acquisition cost over time.</p>
+          <span class="step-tag">Phase 3: Omnichannel Scaling</span>
+          <h3 class="step-h3">Aggressive Media Buying</h3>
+          <p class="step-p">Once we identify winning funnels, we scale vertically (increasing budget) and horizontally (expanding to Google PMax, YouTube, and SEO). We aggressively capture market share while maintaining strict ROAS thresholds, ensuring your <strong>revenue grows faster than your ad spend</strong>.</p>
         </div>
       </div>
 
@@ -276,12 +807,34 @@ img { max-width: 100%; display: block; }
       <div class="process-step scroll-anim">
         <div class="step-marker">04</div>
         <div class="step-content">
-          <span class="step-tag">Retention</span>
-          <h3 class="step-h3">Intelligent Retargeting Funnels</h3>
-          <p class="step-p">Over 70% of conversions happen after the first interaction. We engineer sophisticated omnichannel retargeting sequences. If a user abandons a cart or leaves a form, our automated systems bring them back through dynamic social ads, email, and WhatsApp nudges.</p>
+          <span class="step-tag">Phase 4: Margin Expansion</span>
+          <h3 class="step-h3">Retention & LTV Maximization</h3>
+          <p class="step-p">Acquiring a new customer is expensive; keeping them is cheap. In this phase, we activate heavy WhatsApp and Email automation. We build VIP loyalty loops, up-sell sequences, and automated cross-selling funnels to <strong>maximize Customer Lifetime Value (LTV)</strong> and explode your net profit margins.</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- THE SCALVIQ FRAMEWORK -->
+<section class="framework-sec">
+  <div class="fw-box fade-up">
+    <div class="fw-metrics">
+      <div class="fw-m-item">
+        <div class="fw-m-val">LTV > 3x CAC</div>
+        <div class="fw-m-lbl">Target Ratio</div>
+      </div>
+      <div class="fw-m-item">
+        <div class="fw-m-val">< 30 Days</div>
+        <div class="fw-m-lbl">Payback Period</div>
+      </div>
+      <div class="fw-m-item">
+        <div class="fw-m-val">100%</div>
+        <div class="fw-m-lbl">Data Transparency</div>
+      </div>
+    </div>
+    <div class="fw-quote">"True marketing isn't about spending money to look good. It's about building a mathematical machine where every rupee you put in, prints more money out."</div>
+    <p class="fw-p">At SCALVIQ, we don't treat digital marketing as a creative guessing game. We treat it as applied economics. By combining raw on-ground Indian market experience with AI-driven analytics, we bypass the fluff and focus purely on scaling your revenue, reducing your Customer Acquisition Cost (CAC), and increasing Customer Lifetime Value (LTV).</p>
   </div>
 </section>
 
@@ -345,17 +898,81 @@ img { max-width: 100%; display: block; }
   <div class="fade-up">
     <h2 class="cta-h2">Stop burning your ad budget.</h2>
     <p class="cta-p">Let's build a profitable marketing engine for your business. Get a free, no-obligation strategy audit from our senior growth experts.</p>
-    <a href="index.html#contact" class="btn-primary">Schedule Free Audit →</a>
+    <a href="https://scalviq-web.vercel.app/index.html#contact" class="btn-primary">Schedule Free Audit →</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="ft-copy">© 2026 SCALVIQ · GURUGRAM, INDIA · SCALE WITHOUT LIMITS</div>
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px">
+          <div class="logo-mark">Q</div>
+          <div class="logo-text">SCALVI<span>Q</span></div>
+        </div>
+        <div class="ft-tagline">"Scale Without Limits."</div>
+        <div class="ft-desc">Founded by Nishant Sisodia, SCALVIQ is India's intelligent growth company. AI-powered digital marketing, political campaigns, AI catalog photoshoot, app development & brand building. Gurugram. Est. 2026.</div>
+        <div class="ft-socials">
+          <a href="https://instagram.com/scalviq.ai" target="_blank" rel="noopener" class="ft-soc-btn">📷</a>
+          <a href="https://linkedin.com/company/scalviq" target="_blank" rel="noopener" class="ft-soc-btn">💼</a>
+          <a href="https://wa.me/919050728595" target="_blank" rel="noopener" class="ft-soc-btn">💬</a>
+          <a href="https://youtube.com/@scalviq" target="_blank" rel="noopener" class="ft-soc-btn">▶️</a>
+        </div>
+      </div>
+      <div><div class="ft-col-h">Services</div><div class="ft-links"><a href="digital-marketing.html">Digital Marketing</a><a href="ai-catalog.html">AI Catalog Photoshoot</a><a href="political-campaigns.html">Political Campaigns</a><a href="tech.html">App Development</a><a href="e-commerce.html">E-Commerce</a><a href="ventures.html">Brand Building</a></div></div>
+      <div><div class="ft-col-h">Company</div><div class="ft-links"><a href="https://scalviq-web.vercel.app/index.html#about">About SCALVIQ</a><a href="https://scalviq-web.vercel.app/index.html#packages">Packages</a><a href="https://scalviq-web.vercel.app/index.html#contact">Contact</a><a href="#">Careers</a><a href="#">Blog</a><a href="#">Case Studies</a></div></div>
+      <div><div class="ft-col-h">Contact</div><div class="ft-links"><a href="https://wa.me/919050728595" target="_blank" rel="noopener">💬 WhatsApp Us</a><a href="tel:+919050728595">📞 +91 90507 28595</a><a href="mailto:contact@scalviq.ai">✉️ contact@scalviq.ai</a><a href="#">📍 Gurugram, Haryana</a><a href="https://scalviq.ai">🌐 scalviq.ai</a></div></div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 SCALVIQ · Gurugram, India · All Rights Reserved</div>
+      <div class="ft-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refund Policy</a></div>
+    </div>
+  </div>
 </footer>
 
-<!-- SCRIPT FOR ANIMATIONS -->
+<!-- SCRIPT FOR THEMES & ANIMATIONS -->
 <script>
+  // Navbar & Theme Logic
+  const html = document.documentElement;
+  const thumb = document.getElementById('ttThumb');
+  const tog   = document.getElementById('themeToggle');
+
+  function toggleTheme(cb){
+    if(cb.checked){
+      html.classList.add('dark');
+      thumb.textContent = '🌙';
+      localStorage.setItem('sqTheme','dark');
+    } else {
+      html.classList.remove('dark');
+      thumb.textContent = '☀️';
+      localStorage.setItem('sqTheme','light');
+    }
+  }
+
+  (function(){
+    const saved = localStorage.getItem('sqTheme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if(saved === 'dark' || (!saved && prefersDark)){
+      html.classList.add('dark');
+      if(tog) tog.checked = true;
+      if(thumb) thumb.textContent = '🌙';
+    } else {
+      html.classList.remove('dark');
+      if(tog) tog.checked = false;
+      if(thumb) thumb.textContent = '☀️';
+    }
+  })();
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  function toggleNav(){ document.getElementById('navLinks').classList.toggle('open'); }
+
+  // Scroll Animations Logic
   document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
       root: null,
@@ -368,7 +985,6 @@ img { max-width: 100%; display: block; }
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           
-          // Special logic for process steps to add an active state class
           if(entry.target.classList.contains('process-step')) {
              setTimeout(() => {
                 entry.target.classList.add('active');
@@ -380,15 +996,8 @@ img { max-width: 100%; display: block; }
       });
     }, observerOptions);
 
-    // Observe fade-up elements
-    document.querySelectorAll('.fade-up').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Observe scroll-anim elements
-    document.querySelectorAll('.scroll-anim').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.fade-up').forEach(el => { observer.observe(el); });
+    document.querySelectorAll('.scroll-anim').forEach(el => { observer.observe(el); });
   });
 </script>
 
