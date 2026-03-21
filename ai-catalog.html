@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Catalog Photoshoot | SCALVIQ</title>
+<meta name="description" content="SCALVIQ AI Catalog - Get Amazon-ready, high-end luxury lifestyle product images in 24 hours. Zero studios, massive cost savings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   GLOBAL THEME (SYNCED WITH PREMIUM STANDARD)
+══════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  /* ── LIGHT MODE (default) ── */
+  --sky0: #e6edf3;
+  --sky1: #dce5ef;
+  --sky2: #cddff2;
+  --sky3: #b9d5ee;
+
+  --ink0: #0d1117;
+  --ink1: #1f2937;
+  --ink2: #475569;
+  --ink3: #64748b;
+
+  --gold: #b8892a;
+  --goldL: #d4a94a;
+  --goldVL: #f5e4b8;
+  --goldGlow: rgba(184,137,42,.18);
+
+  --red: #d32f2f;
+  --red-soft: rgba(211,47,47,0.1);
+
+  --glass-bg: rgba(255,255,255,0.45);
+  --glass-bg-strong: rgba(255,255,255,0.7);
+  --glass-border: rgba(255,255,255,0.7);
+  --glass-border-outer: rgba(185,210,240,0.5);
+  --glass-shadow: 0 8px 32px rgba(100,140,200,0.08), 0 1px 0 rgba(255,255,255,0.7) inset;
+  --glass-shadow-hover: 0 16px 48px rgba(100,140,200,0.15), 0 1px 0 rgba(255,255,255,1) inset;
+
+  --body-bg: #e6edf3;
+
+  --nav-bg: rgba(255,255,255,0.65);
+  --nav-bg-scrolled: rgba(255,255,255,0.85);
+  --nav-border: rgba(185,210,240,0.5);
+
+  --footer-bg: rgba(255,255,255,0.65);
+  --mob-nav-bg: rgba(230,237,243,0.95);
+
+  --green: #1a7f37;
+  --blue: #0284c7;
+  --r: 16px;
+  --ease: cubic-bezier(.22,1,.36,1);
+  
+  --font-brand: 'Josefin Sans', sans-serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-ui); 
+  --font-mono: var(--font-ui);
+}
+
+/* ══════════════════════════════
+   DARK MODE
+══════════════════════════════ */
+html.dark{
+  --sky0: #010409;
+  --sky1: #0d1117;
+  --sky2: #161b22;
+  --sky3: #21262d;
+
+  --ink0: #f0f6fc;
+  --ink1: #c9d1d9;
+  --ink2: #8b949e;
+  --ink3: #6e7681;
+
+  --gold: #e3b341;
+  --goldL: #f0c869;
+  --goldVL: rgba(227,179,65,.12);
+  --goldGlow: rgba(227,179,65,.22);
+
+  --red: #f85149;
+  --red-soft: rgba(248,81,73,0.1);
+
+  --glass-bg: rgba(13,17,23,0.65);
+  --glass-bg-strong: rgba(22,27,34,0.85);
+  --glass-border: rgba(240,246,252,0.1);
+  --glass-border-outer: rgba(227,179,65,0.15);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset;
+  --glass-shadow-hover: 0 16px 48px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.09) inset;
+
+  --body-bg: #010409;
+
+  --nav-bg: rgba(1,4,9,0.75);
+  --nav-bg-scrolled: rgba(1,4,9,0.92);
+  --nav-border: rgba(240,246,252,0.1);
+  --footer-bg: rgba(1,4,9,0.88);
+  --mob-nav-bg: rgba(1,4,9,0.97);
+
+  --green: #238636;
+  --blue: #38bdf8;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background: var(--body-bg); color: var(--ink0);
+  font-family: var(--font-ui); font-weight:400;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased; min-height:100vh; isolation:isolate;
+}
+
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;object-fit:cover}
+button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
+strong { color: var(--ink0); font-weight: 600; }
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--sky1)}
+::-webkit-scrollbar-thumb{background:var(--sky3);border-radius:2px}
+
+/* ══════════════════════════════════════════════════
+   FULL PAGE BACKGROUNDS (AURORA, BUBBLES, STARS)
+══════════════════════════════════════════════════ */
+.aurora-bg { position: fixed; inset: 0; z-index: -3; pointer-events: none; overflow: hidden; background: transparent; transition: background 0.5s ease; }
+.aurb { position: absolute; border-radius: 50%; filter: blur(80px); animation: floatAurora 20s infinite alternate ease-in-out; opacity: 0.6; }
+.ab-1 { width: 50vw; height: 50vw; background: rgba(184,137,42,0.15); top: -10%; left: -10%; }
+.ab-2 { width: 40vw; height: 40vw; background: rgba(150,200,255,0.25); bottom: 10%; right: -5%; animation-delay: -5s; }
+.ab-3 { width: 45vw; height: 45vw; background: rgba(200,220,255,0.3); top: 30%; left: 30%; animation-delay: -10s; filter: blur(120px); }
+html.dark .ab-1 { background: rgba(227,179,65,0.08); } html.dark .ab-2 { background: rgba(139,92,246,0.08); } html.dark .ab-3 { background: rgba(56,189,248,0.05); }
+@keyframes floatAurora { 0% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(5%, 10%, 0) scale(1.1); } 100% { transform: translate3d(-5%, 5%, 0) scale(0.9); } }
+
+/* FLOATING BUBBLES FULL PAGE (LIGHT MODE) */
+.floating-bubbles { position: fixed; inset: 0; pointer-events: none; z-index: -2; overflow: hidden; transition: opacity 0.5s var(--ease); }
+html.dark .floating-bubbles { opacity: 0; display: none; }
+.bubble { position: absolute; bottom: -150px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.1) 60%, transparent 100%); box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 4px 15px rgba(100,140,200,0.1); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); animation: floatUp infinite linear; opacity: 0; will-change: transform; }
+.b1 { width:40px; height:40px; left:15%; animation-duration:12s; animation-delay:0s; } .b2 { width:85px; height:85px; left:35%; animation-duration:18s; animation-delay:-5s; } .b3 { width:35px; height:35px; left:55%; animation-duration:10s; animation-delay:-2s; } .b4 { width:60px; height:60px; left:75%; animation-duration:16s; animation-delay:-8s; } .b5 { width:100px; height:100px; left:85%; animation-duration:22s; animation-delay:-1s; } .b6 { width:45px; height:45px; left:5%; animation-duration:14s; animation-delay:-10s; } .b7 { width:70px; height:70px; left:50%; animation-duration:19s; animation-delay:-12s; }
+@keyframes floatUp { 0% { transform: translate3d(0px, 10vh, 0) scale(0.8); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translate3d(40px, -110vh, 0) scale(1.1); opacity: 0; } }
+
+/* SHOOTING STARS FULL PAGE (DARK MODE) */
+.stars-container { position:fixed; inset:0; z-index:-2; pointer-events:none; overflow:hidden; opacity:0; transition:opacity .6s; }
+html.dark .stars-container { opacity:1; }
+.shooting-star { position:absolute; width:clamp(150px,25vw,340px); height:1px; background:linear-gradient(90deg,transparent 0%,rgba(180,210,255,.08) 40%,rgba(150,190,255,.85) 100%); border-radius:2px; animation:shoot linear infinite; filter:drop-shadow(0 0 3px rgba(140,180,255,.6)); will-change: transform; opacity: 0; }
+html.dark .shooting-star { background:linear-gradient(90deg,transparent 0%,rgba(227,179,65,.12) 40%,rgba(227,179,65,1) 100%); filter:drop-shadow(0 0 4px rgba(227,179,65,.5)); }
+.shooting-star::after { content:''; position:absolute; right:0; top:50%; transform:translateY(-50%); width:4px; height:4px; background:#fff; border-radius:50%; box-shadow:0 0 6px 2px rgba(160,200,255,.9),0 0 14px 5px rgba(160,200,255,.35); }
+html.dark .shooting-star::after { box-shadow:0 0 8px 3px rgba(227,179,65,.9),0 0 16px 6px rgba(227,179,65,.4); }
+@keyframes shoot { 0%{opacity:0; transform:translate3d(-10vw,-10vw,0) rotate(35deg)} 1%{opacity:1} 7%{opacity:0; transform:translate3d(120vw,80vw,0) rotate(35deg)} 100%{opacity:0; transform:translate3d(120vw,80vw,0) rotate(35deg)} }
+.ss1{top:-10%;left:10%;animation-duration:14s;animation-delay:0s} .ss2{top:-20%;left:40%;animation-duration:21s;animation-delay:6s} .ss3{top:10%;left:-10%;animation-duration:17s;animation-delay:11s} .ss4{top:-5%;left:60%;animation-duration:24s;animation-delay:3.5s} .ss5{top:30%;left:-20%;animation-duration:19s;animation-delay:17s}
+
+
+/* THEME TOGGLE */
+.theme-toggle{ position:relative;width:52px;height:28px;cursor:pointer;flex-shrink:0; }
+.theme-toggle input{opacity:0;width:0;height:0;position:absolute}
+.tt-track{ position:absolute;inset:0; background:linear-gradient(135deg,#b8d4f8,#d0e8ff); border:1px solid rgba(185,210,240,.8); border-radius:100px; transition:background .4s var(--ease),border-color .4s var(--ease); box-shadow:0 2px 6px rgba(100,140,200,.15) inset; }
+html.dark .tt-track{ background:linear-gradient(135deg,#0d1228,#1a2144); border-color:rgba(201,168,76,.35); box-shadow:0 0 8px rgba(201,168,76,.1) inset; }
+.tt-thumb{ position:absolute;top:3px;left:3px; width:22px;height:22px;border-radius:50%; display:flex;align-items:center;justify-content:center; font-size:13px;line-height:1; background:rgba(255,255,255,.95); box-shadow:0 2px 8px rgba(100,140,200,.25); transition:transform .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease); }
+html.dark .tt-thumb{ transform:translate3d(24px,0,0); background:linear-gradient(135deg,#c9a84c,#e8c96b); box-shadow:0 2px 12px rgba(201,168,76,.5); }
+
+/* ══════════════════════════
+   NAV
+══════════════════════════ */
+nav{ position:fixed;top:0;left:0;right:0;z-index:800; height:70px; display:flex;align-items:center;justify-content:space-between; padding:0 clamp(16px,4vw,48px); background:var(--nav-bg); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); border-bottom:1px solid var(--nav-border); box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 20px rgba(0,0,0,0.08); transition:background .3s, box-shadow .3s, border-color .45s; }
+nav.scrolled{ background:var(--nav-bg-scrolled); box-shadow:0 1px 0 rgba(255,255,255,0.1) inset, 0 8px 32px rgba(0,0,0,0.12); }
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo-mark{ width:40px;height:40px; background:linear-gradient(135deg,var(--goldL),var(--gold)); display:flex;align-items:center;justify-content:center; font-family:var(--font-brand);font-weight:700;font-size:18px;color:#fff; border-radius:10px;flex-shrink:0; box-shadow:0 2px 8px rgba(184,137,42,.3),0 1px 0 rgba(255,255,255,.4) inset; }
+.logo-text{font-family:var(--font-brand);font-weight:700;font-size:19px;letter-spacing:4px;color:var(--ink0)}
+.logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nl{font-family:var(--font-mono);font-size:clamp(12px, 1.1vw, 14px);font-weight:500;letter-spacing:normal;color:var(--ink2); text-transform:uppercase;padding:8px 16px;border-radius:8px;transition:all .15s}
+.nl:hover{color:var(--ink0);background:rgba(255,255,255,0.7)}
+html.dark .nl:hover{color:var(--ink0);background:rgba(255,255,255,0.1)}
+.nav-end{display:flex;align-items:center;gap:12px}
+.btn-nav-wa{ display:flex;align-items:center;gap:8px;padding:10px 20px; background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.25); border-radius:10px;font-family:var(--font-mono);font-size:clamp(12px, 1.1vw, 14px);font-weight:600; letter-spacing:0.02em;color:var(--green);text-transform:uppercase; transition:all .15s;backdrop-filter:blur(8px); }
+.btn-nav-wa:hover{background:rgba(22,163,74,0.18);border-color:rgba(22,163,74,.5)}
+.ham{display:none;flex-direction:column;gap:6px;padding:8px;cursor:pointer}
+.ham span{width:22px;height:2px;background:var(--ink1);display:block;border-radius:2px;transition:all .25s}
+@media(max-width:860px){
+  .nav-links{display:none;position:fixed;top:70px;left:0;right:0; background:var(--mob-nav-bg);backdrop-filter:blur(24px); border-bottom:1px solid var(--glass-border-outer); flex-direction:column;padding:16px 20px 24px;align-items:flex-start;gap:4px}
+  .nav-links.open{display:flex}
+  .ham{display:flex}
+  .btn-nav-wa{display:none}
+}
+
+/* ══════════════════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════════════════ */
+.hero {
+  padding: clamp(140px, 15vw, 180px) clamp(20px, 5vw, 60px) clamp(60px, 10vw, 100px);
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 6vw, 80px);
+  align-items: center; position: relative; z-index: 10;
+}
+@media(max-width: 960px) { .hero { grid-template-columns: 1fr; text-align: center; } }
+
+.hero-chip {
+  display:inline-flex; align-items:center; gap:8px; padding:6px 16px;
+  background:var(--glass-bg-strong); backdrop-filter:blur(10px); border:1px solid var(--glass-border);
+  border-radius:100px; font-family:var(--font-mono); font-size:11px; font-weight: 600;
+  letter-spacing:1px; color:var(--gold); text-transform:uppercase; margin-bottom:24px;
+  box-shadow: var(--glass-shadow);
+}
+.hero-h1 {
+  font-family: var(--font-serif); font-size: clamp(36px, 4.5vw, 64px); font-weight: 800;
+  line-height: 1.15; letter-spacing: -0.02em; color: var(--ink0); margin-bottom: 24px;
+}
+.hero-h1 em { font-style: normal; color: var(--gold); }
+.hero-p {
+  font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); line-height: 1.8;
+  margin-bottom: 40px; max-width: 600px; font-weight: 400;
+}
+@media(max-width: 960px) { .hero-p { margin-inline: auto; } }
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:10px; padding:clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 36px);
+  background:linear-gradient(135deg,var(--goldL),var(--gold)); color:#fff;
+  font-family:var(--font-mono); font-size:clamp(12px, 1.2vw, 15px); letter-spacing:0.02em;
+  text-transform:uppercase; font-weight:600; border:none; border-radius:12px; transition: all .3s;
+  box-shadow: 0 4px 16px rgba(184,137,42,.3),0 1px 0 rgba(255,255,255,.25) inset;
+}
+.btn-primary:hover { transform: translate3d(0,-3px,0); box-shadow: 0 8px 24px rgba(184,137,42,.4),0 1px 0 rgba(255,255,255,.25) inset; }
+
+/* ── MODERN GLASS AI IMAGE VISUAL ── */
+.hero-visual { 
+  position: relative; width: 100%; height: 480px; max-width: 550px; 
+  margin: 0 auto; display: flex; align-items: center; justify-content: center;
+}
+
+/* Hero Rings added back */
+.hero-rings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 0; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+html.dark .hero-rings { opacity: 1; }
+.glow-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%; height: 50%; border-radius: 50%; background: radial-gradient(circle, rgba(184,137,42,0.15) 0%, transparent 70%); animation: pulseGlow 6s infinite alternate ease-in-out; z-index: 1; pointer-events: none; }
+@keyframes pulseGlow { 0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; } 100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; } }
+.ring { position: absolute; border-radius: 50%; border: 1px solid rgba(227,179,65,0.08); border-top: 1px solid rgba(227,179,65,0.6); will-change: transform; }
+.r1 { width: 320px; height: 320px; animation: spinSmooth 20s linear infinite; }
+.r2 { width: 480px; height: 480px; animation: spinSmooth 30s linear infinite reverse; border-top-color: transparent; border-bottom: 1px solid rgba(139,92,246,0.4); }
+@keyframes spinSmooth { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.tech-grid-bg {
+  position: absolute; inset: 0; border-radius: 50%; z-index: 2;
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px; background-position: center center;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 70%); -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+}
+
+/* AI Premium Image Wrap replacing the Dashboard */
+.ai-image-wrap {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 65%; max-width: 320px; aspect-ratio: 4/5;
+  border-radius: 20px; overflow: hidden; z-index: 20;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+html.dark .ai-image-wrap {
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.ai-main-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.ai-image-wrap:hover .ai-main-img { transform: scale(1.05); }
+.ai-badge {
+  position: absolute; top: 16px; left: 16px; z-index: 2;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  color: #fff; padding: 6px 12px; border-radius: 100px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 1px;
+  border: 1px solid rgba(255,255,255,0.15); text-transform: uppercase;
+}
+
+.dash-card {
+  position: absolute; background: var(--glass-bg-strong); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border); border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5); transition: all 0.3s ease; z-index: 10;
+}
+html.dark .dash-card { background: var(--glass-bg); border-color: rgba(255,255,255,0.1); box-shadow: 0 16px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05); }
+
+/* Side Floating Cards Z-Index fixed to 30 so they float perfectly on top */
+.dc-float {
+  padding: 18px 24px; display: flex; flex-direction: row; align-items: center; gap: 16px;
+  animation: floatDash 6s infinite alternate ease-in-out; width: 220px; z-index: 30;
+}
+.dc-f1 { top: 10%; right: -30px; animation-delay: 0s; border-left: 3px solid var(--gold); }
+.dc-f2 { bottom: 10%; left: -30px; animation-delay: -3s; border-left: 3px solid var(--blue); }
+@keyframes floatDash { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(0, -12px, 0); } }
+
+.dc-icon-box { font-size: 22px; background: var(--glass-bg-strong); width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1px solid var(--glass-border-outer); box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex-shrink: 0;}
+.dc-info { display: flex; flex-direction: column; gap: 4px; text-align: left; justify-content: center; }
+.dcf-title { font-family: var(--font-mono); font-size: 9px; color: var(--ink2); text-transform: uppercase; font-weight: 600; letter-spacing: 1px;}
+.dcf-val { font-family: var(--font-serif); font-size: 18px; font-weight: 800; color: var(--ink0); line-height: 1.1;}
+.dcf-sub { font-size: 10px; color: var(--gold); font-weight: 600; display: flex; align-items: center; gap: 4px;}
+
+@media(max-width: 960px) {
+  .hero-visual { height: auto; max-width: 100%; margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+  .tech-grid-bg, .hero-rings { display: none; }
+  .dash-card { position: relative; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: none !important; width: 100%; max-width: 360px; margin: 0 auto; animation: none !important; }
+  .ai-image-wrap { position: relative; top: auto; left: auto; transform: none; width: 100%; order: 1; margin-bottom: 20px;}
+  .dc-float { order: 2; width: 100%; flex-direction: row; } 
+  .dc-f2 { order: 3; }
+}
+
+/* ══════════════════════════════════════════════════
+   USE CASES / INDUSTRIES (CARDS)
+══════════════════════════════════════════════════ */
+.sec { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); max-width: 1280px; margin: 0 auto; position: relative; z-index: 10;}
+.sec-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
+.sec-title { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 56px); letter-spacing:-0.02em; font-weight: 800; margin-bottom: 20px; color: var(--ink0); }
+.sec-subtitle { font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); line-height: 1.8; }
+
+.cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.cap-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: clamp(24px, 4vw, 40px); border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; display: flex; flex-direction: column;}
+.cap-card:hover { transform: translate3d(0,-5px,0); box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-strong); border-color: rgba(184,137,42,0.4); }
+.cap-ico { font-size: 36px; margin-bottom: 16px; display: block; }
+.cap-h3 { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 26px); font-weight: 700; color: var(--ink0); margin-bottom: 14px; letter-spacing: -0.01em;}
+.cap-p { font-size: clamp(14px, 1.4vw, 15px); color: var(--ink2); line-height: 1.7; margin-bottom: 20px;}
+
+/* ══════════════════════════════════════════════════
+   COMPARISON SECTION
+══════════════════════════════════════════════════ */
+.comp-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px; margin-top: 50px; }
+@media(max-width: 860px) { .comp-grid { grid-template-columns: 1fr; } }
+
+.comp-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: var(--r); padding: clamp(24px, 4vw, 40px); box-shadow: var(--glass-shadow); transition: all 0.4s ease;}
+.comp-card.bad { border-top: 4px solid var(--red); }
+.comp-card.bad:hover { background: var(--red-soft); border-color: rgba(211,47,47,0.3); }
+.comp-card.good { border: 1px solid rgba(184,137,42,0.4); background: linear-gradient(180deg, rgba(184,137,42,0.05) 0%, var(--glass-bg-strong) 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: translateY(-10px); }
+html.dark .comp-card.good { box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+.comp-title { font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.01em;}
+.comp-card.bad .comp-title { color: var(--ink1); }
+.comp-card.good .comp-title { color: var(--gold); }
+
+.comp-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.comp-list li { display: flex; gap: 12px; font-size: 15px; color: var(--ink2); line-height: 1.6; align-items: flex-start; }
+.comp-list li strong { display: block; color: var(--ink0); font-weight: 600; margin-bottom: 4px;}
+.bad .comp-list li::before { content: '❌'; font-size: 14px; margin-top: 2px; }
+.good .comp-list li::before { content: '✅'; font-size: 14px; margin-top: 2px; }
+
+/* ══════════════════════════════════════════════════
+   HOW IT WORKS (PROCESS)
+══════════════════════════════════════════════════ */
+.process-grid { display: grid; grid-template-columns: 1fr; gap: 40px; position: relative; margin-top: 50px;}
+.process-grid::before { content: ''; position: absolute; top: 0; bottom: 0; left: 40px; width: 2px; background: var(--glass-border-outer); z-index: 1; }
+@media(max-width: 768px) { .process-grid::before { left: 20px; } }
+
+.process-step { display: grid; grid-template-columns: 80px 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; opacity: 0; transform: translate3d(0,40px,0); transition: all 0.8s var(--ease); }
+.process-step.visible { opacity: 1; transform: translate3d(0,0,0); }
+@media(max-width: 768px) { .process-step { grid-template-columns: 40px 1fr; gap: 20px; } }
+
+.step-marker { width: 80px; height: 80px; background: var(--glass-bg-strong); backdrop-filter: blur(10px); border: 2px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 600; font-size: 24px; color: var(--ink2); transition: all 0.5s ease; box-shadow: 0 0 0 8px var(--sky0); }
+html.dark .step-marker { box-shadow: 0 0 0 8px var(--sky1); }
+@media(max-width: 768px) { .step-marker { width: 40px; height: 40px; font-size: 14px; box-shadow: 0 0 0 4px var(--sky0); } html.dark .step-marker { box-shadow: 0 0 0 4px var(--sky1); } }
+
+.process-step:hover .step-marker, .process-step.active .step-marker { border-color: var(--gold); color: var(--gold); background: rgba(184,137,42,0.1); box-shadow: 0 0 0 8px var(--sky0), 0 0 30px rgba(184,137,42,0.4); transform: scale(1.1); }
+html.dark .process-step:hover .step-marker, html.dark .process-step.active .step-marker { box-shadow: 0 0 0 8px var(--sky1), 0 0 30px rgba(227,179,65,0.3); }
+
+.step-content { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: clamp(24px, 4vw, 40px); border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; }
+.process-step:hover .step-content { border-color: rgba(184,137,42,0.4); transform: translate3d(10px,0,0); box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-strong); }
+
+.step-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: block; }
+.step-h3 { font-family: var(--font-serif); font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--ink0); margin-bottom: 16px; letter-spacing: -0.01em; }
+
+/* ══════════════════════════════════════════════════
+   REAL STORIES (CASE STUDIES)
+══════════════════════════════════════════════════ */
+.testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 60px; }
+
+.tc {
+  background: var(--glass-bg-strong); backdrop-filter: blur(20px);
+  padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 40px);
+  position: relative; overflow: hidden; transition: background .3s, transform .3s, box-shadow .3s;
+  border: 1px solid var(--glass-border); border-radius: var(--r); box-shadow: var(--glass-shadow);
+  opacity: 0; transform: translateY(30px); display: flex; flex-direction: column; gap: 24px;
+}
+.tc.visible { opacity: 1; transform: translateY(0); }
+.tc:hover { box-shadow: var(--glass-shadow-hover); transform: translateY(-5px); background: var(--glass-bg); border-color: rgba(184,137,42,0.3);}
+.tc::before {
+  content: '"'; position: absolute; top: 10px; right: 20px;
+  font-family: var(--font-serif); font-size: 120px; color: var(--goldVL);
+  line-height: 1; pointer-events: none;
+}
+.tc-head { display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--glass-border-outer); padding-bottom: 20px;}
+.tc-icon { font-size: 32px; flex-shrink: 0; background: var(--glass-bg); padding: 12px; border-radius: 12px; border: 1px solid var(--glass-border-outer);}
+.tc-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 4px; letter-spacing: -0.01em;}
+.tc-ind { font-family: var(--font-mono); font-size: 10px; color: var(--ink2); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
+
+.tc-txt { font-family: var(--font-ui); font-weight: 500; font-size: clamp(15px, 1.5vw, 17px); color: var(--ink1); line-height: 1.8; position: relative; z-index: 2;}
+
+.tc-auth { display: flex; gap: 16px; align-items: center; border-top: 1px solid var(--glass-border-outer); padding-top: 24px; }
+.tc-av { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: 15px; color: #fff; background: linear-gradient(135deg, var(--goldL), var(--gold)); box-shadow: 0 4px 12px rgba(184,137,42,.3); }
+.tc-nm { font-size: 16px; font-weight: 700; color: var(--ink0); }
+.tc-rl { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--ink2); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em;}
+
+/* ══════════════════════════════════════════════════
+   BOTTOM CTA & FOOTER
+══════════════════════════════════════════════════ */
+.cta-sec { 
+    background: linear-gradient(135deg,rgba(255,255,255,.8),rgba(220,235,255,.5));
+    padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); 
+    text-align: center; border-top: 1px solid var(--glass-border-outer); border-bottom: 1px solid var(--glass-border-outer);
+    position: relative; z-index: 10;
+}
+html.dark .cta-sec { background: linear-gradient(135deg,rgba(13,17,23,.95),rgba(22,27,34,.85)); }
+
+.cta-h2 { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 72px); font-weight: 800; letter-spacing: -0.02em; color: var(--ink0); margin-bottom: 24px; }
+.cta-p { font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); max-width: 600px; margin: 0 auto 40px; line-height: 1.8; }
+
+footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px solid var(--glass-border-outer); padding:clamp(44px,7vw,80px) clamp(16px,5vw,60px) clamp(20px,3vw,32px); position: relative; z-index: 10; }
+.ft-inner{max-width:1280px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(22px,4vw,56px);margin-bottom:clamp(36px,5vw,56px)}
+@media(max-width:760px){.ft-top{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.ft-top{grid-template-columns:1fr}}
+.ft-tagline{font-family:var(--font-serif);font-style:normal;font-weight:500;font-size:clamp(15px,1.5vw,18px);color:var(--ink2);margin-bottom:12px}
+.ft-desc{font-size:clamp(14px,1.4vw,17px);color:var(--ink2);line-height:1.75;max-width:320px;margin-bottom:18px}
+.ft-socials{display:flex;gap:10px}
+.ft-soc-btn{ width:38px;height:38px; background:var(--glass-bg-strong);border:1px solid var(--glass-border); border-radius:10px;display:flex;align-items:center;justify-content:center; font-size:16px;transition:all .15s;color:var(--ink2); box-shadow:0 2px 6px rgba(100,140,200,.1); }
+.ft-soc-btn:hover{border-color:rgba(184,137,42,.3);color:var(--gold);transform:translate3d(0,-1px,0)}
+.ft-col-h{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:0.03em;color:var(--ink0);text-transform:uppercase;margin-bottom:18px}
+.ft-links{display:flex;flex-direction:column;gap:12px}
+.ft-links a{font-size:clamp(14px,1.4vw,16px);color:var(--ink2);transition:color .15s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{ display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px; border-top:1px solid var(--glass-border-outer);padding-top:clamp(14px,2.5vw,20px); }
+.ft-copy{font-family:var(--font-mono);font-size:12px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase}
+.ft-legal{display:flex;gap:24px}
+.ft-legal a{font-family:var(--font-mono);font-size:12px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase;transition:color .15s}
+.ft-legal a:hover{color:var(--gold)}
+
+/* Scroll Animation Classes */
+.fade-up { opacity: 0; transform: translate3d(0,30px,0); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.fade-up.visible { opacity: 1; transform: translate3d(0,0,0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- FULL PAGE BACKGROUNDS -->
+<div class="aurora-bg"><div class="aurb ab-1"></div><div class="aurb ab-2"></div><div class="aurb ab-3"></div></div>
+<div class="floating-bubbles"><div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div><div class="bubble b4"></div><div class="bubble b5"></div><div class="bubble b6"></div><div class="bubble b7"></div></div>
+<div class="stars-container"><div class="shooting-star ss1"></div><div class="shooting-star ss2"></div><div class="shooting-star ss3"></div><div class="shooting-star ss4"></div><div class="shooting-star ss5"></div></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <a href="https://scalviq-web.vercel.app/index.html" class="logo">
+    <div class="logo-mark">Q</div>
+    <div class="logo-text">SCALVI<span>Q</span></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="https://scalviq-web.vercel.app/index.html#services" class="nl">Services</a>
+    <a href="https://scalviq-web.vercel.app/index.html#ai-catalog" class="nl">AI Catalog</a>
+    <a href="https://scalviq-web.vercel.app/index.html#packages" class="nl">Packages</a>
+    <a href="https://scalviq-web.vercel.app/index.html#about" class="nl">About</a>
+    <a href="https://scalviq-web.vercel.app/index.html#contact" class="nl">Contact</a>
+  </div>
+  <div class="nav-end">
+    <a href="https://wa.me/919050728595?text=Hi%20SCALVIQ%2C%20I%20want%20to%20know%20more." target="_blank" rel="noopener" class="btn-nav-wa">💬 WhatsApp</a>
+    <!-- THEME TOGGLE -->
+    <label class="theme-toggle" title="Switch between Sky and Cosmos mode">
+      <input type="checkbox" id="themeToggle" onchange="toggleTheme(this)">
+      <div class="tt-track"></div>
+      <div class="tt-thumb" id="ttThumb">☀️</div>
+    </label>
+    <div class="ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-chip fade-up">✦ NEXT-GEN CATALOGING</div>
+    <h1 class="hero-h1 fade-up delay-1">AI Catalog Shoot<br><em>Premium, Fast, Secure.</em></h1>
+    <p class="hero-p fade-up delay-2">Stop burning cash on traditional studios. Traditional photoshoots are slow, expensive, and put your unreleased designs at severe piracy risk. With SCALVIQ AI Catalog, get Amazon-ready, high-end luxury lifestyle images in just 24 hours. Zero physical shipping, zero studios, and massive cost savings.</p>
+    <div class="fade-up delay-2" style="animation-delay: 0.3s;">
+      <a href="https://scalviq-web.vercel.app/index.html#contact" class="btn-primary">Transform My Products →</a>
+    </div>
+  </div>
+  
+  <!-- DETAILED AI STUDIO VISUAL -->
+  <div class="hero-visual fade-up delay-2">
+    <!-- Smooth Rings added behind -->
+    <div class="hero-rings"><div class="glow-orb"></div><div class="ring r1"></div><div class="ring r2"></div></div>
+    
+    <div class="tech-grid-bg"></div>
+
+    <!-- AI Premium Image Wrap -->
+    <div class="ai-image-wrap">
+      <div class="ai-badge">✨ AI RENDERED</div>
+      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=80" alt="Premium AI Product Photo" class="ai-main-img">
+    </div>
+
+    <!-- Floating Card 1: Speed (Z-index: 30) -->
+    <div class="dash-card dc-float dc-f1">
+      <div class="dc-icon-box">⏱️</div>
+      <div class="dc-info">
+        <div class="dcf-title">Delivery</div>
+        <div class="dcf-val">24 Hrs</div>
+        <div class="dcf-sub">To your inbox</div>
+      </div>
+    </div>
+
+    <!-- Floating Card 2: Quality (Z-index: 30) -->
+    <div class="dash-card dc-float dc-f2">
+      <div class="dc-icon-box">📸</div>
+      <div class="dc-info">
+        <div class="dcf-title">Quality</div>
+        <div class="dcf-val">Studio Grade</div>
+        <div class="dcf-sub" style="color:var(--gold);">8K Resolution</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO USE & WHO IS IT FOR -->
+<section class="sec">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">One Shoot. Infinite Platforms.</h2>
+    <p class="sec-subtitle">Aap ek hi raw photo se har platform ke hisaab se perfect image generate karwa sakte hain. Maximize your sales across all digital touchpoints.</p>
+  </div>
+
+  <div class="cap-grid" style="margin-bottom: 80px;">
+    <div class="cap-card scroll-anim">
+      <div class="cap-ico">🛒</div>
+      <h3 class="cap-h3">Amazon & Flipkart</h3>
+      <p class="cap-p">E-commerce marketplaces require pure <strong>white background (RGB 255)</strong> images with sharp, natural shadows. We deliver exact dimension images that get approved instantly.</p>
+    </div>
+    <div class="cap-card scroll-anim delay-1">
+      <div class="cap-ico">📱</div>
+      <h3 class="cap-h3">Instagram & Facebook</h3>
+      <p class="cap-p">Social media par plain white background nahi bikta, wahan lifestyle appeal chahiye. Hum aapke product ko <strong>luxury environments</strong> mein place karte hain jo scroll rok kar click laaye.</p>
+    </div>
+    <div class="cap-card scroll-anim delay-2">
+      <div class="cap-ico">💬</div>
+      <h3 class="cap-h3">B2B WhatsApp Catalogs</h3>
+      <p class="cap-p">Wholesale buyers aur retailers ko impress karne ke liye <strong>high-resolution PDF catalogs</strong>. Aapka first impression bilkul kisi top international brand jaisa hona chahiye.</p>
+    </div>
+  </div>
+
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Who Is This Perfect For?</h2>
+    <p class="sec-subtitle">Agar aap inme se kisi bhi industry mein hain, toh AI Catalog aapke time aur lakho rupaye bacha sakta hai.</p>
+  </div>
+
+  <div class="cap-grid">
+    <div class="cap-card scroll-anim" style="padding: 24px;">
+      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">👗 Fashion & Apparel</h3>
+      <p class="cap-p"><strong>Save unreleased designs from piracy.</strong> Flat-lay ya normal mobile photos ko ghost-mannequin ya luxury background mein convert karein bina sample studio bheje.</p>
+    </div>
+    <div class="cap-card scroll-anim delay-1" style="padding: 24px;">
+      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">💎 Jewellery</h3>
+      <p class="cap-p">Jewellery shoot mein reflection aur lighting sabse mushkil hoti hai. AI se humein milti hai <strong>flawless macro-lighting</strong> aur premium velvet ya marble podiums.</p>
+    </div>
+    <div class="cap-card scroll-anim delay-2" style="padding: 24px;">
+      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">🛋️ Home Decor</h3>
+      <p class="cap-p">Ab ek sofa ya lamp shoot karne ke liye mehnge villas rent karne ki zaroorat nahi. <strong>Place your furniture in million-dollar living rooms</strong> instantly through AI.</p>
+    </div>
+    <div class="cap-card scroll-anim delay-3" style="padding: 24px;">
+      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">💄 Beauty & Cosmetics</h3>
+      <p class="cap-p">Cosmetics ko premium dikhane ke liye water splashes, floral setups, aur <strong>high-end studio aesthetics</strong> zaroori hain, jo customer ka trust turant build karte hain.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON SECTION -->
+<section class="sec">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Why the Industry is Shifting</h2>
+    <p class="sec-subtitle">A direct comparison of why traditional studios are becoming obsolete for modern fast-fashion and e-commerce brands.</p>
+  </div>
+
+  <div class="comp-grid">
+    <!-- Bad Card (Traditional) -->
+    <div class="comp-card bad fade-up">
+      <h3 class="comp-title">Traditional Studios</h3>
+      <ul class="comp-list">
+        <li><div><strong>High Costs:</strong> Paying for models, photographers, lighting, and rented studio space.</div></li>
+        <li><div><strong>10-15 Days Delay:</strong> Booking, shipping products, shooting, editing—wasting crucial market time.</div></li>
+        <li><div><strong>Piracy Risk:</strong> Sending unreleased samples out means your designs can be easily copied and leaked before your launch.</div></li>
+        <li><div><strong>Limited Backgrounds:</strong> You are stuck with the 2-3 backgrounds available in the physical studio.</div></li>
+      </ul>
+    </div>
+    <!-- Good Card (SCALVIQ AI) -->
+    <div class="comp-card good fade-up delay-1">
+      <h3 class="comp-title">SCALVIQ AI Catalog</h3>
+      <ul class="comp-list">
+        <li><div><strong>Up to 90% Cheaper:</strong> No physical resources needed. Perfect for startups and bulk manufacturers.</div></li>
+        <li><div><strong>24-Hour Delivery:</strong> Send raw photos today, get premium Amazon/Instagram ready images tomorrow.</div></li>
+        <li><div><strong>100% Design Security:</strong> Shoot raw photos inside your own factory. Zero risk of design or fabric theft.</div></li>
+        <li><div><strong>Infinite Lifestyle Scenes:</strong> Place your product in a luxury villa, on a beach, or a festive Diwali setup instantly.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (THE PROCESS) -->
+<section class="sec">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Our Proprietary AI Workflow</h2>
+    <p class="sec-subtitle">What makes SCALVIQ different? We don't just use automated apps. We combine complex AI prompting with strict human Quality Assurance to ensure your product looks 100% authentic.</p>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step scroll-anim">
+      <div class="step-marker">01</div>
+      <div class="step-content">
+        <span class="step-tag">Capture</span>
+        <h3 class="step-h3">You Click Raw Photos</h3>
+        <p class="step-p">Aapko apna product kahin bhejne ki zaroorat nahi hai. Just place your product on a plain background (even a table or floor) under decent lighting and click photos from your mobile phone. Secure and instant.</p>
+      </div>
+    </div>
+
+    <div class="process-step scroll-anim">
+      <div class="step-marker">02</div>
+      <div class="step-content">
+        <span class="step-tag">Intelligence</span>
+        <h3 class="step-h3">Custom AI Prompting</h3>
+        <p class="step-p">Yahan humari expertise aati hai. Humare AI Engineers aapke brand aesthetic ke according <strong>highly complex, customized prompts</strong> likhte hain. Hum AI ko sikhate hain ki background kaisa hona chahiye, lighting kis angle se aani chahiye, aur shadow kaise fall karni chahiye taaki photo fake na lage.</p>
+      </div>
+    </div>
+
+    <div class="process-step scroll-anim">
+      <div class="step-marker">03</div>
+      <div class="step-content">
+        <span class="step-tag">Generation</span>
+        <h3 class="step-h3">AI Enhancement & Rendering</h3>
+        <p class="step-p">The AI generates the image, seamlessly integrating your product into the chosen luxury environment (e.g., a modern living room, a marble podium, or a festive setup) while automatically color-correcting and enhancing the raw image quality.</p>
+      </div>
+    </div>
+
+    <div class="process-step scroll-anim">
+      <div class="step-marker">04</div>
+      <div class="step-content">
+        <span class="step-tag">Perfection</span>
+        <h3 class="step-h3">Strict Human Q.A. & Editing</h3>
+        <p class="step-p">Sabse zaroori step. Ek aam AI tool aksar product ka fabric, color ya buttons change kar deta hai. <strong>Our professional photo editors manually inspect every single pixel.</strong> Hum ensure karte hain ki aapke product ka original design 100% same rahe aur final image Amazon/Flipkart ke guidelines ke hisaab se perfect ho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL STORIES (CASE STUDIES) -->
+<section class="sec" style="padding-top: 60px;">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Real Client Stories</h2>
+    <p class="sec-subtitle">Don't just take our word for it. Read how SCALVIQ AI solved massive, real-world problems for entirely different industries.</p>
+  </div>
+
+  <div class="testimonial-grid">
+    <!-- Story 1 -->
+    <div class="tc scroll-anim">
+      <div class="tc-head">
+        <div class="tc-icon">🚨</div>
+        <div>
+          <div class="tc-title">The 15-Day Piracy Trap</div>
+          <div class="tc-ind">Apparel Manufacturer · Bulk Export</div>
+        </div>
+      </div>
+      <div class="tc-txt">
+        "We are a top clothing manufacturer. We used to send our unreleased garments to prominent studios in Delhi for catalog shoots. The process took 15 days. But here was the nightmare: <strong>before we even received our photos, competitors had bribed studio staff, replicated our exact fabric and buttons, and flooded the market.</strong> We were losing our biggest buyers because our exclusivity was gone. 
+        <br><br>
+        SCALVIQ AI changed everything. Now, we shoot raw samples inside our locked factory. We send the photos to SCALVIQ, and within 24 hours, we get stunning, premium lifestyle catalogs. <strong>Zero piracy. Total market dominance.</strong> It’s not just a photoshoot; it’s a security measure for our business."
+      </div>
+      <div class="tc-auth">
+        <div class="tc-av">AM</div>
+        <div>
+          <div class="tc-nm">Anil Maheshwari</div>
+          <div class="tc-rl">Managing Director · Fashion Exports</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 2 -->
+    <div class="tc scroll-anim delay-1">
+      <div class="tc-head">
+        <div class="tc-icon">🌟</div>
+        <div>
+          <div class="tc-title">The Home Business Boom</div>
+          <div class="tc-ind">Home Decor & Gifting Startup</div>
+        </div>
+      </div>
+      <div class="tc-txt">
+        "Hum ladies ne milkar ghar se handmade luxury candles aur gifting items ka business shuru kiya tha. Product sach mein premium tha, par <strong>starting mein sales bilkul zero thi</strong>. Reason? Humari saari photos bedsheet ya sadharan table par rakhi hui thi, jiski wajah se brand bahut sasta aur un-professional lag raha tha. Naya business tha toh hum 50-60 hazaar ka professional shoot afford nahi kar sakte the.
+        <br><br>
+        Fir hum SCALVIQ se mile. Unhone kaha bas normal light mein phone se plain background pe photo kheench ke bhej do. Jab final photos aayi toh humein vishwas hi nahi hua! <strong>Unhi candles ko unhone luxury living rooms aur premium Diwali setups mein place kar diya tha.</strong> Photos itni zabardast aayi jaise kisi top ad-agency ne lakho ke studio mein shoot ki hon. Un photos ke website par live hote hi humari Instagram sales mein 10x boom aaya!"
+      </div>
+      <div class="tc-auth">
+        <div class="tc-av">SM</div>
+        <div>
+          <div class="tc-nm">Sanjana Mehta</div>
+          <div class="tc-rl">Co-Founder · Home Decor Brand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-sec">
+  <div class="fade-up">
+    <h2 class="cta-h2">Ready to elevate your catalog?</h2>
+    <p class="cta-p">Get studio-quality images delivered in 24 hours at a fraction of the cost. Whether you have 5 products or 500, we scale with you.</p>
+    <a href="https://scalviq-web.vercel.app/index.html#contact" class="btn-primary">Get a Custom Pricing Quote →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px">
+          <div class="logo-mark">Q</div>
+          <div class="logo-text">SCALVI<span>Q</span></div>
+        </div>
+        <div class="ft-tagline">"Scale Without Limits."</div>
+        <div class="ft-desc">Founded by Nishant Sisodia, SCALVIQ is India's intelligent growth company. AI-powered digital marketing, political campaigns, AI catalog photoshoot, app development & brand building. Gurugram. Est. 2026.</div>
+        <div class="ft-socials">
+          <a href="https://instagram.com/scalviq.ai" target="_blank" rel="noopener" class="ft-soc-btn">📷</a>
+          <a href="https://linkedin.com/company/scalviq" target="_blank" rel="noopener" class="ft-soc-btn">💼</a>
+          <a href="https://wa.me/919050728595" target="_blank" rel="noopener" class="ft-soc-btn">💬</a>
+          <a href="https://youtube.com/@scalviq" target="_blank" rel="noopener" class="ft-soc-btn">▶️</a>
+        </div>
+      </div>
+      <div><div class="ft-col-h">Services</div><div class="ft-links"><a href="digital-marketing.html">Digital Marketing</a><a href="ai-catalog.html">AI Catalog Photoshoot</a><a href="political-campaigns.html">Political Campaigns</a><a href="tech.html">App Development</a><a href="e-commerce.html">E-Commerce</a><a href="ventures.html">Brand Building</a></div></div>
+      <div><div class="ft-col-h">Company</div><div class="ft-links"><a href="https://scalviq-web.vercel.app/index.html#about">About SCALVIQ</a><a href="https://scalviq-web.vercel.app/index.html#packages">Packages</a><a href="https://scalviq-web.vercel.app/index.html#contact">Contact</a><a href="#">Careers</a><a href="#">Blog</a><a href="#">Case Studies</a></div></div>
+      <div><div class="ft-col-h">Contact</div><div class="ft-links"><a href="https://wa.me/919050728595" target="_blank" rel="noopener">💬 WhatsApp Us</a><a href="tel:+919050728595">📞 +91 90507 28595</a><a href="mailto:contact@scalviq.ai">✉️ contact@scalviq.ai</a><a href="#">📍 Gurugram, Haryana</a><a href="https://scalviq.ai">🌐 scalviq.ai</a></div></div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 SCALVIQ · Gurugram, India · All Rights Reserved</div>
+      <div class="ft-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refund Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPT FOR THEMES & ANIMATIONS -->
+<script>
+  // Navbar & Theme Logic
+  const html = document.documentElement;
+  const thumb = document.getElementById('ttThumb');
+  const tog   = document.getElementById('themeToggle');
+
+  function toggleTheme(cb){
+    if(cb.checked){
+      html.classList.add('dark');
+      thumb.textContent = '🌙';
+      localStorage.setItem('sqTheme','dark');
+    } else {
+      html.classList.remove('dark');
+      thumb.textContent = '☀️';
+      localStorage.setItem('sqTheme','light');
+    }
+  }
+
+  (function(){
+    const saved = localStorage.getItem('sqTheme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if(saved === 'dark' || (!saved && prefersDark)){
+      html.classList.add('dark');
+      if(tog) tog.checked = true;
+      if(thumb) thumb.textContent = '🌙';
+    } else {
+      html.classList.remove('dark');
+      if(tog) tog.checked = false;
+      if(thumb) thumb.textContent = '☀️';
+    }
+  })();
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  function toggleNav(){ document.getElementById('navLinks').classList.toggle('open'); }
+
+  // Scroll Animations Logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          if(entry.target.classList.contains('process-step') || entry.target.classList.contains('cap-card')) {
+             setTimeout(() => {
+                entry.target.classList.add('active');
+             }, 300);
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up, .scroll-anim, .comp-card, .tc').forEach(el => { 
+      observer.observe(el); 
+    });
+  });
+</script>
+
+</body>
+</html>
