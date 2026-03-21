@@ -115,7 +115,7 @@ html.dark{
 html{transition:filter .05s}
 body,nav,footer,.ticker,.ai-section,.cta-s,.faq-wrap,.ct-form-wrap,
 .gc,.why-c,.num-c,.proc-c,.svc-c,.pkg,.tc,.ci,.exp-i,.founder-block,
-.hero-pill,.hcard,.about-badge-tl,.about-badge-br,.wa-cta,.toast{
+.hero-pill,.hcard,.-badge-tl,.about-badge-br,.wa-cta,.toast{
   transition:background .45s var(--ease),border-color .45s var(--ease),
              color .45s var(--ease),box-shadow .45s var(--ease);
 }
@@ -910,7 +910,7 @@ html.dark .pkg.featured .pkg-price{background:rgba(227,179,65,.15);border-color:
 }
 .about-badge-tl{top:16px;right:-12px}
 .about-badge-br{bottom:80px;left:-12px}
-@media(max-width:900px){.about-badge-tl,.about-badge-br{display:none}}
+@media(max-width:900px){.about-badge-tl,.-badge-br{display:none}}
 .badge-n{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--gold)}
 .badge-l{font-family:var(--font-mono);font-size:11px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase;margin-top:2px}
 .exp-list{display:flex;flex-direction:column;gap:10px;margin:clamp(20px,3vw,32px) 0}
@@ -1522,10 +1522,10 @@ nav {
   /* Testimonials */
   .tc-grid { grid-template-columns: 1fr; width: 100%; max-width: 100%; gap: 10px; }
 
-  /* About */
-  .about-grid { grid-template-columns: 1fr; gap: 28px; }
-  .about-badge-tl, .about-badge-br { display: none; }
-  .about-img { aspect-ratio: 3/2; max-height: 280px; }
+  /*  */
+  .-grid { grid-template-columns: 1fr; gap: 28px; }
+  .-badge-tl, .-badge-br { display: none; }
+  .-img { aspect-ratio: 3/2; max-height: 280px; }
 
   /* FAQ */
   .fq-qt { font-size: 15px; }
@@ -1710,9 +1710,9 @@ nav {
   </a>
   <div class="nav-links" id="navLinks">
     <a href="#services" class="nl">Services</a>
-    <a href="#ai-catalog" class="nl">AI Catalog</a>
+    <a href="ai-catalog.html" class="nl">AI Catalog</a>
     <a href="#packages" class="nl">Packages</a>
-    <a href="#about" class="nl">About</a>
+    <a href="about.html" class="nl">About</a>
     <a href="#contact" class="nl">Contact</a>
   </div>
   <div class="nav-end">
@@ -1949,16 +1949,16 @@ nav {
 
 <div class="divider"></div>
 
-<!-- ABOUT -->
-<div class="sec" id="about">
-  <div class="s-label rv">About SCALVIQ</div>
+<!--  -->
+<div class="sec" id="">
+  <div class="s-label rv"> SCALVIQ</div>
   <div class="s-h rv d1" style="margin-bottom:clamp(28px,4vw,48px)">Built on experience.<br><em>Driven by results.</em></div>
-  <div class="about-grid">
+  <div class="-grid">
     <div class="rl">
-      <div class="about-frame">
-        <div class="about-img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80" alt="SCALVIQ Team"></div>
-        <div class="about-badge-tl"><div class="badge-n">Est. 2026</div><div class="badge-l">Gurugram, India</div></div>
-        <div class="about-badge-br"><div class="badge-n">5+ Years</div><div class="badge-l">Combined Expertise</div></div>
+      <div class="-frame">
+        <div class="-img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80" alt="SCALVIQ Team"></div>
+        <div class="-badge-tl"><div class="badge-n">Est. 2026</div><div class="badge-l">Gurugram, India</div></div>
+        <div class="-badge-br"><div class="badge-n">5+ Years</div><div class="badge-l">Combined Expertise</div></div>
       </div>
     </div>
     <div class="rr">
@@ -2000,7 +2000,7 @@ nav {
     <div class="fq"><button class="fq-q" onclick="tFaq(this)"><span class="fq-qt">Why is pricing not shown on the website?</span><span class="fq-ic">+</span></button><div class="fq-a"><div class="fq-an">Every business is different. We customise pricing based on your exact scope and goals — so you always get the most affordable rate for precisely what you need. We guarantee the most competitive pricing with zero hidden charges. Contact us for a clear quote within 2 hours.</div></div></div>
     <div class="fq"><button class="fq-q" onclick="tFaq(this)"><span class="fq-qt">What political campaign experience does the team have?</span><span class="fq-ic">+</span></button><div class="fq-a"><div class="fq-an">Our team has direct hands-on experience working inside a political leader's office — managing digital strategy, voter outreach, media coordination, event management, and public narrative. That inside understanding is what makes our work genuinely effective.</div></div></div>
     <div class="fq"><button class="fq-q" onclick="tFaq(this)"><span class="fq-qt">Can SCALVIQ serve clients outside Gurugram?</span><span class="fq-ic">+</span></button><div class="fq-a"><div class="fq-an">Absolutely. We serve clients across India — Delhi NCR, Haryana, Rajasthan, Punjab, Mumbai, and beyond. Our workflow is fully digital: strategy calls on Google Meet, content via Google Drive, updates on WhatsApp.</div></div></div>
-    <div class="fq"><button class="fq-q" onclick="tFaq(this)"><span class="fq-qt">How quickly will I see results?</span><span class="fq-ic">+</span></button><div class="fq-a"><div class="fq-an">Social media: 30–45 days. Paid ads (Meta/Google): 7–14 days from launch. SEO: 60–90 days for meaningful organic traction. We are fully transparent about timelines, send detailed monthly reports, and never overpromise.</div></div></div>
+    <div class="fq"><button class="fq-q" onclick="tFaq(this)"><span class="fq-qt">How quickly will I see results?</span><span class="fq-ic">+</span></button><div class="fq-a"><div class="fq-an">Social media: 30–45 days. Paid ads (Meta/Google): 7–14 days from launch. SEO: 60–90 days for meaningful organic traction. We are fully transparent  timelines, send detailed monthly reports, and never overpromise.</div></div></div>
     <div class="fq"><button class="fq-q" onclick="tFaq(this)"><span class="fq-qt">What is the payment structure?</span><span class="fq-ic">+</span></button><div class="fq-a"><div class="fq-an">50% advance before commencing. Remaining 50% at month-end for retainers, or on delivery for project work. We accept UPI, NEFT, and all major payment methods. No payment requested before we agree on scope, timeline, and pricing in writing.</div></div></div>
   </div>
 </div>
@@ -2024,7 +2024,7 @@ nav {
         <div class="fg"><label class="fl">Business / Organisation</label><input type="text" name="business" class="fi" placeholder="Your business or brand name"></div>
         <div class="fg"><label class="fl">Service Required *</label><select name="service" class="fsl" required><option value="">Select a service</option><option>Digital Marketing — Social Media + Paid Ads</option><option>AI Catalog Photoshoot</option><option>Political Campaign Management</option><option>App / Website Development</option><option>E-Commerce Management — Amazon / Flipkart</option><option>Content Creation & Reels</option><option>Brand Building & Strategy</option><option>Full Package — Multiple Services</option></select></div>
         <div class="fg"><label class="fl">Your City</label><input type="text" name="city" class="fi" placeholder="Gurugram / Delhi / Jaipur..."></div>
-        <div class="fg"><label class="fl">Tell Us About Your Project</label><textarea name="message" class="fta" placeholder="Describe your business, goals, and any specific questions..."></textarea></div>
+        <div class="fg"><label class="fl">Tell Us  Your Project</label><textarea name="message" class="fta" placeholder="Describe your business, goals, and any specific questions..."></textarea></div>
         <button type="submit" class="f-submit" id="fBtn"><span id="fBT">Send Message →</span></button>
         <a href="https://wa.me/919050728595?text=Hi%20SCALVIQ%2C%20I%20want%20to%20enquire." target="_blank" rel="noopener" class="f-wa-btn">💬 Or Contact on WhatsApp</a>
         <div class="f-ok" id="fOk">✓ Message received. Our team responds within 2 hours.</div>
@@ -2069,7 +2069,7 @@ nav {
         </div>
       </div>
       <div><div class="ft-col-h">Services</div><div class="ft-links"><a href="digital-marketing.html">Digital Marketing</a><a href="ai-catalog.html">AI Catalog Photoshoot</a><a href="political-campaigns.html">Political Campaigns</a><a href="tech.html">App Development</a><a href="e-commerce.html">E-Commerce</a><a href="ventures.html">Brand Building</a></div></div>
-      <div><div class="ft-col-h">Company</div><div class="ft-links"><a href="#about">About SCALVIQ</a><a href="#packages">Packages</a><a href="#contact">Contact</a><a href="#">Careers</a><a href="#">Blog</a><a href="#">Case Studies</a></div></div>
+      <div><div class="ft-col-h">Company</div><div class="ft-links"><a href="#"> SCALVIQ</a><a href="#packages">Packages</a><a href="#contact">Contact</a><a href="#">Careers</a><a href="#">Blog</a><a href="#">Case Studies</a></div></div>
       <div><div class="ft-col-h">Contact</div><div class="ft-links"><a href="https://wa.me/919050728595" target="_blank" rel="noopener">💬 WhatsApp Us</a><a href="tel:+919050728595">📞 +91 90507 28595</a><a href="/cdn-cgi/l/email-protection#93fbf6fffffcd3e0f0f2ffe5fae2bdf2fa">✉️ <span class="__cf_email__" data-cfemail="9af2fff6f6f5dae9f9fbf6ecf3ebb4fbf3">[email&#160;protected]</span></a><a href="#">📍 Gurugram, Haryana</a><a href="#">🌐 scalviq.ai</a></div></div>
     </div>
     <div class="ft-bottom">
