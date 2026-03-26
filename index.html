@@ -966,15 +966,25 @@ html.dark .tc-person { border-top-color: rgba(240,246,252,0.1); }
 .exp-where{font-family:var(--font-mono);font-size:14px;font-weight:600;letter-spacing:0.04em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
 .exp-p{font-size:clamp(16px,1.5vw,18px);color:var(--ink2);line-height:1.75;max-width: 90%;}
 .founder-block{
-  padding:clamp(32px,3vw,40px);
+  padding:clamp(32px,4vw,48px) clamp(32px,5vw,64px);
   background:linear-gradient(135deg,rgba(245,228,184,.3),rgba(255,255,255,.7));
   border:1px solid rgba(184,137,42,.2);
   border-radius:24px;border-left:6px solid var(--gold);
   box-shadow:var(--glass-shadow);
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+}
+@media(max-width: 760px) {
+  .founder-block { flex-direction: column; align-items: flex-start; }
 }
 html.dark .founder-block{background:linear-gradient(135deg,rgba(227,179,65,.1),var(--glass-bg));}
-.fb-q{font-family:var(--font-ui);font-style:normal;font-weight:500;letter-spacing:-0.01em;font-size:clamp(16px,1.6vw,20px);color:var(--ink1);line-height:1.75;margin-bottom:24px}
-.fb-name{font-family:var(--font-brand);font-weight:800;font-size:clamp(20px,1.8vw,24px);letter-spacing:-0.03em;color:var(--ink0)}
+.fb-q{font-family:var(--font-ui);font-style:normal;font-weight:500;letter-spacing:-0.01em;font-size:clamp(16px,1.6vw,26px);color:var(--ink1);line-height:1.75;flex: 1;}
+.fb-author{flex-shrink: 0; min-width: 220px; padding-left: clamp(16px, 2.5vw, 40px); border-left: 1px solid rgba(184,137,42,.3);}
+@media(max-width: 760px) {
+  .fb-author { border-left: none; padding-left: 0; border-top: 1px solid rgba(184,137,42,.3); padding-top: 24px; width: 100%;}
+}
+.fb-name{font-family:var(--font-brand);font-weight:800;font-size:clamp(20px,1.8vw,32px);letter-spacing:-0.03em;color:var(--ink0)}
 .fb-title{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:0.04em;color:var(--gold);text-transform:uppercase;margin-top:8px}
 
 /* ══════════════════════════
@@ -2108,11 +2118,14 @@ body::before,
         <div class="exp-i"><div class="exp-ico-w">🏛️</div><div><div class="exp-role">Political Campaign Management & Senior Leadership Support</div><div class="exp-where">Haryana & Delhi · Political Office</div><div class="exp-p">Worked directly within a political leader's office, overseeing digital strategy, voter communication, and outreach.</div></div></div>
         <div class="exp-i"><div class="exp-ico-w">🛒</div><div><div class="exp-role">E-Commerce Brand Manager (Fashion & Clothing)</div><div class="exp-where">Pan-India Scale · Amazon & Flipkart</div><div class="exp-p">Managed and scaled a large clothing e-commerce brand: catalogue growth, performance advertising, and brand storytelling.</div></div></div>
       </div>
-      <div class="founder-block">
-        <div class="fb-q">"Every brand we scale is built on stories and strategies rooted in real, on-ground experience. Not just algorithms or tactics, but a genuine understanding of how Indian markets, businesses, and people think."</div>
-        <div class="fb-name">Nishant Sisodia</div>
-        <div class="fb-title">Founder & CEO, SCALVIQ</div>
-      </div>
+    </div>
+  </div>
+
+  <div class="founder-block rv d2" style="margin-top:clamp(40px, 6vw, 80px);">
+    <div class="fb-q">"Every brand we scale is built on stories and strategies rooted in real, on-ground experience. Not just algorithms or tactics, but a genuine understanding of how Indian markets, businesses, and people think."</div>
+    <div class="fb-author">
+      <div class="fb-name">Nishant Sisodia</div>
+      <div class="fb-title">Founder & CEO, SCALVIQ</div>
     </div>
   </div>
 </div>
