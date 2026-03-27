@@ -2,115 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
 <title>AI Catalog Photoshoot | SCALVIQ</title>
-<meta name="description" content="SCALVIQ AI Catalog - Get Amazon-ready, high-end luxury lifestyle product images in 24 hours. Zero studios, massive cost savings.">
+<meta name="description" content="SCALVIQ AI Catalog - Turn Dummy Photos into Selling-Ready Model Images in 24-48 Hours. Starting from ₹150/design.">
 
-<!-- Favicon (Browser Tab Logo) - Mathematically centered and aligned to match your exact Q design -->
+<!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23d4a94a'/><stop offset='100%25' stop-color='%23b8892a'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><path fill='white' fill-rule='evenodd' d='M47,22 A28,28 0 1,0 75,50 A28,28 0 0,0 47,22 Z M47,36 A14,14 0 1,1 33,50 A14,14 0 0,1 47,36 Z'/><rect x='47' y='64' width='34' height='14' fill='white'/></svg>" type="image/svg+xml">
 
+<!-- BRAND TYPOGRAPHY STACK -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 /* ══════════════════════════════════════════════════
-   GLOBAL THEME (SYNCED WITH PREMIUM STANDARD)
+   GLOBAL THEME & TYPOGRAPHY
 ══════════════════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-  /* ── LIGHT MODE (default) ── */
-  --sky0: #e6edf3;
-  --sky1: #dce5ef;
-  --sky2: #cddff2;
-  --sky3: #b9d5ee;
-
-  --ink0: #0d1117;
-  --ink1: #1f2937;
-  --ink2: #475569;
-  --ink3: #64748b;
-
-  --gold: #b8892a;
-  --goldL: #d4a94a;
-  --goldVL: #f5e4b8;
-  --goldGlow: rgba(184,137,42,.18);
-
-  --red: #d32f2f;
-  --red-soft: rgba(211,47,47,0.1);
-
-  --glass-bg: rgba(255,255,255,0.45);
-  --glass-bg-strong: rgba(255,255,255,0.7);
-  --glass-border: rgba(255,255,255,0.7);
-  --glass-border-outer: rgba(185,210,240,0.5);
+  --sky0: #e6edf3; --sky1: #dce5ef; --sky2: #cddff2; --sky3: #b9d5ee;
+  --ink0: #0d1117; --ink1: #1f2937; --ink2: #475569; --ink3: #64748b;
+  --gold: #b8892a; --goldL: #d4a94a; --goldVL: #f5e4b8; --goldGlow: rgba(184,137,42,.18);
+  --red: #d32f2f; --red-soft: rgba(211,47,47,0.1);
+  --glass-bg: rgba(255,255,255,0.45); --glass-bg-strong: rgba(255,255,255,0.7);
+  --glass-border: rgba(255,255,255,0.7); --glass-border-outer: rgba(185,210,240,0.5);
   --glass-shadow: 0 8px 32px rgba(100,140,200,0.08), 0 1px 0 rgba(255,255,255,0.7) inset;
   --glass-shadow-hover: 0 16px 48px rgba(100,140,200,0.15), 0 1px 0 rgba(255,255,255,1) inset;
-
   --body-bg: #e6edf3;
-
-  --nav-bg: rgba(255,255,255,0.65);
-  --nav-bg-scrolled: rgba(255,255,255,0.85);
-  --nav-border: rgba(185,210,240,0.5);
-
-  --footer-bg: rgba(255,255,255,0.65);
-  --mob-nav-bg: rgba(230,237,243,0.95);
-
-  --green: #1a7f37;
-  --blue: #0284c7;
-  --r: 16px;
-  --ease: cubic-bezier(.22,1,.36,1);
+  --nav-bg: rgba(255,255,255,0.65); --nav-bg-scrolled: rgba(255,255,255,0.85); --nav-border: rgba(185,210,240,0.5);
+  --footer-bg: rgba(255,255,255,0.65); --mob-nav-bg: rgba(230,237,243,0.95);
+  --green: #1a7f37; --blue: #0284c7; --r: 16px; --ease: cubic-bezier(.22,1,.36,1);
   
+  /* MATCHING TYPOGRAPHY */
   --font-brand: 'Josefin Sans', sans-serif;
   --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-serif: var(--font-ui); 
   --font-mono: var(--font-ui);
 }
 
-/* ══════════════════════════════
-   DARK MODE
-══════════════════════════════ */
 html.dark{
-  --sky0: #010409;
-  --sky1: #0d1117;
-  --sky2: #161b22;
-  --sky3: #21262d;
-
-  --ink0: #f0f6fc;
-  --ink1: #c9d1d9;
-  --ink2: #8b949e;
-  --ink3: #6e7681;
-
-  --gold: #e3b341;
-  --goldL: #f0c869;
-  --goldVL: rgba(227,179,65,.12);
-  --goldGlow: rgba(227,179,65,.22);
-
-  --red: #f85149;
-  --red-soft: rgba(248,81,73,0.1);
-
-  --glass-bg: rgba(13,17,23,0.65);
-  --glass-bg-strong: rgba(22,27,34,0.85);
-  --glass-border: rgba(240,246,252,0.1);
-  --glass-border-outer: rgba(227,179,65,0.15);
+  --sky0: #010409; --sky1: #0d1117; --sky2: #161b22; --sky3: #21262d;
+  --ink0: #f0f6fc; --ink1: #c9d1d9; --ink2: #8b949e; --ink3: #6e7681;
+  --gold: #e3b341; --goldL: #f0c869; --goldVL: rgba(227,179,65,.12); --goldGlow: rgba(227,179,65,.22);
+  --red: #f85149; --red-soft: rgba(248,81,73,0.1);
+  --glass-bg: rgba(13,17,23,0.65); --glass-bg-strong: rgba(22,27,34,0.85);
+  --glass-border: rgba(240,246,252,0.1); --glass-border-outer: rgba(227,179,65,0.15);
   --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset;
   --glass-shadow-hover: 0 16px 48px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.09) inset;
-
   --body-bg: #010409;
-
-  --nav-bg: rgba(1,4,9,0.75);
-  --nav-bg-scrolled: rgba(1,4,9,0.92);
-  --nav-border: rgba(240,246,252,0.1);
-  --footer-bg: rgba(1,4,9,0.88);
-  --mob-nav-bg: rgba(1,4,9,0.97);
-
-  --green: #238636;
-  --blue: #38bdf8;
+  --nav-bg: rgba(1,4,9,0.75); --nav-bg-scrolled: rgba(1,4,9,0.92); --nav-border: rgba(240,246,252,0.1);
+  --footer-bg: rgba(1,4,9,0.88); --mob-nav-bg: rgba(1,4,9,0.97);
+  --green: #238636; --blue: #38bdf8;
 }
 
-html{scroll-behavior:smooth}
-body{
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   background: var(--body-bg); color: var(--ink0);
   font-family: var(--font-ui); font-weight:400;
   overflow-x:hidden; -webkit-font-smoothing:antialiased; min-height:100vh; isolation:isolate;
+}
+
+/* WIDER DESKTOP LAYOUT (Fixed spacing issue) */
+.sec, .cta-sec {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  padding: clamp(60px, 8vw, 120px) clamp(24px, 5vw, 80px); 
+  max-width: 1280px; 
+  width: 100%;
+  margin: 0 auto; 
+  position: relative; 
+  z-index: 10;
 }
 
 a{text-decoration:none;color:inherit}
@@ -118,13 +84,21 @@ img{display:block;max-width:100%;object-fit:cover}
 button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
 strong { color: var(--ink0); font-weight: 600; }
 
-::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--sky1)}
-::-webkit-scrollbar-thumb{background:var(--sky3);border-radius:2px}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 
-/* ══════════════════════════════════════════════════
-   FULL PAGE BACKGROUNDS (AURORA, BUBBLES, STARS)
-══════════════════════════════════════════════════ */
+/* SPECIFIC RUPEE SIGN STYLING */
+.rs {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-right: 2px;
+    opacity: 0.95;
+    vertical-align: baseline;
+}
+
+/* BACKGROUNDS */
 .aurora-bg { position: fixed; inset: 0; z-index: -3; pointer-events: none; overflow: hidden; background: transparent; transition: background 0.5s ease; }
 .aurb { position: absolute; border-radius: 50%; filter: blur(80px); animation: floatAurora 20s infinite alternate ease-in-out; opacity: 0.6; }
 .ab-1 { width: 50vw; height: 50vw; background: rgba(184,137,42,0.15); top: -10%; left: -10%; }
@@ -133,14 +107,12 @@ strong { color: var(--ink0); font-weight: 600; }
 html.dark .ab-1 { background: rgba(227,179,65,0.08); } html.dark .ab-2 { background: rgba(139,92,246,0.08); } html.dark .ab-3 { background: rgba(56,189,248,0.05); }
 @keyframes floatAurora { 0% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(5%, 10%, 0) scale(1.1); } 100% { transform: translate3d(-5%, 5%, 0) scale(0.9); } }
 
-/* FLOATING BUBBLES FULL PAGE (LIGHT MODE) */
 .floating-bubbles { position: fixed; inset: 0; pointer-events: none; z-index: -2; overflow: hidden; transition: opacity 0.5s var(--ease); }
 html.dark .floating-bubbles { opacity: 0; display: none; }
 .bubble { position: absolute; bottom: -150px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.1) 60%, transparent 100%); box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 4px 15px rgba(100,140,200,0.1); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); animation: floatUp infinite linear; opacity: 0; will-change: transform; }
 .b1 { width:40px; height:40px; left:15%; animation-duration:12s; animation-delay:0s; } .b2 { width:85px; height:85px; left:35%; animation-duration:18s; animation-delay:-5s; } .b3 { width:35px; height:35px; left:55%; animation-duration:10s; animation-delay:-2s; } .b4 { width:60px; height:60px; left:75%; animation-duration:16s; animation-delay:-8s; } .b5 { width:100px; height:100px; left:85%; animation-duration:22s; animation-delay:-1s; } .b6 { width:45px; height:45px; left:5%; animation-duration:14s; animation-delay:-10s; } .b7 { width:70px; height:70px; left:50%; animation-duration:19s; animation-delay:-12s; }
 @keyframes floatUp { 0% { transform: translate3d(0px, 10vh, 0) scale(0.8); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translate3d(40px, -110vh, 0) scale(1.1); opacity: 0; } }
 
-/* SHOOTING STARS FULL PAGE (DARK MODE) */
 .stars-container { position:fixed; inset:0; z-index:-2; pointer-events:none; overflow:hidden; opacity:0; transition:opacity .6s; }
 html.dark .stars-container { opacity:1; }
 .shooting-star { position:absolute; width:clamp(150px,25vw,340px); height:1px; background:linear-gradient(90deg,transparent 0%,rgba(180,210,255,.08) 40%,rgba(150,190,255,.85) 100%); border-radius:2px; animation:shoot linear infinite; filter:drop-shadow(0 0 3px rgba(140,180,255,.6)); will-change: transform; opacity: 0; }
@@ -150,7 +122,6 @@ html.dark .shooting-star::after { box-shadow:0 0 8px 3px rgba(227,179,65,.9),0 0
 @keyframes shoot { 0%{opacity:0; transform:translate3d(-10vw,-10vw,0) rotate(35deg)} 1%{opacity:1} 7%{opacity:0; transform:translate3d(120vw,80vw,0) rotate(35deg)} 100%{opacity:0; transform:translate3d(120vw,80vw,0) rotate(35deg)} }
 .ss1{top:-10%;left:10%;animation-duration:14s;animation-delay:0s} .ss2{top:-20%;left:40%;animation-duration:21s;animation-delay:6s} .ss3{top:10%;left:-10%;animation-duration:17s;animation-delay:11s} .ss4{top:-5%;left:60%;animation-duration:24s;animation-delay:3.5s} .ss5{top:30%;left:-20%;animation-duration:19s;animation-delay:17s}
 
-
 /* THEME TOGGLE */
 .theme-toggle{ position:relative;width:52px;height:28px;cursor:pointer;flex-shrink:0; }
 .theme-toggle input{opacity:0;width:0;height:0;position:absolute}
@@ -159,9 +130,7 @@ html.dark .tt-track{ background:linear-gradient(135deg,#0d1228,#1a2144); border-
 .tt-thumb{ position:absolute;top:3px;left:3px; width:22px;height:22px;border-radius:50%; display:flex;align-items:center;justify-content:center; font-size:13px;line-height:1; background:rgba(255,255,255,.95); box-shadow:0 2px 8px rgba(100,140,200,.25); transition:transform .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease); }
 html.dark .tt-thumb{ transform:translate3d(24px,0,0); background:linear-gradient(135deg,#c9a84c,#e8c96b); box-shadow:0 2px 12px rgba(201,168,76,.5); }
 
-/* ══════════════════════════
-   NAV
-══════════════════════════ */
+/* NAV */
 nav{ position:fixed;top:0;left:0;right:0;z-index:800; height:70px; display:flex;align-items:center;justify-content:space-between; padding:0 clamp(16px,4vw,48px); background:var(--nav-bg); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); border-bottom:1px solid var(--nav-border); box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 20px rgba(0,0,0,0.08); transition:background .3s, box-shadow .3s, border-color .45s; }
 nav.scrolled{ background:var(--nav-bg-scrolled); box-shadow:0 1px 0 rgba(255,255,255,0.1) inset, 0 8px 32px rgba(0,0,0,0.12); }
 .logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
@@ -169,262 +138,452 @@ nav.scrolled{ background:var(--nav-bg-scrolled); box-shadow:0 1px 0 rgba(255,255
 .logo-text{font-family:var(--font-brand);font-weight:700;font-size:19px;letter-spacing:4px;color:var(--ink0)}
 .logo-text span{color:var(--gold)}
 .nav-links{display:flex;align-items:center;gap:8px}
-.nl{font-family:var(--font-mono);font-size:clamp(12px, 1.1vw, 14px);font-weight:500;letter-spacing:normal;color:var(--ink2); text-transform:uppercase;padding:8px 16px;border-radius:8px;transition:all .15s}
+.nl{font-family:var(--font-mono);font-size:clamp(12px, 1.1vw, 14px);font-weight:600;letter-spacing:normal;color:var(--ink2); text-transform:uppercase;padding:8px 16px;border-radius:8px;transition:all .15s}
 .nl:hover{color:var(--ink0);background:rgba(255,255,255,0.7)}
 html.dark .nl:hover{color:var(--ink0);background:rgba(255,255,255,0.1)}
 .nav-end{display:flex;align-items:center;gap:12px}
-.btn-nav-wa{ display:flex;align-items:center;gap:8px;padding:10px 20px; background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.25); border-radius:10px;font-family:var(--font-mono);font-size:clamp(12px, 1.1vw, 14px);font-weight:600; letter-spacing:0.02em;color:var(--green);text-transform:uppercase; transition:all .15s;backdrop-filter:blur(8px); }
-.btn-nav-wa:hover{background:rgba(22,163,74,0.18);border-color:rgba(22,163,74,.5)}
+
 .ham{display:none;flex-direction:column;gap:6px;padding:8px;cursor:pointer}
 .ham span{width:22px;height:2px;background:var(--ink1);display:block;border-radius:2px;transition:all .25s}
 @media(max-width:860px){
   .nav-links{display:none;position:fixed;top:70px;left:0;right:0; background:var(--mob-nav-bg);backdrop-filter:blur(24px); border-bottom:1px solid var(--glass-border-outer); flex-direction:column;padding:16px 20px 24px;align-items:flex-start;gap:4px}
   .nav-links.open{display:flex}
   .ham{display:flex}
-  .btn-nav-wa{display:none}
 }
 
-/* ══════════════════════════════════════════════════
-   HERO SECTION
-══════════════════════════════════════════════════ */
-.hero {
-  padding: clamp(140px, 15vw, 180px) clamp(20px, 5vw, 60px) clamp(60px, 10vw, 100px);
-  max-width: 1280px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 6vw, 80px);
-  align-items: center; position: relative; z-index: 10;
+/* FLOATS (HOME PAGE STYLE) */
+.floats{position:fixed;bottom:32px;right:24px;z-index:700;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.float-wa{
+  width:64px;height:64px;background:var(--green);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:28px;
+  cursor:pointer;
+  box-shadow:0 4px 24px rgba(22,163,74,.4);
+  animation:waPulse 3s ease infinite;position:relative;transition:transform .2s;
+}
+.float-wa:hover{transform:scale(1.08)}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 24px rgba(22,163,74,.4)}50%{box-shadow:0 4px 32px rgba(22,163,74,.55),0 0 0 10px rgba(22,163,74,.08)}}
+.float-call{
+  width:52px;height:52px;
+  background:linear-gradient(135deg,var(--goldL),var(--gold));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;
+  cursor:pointer;transition:transform .2s;
+  box-shadow:0 4px 16px rgba(184,137,42,.35);
+}
+.float-call:hover{transform:scale(1.08)}
+.float-tip{
+  position:absolute;right:76px;top:50%;transform:translateY(-50%);
+  background:var(--glass-bg-strong);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:12px;padding:8px 16px;
+  white-space:nowrap;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.02em;
+  color:var(--ink0);box-shadow:var(--glass-shadow);
+  opacity:0;pointer-events:none;transition:opacity .15s;
+}
+.float-wa:hover .float-tip,.float-call:hover .float-tip{opacity:1}
+.float-wa svg { width: 34px; height: 34px; fill: white; }
+.float-call svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+@media(max-width:860px){
+  .floats { bottom: 24px; right: 24px; gap: 12px; }
+  .float-wa { width: 60px; height: 60px; font-size: 26px; }
+  .float-call { width: 48px; height: 48px; font-size: 18px; }
+  .float-tip { display: none; }
+}
+
+/* HERO SECTION - WIDE 1280px DESKTOP ALIGNMENT */
+.hero { 
+    padding: clamp(100px, 10vw, 140px) clamp(24px, 5vw, 80px) clamp(50px, 8vw, 80px); 
+    max-width: 1280px; 
+    width: 100%;
+    margin: 0 auto; 
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(30px, 5vw, 60px); align-items: center; 
 }
 @media(max-width: 960px) { .hero { grid-template-columns: 1fr; text-align: center; } }
+.hero-pill { display:inline-flex;align-items:center;gap:clamp(6px,1vw,10px); padding:clamp(6px,0.8vw,8px) clamp(14px,1.5vw,20px) clamp(6px,0.8vw,8px) clamp(10px,1.2vw,14px); background:rgba(255,255,255,0.7); border:1px solid var(--glass-border); border-radius:100px; margin-bottom:clamp(16px,3vw,28px); max-width:100%; box-shadow: var(--glass-shadow); backdrop-filter: blur(10px); }
+html.dark .hero-pill { background:rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.1); }
+.pill-dot { width:clamp(6px,0.8vw,8px);height:clamp(6px,0.8vw,8px); background:var(--green);border-radius:50%;flex-shrink:0; box-shadow:0 0 0 3px rgba(22,163,74,.15); animation:liveDot 2s ease infinite; }
+@keyframes liveDot{0%,100%{box-shadow:0 0 0 3px rgba(22,163,74,.15)}50%{box-shadow:0 0 0 5px rgba(22,163,74,.05)}}
+.pill-txt { font-family:var(--font-mono); font-size:clamp(10px,1vw,12px); font-weight:700;letter-spacing:0.06em; color:var(--ink1);text-transform:uppercase; white-space:nowrap; }
+html.dark .pill-txt { color: var(--ink0); }
 
-.hero-chip {
-  display:inline-flex; align-items:center; gap:8px; padding:6px 16px;
-  background:var(--glass-bg-strong); backdrop-filter:blur(10px); border:1px solid var(--glass-border);
-  border-radius:100px; font-family:var(--font-mono); font-size:11px; font-weight: 600;
-  letter-spacing:1px; color:var(--gold); text-transform:uppercase; margin-bottom:24px;
-  box-shadow: var(--glass-shadow);
+/* PERFECT ENGAGING TYPEWRITER EFFECT FOR HERO - 10% ZOOM OUT */
+.hero-h1 { 
+    font-family: var(--font-brand); font-size: clamp(28px, 4vw, 50px); 
+    font-weight: 700; line-height: 1.25; letter-spacing: -0.03em; color: var(--ink0); 
+    margin-bottom: 0px; display: block; text-align: left;
 }
-.hero-h1 {
-  font-family: var(--font-serif); font-size: clamp(36px, 4.5vw, 64px); font-weight: 800;
-  line-height: 1.15; letter-spacing: -0.02em; color: var(--ink0); margin-bottom: 24px;
+.tw-wrap {
+    display: block;
+    margin-top: 4px;
+    color: var(--gold);
+    min-height: 1.25em; /* Exactly 1 line on desktop */
 }
-.hero-h1 em { font-style: normal; color: var(--gold); }
-.hero-p {
-  font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); line-height: 1.8;
-  margin-bottom: 40px; max-width: 600px; font-weight: 400;
+.tw-text { color: var(--gold); }
+.tw-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: baseline;
+    animation: blink 1s step-end infinite;
+    font-weight: 400;
 }
-@media(max-width: 960px) { .hero-p { margin-inline: auto; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-.btn-primary {
-  display:inline-flex; align-items:center; gap:10px; padding:clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 36px);
-  background:linear-gradient(135deg,var(--goldL),var(--gold)); color:#fff;
-  font-family:var(--font-mono); font-size:clamp(12px, 1.2vw, 15px); letter-spacing:0.02em;
-  text-transform:uppercase; font-weight:600; border:none; border-radius:12px; transition: all .3s;
-  box-shadow: 0 4px 16px rgba(184,137,42,.3),0 1px 0 rgba(255,255,255,.25) inset;
+.hero-p { 
+    font-size: clamp(14px, 1.3vw, 17px); color: var(--ink2); line-height: 1.7; 
+    margin-top: 16px; margin-bottom: 36px; max-width: 540px; font-weight: 400; 
 }
+
+/* PREMIUM PRICING BOX */
+.premium-price-box { 
+    display: inline-flex; align-items: center; justify-content: flex-start;
+    background: rgba(13,17,23,0.85); border: 1px solid rgba(184,137,42,0.4); 
+    border-radius: 16px; padding: 20px 32px; box-shadow: 0 16px 40px rgba(0,0,0,0.2); 
+    backdrop-filter: blur(10px); margin-bottom: 32px; gap: 32px; text-align: left;
+}
+html:not(.dark) .premium-price-box { background: #fff; border-color: rgba(184,137,42,0.3); box-shadow: 0 12px 32px rgba(184,137,42,0.1); }
+.ppb-left { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.ppb-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--ink2); margin-bottom: 6px;}
+.ppb-price { font-family: var(--font-ui); font-size: 48px; font-weight: 800; color: var(--gold); line-height: 1; letter-spacing: -0.04em; margin-bottom: 6px; display: flex; align-items: baseline; }
+.ppb-unit { font-family: var(--font-ui); font-size: 12px; font-weight: 600; color: var(--ink0); }
+html.dark .ppb-unit { color: #fff; }
+.ppb-divider { width: 1px; height: 50px; background: var(--glass-border-outer); }
+.ppb-right { display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+.ppb-right span { font-family: var(--font-ui); font-size: 13px; font-weight: 600; color: var(--ink0); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+html.dark .ppb-right span { color: #fff; }
+.ppb-right span::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 15px; }
+
+/* BUTTONS */
+.hero-cta-wrap { display: flex; gap: 14px; flex-wrap: wrap; animation-delay: 0.3s; }
+.btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:clamp(12px, 1.2vw, 16px) clamp(24px, 2.5vw, 32px); background:linear-gradient(135deg,var(--goldL),var(--gold)); color:#fff; font-family:var(--font-mono); font-size:clamp(13px, 1.1vw, 15px); letter-spacing:0.02em; text-transform:uppercase; font-weight:700; border:none; border-radius:12px; transition: all .3s; box-shadow: 0 4px 16px rgba(184,137,42,.3),0 1px 0 rgba(255,255,255,.25) inset; cursor: pointer; }
 .btn-primary:hover { transform: translate3d(0,-3px,0); box-shadow: 0 8px 24px rgba(184,137,42,.4),0 1px 0 rgba(255,255,255,.25) inset; }
 
-/* ── MODERN GLASS AI IMAGE VISUAL ── */
-.hero-visual { 
-  position: relative; width: 100%; height: 480px; max-width: 550px; 
-  margin: 0 auto; display: flex; align-items: center; justify-content: center;
-}
+.btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:clamp(12px, 1.2vw, 16px) clamp(24px, 2.5vw, 32px); background:var(--glass-bg-strong); color:var(--ink0); font-family:var(--font-mono); font-size:clamp(13px, 1.1vw, 15px); letter-spacing:0.02em; text-transform:uppercase; font-weight:700; border:1px solid var(--glass-border); border-radius:12px; transition: all .3s; box-shadow: var(--glass-shadow); cursor: pointer; backdrop-filter: blur(10px); }
+.btn-secondary:hover { transform: translate3d(0,-3px,0); box-shadow: var(--glass-shadow-hover); border-color: var(--gold); background: var(--glass-bg); }
+.btn-secondary svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-/* Hero Rings added back */
-.hero-rings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 0; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
-html.dark .hero-rings { opacity: 1; }
-.glow-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%; height: 50%; border-radius: 50%; background: radial-gradient(circle, rgba(184,137,42,0.15) 0%, transparent 70%); animation: pulseGlow 6s infinite alternate ease-in-out; z-index: 1; pointer-events: none; }
-@keyframes pulseGlow { 0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; } 100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; } }
-.ring { position: absolute; border-radius: 50%; border: 1px solid rgba(227,179,65,0.08); border-top: 1px solid rgba(227,179,65,0.6); will-change: transform; }
-.r1 { width: 320px; height: 320px; animation: spinSmooth 20s linear infinite; }
-.r2 { width: 480px; height: 480px; animation: spinSmooth 30s linear infinite reverse; border-top-color: transparent; border-bottom: 1px solid rgba(139,92,246,0.4); }
-@keyframes spinSmooth { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.trust-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+.tb-pill { font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; border-radius: 6px; background: var(--glass-bg-strong); border: 1px solid var(--glass-border-outer); color: var(--ink1); }
+html.dark .tb-pill { color: var(--ink0); }
 
-.tech-grid-bg {
-  position: absolute; inset: 0; border-radius: 50%; z-index: 2;
-  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 30px 30px; background-position: center center;
-  mask-image: radial-gradient(circle at center, black 20%, transparent 70%); -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
-}
-
-/* AI Premium Image Wrap replacing the Dashboard */
-.ai-image-wrap {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 65%; max-width: 320px; aspect-ratio: 4/5;
-  border-radius: 20px; overflow: hidden; z-index: 20;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.6);
-}
-html.dark .ai-image-wrap {
-  border-color: rgba(255,255,255,0.1);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-}
+/* HERO VISUAL */
+.hero-visual { position: relative; width: 100%; height: 450px; max-width: 500px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+.tech-grid-bg { position: absolute; inset: 0; border-radius: 50%; z-index: 2; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 30px 30px; background-position: center center; mask-image: radial-gradient(circle at center, black 20%, transparent 70%); -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 70%); }
+.ai-image-wrap { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; max-width: 300px; aspect-ratio: 4/5; border-radius: 20px; overflow: hidden; z-index: 20; border: 1px solid var(--glass-border); box-shadow: 0 24px 60px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.6); }
+html.dark .ai-image-wrap { border-color: rgba(255,255,255,0.1); box-shadow: 0 24px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05); }
 .ai-main-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 .ai-image-wrap:hover .ai-main-img { transform: scale(1.05); }
-.ai-badge {
-  position: absolute; top: 16px; left: 16px; z-index: 2;
-  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  color: #fff; padding: 6px 12px; border-radius: 100px;
-  font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 1px;
-  border: 1px solid rgba(255,255,255,0.15); text-transform: uppercase;
-}
-
-.dash-card {
-  position: absolute; background: var(--glass-bg-strong); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border); border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5); transition: all 0.3s ease; z-index: 10;
-}
+.ai-badge { position: absolute; top: 16px; left: 16px; z-index: 2; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; padding: 6px 12px; border-radius: 100px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.15); text-transform: uppercase; }
+.dash-card { position: absolute; background: var(--glass-bg-strong); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: 0 16px 40px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5); transition: all 0.3s ease; z-index: 30; }
 html.dark .dash-card { background: var(--glass-bg); border-color: rgba(255,255,255,0.1); box-shadow: 0 16px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05); }
-
-/* Side Floating Cards Z-Index fixed to 30 so they float perfectly on top */
-.dc-float {
-  padding: 18px 24px; display: flex; flex-direction: row; align-items: center; gap: 16px;
-  animation: floatDash 6s infinite alternate ease-in-out; width: 220px; z-index: 30;
-}
+.dc-float { padding: 16px 20px; display: flex; flex-direction: row; align-items: center; gap: 14px; animation: floatDash 6s infinite alternate ease-in-out; width: 200px; }
 .dc-f1 { top: 10%; right: -30px; animation-delay: 0s; border-left: 3px solid var(--gold); }
-.dc-f2 { bottom: 10%; left: -30px; animation-delay: -3s; border-left: 3px solid var(--blue); }
+.dc-f2 { bottom: 10%; left: -30px; animation-delay: -3s; border-left: 3px solid var(--green); }
 @keyframes floatDash { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(0, -12px, 0); } }
-
-.dc-icon-box { font-size: 22px; background: var(--glass-bg-strong); width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1px solid var(--glass-border-outer); box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex-shrink: 0;}
+.dc-icon-box { background: var(--glass-bg-strong); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1px solid var(--glass-border-outer); box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex-shrink: 0;}
+.dc-icon-box svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; color: var(--gold); }
+.dc-f2 .dc-icon-box svg { color: var(--green); }
 .dc-info { display: flex; flex-direction: column; gap: 4px; text-align: left; justify-content: center; }
-.dcf-title { font-family: var(--font-mono); font-size: 9px; color: var(--ink2); text-transform: uppercase; font-weight: 600; letter-spacing: 1px;}
-.dcf-val { font-family: var(--font-serif); font-size: 18px; font-weight: 800; color: var(--ink0); line-height: 1.1;}
-.dcf-sub { font-size: 10px; color: var(--gold); font-weight: 600; display: flex; align-items: center; gap: 4px;}
+.dcf-title { font-family: var(--font-mono); font-size: 8px; color: var(--ink2); text-transform: uppercase; font-weight: 700; letter-spacing: 1px;}
+.dcf-val { font-family: var(--font-brand); font-size: 16px; font-weight: 700; color: var(--ink0); line-height: 1.1; letter-spacing: -0.03em;}
+.dcf-sub { font-size: 9px; color: var(--gold); font-weight: 600; display: flex; align-items: center; gap: 4px;}
 
-@media(max-width: 960px) {
-  .hero-visual { height: auto; max-width: 100%; margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
-  .tech-grid-bg, .hero-rings { display: none; }
-  .dash-card { position: relative; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: none !important; width: 100%; max-width: 360px; margin: 0 auto; animation: none !important; }
-  .ai-image-wrap { position: relative; top: auto; left: auto; transform: none; width: 100%; order: 1; margin-bottom: 20px;}
-  .dc-float { order: 2; width: 100%; flex-direction: row; } 
-  .dc-f2 { order: 3; }
+/* HERO MOBILE FIXES */
+@media(max-width: 960px) { 
+    .hero { grid-template-columns: 1fr; text-align: center; } 
+    .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .hero-h1 { align-items: center; text-align: center; margin-bottom: 0px; }
+    .tw-wrap { text-align: center; }
+    .hero-p { text-align: center; margin-inline: auto; margin-top: 12px; } 
+    .premium-price-box { margin: 0 auto 30px; text-align: left; justify-content: center; }
+    .hero-cta-wrap { justify-content: center; width: 100%; max-width: 400px; margin: 0 auto; }
+    .hero-cta-wrap a { width: 100%; justify-content: center; }
+    .trust-badges { justify-content: center; }
+    
+    .hero-visual { height: auto; max-width: 100%; margin-top: 40px; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    .tech-grid-bg { display: none; }
+    .dash-card { position: relative; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: none !important; width: 100%; max-width: 360px; margin: 0 auto; animation: none !important; }
+    .ai-image-wrap { position: relative; top: auto; left: auto; transform: none; width: 100%; max-width: 360px; order: 1; margin: 0 auto 20px auto;}
+    .dc-float { order: 2; width: 100%; flex-direction: row; } 
+    .dc-f2 { order: 3; }
 }
 
-/* ══════════════════════════════════════════════════
-   USE CASES / INDUSTRIES (CARDS)
-══════════════════════════════════════════════════ */
-.sec { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); max-width: 1280px; margin: 0 auto; position: relative; z-index: 10;}
-.sec-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
-.sec-title { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 56px); letter-spacing:-0.02em; font-weight: 800; margin-bottom: 20px; color: var(--ink0); }
-.sec-subtitle { font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); line-height: 1.8; }
+@media(max-width: 768px) {
+    .hero { padding: 150px 20px 60px 20px; gap: 24px; } /* Pushed down heavily to fix top alignment */
+    .hero-pill { margin: 0 auto 16px auto; }
+    .hero-h1 { font-size: clamp(28px, 8vw, 42px); line-height: 1.25; margin-bottom: 0px; }
+    .tw-wrap { min-height: 2.5em; margin-top: 4px; } /* Exactly 2 lines height, no extra gap */
+    .hero-p { font-size: 15px; margin-top: 8px; margin-bottom: 24px; line-height: 1.6; padding: 0 10px; } /* Gap strictly controlled */
+    
+    .premium-price-box { flex-direction: column; padding: 24px 20px; gap: 16px; width: 100%; max-width: 320px; text-align: center; margin-bottom: 24px; }
+    .ppb-left { align-items: center; width: 100%; }
+    .ppb-price { font-size: 40px; }
+    .ppb-divider { width: 100%; height: 1px; margin: 0; }
+    .ppb-right { align-items: center; width: 100%; gap: 10px; }
+}
 
-.cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-.cap-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: clamp(24px, 4vw, 40px); border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; display: flex; flex-direction: column;}
-.cap-card:hover { transform: translate3d(0,-5px,0); box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-strong); border-color: rgba(184,137,42,0.4); }
-.cap-ico { font-size: 36px; margin-bottom: 16px; display: block; }
-.cap-h3 { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 26px); font-weight: 700; color: var(--ink0); margin-bottom: 14px; letter-spacing: -0.01em;}
-.cap-p { font-size: clamp(14px, 1.4vw, 15px); color: var(--ink2); line-height: 1.7; margin-bottom: 20px;}
+@media(max-width: 480px) {
+    .hero { padding: 160px 16px 50px 16px; } /* Deeply pushed down so it doesn't stick to top */
+    .hero-h1 { font-size: clamp(26px, 8.5vw, 32px); margin-bottom: 0px; }
+    .tw-wrap { min-height: 2.5em; margin-top: 4px; } 
+    .hero-p { margin-top: 8px; font-size: 14px; } 
+    .sec, .cta-sec { padding: 60px 20px; }
+}
 
-/* ══════════════════════════════════════════════════
-   COMPARISON SECTION
-══════════════════════════════════════════════════ */
-.comp-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px; margin-top: 50px; }
-@media(max-width: 860px) { .comp-grid { grid-template-columns: 1fr; } }
+/* GENERAL SECTIONS - ZOOMED OUT ALIGNMENT */
+.sec-header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
+.sec-title { font-family: var(--font-brand); font-size: clamp(26px, 3.5vw, 42px); letter-spacing:-0.03em; font-weight: 700; margin-bottom: 16px; color: var(--ink0); line-height: 1.2; }
+.sec-subtitle { font-size: clamp(15px, 1.4vw, 18px); color: var(--ink2); line-height: 1.7; }
 
-.comp-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: var(--r); padding: clamp(24px, 4vw, 40px); box-shadow: var(--glass-shadow); transition: all 0.4s ease;}
-.comp-card.bad { border-top: 4px solid var(--red); }
-.comp-card.bad:hover { background: var(--red-soft); border-color: rgba(211,47,47,0.3); }
-.comp-card.good { border: 1px solid rgba(184,137,42,0.4); background: linear-gradient(180deg, rgba(184,137,42,0.05) 0%, var(--glass-bg-strong) 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: translateY(-10px); }
-html.dark .comp-card.good { box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+/* PORTFOLIO: BEFORE & AFTER */
+.portfolio-grid { 
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(24px, 3vw, 40px); 
+    width: 100%; align-items: stretch; max-width: 1280px; margin: 0 auto;
+}
+.ba-card { 
+    background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); 
+    padding: 24px; border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; 
+    display: flex; flex-direction: column; position: relative; height: 100%;
+    width: 100%; 
+}
+.ba-card:hover { transform: translateY(-5px); box-shadow: var(--glass-shadow-hover); border-color: var(--gold); background: var(--glass-bg-strong); }
+.ba-card h3 { font-family: var(--font-brand); font-size: 16px; font-weight: 700; text-align: center; margin-bottom: 16px; letter-spacing: -0.02em; flex-shrink: 0; }
 
-.comp-title { font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.01em;}
-.comp-card.bad .comp-title { color: var(--ink1); }
-.comp-card.good .comp-title { color: var(--gold); }
+/* INTERACTIVE SLIDER STYLES */
+.slider-container, .static-compare-container { 
+    position: relative; width: 100%; flex: 1; min-height: 0; 
+    border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); 
+    aspect-ratio: 4/5; height: auto; max-height: 440px; margin: 0 auto;
+}
+html.dark .slider-container, html.dark .static-compare-container { border-color: rgba(255,255,255,0.1); }
+.slider-img, .static-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.slider-before { z-index: 1; }
+.slider-after { z-index: 2; clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%); transition: clip-path 0.1s ease; }
+.slider-input { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; opacity: 0; cursor: ew-resize; margin: 0; }
+.slider-line { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; z-index: 2; transform: translateX(-50%); pointer-events: none; transition: left 0.1s ease; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+.slider-line::after { content: '↔'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 32px; height: 32px; background: var(--gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.3); border: 2px solid white; font-size: 18px; }
+.interactive-label { display: flex; justify-content: space-between; margin-top: 16px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
+.il-left { color: var(--ink2); flex: 1; text-align: left; } 
+.il-right { color: var(--gold); flex: 1; text-align: right; }
+.interactive-hint { text-align: center; font-size: 11px; color: var(--ink3); margin-top: 8px; font-style: italic; flex-shrink: 0; }
+.vs-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--gold); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; border: 3px solid var(--body-bg); z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
-.comp-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-.comp-list li { display: flex; gap: 12px; font-size: 15px; color: var(--ink2); line-height: 1.6; align-items: flex-start; }
-.comp-list li strong { display: block; color: var(--ink0); font-weight: 600; margin-bottom: 4px;}
-.bad .comp-list li::before { content: '❌'; font-size: 14px; margin-top: 2px; }
-.good .comp-list li::before { content: '✅'; font-size: 14px; margin-top: 2px; }
+@media(max-width: 860px) {
+    /* REMOVED SIDE SCROLL FOR MOBILE - Vertical Stacking */
+    .portfolio-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 30px !important; }
+    .ba-card { width: 100% !important; max-width: 100% !important; margin: 0 !important; max-height: none !important; height: auto !important; }
+    .slider-container, .static-compare-container { max-height: none !important; }
+}
 
-/* ══════════════════════════════════════════════════
-   HOW IT WORKS (PROCESS)
-══════════════════════════════════════════════════ */
-.process-grid { display: grid; grid-template-columns: 1fr; gap: 40px; position: relative; margin-top: 50px;}
-.process-grid::before { content: ''; position: absolute; top: 0; bottom: 0; left: 40px; width: 2px; background: var(--glass-border-outer); z-index: 1; }
+/* ROI CALCULATOR CSS */
+.roi-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: var(--r); padding: clamp(30px, 5vw, 50px); box-shadow: var(--glass-shadow); width: 100%; text-align: center; transition: all 0.4s ease; }
+.roi-card:hover { box-shadow: var(--glass-shadow-hover); border-color: rgba(184,137,42,0.3); background: var(--glass-bg-strong); }
+.roi-header { margin-bottom: 30px; }
+.roi-header p { font-size: 16px; color: var(--ink2); font-weight: 500; }
+.roi-header span { color: var(--gold); font-weight: 800; font-size: 20px; }
+.roi-slider-wrap { position: relative; margin: 20px 0 40px; }
+.roi-slider-wrap input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+.roi-slider-wrap input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; background: var(--glass-border-outer); border-radius: 4px; border: 1px solid rgba(0,0,0,0.05); }
+.roi-slider-wrap input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 28px; width: 28px; border-radius: 50%; background: var(--gold); cursor: pointer; margin-top: -10px; box-shadow: 0 0 10px rgba(184,137,42,0.5); border: 2px solid white; }
+.roi-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media(max-width: 600px) { .roi-results { grid-template-columns: 1fr; gap: 16px; } }
+.roi-box { 
+    background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border-outer); 
+    border-radius: 16px; padding: 24px 20px; display: flex; flex-direction: column; justify-content: center;
+}
+html.dark .roi-box { background: rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.08); }
+.roi-box.highlight { background: rgba(184,137,42,0.08); border-color: var(--gold); transform: scale(1.05); box-shadow: 0 12px 32px rgba(184,137,42,0.15); padding: 32px 20px; }
+@media(max-width: 600px) { .roi-box.highlight { transform: scale(1); } }
+.roi-label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; font-weight: 700; color: var(--ink2); margin-bottom: 12px; display: block; letter-spacing: 1px;}
+.roi-val { font-family: var(--font-ui); font-size: 28px; font-weight: 800; color: var(--ink0); letter-spacing: -0.02em; }
+.roi-val.strike { text-decoration: line-through; color: var(--red); opacity: 0.7; }
+.roi-box.highlight .roi-val { color: var(--green); font-size: 36px; }
+
+/* PROMO VIDEO CSS (LANDSCAPE AD) */
+.promo-video-wrapper { width: 100%; margin: 0 auto; }
+.promo-video-container {
+    position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--glass-border-outer); box-shadow: var(--glass-shadow-hover);
+    background: #000; cursor: pointer;
+}
+.promo-video-container:hover { border-color: var(--gold); }
+.promo-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.4s; }
+.promo-video-container:hover .promo-video { opacity: 0.3; }
+.promo-overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 40px; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+}
+.promo-content { z-index: 2; transform: translateY(10px); transition: transform 0.4s; }
+.promo-video-container:hover .promo-content { transform: translateY(0); }
+.promo-tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 2px; display: block; margin-bottom: 8px; }
+.promo-title { font-family: var(--font-brand); font-size: clamp(20px, 3vw, 36px); font-weight: 700; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.8); line-height: 1.2; letter-spacing: -0.03em; }
+@media(max-width: 768px) {
+    .promo-overlay { padding: 20px; }
+}
+
+/* DEEP EXPLANATION */
+.deep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; max-width: 1280px;}
+.deep-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: clamp(24px, 3.5vw, 32px); border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; display: flex; flex-direction: column; position: relative; overflow: hidden;}
+.deep-card:hover { transform: translate3d(0,-5px,0); box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-strong); border-color: var(--gold); }
+.deep-ico { display: block; background: var(--glass-bg-strong); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 14px; border: 1px solid var(--glass-border-outer); box-shadow: inset 0 2px 4px rgba(255,255,255,0.5); margin-bottom: 20px; }
+.deep-ico svg { width: 30px; height: 30px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.deep-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block;}
+.deep-h3 { font-family: var(--font-brand); font-size: clamp(20px, 2vw, 24px); font-weight: 700; color: var(--ink0); margin-bottom: 14px; letter-spacing: -0.03em; line-height: 1.2;}
+.deep-p { font-size: clamp(14px, 1.4vw, 15px); color: var(--ink2); line-height: 1.7; margin-bottom: 20px;}
+.deep-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; border-top: 1px solid var(--glass-border-outer); padding-top: 16px; }
+.deep-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--ink1); font-weight: 500;}
+.deep-list li::before { content: '✓'; color: var(--green); font-weight: bold; font-size: 14px; margin-top: 2px;}
+
+/* MODEL & BACKGROUNDS GRID */
+.visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; width: 100%; max-width: 1280px;}
+.visual-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: var(--r); overflow: hidden; box-shadow: var(--glass-shadow); transition: all 0.4s ease; display: flex; flex-direction: column;}
+.visual-card:hover { transform: translate3d(0,-5px,0); box-shadow: var(--glass-shadow-hover); border-color: var(--gold); }
+.vc-img { width: 100%; aspect-ratio: 4/5; height: auto; object-fit: cover; border-bottom: 1px solid var(--glass-border-outer); }
+.vc-content { padding: 20px; text-align: center; }
+.vc-tag { font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block;}
+.vc-h3 { font-family: var(--font-brand); font-size: 18px; font-weight: 700; color: var(--ink0); margin-bottom: 8px; letter-spacing: -0.03em;}
+.vc-p { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+
+/* USE EVERYWHERE GRID */
+.use-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; width: 100%; max-width: 1280px;}
+.use-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 24px; border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; text-align: center; }
+.use-card:hover { transform: translateY(-5px); box-shadow: var(--glass-shadow-hover); border-color: var(--gold); background: var(--glass-bg-strong); }
+.use-ico { 
+    display: flex; justify-content: center; align-items: center; 
+    margin: 0 auto 20px; height: 70px; width: 70px; 
+    background: #ffffff; border-radius: 18px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+    padding: 14px; border: 1px solid rgba(0,0,0,0.05); 
+}
+.use-ico img { width: 100%; height: 100%; object-fit: contain; }
+.use-h3 { font-family: var(--font-brand); font-size: 18px; font-weight: 700; color: var(--ink0); letter-spacing: -0.03em;}
+
+/* PROCESS GRID */
+.process-grid { display: grid; grid-template-columns: 1fr; gap: 40px; position: relative; margin-top: 40px; width: 100%; max-width: 1000px; margin-inline: auto;}
+.process-grid::before { content: ''; position: absolute; top: 0; bottom: 0; left: 35px; width: 2px; background: var(--glass-border-outer); z-index: 1; }
 @media(max-width: 768px) { .process-grid::before { left: 20px; } }
-
-.process-step { display: grid; grid-template-columns: 80px 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; opacity: 0; transform: translate3d(0,40px,0); transition: all 0.8s var(--ease); }
+.process-step { display: grid; grid-template-columns: 70px 1fr; gap: 30px; align-items: start; position: relative; z-index: 2; opacity: 0; transform: translate3d(0,40px,0); transition: all 0.8s var(--ease); }
 .process-step.visible { opacity: 1; transform: translate3d(0,0,0); }
 @media(max-width: 768px) { .process-step { grid-template-columns: 40px 1fr; gap: 20px; } }
-
-.step-marker { width: 80px; height: 80px; background: var(--glass-bg-strong); backdrop-filter: blur(10px); border: 2px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 600; font-size: 24px; color: var(--ink2); transition: all 0.5s ease; box-shadow: 0 0 0 8px var(--sky0); }
-html.dark .step-marker { box-shadow: 0 0 0 8px var(--sky1); }
-@media(max-width: 768px) { .step-marker { width: 40px; height: 40px; font-size: 14px; box-shadow: 0 0 0 4px var(--sky0); } html.dark .step-marker { box-shadow: 0 0 0 4px var(--sky1); } }
-
-.process-step:hover .step-marker, .process-step.active .step-marker { border-color: var(--gold); color: var(--gold); background: rgba(184,137,42,0.1); box-shadow: 0 0 0 8px var(--sky0), 0 0 30px rgba(184,137,42,0.4); transform: scale(1.1); }
-html.dark .process-step:hover .step-marker, html.dark .process-step.active .step-marker { box-shadow: 0 0 0 8px var(--sky1), 0 0 30px rgba(227,179,65,0.3); }
-
-.step-content { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: clamp(24px, 4vw, 40px); border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; }
+.step-marker { width: 70px; height: 70px; background: var(--glass-bg-strong); backdrop-filter: blur(10px); border: 2px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: 20px; color: var(--ink2); transition: all 0.5s ease; box-shadow: 0 0 0 8px var(--body-bg); }
+html.dark .step-marker { box-shadow: 0 0 0 8px var(--body-bg); }
+@media(max-width: 768px) { .step-marker { width: 40px; height: 40px; font-size: 14px; box-shadow: 0 0 0 4px var(--body-bg); } }
+.process-step:hover .step-marker, .process-step.active .step-marker { border-color: var(--gold); color: var(--gold); background: rgba(184,137,42,0.1); box-shadow: 0 0 0 8px var(--body-bg), 0 0 30px rgba(184,137,42,0.4); transform: scale(1.1); }
+.step-content { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: clamp(24px, 4vw, 32px); border-radius: var(--r); box-shadow: var(--glass-shadow); transition: all 0.4s ease; display: grid; grid-template-columns: 1fr 180px; gap: 24px; align-items: center; }
+@media(max-width: 860px) { .step-content { grid-template-columns: 1fr; } }
 .process-step:hover .step-content { border-color: rgba(184,137,42,0.4); transform: translate3d(10px,0,0); box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-strong); }
+.step-img-box { width: 100%; height: 140px; border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border-outer); }
+.step-img-box img { width: 100%; height: 100%; object-fit: cover; }
+.step-tag { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block; font-weight: 700;}
+.step-h3 { font-family: var(--font-brand); font-size: clamp(18px, 2vw, 24px); font-weight: 700; color: var(--ink0); margin-bottom: 12px; letter-spacing: -0.03em; }
+.step-p { color: var(--ink2); line-height: 1.7; font-size: 14px; }
 
-.step-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: block; }
-.step-h3 { font-family: var(--font-serif); font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--ink0); margin-bottom: 16px; letter-spacing: -0.01em; }
-
-/* ══════════════════════════════════════════════════
-   REAL STORIES (CASE STUDIES)
-══════════════════════════════════════════════════ */
-.testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 60px; }
-
-.tc {
-  background: var(--glass-bg-strong); backdrop-filter: blur(20px);
-  padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 40px);
-  position: relative; overflow: hidden; transition: background .3s, transform .3s, box-shadow .3s;
-  border: 1px solid var(--glass-border); border-radius: var(--r); box-shadow: var(--glass-shadow);
-  opacity: 0; transform: translateY(30px); display: flex; flex-direction: column; gap: 24px;
+/* UPLOAD DUMMY UI WITH FORM */
+.upload-dummy-box { 
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; text-align: left;
+    margin: 40px auto 0; width: 100%; max-width: 1280px; padding: clamp(30px, 5vw, 50px);
+    background: var(--glass-bg); backdrop-filter: blur(10px); border: 2px dashed var(--gold); 
+    border-radius: var(--r); transition: all 0.3s var(--ease); box-shadow: var(--glass-shadow); scroll-margin-top: 100px; 
 }
-.tc.visible { opacity: 1; transform: translateY(0); }
-.tc:hover { box-shadow: var(--glass-shadow-hover); transform: translateY(-5px); background: var(--glass-bg); border-color: rgba(184,137,42,0.3);}
-.tc::before {
-  content: '"'; position: absolute; top: 10px; right: 20px;
-  font-family: var(--font-serif); font-size: 120px; color: var(--goldVL);
-  line-height: 1; pointer-events: none;
+@media(max-width: 860px) { 
+    .upload-dummy-box { grid-template-columns: 1fr; text-align: center; } 
+    .demo-form { margin: 0 auto; }
 }
-.tc-head { display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--glass-border-outer); padding-bottom: 20px;}
-.tc-icon { font-size: 32px; flex-shrink: 0; background: var(--glass-bg); padding: 12px; border-radius: 12px; border: 1px solid var(--glass-border-outer);}
-.tc-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 4px; letter-spacing: -0.01em;}
-.tc-ind { font-family: var(--font-mono); font-size: 10px; color: var(--ink2); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
+.upload-dummy-box:hover { background: var(--glass-bg-strong); box-shadow: 0 16px 40px rgba(184,137,42,0.15); border-style: solid; }
+.ud-icon { display: inline-block; animation: floatDash 3s infinite alternate ease-in-out; margin-bottom: 16px; }
+.ud-icon svg { width: 40px; height: 40px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ud-title { font-family: var(--font-brand); font-size: clamp(22px, 2.5vw, 28px); font-weight: 700; color: var(--ink0); margin-bottom: 10px; letter-spacing: -0.03em; line-height: 1.2;}
+.ud-p { font-size: 14px; color: var(--ink2); margin-bottom: 20px; line-height: 1.7;}
+.demo-form { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 500px; }
+.demo-form input, .demo-form textarea { padding: 12px 16px; border-radius: 10px; border: 1px solid var(--glass-border-outer); background: rgba(255,255,255,0.8); font-family: var(--font-ui); font-size: 14px; color: var(--ink0); outline: none; transition: border-color 0.3s; width: 100%; }
+.demo-form textarea { resize: vertical; min-height: 80px; }
+html.dark .demo-form input, html.dark .demo-form textarea { background: rgba(0,0,0,0.5); color: #fff; border-color: rgba(255,255,255,0.2); }
+.demo-form input:focus, .demo-form textarea:focus { border-color: var(--gold); }
+.demo-form input[type="file"] { padding: 10px 16px; background: rgba(184,137,42,0.05); border: 1px dashed var(--gold); color: var(--ink1); cursor: pointer; }
+html.dark .demo-form input[type="file"] { color: var(--ink1); }
+.ud-btn { display: inline-block; padding: 12px 24px; background: rgba(184,137,42,0.1); color: var(--gold); font-family: var(--font-mono); font-weight: 700; border-radius: 8px; border: 1px solid rgba(184,137,42,0.4); text-transform: uppercase; font-size: 13px; letter-spacing: 1px; transition: 0.3s; cursor: pointer; text-align: center; }
+.ud-btn:hover:not(:disabled) { background: var(--gold); color: white; }
+.ud-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
-.tc-txt { font-family: var(--font-ui); font-weight: 500; font-size: clamp(15px, 1.5vw, 17px); color: var(--ink1); line-height: 1.8; position: relative; z-index: 2;}
-
-.tc-auth { display: flex; gap: 16px; align-items: center; border-top: 1px solid var(--glass-border-outer); padding-top: 24px; }
-.tc-av { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: 15px; color: #fff; background: linear-gradient(135deg, var(--goldL), var(--gold)); box-shadow: 0 4px 12px rgba(184,137,42,.3); }
-.tc-nm { font-size: 16px; font-weight: 700; color: var(--ink0); }
-.tc-rl { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--ink2); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em;}
-
-/* ══════════════════════════════════════════════════
-   BOTTOM CTA & FOOTER
-══════════════════════════════════════════════════ */
-.cta-sec { 
-    background: linear-gradient(135deg,rgba(255,255,255,.8),rgba(220,235,255,.5));
-    padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 60px); 
-    text-align: center; border-top: 1px solid var(--glass-border-outer); border-bottom: 1px solid var(--glass-border-outer);
-    position: relative; z-index: 10;
+/* HORIZONTAL MOBILE SCROLLING FOR SPECIFIC CARDS ONLY */
+@media(max-width: 860px) {
+    .deep-grid, .visual-grid {
+        display: flex !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        gap: 16px !important;
+        margin: 0 -24px;
+        padding: 4px 24px 32px 24px !important;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        scroll-padding-left: 24px;
+    }
+    .deep-grid::-webkit-scrollbar, .visual-grid::-webkit-scrollbar { display: none; }
+    
+    .deep-card, .visual-card {
+        flex: 0 0 80% !important;
+        max-width: 80% !important;
+        scroll-snap-align: center;
+        margin-bottom: 0 !important;
+    }
 }
+
+/* 4 ICONS IN A SINGLE ROW FOR MOBILE (NO SCROLLING) */
+@media(max-width: 600px) {
+    .deep-grid, .visual-grid { margin: 0 -20px; padding: 4px 20px 32px 20px !important; scroll-padding-left: 20px; }
+    .deep-card, .visual-card { flex: 0 0 85% !important; max-width: 85% !important; }
+    
+    .use-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+    }
+    .use-card {
+        padding: 12px 4px !important;
+        border-radius: 12px !important;
+    }
+    .use-ico {
+        width: 36px !important; 
+        height: 36px !important; 
+        padding: 6px !important; 
+        margin: 0 auto 8px !important; 
+        border-radius: 10px !important;
+    }
+    .use-h3 {
+        font-size: 9px !important; 
+        line-height: 1.2 !important;
+        letter-spacing: 0 !important;
+    }
+}
+
+/* BOTTOM CTA & FOOTER */
+.cta-sec { background: linear-gradient(135deg,rgba(255,255,255,.8),rgba(220,235,255,.5)); text-align: center; border-top: 1px solid var(--glass-border-outer); border-bottom: 1px solid var(--glass-border-outer); position: relative; z-index: 10; }
 html.dark .cta-sec { background: linear-gradient(135deg,rgba(13,17,23,.95),rgba(22,27,34,.85)); }
+.cta-h2 { font-family: var(--font-brand); font-size: clamp(32px, 4.5vw, 56px); font-weight: 700; letter-spacing: -0.03em; color: var(--ink0); margin-bottom: 20px; }
+.cta-p { font-size: clamp(15px, 1.4vw, 18px); color: var(--ink2); max-width: 600px; margin: 0 auto 32px; line-height: 1.8; }
 
-.cta-h2 { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 72px); font-weight: 800; letter-spacing: -0.02em; color: var(--ink0); margin-bottom: 24px; }
-.cta-p { font-size: clamp(16px, 1.6vw, 20px); color: var(--ink2); max-width: 600px; margin: 0 auto 40px; line-height: 1.8; }
-
-footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px solid var(--glass-border-outer); padding:clamp(44px,7vw,80px) clamp(16px,5vw,60px) clamp(20px,3vw,32px); position: relative; z-index: 10; }
+footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px solid var(--glass-border-outer); padding:clamp(80px,8vw,140px) clamp(24px,6vw,100px) clamp(32px,4vw,48px); position: relative; z-index: 10; }
 .ft-inner{max-width:1280px;margin:0 auto}
 .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(22px,4vw,56px);margin-bottom:clamp(36px,5vw,56px)}
 @media(max-width:760px){.ft-top{grid-template-columns:1fr 1fr}}
 @media(max-width:440px){.ft-top{grid-template-columns:1fr}}
-.ft-tagline{font-family:var(--font-serif);font-style:normal;font-weight:500;font-size:clamp(15px,1.5vw,18px);color:var(--ink2);margin-bottom:12px}
-.ft-desc{font-size:clamp(14px,1.4vw,17px);color:var(--ink2);line-height:1.75;max-width:320px;margin-bottom:18px}
+.ft-tagline{font-family:var(--font-brand);font-style:normal;font-weight:700;font-size:clamp(14px,1.4vw,17px);color:var(--ink2);margin-bottom:12px; letter-spacing: 1px;}
+.ft-desc{font-size:clamp(13px,1.3vw,16px);color:var(--ink2);line-height:1.75;max-width:320px;margin-bottom:18px}
 .ft-socials{display:flex;gap:10px}
-.ft-soc-btn{ width:38px;height:38px; background:var(--glass-bg-strong);border:1px solid var(--glass-border); border-radius:10px;display:flex;align-items:center;justify-content:center; font-size:16px;transition:all .15s;color:var(--ink2); box-shadow:0 2px 6px rgba(100,140,200,.1); }
+.ft-soc-btn{ width:36px;height:36px; background:var(--glass-bg-strong);border:1px solid var(--glass-border); border-radius:10px;display:flex;align-items:center;justify-content:center; font-size:15px;transition:all .15s;color:var(--ink2); box-shadow:0 2px 6px rgba(100,140,200,.1); }
 .ft-soc-btn:hover{border-color:rgba(184,137,42,.3);color:var(--gold);transform:translate3d(0,-1px,0)}
-.ft-col-h{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:0.03em;color:var(--ink0);text-transform:uppercase;margin-bottom:18px}
-.ft-links{display:flex;flex-direction:column;gap:12px}
-.ft-links a{font-size:clamp(14px,1.4vw,16px);color:var(--ink2);transition:color .15s}
+.ft-soc-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ft-col-h{font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.05em;color:var(--ink0);text-transform:uppercase;margin-bottom:16px}
+.ft-links{display:flex;flex-direction:column;gap:10px}
+.ft-links a{font-size:clamp(13px,1.3vw,15px);color:var(--ink2);transition:color .15s; font-weight: 500;}
 .ft-links a:hover{color:var(--gold)}
+.ft-links svg { width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 6px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ft-bottom{ display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px; border-top:1px solid var(--glass-border-outer);padding-top:clamp(14px,2.5vw,20px); }
-.ft-copy{font-family:var(--font-mono);font-size:12px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase}
+.ft-copy{font-family:var(--font-mono);font-size:11px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase; font-weight: 600;}
 .ft-legal{display:flex;gap:24px}
-.ft-legal a{font-family:var(--font-mono);font-size:12px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase;transition:color .15s}
+.ft-legal a{font-family:var(--font-mono);font-size:11px;letter-spacing:0.02em;color:var(--ink2);text-transform:uppercase;transition:color .15s; font-weight: 600;}
 .ft-legal a:hover{color:var(--gold)}
 
-/* Scroll Animation Classes */
+/* Animations */
 .fade-up { opacity: 0; transform: translate3d(0,30px,0); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .fade-up.visible { opacity: 1; transform: translate3d(0,0,0); }
 .delay-1 { transition-delay: 0.1s; }
@@ -453,9 +612,7 @@ footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px 
     <a href="https://scalviq-web.vercel.app/index.html#contact" class="nl">Contact</a>
   </div>
   <div class="nav-end">
-    <a href="https://wa.me/919050728595?text=Hi%20SCALVIQ%2C%20I%20want%20to%20know%20more." target="_blank" rel="noopener" class="btn-nav-wa">💬 WhatsApp</a>
-    <!-- THEME TOGGLE -->
-    <label class="theme-toggle" title="Switch between Sky and Cosmos mode">
+    <label class="theme-toggle" title="Switch Theme">
       <input type="checkbox" id="themeToggle" onchange="toggleTheme(this)">
       <div class="tt-track"></div>
       <div class="tt-thumb" id="ttThumb">☀️</div>
@@ -464,241 +621,422 @@ footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px 
   </div>
 </nav>
 
-<!-- HERO SECTION -->
+<!-- 1. HERO SECTION -->
 <section class="hero">
   <div class="hero-text">
-    <div class="hero-chip fade-up">✦ NEXT-GEN CATALOGING</div>
-    <h1 class="hero-h1 fade-up delay-1">AI Catalog Shoot<br><em>Premium, Fast, Secure.</em></h1>
-    <p class="hero-p fade-up delay-2">Stop burning cash on traditional studios. Traditional photoshoots are slow, expensive, and put your unreleased designs at severe piracy risk. With SCALVIQ AI Catalog, get Amazon-ready, high-end luxury lifestyle images in just 24 hours. Zero physical shipping, zero studios, and massive cost savings.</p>
-    <div class="fade-up delay-2" style="animation-delay: 0.3s;">
-      <a href="https://scalviq-web.vercel.app/index.html#contact" class="btn-primary">Transform My Products →</a>
+    <div class="hero-pill fade-up">
+        <div class="pill-dot"></div>
+        <div class="pill-txt">FOR MANUFACTURERS & WHOLESALERS</div>
+    </div>
+    
+    <!-- HIGHLY ENGAGING TYPEWRITER TEXT - SAFE HEIGHT -->
+    <h1 class="hero-h1 fade-up delay-1">
+        Turn Simple Phone Pics Into<br>
+        <span class="tw-wrap">
+            <span class="tw-text" id="typewriter"></span><span class="tw-cursor">|</span>
+        </span>
+    </h1>
+    
+    <p class="hero-p fade-up delay-2">Tired of paying ₹50,000+ for studios, managing models, and risking your unreleased designs to piracy? Just click a normal photo from your factory. We deliver high-converting catalog images in 24 hours.</p>
+    
+    <!-- PREMIUM PRICING BOX -->
+    <div class="premium-price-box fade-up delay-2">
+        <div class="ppb-left">
+            <span class="ppb-label">Pricing From</span>
+            <div class="ppb-price"><span class="rs">₹</span>150</div>
+            <span class="ppb-unit">/ Design (Per Shoot)</span>
+        </div>
+        <div class="ppb-divider"></div>
+        <div class="ppb-right">
+            <span>Volume Discounts</span>
+            <span>No Minimum Order</span>
+        </div>
+    </div>
+
+    <div class="hero-cta-wrap fade-up delay-2">
+      <a href="https://wa.me/919050728595?text=Hi%20Nishant%2C%20I'd%20like%20to%20book%20a%20shoot!" target="_blank" class="btn-primary">START YOUR PROJECT →</a>
+      <a href="#uploadFormContainer" class="btn-secondary">
+          Get a Free Demo 
+          <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+      </a>
     </div>
   </div>
   
-  <!-- DETAILED AI STUDIO VISUAL -->
   <div class="hero-visual fade-up delay-2">
-    <!-- Smooth Rings added behind -->
-    <div class="hero-rings"><div class="glow-orb"></div><div class="ring r1"></div><div class="ring r2"></div></div>
-    
     <div class="tech-grid-bg"></div>
-
-    <!-- AI Premium Image Wrap -->
     <div class="ai-image-wrap">
       <div class="ai-badge">✨ AI RENDERED</div>
-      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=80" alt="Premium AI Product Photo" class="ai-main-img">
+      <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641357/ROYAL_uzn5ko.jpg" alt="Premium AI Cosmetic Setup" class="ai-main-img">
     </div>
 
-    <!-- Floating Card 1: Speed (Z-index: 30) -->
     <div class="dash-card dc-float dc-f1">
-      <div class="dc-icon-box">⏱️</div>
+      <div class="dc-icon-box">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      </div>
       <div class="dc-info">
         <div class="dcf-title">Delivery</div>
-        <div class="dcf-val">24 Hrs</div>
-        <div class="dcf-sub">To your inbox</div>
+        <div class="dcf-val">24-48 Hrs</div>
+        <div class="dcf-sub">Direct to Inbox</div>
       </div>
     </div>
 
-    <!-- Floating Card 2: Quality (Z-index: 30) -->
     <div class="dash-card dc-float dc-f2">
-      <div class="dc-icon-box">📸</div>
+      <div class="dc-icon-box">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 1 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      </div>
       <div class="dc-info">
-        <div class="dcf-title">Quality</div>
-        <div class="dcf-val">Studio Grade</div>
-        <div class="dcf-sub" style="color:var(--gold);">8K Resolution</div>
+        <div class="dcf-title">Cost Saved</div>
+        <div class="dcf-val">90%</div>
+        <div class="dcf-sub" style="color:var(--green);">vs Physical Studio</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHERE TO USE & WHO IS IT FOR -->
-<section class="sec">
+<!-- 2. PORTFOLIO / BEFORE & AFTER (Visual Proof First) -->
+<section class="sec" id="portfolio">
   <div class="sec-header fade-up">
-    <h2 class="sec-title">One Shoot. Infinite Platforms.</h2>
-    <p class="sec-subtitle">Aap ek hi raw photo se har platform ke hisaab se perfect image generate karwa sakte hain. Maximize your sales across all digital touchpoints.</p>
+    <h2 class="sec-title">Same Product. Higher Value.<br>Better Conversion.</h2>
+    <p class="sec-subtitle">See how we transform basic dummy shots into premium lifestyle visuals. No reshoot. No model booking. No photographer.</p>
   </div>
 
-  <div class="cap-grid" style="margin-bottom: 80px;">
-    <div class="cap-card scroll-anim">
-      <div class="cap-ico">🛒</div>
-      <h3 class="cap-h3">Amazon & Flipkart</h3>
-      <p class="cap-p">E-commerce marketplaces require pure <strong>white background (RGB 255)</strong> images with sharp, natural shadows. We deliver exact dimension images that get approved instantly.</p>
+  <div class="portfolio-grid">
+    
+    <!-- INTERACTIVE BEFORE/AFTER SLIDER CARD -->
+    <div class="ba-card scroll-anim">
+        <h3 style="font-family: var(--font-brand); font-size: 18px; font-weight: 700; text-align: center; margin-bottom: 10px; letter-spacing: -0.03em;">Drag To See The Magic</h3>
+        <div class="slider-container" id="slider1">
+            <img class="slider-img slider-before" src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641359/before1_p4slis.jpg" alt="Raw Dummy Image">
+            <img class="slider-img slider-after" src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641632/489_suzkn3.jpg" alt="Premium AI Image">
+            <input type="range" min="0" max="100" value="50" class="slider-input">
+            <div class="slider-line"></div>
+        </div>
+        <div class="interactive-label">
+            <span class="il-left">BEFORE (Dummy Pic)</span>
+            <span class="il-right">AFTER (SCALVIQ AI)</span>
+        </div>
+        <p class="interactive-hint">Slide left or right</p>
     </div>
-    <div class="cap-card scroll-anim delay-1">
-      <div class="cap-ico">📱</div>
-      <h3 class="cap-h3">Instagram & Facebook</h3>
-      <p class="cap-p">Social media par plain white background nahi bikta, wahan lifestyle appeal chahiye. Hum aapke product ko <strong>luxury environments</strong> mein place karte hain jo scroll rok kar click laaye.</p>
-    </div>
-    <div class="cap-card scroll-anim delay-2">
-      <div class="cap-ico">💬</div>
-      <h3 class="cap-h3">B2B WhatsApp Catalogs</h3>
-      <p class="cap-p">Wholesale buyers aur retailers ko impress karne ke liye <strong>high-resolution PDF catalogs</strong>. Aapka first impression bilkul kisi top international brand jaisa hona chahiye.</p>
-    </div>
-  </div>
 
-  <div class="sec-header fade-up">
-    <h2 class="sec-title">Who Is This Perfect For?</h2>
-    <p class="sec-subtitle">Agar aap inme se kisi bhi industry mein hain, toh AI Catalog aapke time aur lakho rupaye bacha sakta hai.</p>
-  </div>
-
-  <div class="cap-grid">
-    <div class="cap-card scroll-anim" style="padding: 24px;">
-      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">👗 Fashion & Apparel</h3>
-      <p class="cap-p"><strong>Save unreleased designs from piracy.</strong> Flat-lay ya normal mobile photos ko ghost-mannequin ya luxury background mein convert karein bina sample studio bheje.</p>
-    </div>
-    <div class="cap-card scroll-anim delay-1" style="padding: 24px;">
-      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">💎 Jewellery</h3>
-      <p class="cap-p">Jewellery shoot mein reflection aur lighting sabse mushkil hoti hai. AI se humein milti hai <strong>flawless macro-lighting</strong> aur premium velvet ya marble podiums.</p>
-    </div>
-    <div class="cap-card scroll-anim delay-2" style="padding: 24px;">
-      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">🛋️ Home Decor</h3>
-      <p class="cap-p">Ab ek sofa ya lamp shoot karne ke liye mehnge villas rent karne ki zaroorat nahi. <strong>Place your furniture in million-dollar living rooms</strong> instantly through AI.</p>
-    </div>
-    <div class="cap-card scroll-anim delay-3" style="padding: 24px;">
-      <h3 class="cap-h3" style="font-size: 20px; display:flex; align-items:center; gap:10px;">💄 Beauty & Cosmetics</h3>
-      <p class="cap-p">Cosmetics ko premium dikhane ke liye water splashes, floral setups, aur <strong>high-end studio aesthetics</strong> zaroori hain, jo customer ka trust turant build karte hain.</p>
+    <!-- STANDARD STATIC COMPARISON -->
+    <div class="ba-card scroll-anim delay-1">
+        <h3 style="font-family: var(--font-brand); font-size: 18px; font-weight: 700; text-align: center; margin-bottom: 10px; letter-spacing: -0.03em;">Side-By-Side View</h3>
+        <div class="static-compare-container" style="display: flex; gap: 8px;">
+            <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641360/Before_1_acmrb5.jpg" alt="Raw Dummy Image" class="static-img" style="position: relative; flex: 1; width: 50%; height: 100%; object-fit: cover; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1);">
+            <div class="vs-badge" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5;">VS</div>
+            <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641359/After2_tr2wyu.jpg" alt="Premium AI Image" class="static-img" style="position: relative; flex: 1; width: 50%; height: 100%; object-fit: cover; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1);">
+        </div>
+        <div class="interactive-label">
+            <span class="il-left" style="flex: 1; text-align: left;">BEFORE (Dummy)</span>
+            <span class="il-right" style="flex: 1; text-align: right;">AFTER (SCALVIQ AI)</span>
+        </div>
+        <p class="interactive-hint" style="visibility: hidden;">Spacer text</p>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON SECTION -->
+<!-- 3. ROI / COST SAVINGS CALCULATOR (Logical Justification) -->
+<section class="sec" style="padding-top: 20px;">
+    <div class="roi-card scroll-anim">
+        <div class="roi-header">
+            <h2 class="sec-title" style="font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px;">See How Much You Save</h2>
+            <p>If you launch <span id="design-count" style="font-family: var(--font-brand);">50</span> new designs this month:</p>
+        </div>
+        
+        <div class="roi-slider-wrap">
+            <input type="range" id="roi-slider" min="10" max="500" value="50" step="10">
+        </div>
+
+        <div class="roi-results">
+            <div class="roi-box">
+                <span class="roi-label">Traditional Studio Cost</span>
+                <span class="roi-val strike" id="cost-trad"><span class="rs">₹</span>50,000</span>
+            </div>
+            <div class="roi-box">
+                <span class="roi-label">SCALVIQ Cost</span>
+                <span class="roi-val" id="cost-us"><span class="rs">₹</span>7,500</span>
+            </div>
+            <div class="roi-box highlight">
+                <span class="roi-label" style="color: var(--gold);">Your Total Savings</span>
+                <span class="roi-val" id="cost-saved"><span class="rs">₹</span>42,500</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. BRAND PROMO VIDEO (Building Authority) -->
 <section class="sec">
+    <div class="sec-header fade-up">
+        <h2 class="sec-title">Experience SCALVIQ</h2>
+        <p class="sec-subtitle">Watch how we engineer high-end e-commerce photography without cameras, sets, or limits.</p>
+    </div>
+    
+    <div class="promo-video-wrapper scroll-anim delay-1">
+        <div class="promo-video-container">
+            <!-- REPLACE THIS WITH YOUR 16:9 MP4 URL -->
+            <video class="promo-video" autoplay muted loop playsinline poster="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641357/how_we_work_vx9qf0.jpg">
+                <source src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641357/how_we_work_vx9qf0.jpg" type="video/mp4">
+            </video>
+
+            <div class="promo-overlay">
+                <div class="promo-content">
+                    <span class="promo-tag">SCALVIQ AI SHOWCASE</span>
+                    <h3 class="promo-title" style="font-family: var(--font-brand);">The Future of E-Commerce<br>Cataloging is Here.</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. WHY CHOOSE US (Overcoming Objections) -->
+<section class="sec" id="benefits">
   <div class="sec-header fade-up">
-    <h2 class="sec-title">Why the Industry is Shifting</h2>
-    <p class="sec-subtitle">A direct comparison of why traditional studios are becoming obsolete for modern fast-fashion and e-commerce brands.</p>
+    <h2 class="sec-title">Engineered For Your Business</h2>
+    <p class="sec-subtitle">We solve the core logistical problems holding your specific industry back.</p>
   </div>
 
-  <div class="comp-grid">
-    <!-- Bad Card (Traditional) -->
-    <div class="comp-card bad fade-up">
-      <h3 class="comp-title">Traditional Studios</h3>
-      <ul class="comp-list">
-        <li><div><strong>High Costs:</strong> Paying for models, photographers, lighting, and rented studio space.</div></li>
-        <li><div><strong>10-15 Days Delay:</strong> Booking, shipping products, shooting, editing—wasting crucial market time.</div></li>
-        <li><div><strong>Piracy Risk:</strong> Sending unreleased samples out means your designs can be easily copied and leaked before your launch.</div></li>
-        <li><div><strong>Limited Backgrounds:</strong> You are stuck with the 2-3 backgrounds available in the physical studio.</div></li>
+  <div class="deep-grid">
+    <div class="deep-card scroll-anim">
+      <div class="deep-ico">
+          <svg viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M17 18h1"></path><path d="M12 18h1"></path><path d="M7 18h1"></path></svg>
+      </div>
+      <span class="deep-tag">For Manufacturers & Factories</span>
+      <h3 class="deep-h3">Zero Piracy. Ultimate Security.</h3>
+      <p class="deep-p">Sending unreleased garments or products to third-party studios means risking your intellectual property. Your designs could be copied before they even hit the market.</p>
+      <ul class="deep-list">
+        <li>No photographer required in your factory</li>
+        <li>No travel or studio cost</li>
+        <li>100% protection against design theft</li>
       </ul>
     </div>
-    <!-- Good Card (SCALVIQ AI) -->
-    <div class="comp-card good fade-up delay-1">
-      <h3 class="comp-title">SCALVIQ AI Catalog</h3>
-      <ul class="comp-list">
-        <li><div><strong>Up to 90% Cheaper:</strong> No physical resources needed. Perfect for startups and bulk manufacturers.</div></li>
-        <li><div><strong>24-Hour Delivery:</strong> Send raw photos today, get premium Amazon/Instagram ready images tomorrow.</div></li>
-        <li><div><strong>100% Design Security:</strong> Shoot raw photos inside your own factory. Zero risk of design or fabric theft.</div></li>
-        <li><div><strong>Infinite Lifestyle Scenes:</strong> Place your product in a luxury villa, on a beach, or a festive Diwali setup instantly.</div></li>
+
+    <div class="deep-card scroll-anim delay-1">
+      <div class="deep-ico">
+          <svg viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+      </div>
+      <span class="deep-tag">For Wholesalers & B2B</span>
+      <h3 class="deep-h3">Overnight Bulk Catalogs</h3>
+      <p class="deep-p">International buyers expect highly professional catalogs. Waiting 15-20 days for a traditional photoshoot means losing the buyer to a faster competitor.</p>
+      <ul class="deep-list">
+        <li>No model booking required</li>
+        <li>Faster catalogue upload (24-48 Hrs)</li>
+        <li>Look like a premium international exporter instantly</li>
+      </ul>
+    </div>
+
+    <div class="deep-card scroll-anim delay-2">
+      <div class="deep-ico">
+          <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+      </div>
+      <span class="deep-tag">For New & Growing Brands</span>
+      <h3 class="deep-h3">Premium Look, Startup Budget</h3>
+      <p class="deep-p">A high-end photoshoot can cost over ₹50,000. We level the playing field, giving you access to million-dollar aesthetics without the heavy investment.</p>
+      <ul class="deep-list">
+        <li>No reshoot headache</li>
+        <li>Starting at just ₹150 / Design</li>
+        <li><strong>Free Demo Available</strong> to test before you invest!</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS (THE PROCESS) -->
+<!-- 6. MODEL SELECTION (Desire Expansion) -->
+<section class="sec" style="background: linear-gradient(to bottom, transparent, var(--glass-bg), transparent);">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">Choose the Right Model for Your Buyers</h2>
+    <p class="sec-subtitle">All models are AI-generated. No copyright risk.</p>
+  </div>
+
+  <div class="visual-grid">
+      <div class="visual-card scroll-anim">
+          <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641360/Indian_rot3rj.jpg" alt="Indian Model" class="vc-img">
+          <div class="vc-content">
+              <span class="vc-tag">Marketplace Ready</span>
+              <h3 class="vc-h3">Indian Selling Model</h3>
+              <p class="vc-p">Best for ethnic wear & Indian marketplaces.</p>
+          </div>
+      </div>
+      <div class="visual-card scroll-anim delay-1">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80" alt="Export Model" class="vc-img">
+          <div class="vc-content">
+              <span class="vc-tag">Global Appeal</span>
+              <h3 class="vc-h3">Export / International</h3>
+              <p class="vc-p">For global buyers & international websites.</p>
+          </div>
+      </div>
+      <div class="visual-card scroll-anim delay-2">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Custom Model" class="vc-img">
+          <div class="vc-content">
+              <span class="vc-tag">Tailored For You</span>
+              <h3 class="vc-h3">Custom Model Request</h3>
+              <p class="vc-p">Any ethnicity, age or style you need.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- 7. BACKGROUNDS SELECTION -->
 <section class="sec">
   <div class="sec-header fade-up">
-    <h2 class="sec-title">Our Proprietary AI Workflow</h2>
-    <p class="sec-subtitle">What makes SCALVIQ different? We don't just use automated apps. We combine complex AI prompting with strict human Quality Assurance to ensure your product looks 100% authentic.</p>
+    <h2 class="sec-title">Backgrounds That Fit Your Selling Channel</h2>
+    <p class="sec-subtitle">Marketplace-safe & brand-ready formats for every need.</p>
+  </div>
+
+  <div class="visual-grid">
+      <div class="visual-card scroll-anim">
+          <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641357/WHITE_aweawg.jpg" alt="White Background" class="vc-img">
+          <div class="vc-content">
+              <h3 class="vc-h3">White Background</h3>
+              <p class="vc-p">Amazon friendly</p>
+          </div>
+      </div>
+      <div class="visual-card scroll-anim delay-1">
+          <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641359/Studio_xrwb4p.jpg" alt="Studio Look" class="vc-img">
+          <div class="vc-content">
+              <h3 class="vc-h3">Studio Look</h3>
+              <p class="vc-p">Professional setting</p>
+          </div>
+      </div>
+      <div class="visual-card scroll-anim delay-2">
+          <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641357/ROYAL_uzn5ko.jpg" alt="Lifestyle / Heritage" class="vc-img">
+          <div class="vc-content">
+              <h3 class="vc-h3">Lifestyle / Heritage</h3>
+              <p class="vc-p">Indian appeal</p>
+          </div>
+      </div>
+      <div class="visual-card scroll-anim delay-3">
+          <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641358/international_qnuqyx.jpg" alt="Export Style Locations" class="vc-img">
+          <div class="vc-content">
+              <h3 class="vc-h3">Export Style Locations</h3>
+              <p class="vc-p">Global buyers</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- 8. PLATFORMS SECTION (Omnichannel Value) -->
+<section class="sec" style="padding-top: 40px; padding-bottom: 40px;">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title" style="font-size: clamp(26px, 3.5vw, 42px);">Use These Images Everywhere</h2>
+    <p class="sec-subtitle">One photoshoot. Multiple platforms. Maximum reach.</p>
+  </div>
+  
+  <div class="use-grid">
+      <div class="use-card scroll-anim">
+          <div class="use-ico">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon Logo">
+          </div>
+          <h3 class="use-h3">Amazon / Flipkart</h3>
+      </div>
+      <div class="use-card scroll-anim delay-1">
+          <div class="use-ico">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram Logo">
+          </div>
+          <h3 class="use-h3">Instagram Post</h3>
+      </div>
+      <div class="use-card scroll-anim delay-2">
+          <div class="use-ico">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+          </div>
+          <h3 class="use-h3">WhatsApp Catalogue</h3>
+      </div>
+      <div class="use-card scroll-anim delay-3">
+          <div class="use-ico">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="PDF Logo">
+          </div>
+          <h3 class="use-h3">Lookbook PDF</h3>
+      </div>
+  </div>
+</section>
+
+<!-- 9. PROCESS SECTION (Trust & Clarity) -->
+<section class="sec" id="process">
+  <div class="sec-header fade-up">
+    <h2 class="sec-title">How It Works in 24 Hours</h2>
+    <p class="sec-subtitle">A seamless workflow designed to take zero effort from your side. You focus on manufacturing; we handle the aesthetics.</p>
   </div>
 
   <div class="process-grid">
     <div class="process-step scroll-anim">
       <div class="step-marker">01</div>
       <div class="step-content">
-        <span class="step-tag">Capture</span>
-        <h3 class="step-h3">You Click Raw Photos</h3>
-        <p class="step-p">Aapko apna product kahin bhejne ki zaroorat nahi hai. Just place your product on a plain background (even a table or floor) under decent lighting and click photos from your mobile phone. Secure and instant.</p>
+        <div>
+            <span class="step-tag">Step 1</span>
+            <h3 class="step-h3">Click a Phone Photo</h3>
+            <p class="step-p">Keep your product on a dummy, a plain floor, table, or hanger. Ensure there is decent lighting. Click a clear picture from your smartphone and WhatsApp it to us. No DSLR required.</p>
+        </div>
+        <div class="step-img-box">
+            <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641357/click_e3q1fn.jpg" alt="Click photo">
+        </div>
       </div>
     </div>
 
     <div class="process-step scroll-anim">
       <div class="step-marker">02</div>
       <div class="step-content">
-        <span class="step-tag">Intelligence</span>
-        <h3 class="step-h3">Custom AI Prompting</h3>
-        <p class="step-p">Yahan humari expertise aati hai. Humare AI Engineers aapke brand aesthetic ke according <strong>highly complex, customized prompts</strong> likhte hain. Hum AI ko sikhate hain ki background kaisa hona chahiye, lighting kis angle se aani chahiye, aur shadow kaise fall karni chahiye taaki photo fake na lage.</p>
+        <div>
+            <span class="step-tag">Step 2</span>
+            <h3 class="step-h3">Select Model & Background</h3>
+            <p class="step-p">Tell us your selling channel. Need an Indian model for Flipkart? A white background for Amazon? Or a luxury lifestyle setting for Instagram? We map your requirements.</p>
+        </div>
+        <div class="step-img-box">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&q=80" alt="AI Processing">
+        </div>
       </div>
     </div>
 
     <div class="process-step scroll-anim">
       <div class="step-marker">03</div>
       <div class="step-content">
-        <span class="step-tag">Generation</span>
-        <h3 class="step-h3">AI Enhancement & Rendering</h3>
-        <p class="step-p">The AI generates the image, seamlessly integrating your product into the chosen luxury environment (e.g., a modern living room, a marble podium, or a festive setup) while automatically color-correcting and enhancing the raw image quality.</p>
-      </div>
-    </div>
-
-    <div class="process-step scroll-anim">
-      <div class="step-marker">04</div>
-      <div class="step-content">
-        <span class="step-tag">Perfection</span>
-        <h3 class="step-h3">Strict Human Q.A. & Editing</h3>
-        <p class="step-p">Sabse zaroori step. Ek aam AI tool aksar product ka fabric, color ya buttons change kar deta hai. <strong>Our professional photo editors manually inspect every single pixel.</strong> Hum ensure karte hain ki aapke product ka original design 100% same rahe aur final image Amazon/Flipkart ke guidelines ke hisaab se perfect ho.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REAL STORIES (CASE STUDIES) -->
-<section class="sec" style="padding-top: 60px;">
-  <div class="sec-header fade-up">
-    <h2 class="sec-title">Real Client Stories</h2>
-    <p class="sec-subtitle">Don't just take our word for it. Read how SCALVIQ AI solved massive, real-world problems for entirely different industries.</p>
-  </div>
-
-  <div class="testimonial-grid">
-    <!-- Story 1 -->
-    <div class="tc scroll-anim">
-      <div class="tc-head">
-        <div class="tc-icon">🚨</div>
         <div>
-          <div class="tc-title">The 15-Day Piracy Trap</div>
-          <div class="tc-ind">Apparel Manufacturer · Bulk Export</div>
+            <span class="step-tag">Step 3</span>
+            <h3 class="step-h3">Strict Quality Assurance</h3>
+            <p class="step-p">AI makes mistakes. That's why our human Photoshop experts manually fix lighting, shadows, and ensure your product's fabric, color, and texture look 100% real before delivering in 24-48 hours.</p>
         </div>
-      </div>
-      <div class="tc-txt">
-        "We are a top clothing manufacturer. We used to send our unreleased garments to prominent studios in Delhi for catalog shoots. The process took 15 days. But here was the nightmare: <strong>before we even received our photos, competitors had bribed studio staff, replicated our exact fabric and buttons, and flooded the market.</strong> We were losing our biggest buyers because our exclusivity was gone. 
-        <br><br>
-        SCALVIQ AI changed everything. Now, we shoot raw samples inside our locked factory. We send the photos to SCALVIQ, and within 24 hours, we get stunning, premium lifestyle catalogs. <strong>Zero piracy. Total market dominance.</strong> It’s not just a photoshoot; it’s a security measure for our business."
-      </div>
-      <div class="tc-auth">
-        <div class="tc-av">AM</div>
-        <div>
-          <div class="tc-nm">Anil Maheshwari</div>
-          <div class="tc-rl">Managing Director · Fashion Exports</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Story 2 -->
-    <div class="tc scroll-anim delay-1">
-      <div class="tc-head">
-        <div class="tc-icon">🌟</div>
-        <div>
-          <div class="tc-title">The Home Business Boom</div>
-          <div class="tc-ind">Home Decor & Gifting Startup</div>
-        </div>
-      </div>
-      <div class="tc-txt">
-        "Hum ladies ne milkar ghar se handmade luxury candles aur gifting items ka business shuru kiya tha. Product sach mein premium tha, par <strong>starting mein sales bilkul zero thi</strong>. Reason? Humari saari photos bedsheet ya sadharan table par rakhi hui thi, jiski wajah se brand bahut sasta aur un-professional lag raha tha. Naya business tha toh hum 50-60 hazaar ka professional shoot afford nahi kar sakte the.
-        <br><br>
-        Fir hum SCALVIQ se mile. Unhone kaha bas normal light mein phone se plain background pe photo kheench ke bhej do. Jab final photos aayi toh humein vishwas hi nahi hua! <strong>Unhi candles ko unhone luxury living rooms aur premium Diwali setups mein place kar diya tha.</strong> Photos itni zabardast aayi jaise kisi top ad-agency ne lakho ke studio mein shoot ki hon. Un photos ke website par live hote hi humari Instagram sales mein 10x boom aaya!"
-      </div>
-      <div class="tc-auth">
-        <div class="tc-av">SM</div>
-        <div>
-          <div class="tc-nm">Sanjana Mehta</div>
-          <div class="tc-rl">Co-Founder · Home Decor Brand</div>
+        <div class="step-img-box">
+            <img src="https://res.cloudinary.com/dl9vyqkxv/image/upload/v1774641357/editing_gugriv.jpg" alt="Editing">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BOTTOM CTA -->
+<!-- 10. NEW: UPLOAD DUMMY UI FORM FOR GOOGLE DRIVE (The Ultimate Call to Action) -->
+<section class="sec" id="upload-demo">
+  <div class="upload-dummy-box scroll-anim" id="uploadFormContainer">
+      <div class="ud-content">
+          <div class="ud-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          </div>
+          <h3 class="ud-title">Want to test it with your own product?</h3>
+          <p class="ud-p">Upload your dummy photo and notes here for a FREE Demo.</p>
+      </div>
+
+      <form id="demoUploadForm" class="demo-form">
+          <input type="text" id="clientName" placeholder="Your Name/Brand Name" required>
+          <input type="tel" id="clientPhone" placeholder="WhatsApp Number" required>
+          <textarea id="clientComments" placeholder="Special Instructions or Notes (e.g. 'Need a white background', 'Make it look like a Diwali ad')"></textarea>
+          <input type="file" id="clientImage" accept="image/*" required>
+          <button type="submit" id="submitBtn" class="ud-btn">Upload & Send to Drive</button>
+      </form>
+      <div id="uploadStatus" style="display:none; grid-column: 1 / -1; margin-top: 15px; font-weight: bold;"></div>
+  </div>
+</section>
+
+<!-- 11. BOTTOM CTA -->
 <section class="cta-sec">
   <div class="fade-up">
-    <h2 class="cta-h2">Ready to elevate your catalog?</h2>
-    <p class="cta-p">Get studio-quality images delivered in 24 hours at a fraction of the cost. Whether you have 5 products or 500, we scale with you.</p>
-    <a href="https://scalviq-web.vercel.app/index.html#contact" class="btn-primary">Get a Custom Pricing Quote →</a>
+    <h2 class="cta-h2">READY TO TRANSFORM YOUR CATALOG?</h2>
+    <p class="cta-p">Professional Results in 24-48 Hours. Studio Quality Guaranteed. Affordable Pricing.</p>
+    
+    <div class="trust-badges" style="justify-content: center; margin-bottom: 30px;">
+        <span class="tb-pill" style="border-color: var(--gold); color: var(--gold);">★★★★★ Trusted by 50+ Brands</span>
+    </div>
+
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://wa.me/919050728595?text=Hi%20Nishant%2C%20Let's%20start%20the%20AI%20photoshoot!" target="_blank" class="btn-primary">START YOUR PROJECT →</a>
+        <a href="#uploadFormContainer" class="btn-secondary">Claim Free Demo</a>
+    </div>
   </div>
 </section>
 
@@ -712,17 +1050,49 @@ footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px 
           <div class="logo-text">SCALVI<span>Q</span></div>
         </div>
         <div class="ft-tagline">"Scale Without Limits."</div>
-        <div class="ft-desc">Founded by Nishant Sisodia, SCALVIQ is India's intelligent growth company. AI-powered digital marketing, political campaigns, AI catalog photoshoot, app development & brand building. Gurugram. Est. 2026.</div>
-        <div class="ft-socials">
-          <a href="https://instagram.com/scalviq.ai" target="_blank" rel="noopener" class="ft-soc-btn">📷</a>
-          <a href="https://linkedin.com/company/scalviq" target="_blank" rel="noopener" class="ft-soc-btn">💼</a>
-          <a href="https://wa.me/919050728595" target="_blank" rel="noopener" class="ft-soc-btn">💬</a>
-          <a href="https://youtube.com/@scalviq" target="_blank" rel="noopener" class="ft-soc-btn">▶️</a>
+        <div class="ft-desc">Founded by Nishant Sisodia. AI-powered digital marketing, AI catalog photoshoot & brand building. Professional Results in 24-48 Hours.</div>
+        <div class="ft-socials" style="margin-top: 20px;">
+          <a href="https://instagram.com/scalviq.ai" target="_blank" rel="noopener" class="ft-soc-btn" title="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://linkedin.com/company/scalviq" target="_blank" rel="noopener" class="ft-soc-btn" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://wa.me/919050728595" target="_blank" rel="noopener" class="ft-soc-btn" title="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+          <a href="https://youtube.com/@scalviq" target="_blank" rel="noopener" class="ft-soc-btn" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.16 1 12 1 12s0 3.84.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.84 23 12 23 12s0-3.84-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+          </a>
         </div>
       </div>
       <div><div class="ft-col-h">Services</div><div class="ft-links"><a href="digital-marketing.html">Digital Marketing</a><a href="ai-catalog.html">AI Catalog Photoshoot</a><a href="political-campaigns.html">Political Campaigns</a><a href="tech.html">App Development</a><a href="e-commerce.html">E-Commerce</a><a href="ventures.html">Brand Building</a></div></div>
       <div><div class="ft-col-h">Company</div><div class="ft-links"><a href="https://scalviq-web.vercel.app/index.html#about">About SCALVIQ</a><a href="https://scalviq-web.vercel.app/index.html#packages">Packages</a><a href="https://scalviq-web.vercel.app/index.html#contact">Contact</a><a href="#">Careers</a><a href="#">Blog</a><a href="#">Case Studies</a></div></div>
-      <div><div class="ft-col-h">Contact</div><div class="ft-links"><a href="https://wa.me/919050728595" target="_blank" rel="noopener">💬 WhatsApp Us</a><a href="tel:+919050728595">📞 +91 90507 28595</a><a href="mailto:contact@scalviq.ai">✉️ contact@scalviq.ai</a><a href="#">📍 Gurugram, Haryana</a><a href="https://scalviq.ai">🌐 scalviq.ai</a></div></div>
+      <div>
+        <div class="ft-col-h">Direct Contact</div>
+        <div class="ft-links">
+            <a href="https://wa.me/919050728595" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                WhatsApp: +91 9050728595
+            </a>
+            <a href="tel:+919050728595">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +91 90507 28595
+            </a>
+            <a href="mailto:contact@scalviq.ai">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                contact@scalviq.ai
+            </a>
+            <a href="#">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Gurugram, India
+            </a>
+            <a href="https://scalviq.ai">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                scalviq.ai
+            </a>
+        </div>
+      </div>
     </div>
     <div class="ft-bottom">
       <div class="ft-copy">© 2026 SCALVIQ · Gurugram, India · All Rights Reserved</div>
@@ -731,9 +1101,21 @@ footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px 
   </div>
 </footer>
 
-<!-- SCRIPT FOR THEMES & ANIMATIONS -->
+<!-- FLOATING CONTACT BUTTONS -->
+<div class="floats">
+  <a href="https://wa.me/919050728595?text=Hi%20SCALVIQ%2C%20I'd%20like%20to%20know%20more%20about%20the%20AI%20Photoshoot." target="_blank" rel="noopener" class="float-wa">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.8 5.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.81 11.81 0 0 0 12.05 0C5.495 0 .1 5.392.097 11.947c0 2.096.546 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.949-5.394 11.952-11.95A11.81 11.81 0 0 0 20.464 3.488"/></svg>
+    <div class="float-tip">WhatsApp Us</div>
+  </a>
+  <a href="tel:+919050728595" class="float-call">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    <div class="float-tip">Call Now</div>
+  </a>
+</div>
+
+<!-- SCRIPTS -->
 <script>
-  // Navbar & Theme Logic
+  // Theme Toggle Logic
   const html = document.documentElement;
   const thumb = document.getElementById('ttThumb');
   const tog   = document.getElementById('themeToggle');
@@ -753,15 +1135,10 @@ footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px 
   (function(){
     const saved = localStorage.getItem('sqTheme');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
     if(saved === 'dark' || (!saved && prefersDark)){
       html.classList.add('dark');
       if(tog) tog.checked = true;
       if(thumb) thumb.textContent = '🌙';
-    } else {
-      html.classList.remove('dark');
-      if(tog) tog.checked = false;
-      if(thumb) thumb.textContent = '☀️';
     }
   })();
 
@@ -772,33 +1149,268 @@ footer{ background:var(--footer-bg); backdrop-filter:blur(24px); border-top:1px 
 
   function toggleNav(){ document.getElementById('navLinks').classList.toggle('open'); }
 
-  // Scroll Animations Logic
+  // Intersection Observer for scroll animations
   document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          
-          if(entry.target.classList.contains('process-step') || entry.target.classList.contains('cap-card')) {
-             setTimeout(() => {
-                entry.target.classList.add('active');
-             }, 300);
+          if(entry.target.classList.contains('process-step') || entry.target.classList.contains('ba-card') || entry.target.classList.contains('deep-card') || entry.target.classList.contains('visual-card') || entry.target.classList.contains('use-card') || entry.target.classList.contains('roi-card') || entry.target.classList.contains('promo-video-wrapper')) {
+             setTimeout(() => { entry.target.classList.add('active'); }, 300);
           }
-          
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.15 });
 
-    document.querySelectorAll('.fade-up, .scroll-anim, .comp-card, .tc').forEach(el => { 
-      observer.observe(el); 
-    });
+    document.querySelectorAll('.fade-up, .scroll-anim').forEach(el => observer.observe(el));
+    
+    // Interactive Before/After Slider Logic
+    const sliderInput = document.querySelector('.slider-input');
+    const sliderAfter = document.querySelector('.slider-after');
+    const sliderLine = document.querySelector('.slider-line');
+    
+    if (sliderInput && sliderAfter && sliderLine) {
+        sliderInput.addEventListener('input', (e) => {
+            const val = e.target.value;
+            sliderAfter.style.clipPath = `polygon(${val}% 0, 100% 0, 100% 100%, ${val}% 100%)`;
+            sliderLine.style.left = `${val}%`;
+        });
+    }
+
+    // ROI Calculator Logic
+    const roiSlider = document.getElementById('roi-slider');
+    const outDesigns = document.getElementById('design-count');
+    const outTrad = document.getElementById('cost-trad');
+    const outUs = document.getElementById('cost-us');
+    const outSaved = document.getElementById('cost-saved');
+    
+    const formatRupees = (num) => {
+        const formatted = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(num);
+        return `<span class="rs">₹</span>${formatted}`;
+    };
+
+    if (roiSlider) {
+        roiSlider.addEventListener('input', (e) => {
+            const designs = parseInt(e.target.value);
+            // Formula: Traditional is ₹1000/design, SCALVIQ is ₹150/design
+            const tradCost = designs * 1000;
+            const scalviqCost = designs * 150;
+            const totalSaved = tradCost - scalviqCost;
+
+            outDesigns.textContent = designs;
+            outTrad.innerHTML = formatRupees(tradCost);
+            outUs.innerHTML = formatRupees(scalviqCost);
+            outSaved.innerHTML = formatRupees(totalSaved);
+        });
+    }
+
+    // FORM UPLOAD LOGIC FOR GOOGLE DRIVE AND SHEET
+    const uploadForm = document.getElementById('demoUploadForm');
+    if (uploadForm) {
+        uploadForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const comments = document.getElementById('clientComments').value;
+            const fileInput = document.getElementById('clientImage');
+            const submitBtn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('uploadStatus');
+            
+            if(fileInput.files.length === 0) return;
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            submitBtn.textContent = "Uploading...";
+            submitBtn.disabled = true;
+            statusDiv.style.display = "block";
+            statusDiv.style.color = "var(--ink1)";
+            statusDiv.textContent = "Please wait, uploading to Google Drive & Sheet...";
+
+            reader.onload = async function() {
+                const base64Data = reader.result.split(',')[1];
+                const payload = {
+                    name: name,
+                    phone: phone,
+                    comments: comments,
+                    filename: file.name,
+                    mimeType: file.type,
+                    data: base64Data
+                };
+
+                // ⚠️ REPLACE SCRIPT_URL WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
+                const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+                try {
+                    // MOCK BEHAVIOR: For testing until you add the real Google Apps Script URL
+                    if(SCRIPT_URL.includes("YOUR_GOOGLE_APPS_SCRIPT")) {
+                        setTimeout(() => {
+                            statusDiv.style.color = "var(--green)";
+                            statusDiv.textContent = "Mock Success! (Deploy the script below to actually save to Drive & Sheet)";
+                            submitBtn.textContent = "Upload & Send";
+                            submitBtn.disabled = false;
+                            uploadForm.reset();
+                        }, 2000);
+                        return;
+                    }
+
+                    // REAL UPLOAD
+                    const response = await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    statusDiv.style.color = "var(--green)";
+                    statusDiv.textContent = "Image Successfully Uploaded & Recorded!";
+                    submitBtn.textContent = "Upload & Send";
+                    submitBtn.disabled = false;
+                    uploadForm.reset();
+
+                } catch (err) {
+                    console.error(err);
+                    statusDiv.style.color = "var(--red)";
+                    statusDiv.textContent = "Upload Failed. Please try again.";
+                    submitBtn.textContent = "Upload & Send";
+                    submitBtn.disabled = false;
+                }
+            };
+            
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // ==========================================
+    // PERFECT TYPEWRITER EFFECT LOGIC FOR HERO
+    // ==========================================
+    const twWords = [
+        "Premium Model Shoots.", 
+        "Amazon-Ready Catalogs.", 
+        "Export-Quality Images."
+    ];
+    let twIndex = 0;
+    let twCharIndex = 0;
+    let isDeleting = false;
+    const twElement = document.getElementById('typewriter');
+
+    function typeWriter() {
+        const currentWord = twWords[twIndex];
+        
+        if (isDeleting) {
+            twElement.textContent = currentWord.substring(0, twCharIndex - 1);
+            twCharIndex--;
+        } else {
+            twElement.textContent = currentWord.substring(0, twCharIndex + 1);
+            twCharIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 30 : 60; // Typing speed
+
+        if (!isDeleting && twCharIndex === currentWord.length) {
+            typeSpeed = 2000; // Pause at end of word before deleting
+            isDeleting = true;
+        } else if (isDeleting && twCharIndex === 0) {
+            isDeleting = false;
+            twIndex = (twIndex + 1) % twWords.length;
+            typeSpeed = 500; // Pause before typing next word
+        }
+
+        setTimeout(typeWriter, typeSpeed);
+    }
+    
+    if(twElement) {
+        setTimeout(typeWriter, 1000); // Start typing after 1 second
+    }
+
+  });
+
+  /*
+  ====================================================================
+  👉 GOOGLE APPS SCRIPT CODE (Drive + Google Sheet Integration)
+  ====================================================================
+  Follow these steps:
+  1. Go to script.google.com and create a New Project.
+  2. Paste the exact code below.
+  3. Click "Deploy" -> "New deployment".
+  4. Select "Web app". Set "Execute as: Me" and "Who has access: Anyone".
+  5. Click Deploy, authorize permissions, and copy the Web App URL.
+  6. Paste the URL into the 'SCRIPT_URL' variable in the HTML code above.
+  
+  function doPost(e) {
+    try {
+      var data = JSON.parse(e.postData.contents);
+      var name = data.name || "Unknown";
+      var phone = data.phone || "Unknown";
+      var comments = data.comments || "";
+      var mimeType = data.mimeType;
+      var fileName = data.filename;
+      var base64Data = data.data;
+
+      var dateObj = new Date();
+      var dateStr = Utilities.formatDate(dateObj, "GMT+5:30", "yyyy-MM-dd");
+      var timeStr = Utilities.formatDate(dateObj, "GMT+5:30", "yyyy-MM-dd HH:mm:ss");
+
+      var folderName = name + "_" + phone + "_" + dateStr;
+
+      // 1. Google Drive Setup
+      // Uses the exact Folder ID provided by user
+      var PARENT_FOLDER_ID = "1SUnVDBnWge2q5k5ft-MSE6CO_FML0bSm"; 
+      var parentFolder = DriveApp.getFolderById(PARENT_FOLDER_ID);
+      
+      var clientFolder = parentFolder.createFolder(folderName);
+      var clientFolderUrl = clientFolder.getUrl();
+
+      var decodedData = Utilities.base64Decode(base64Data);
+      var blob = Utilities.newBlob(decodedData, mimeType, fileName);
+      var file = clientFolder.createFile(blob);
+      var fileUrl = file.getUrl();
+
+      if(comments && comments.trim() !== "") {
+          clientFolder.createFile("Instructions.txt", comments);
+      }
+
+      // 2. Google Sheet Setup
+      // Uses the exact Sheet ID provided by user
+      var SHEET_ID = "1CSDB3XmP_dCqevRnj8dEqG75ifADZi63rAmMPGxeQzw";
+      var sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
+      
+      // Append Row: [Timestamp, Name, Phone, Comments, Image URL, Folder URL]
+      sheet.appendRow([timeStr, name, phone, comments, fileUrl, clientFolderUrl]);
+
+      return ContentService.createTextOutput(JSON.stringify({"status": "success", "url": fileUrl}))
+                           .setMimeType(ContentService.MimeType.JSON);
+    } catch(error) {
+      return ContentService.createTextOutput(JSON.stringify({"status": "error", "message": error.toString()}))
+                           .setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+  ====================================================================
+  */
+
+  /* ══════════════════════════════════════════════
+     TAB VISIBILITY (COME BACK MESSAGE)
+  ══════════════════════════════════════════════ */
+  let originalTitle = document.title;
+  let titleInterval;
+  let isShowingReady = true;
+
+  window.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      document.title = "📸 Want a Free Demo?";
+      isShowingReady = true;
+      titleInterval = setInterval(() => {
+        if (isShowingReady) {
+          document.title = "Get Your AI Catalog!";
+          isShowingReady = false;
+        } else {
+          document.title = "📸 Want a Free Demo?";
+          isShowingReady = true;
+        }
+      }, 1500); 
+    } else {
+      clearInterval(titleInterval);
+      document.title = originalTitle;
+    }
   });
 </script>
 
